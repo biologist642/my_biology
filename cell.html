@@ -1,55 +1,52 @@
-<nav>
-    <a href="index.html">سەرەکی</a>
-    <a href="cell.html">خانەناسی</a>
-    <a href="#">بۆماوەزانی</a>
-    <a href="mailto:zhyaw.511123022@uor.edu.krd">پەیوەندی</a>
-</nav>
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خانەناسی - Biologist642</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ستایلی تایبەت بە لاپەڕەی زانیارییەکان */
+        .article-header {
+            text-align: center;
+            padding: 50px 20px;
+            background: #fdfdfd;
+        }
 
-<div class="container">
-    <div class="main-card">
-        <h2>بایۆلۆجی چییە؟</h2>
-        <p style="margin-top: 15px; color: #666; font-size: 18px;">
-            زانستی زیندەزانی یان بایۆلۆجی بریتییە لەو زانستەی کە لە زیندەوەران و ژیان دەکۆڵێتەوە. 
-            ئەم زانستە زۆر فراوانە و هەموو شتێک لە میکرۆبە بچووکەکانەوە تا گەورەترین زیندەوەران دەگرێتەوە.
-        </p>
-    </div>
+        .main-image {
+            width: 100%;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
 
-    <div class="grid">
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=500" alt="Cell">
-            <div class="card-body">
-                <h3>خانەناسی</h3>
-                <p>فێری پێکاتەی خانە و ئەندامۆچکەکانی ناو خانە ببە.</p>
-                <a href="cell.html" class="btn">زیاتر بخوێنەوە</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=500" alt="DNA">
-            <div class="card-body">
-                <h3>بۆماوەزانی</h3>
-                <p>نهێنییەکانی DNA و گواستنەوەی سیفەتە بۆماوەییەکان.</p>
-                <a href="#" class="btn">بەمزووانە</a>
-            </div>
-        </div>
-    </div>
-</div>
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
 
-<footer>
-    <h2>Biologist642</h2>
-    <p>دروستکراوە لەلایەن خوێندکاری بایۆلۆجی</p>
-    <p>© 2026 هەموو مافەکان پارێزراوە</p>
-</footer>
+        .info-box {
+            background: #f9f9f9;
+            padding: 25px;
+            border-right: 5px solid #27ae60;
+            border-radius: 10px;
+        }
 
-<script>
-    // کاتێک لاپەڕەکە بەتەواوی باربوو، ئەم فەنکشنە ئیش دەکات
-    window.addEventListener('load', function() {
-        // دوای ٣ چرکە (٣٠٠٠ میلی چرکە) لاپەڕە سەوزەکە لادەبات
-        setTimeout(function() {
-            const loader = document.getElementById('loader');
-            loader.classList.add('fade-out');
-        }, 3000);
-    });
-</script>
+        .video-section {
+            margin: 50px 0;
+            text-align: center;
+        }
 
-</body>
-</html>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,

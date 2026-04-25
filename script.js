@@ -1,8 +1,5 @@
 window.addEventListener('load', function() {
     setTimeout(function() {
-        const loader = document.getElementById('loader');
-        if (loader) {
-            loader.classList.add('fade-out');
-        }
-    }, 3000); // ٣ چرکە بەخێرهاتن
+        document.getElementById('loader').classList.add('fade-out');
+    }, 2000); // ٢ چرکە بەسە بۆ سپلاش سکرین
 });
