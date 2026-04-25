@@ -6,98 +6,97 @@
     <title>ماڵپەڕی بایۆلۆجی - سەرەکی</title>
     <style>
         /* ستایلی گشتی */
-        body { 
-            font-family: 'Tahoma', sans-serif; 
-            margin: 0; 
-            display: flex; 
-            background-color: #f4f7f6; 
-            overflow-x: hidden;
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background-color: #f0f2f5; color: #333; }
+        
+        /* هێدەر */
+        header {
+            background: linear-gradient(90deg, #1a1a1a, #2c3e50);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1100;
         }
 
-        /* ئەنیمەیشنی Fade In */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        /* ستایلی لاپەڕە (دابەشکردنی سایدبار و ناوەڕۆک) */
+        .main-container { display: flex; min-height: 100vh; }
 
         /* سایدبار */
         .sidebar { 
             width: 250px; 
             background-color: #1a1a1a; 
-            height: 100vh; 
             color: white; 
             padding: 20px; 
             position: fixed; 
+            height: 100vh;
             transition: 0.3s;
         }
-        .sidebar h2 { text-align: center; color: #3498db; border-bottom: 2px solid #333; padding-bottom: 10px; }
         .sidebar a { 
-            color: #ecf0f1; 
+            color: #bdc3c7; 
             text-decoration: none; 
             display: block; 
-            padding: 15px; 
-            margin: 10px 0; 
-            border-radius: 8px; 
-            transition: all 0.3s ease; 
+            padding: 12px; 
+            margin: 8px 0; 
+            border-radius: 5px; 
+            transition: 0.3s;
         }
-        .sidebar a:hover { 
-            background-color: #3498db; 
-            padding-right: 30px; 
-            transform: translateX(-5px); 
-        }
+        .sidebar a:hover { background-color: #3498db; color: white; transform: translateX(-5px); }
 
         /* ناوەڕۆک */
-        .content { 
-            margin-right: 290px; 
-            padding: 40px; 
-            flex-grow: 1; 
-            animation: fadeIn 1s ease-out;
-        }
-        .card { 
-            background: white; 
-            padding: 30px; 
-            border-radius: 15px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-            transition: transform 0.3s ease;
-        }
-        .card:hover { transform: translateY(-5px); }
-        
-        img { width: 100%; border-radius: 15px; margin-top: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .content { margin-right: 270px; padding: 40px; flex-grow: 1; animation: fadeIn 1s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ڕێکخستن بۆ مۆبایل */
+        .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        img { width: 100%; border-radius: 10px; margin-top: 20px; }
+
+        /* فووتەر */
+        footer {
+            background-color: #1a1a1a;
+            color: #95a5a6;
+            text-align: center;
+            padding: 30px;
+            margin-top: 20px;
+            border-top: 3px solid #3498db;
+        }
+
+        /* مۆبایل */
         @media (max-width: 768px) {
-            body { flex-direction: column; }
-            .sidebar { 
-                width: 100%; 
-                height: auto; 
-                position: relative; 
-                padding: 10px; 
-                display: flex; 
-                flex-wrap: wrap; 
-                justify-content: center; 
-            }
-            .sidebar h2 { width: 100%; font-size: 18px; }
-            .sidebar a { margin: 5px; padding: 8px 15px; font-size: 14px; }
-            .content { margin-right: 0; padding: 15px; }
+            .main-container { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; display: flex; justify-content: center; padding: 10px; }
+            .sidebar a { margin: 5px; font-size: 14px; }
+            .content { margin-right: 0; padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="sidebar">
-        <h2>بایۆلۆجی</h2>
-        <a href="index.html">🏠 سەرەکی</a>
-        <a href="cell.html">🔬 خانەناسی</a>
-        <a href="#">🧬 بۆماوەزانی</a>
-    </div>
+    <header>
+        <h1>پڕۆژەی زانستی بایۆلۆجی</h1>
+    </header>
 
-    <div class="content">
-        <div class="card">
-            <h1>بەخێرهاتیت بۆ پڕۆژەی بایۆلۆجی</h1>
-            <p>ئەم ماڵپەڕە تایبەتە بە بڵاوکردنەوەی زانیارییە زانستییەکان بە زمانی کوردی.</p>
-            <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800" alt="Biology">
+    <div class="main-container">
+        <div class="sidebar">
+            <h3 style="text-align:center; color:#3498db;">بەشەکان</h3>
+            <a href="index.html">🏠 لاپەڕەی سەرەکی</a>
+            <a href="cell.html">🔬 زانستی خانە</a>
+            <a href="#">🧬 بۆماوەزانی</a>
+        </div>
+
+        <div class="content">
+            <div class="card">
+                <h2>بەخێرهاتیت</h2>
+                <p>ئەم وێبسایتە سەرچاوەیەکی فێرکارییە بۆ ئاشنابوون بە جیهانی زیندەزانی.</p>
+                <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800" alt="Biology">
+            </div>
         </div>
     </div>
+
+    <footer>
+        <p>مافی بڵاوکردنەوە پارێزراوە بۆ پڕۆژەی بایۆلۆجی © 2026</p>
+        <p>گەشەپێدراوە لەلایەن: <b>ژیاو یوسف حسین</b></p>
+    </footer>
 
 </body>
 </html>
