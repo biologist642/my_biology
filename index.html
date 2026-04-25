@@ -2,20 +2,61 @@
 <html lang="ku" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>خانەناسی - Cytology</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biologist642 | ماڵپەڕی بایۆلۆجی</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><h1>زانستی خانە</h1></header>
-    <nav><a href="index.html">گەڕانەوە بۆ سەرەکی</a></nav>
+
+    <div id="loader">
+        <div class="spinner"></div>
+        <h2>خەریکە بار دەبێت...</h2>
+    </div>
+
+    <header>
+        <h1>Biologist642 🔬</h1>
+        <p>گەشتێک بەناو زانستی ژیان و زیندەوەران</p>
+    </header>
+
+    <nav>
+        <a href="index.html">سەرەکی</a>
+        <a href="cell.html">خانەناسی</a>
+        <a href="#">بۆماوەزانی</a>
+        <a href="mailto:zhyaw.511123022@uor.edu.krd">پەیوەندی</a>
+    </nav>
+
     <main class="container">
-        <div class="hero">
-            <h2>خانە چییە؟</h2>
-            <p>خانە یەکەی بنەڕەتی ژیانە...</p>
-            <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800" alt="Microscope">
+        <section class="hero">
+            <h2>بەخێربێن بۆ گەورەترین سەرچاوەی بایۆلۆجی</h2>
+            <p>لێرە دەتوانیت بە نوێترین شێواز و زانیاری ڕاست فێری زانست ببیت.</p>
+        </section>
+
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800" alt="Cell Structure">
+                <div class="card-info">
+                    <h3>بەشی خانەناسی</h3>
+                    <p>هەموو زانیارییەکان دەربارەی خانە و ئەندامۆچکەکان.</p>
+                    <a href="cell.html" class="btn">چوونە ناو بابەت</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800" alt="DNA">
+                <div class="card-info">
+                    <h3>بەشی بۆماوەزانی</h3>
+                    <p>DNA چییە و چۆن کار دەکات؟ لێرە بیخوێنەرەوە.</p>
+                    <a href="#" class="btn">بەمزووانە</a>
+                </div>
+            </div>
         </div>
     </main>
-    <footer><p>Biologist642</p></footer>
+
+    <footer>
+        <p>© ٢٠٢٦ هەموو مافەکان پارێزراوە بۆ Biologist642</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
