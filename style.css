@@ -1,89 +1,81 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Rabar', sans-serif;
-    background-color: #f9f9f9;
+    background-color: #f0f4f8;
     color: #333;
-    line-height: 1.6;
 }
 
-/* لاپەڕەی بەخێرهاتن (Splash Screen) */
-#loader {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #27ae60;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
+/* هێدەر و فووتەری ڕەنگاوڕەنگ */
+header, footer {
+    background: linear-gradient(45deg, #11998e, #38ef7d, #00b4db);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
     color: white;
-}
-
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid rgba(255,255,255,0.3);
-    border-top-color: #fff;
-    border-radius: 50%;
-    animation: spin 1s infinite linear;
-    margin-bottom: 20px;
-}
-
-@keyframes spin { to { transform: rotate(360deg); } }
-.fade-out { opacity: 0; pointer-events: none; transition: 0.7s; }
-
-/* هێدەر و مینیو */
-header {
-    background: white;
-    padding: 30px;
+    padding: 40px 20px;
     text-align: center;
-    border-bottom: 1px solid #eee;
 }
 
-header h1 { color: #27ae60; font-size: clamp(24px, 5vw, 40px); }
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
 nav {
-    background: #2c3e50;
+    background: #232526;
+    padding: 15px;
     display: flex;
     justify-content: center;
-    padding: 10px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    flex-wrap: wrap;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    padding: 10px 15px;
-    font-size: 16px;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-nav a:hover { color: #2ecc71; }
+nav a:hover { color: #38ef7d; }
 
-/* کۆنتێنەری سەرەکی */
 .container {
     max-width: 1000px;
-    margin: 30px auto;
-    padding: 0 20px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* کارتەکان */
-.card {
-    background: white;
-    display: flex;
-    flex-direction: row; /* بە تەنیشت یەک بۆ کۆمپیوتەر */
-    margin-bottom: 30px;
+/* ستایلی لاپەڕەی خانە */
+.cell-info { padding: 20px; line-height: 1.8; }
+.cell-info h2 { color: #11998e; margin-bottom: 15px; }
+
+.main-img {
+    width: 100%;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.video-box {
+    margin-top: 30px;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.card img { width: 40%; object-fit: cover; height
+.video-box iframe {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container { margin: 15px; }
