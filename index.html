@@ -3,95 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ماڵپەڕی بایۆلۆجی - سەرەکی</title>
+    <title>ماڵپەڕی بایۆلۆجی | Biologist642</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
     <style>
-        /* ستایلی گشتی */
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background-color: #f0f2f5; color: #333; }
-        
-        /* هێدەر */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Rabar', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- هێدەر (Header) --- */
         header {
-            background: linear-gradient(90deg, #1a1a1a, #2c3e50);
+            background-color: #27ae60;
             color: white;
-            padding: 20px;
+            padding: 20px 0;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        /* --- مینیوی سەرەکی (Nav) --- */
+        nav {
+            background-color: #2c3e50;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
             position: sticky;
             top: 0;
-            z-index: 1100;
+            z-index: 1000;
         }
 
-        /* ستایلی لاپەڕە (دابەشکردنی سایدبار و ناوەڕۆک) */
-        .main-container { display: flex; min-height: 100vh; }
-
-        /* سایدبار */
-        .sidebar { 
-            width: 250px; 
-            background-color: #1a1a1a; 
-            color: white; 
-            padding: 20px; 
-            position: fixed; 
-            height: 100vh;
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
             transition: 0.3s;
         }
-        .sidebar a { 
-            color: #bdc3c7; 
-            text-decoration: none; 
-            display: block; 
-            padding: 12px; 
-            margin: 8px 0; 
-            border-radius: 5px; 
-            transition: 0.3s;
+
+        nav a:hover {
+            background-color: #27ae60;
         }
-        .sidebar a:hover { background-color: #3498db; color: white; transform: translateX(-5px); }
 
-        /* ناوەڕۆک */
-        .content { margin-right: 270px; padding: 40px; flex-grow: 1; animation: fadeIn 1s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* --- بەشی ناوەڕاست (Main Content) --- */
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
 
-        .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        img { width: 100%; border-radius: 10px; margin-top: 20px; }
-
-        /* فووتەر */
-        footer {
-            background-color: #1a1a1a;
-            color: #95a5a6;
+        .hero-section {
             text-align: center;
-            padding: 30px;
+            padding: 40px 20px;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 30px;
+        }
+
+        .hero-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
             margin-top: 20px;
-            border-top: 3px solid #3498db;
         }
 
-        /* مۆبایل */
-        @media (max-width: 768px) {
-            .main-container { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; position: relative; display: flex; justify-content: center; padding: 10px; }
-            .sidebar a { margin: 5px; font-size: 14px; }
-            .content { margin-right: 0; padding: 20px; }
+        /* --- کارتەکان (Cards) --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
-    </style>
-</head>
-<body>
 
-    <header>
-        <h1>پڕۆژەی زانستی بایۆلۆجی</h1>
-    </header>
-
-    <div class="main-container">
-        <div class="sidebar">
-            <h3 style="text-align:center; color:#3498db;">بەشەکان</h3>
-            <a href="index.html">🏠 لاپەڕەی سەرەکی</a>
-            <a href="cell.html">🔬 زانستی خانە</a>
-            <a href="#">🧬 بۆماوەزانی</a>
-        </div>
-
-        <div class="content">
-            <div class="card">
-                <h2>بەخێرهاتیت</h2>
-                <p>ئەم وێبسایتە سەرچاوەیەکی فێرکارییە بۆ ئاشنابوون بە جیهانی زیندەزانی.</p>
-                <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800" alt="Biology">
-            </div>
-        </div>
-    </div>
+        .card {
+            border: 1px solid #
 
     <footer>
         <p>مافی بڵاوکردنەوە پارێزراوە بۆ پڕۆژەی بایۆلۆجی © 2026</p>
