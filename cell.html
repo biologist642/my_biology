@@ -13,6 +13,41 @@
         img { width: 100%; max-height: 400px; object-fit: cover; border-radius: 15px; }
         .video-container { margin-top: 30px; text-align: center; }
         iframe { border-radius: 15px; width: 100%; height: 450px; }
+        /* ستایلی لاپەڕەی بەخێرهاتن */
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #27ae60; /* ڕەنگی سەوز */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    color: white;
+    transition: opacity 0.5s ease;
+}
+
+/* ئەنیمەیشنی بازنە سوڕاوەکە */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* کاتێک لادەچێت */
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
     </style>
 </head>
 <body>

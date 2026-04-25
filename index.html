@@ -1,100 +1,55 @@
-<!DOCTYPE html>
-<html lang="ku" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ماڵپەڕی بایۆلۆجی | Biologist642</title>
-    <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<nav>
+    <a href="index.html">سەرەکی</a>
+    <a href="cell.html">خانەناسی</a>
+    <a href="#">بۆماوەزانی</a>
+    <a href="mailto:zhyaw.511123022@uor.edu.krd">پەیوەندی</a>
+</nav>
 
-        body {
-            font-family: 'Rabar', sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
-            line-height: 1.6;
-        }
+<div class="container">
+    <div class="main-card">
+        <h2>بایۆلۆجی چییە؟</h2>
+        <p style="margin-top: 15px; color: #666; font-size: 18px;">
+            زانستی زیندەزانی یان بایۆلۆجی بریتییە لەو زانستەی کە لە زیندەوەران و ژیان دەکۆڵێتەوە. 
+            ئەم زانستە زۆر فراوانە و هەموو شتێک لە میکرۆبە بچووکەکانەوە تا گەورەترین زیندەوەران دەگرێتەوە.
+        </p>
+    </div>
 
-        /* --- هێدەر (Header) --- */
-        header {
-            background-color: #27ae60;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+    <div class="grid">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=500" alt="Cell">
+            <div class="card-body">
+                <h3>خانەناسی</h3>
+                <p>فێری پێکاتەی خانە و ئەندامۆچکەکانی ناو خانە ببە.</p>
+                <a href="cell.html" class="btn">زیاتر بخوێنەوە</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=500" alt="DNA">
+            <div class="card-body">
+                <h3>بۆماوەزانی</h3>
+                <p>نهێنییەکانی DNA و گواستنەوەی سیفەتە بۆماوەییەکان.</p>
+                <a href="#" class="btn">بەمزووانە</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-        header h1 {
-            font-size: 28px;
-            margin-bottom: 5px;
-        }
+<footer>
+    <h2>Biologist642</h2>
+    <p>دروستکراوە لەلایەن خوێندکاری بایۆلۆجی</p>
+    <p>© 2026 هەموو مافەکان پارێزراوە</p>
+</footer>
 
-        /* --- مینیوی سەرەکی (Nav) --- */
-        nav {
-            background-color: #2c3e50;
-            display: flex;
-            justify-content: center;
-            padding: 10px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 5px;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            background-color: #27ae60;
-        }
-
-        /* --- بەشی ناوەڕاست (Main Content) --- */
-        .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        }
-
-        .hero-section {
-            text-align: center;
-            padding: 40px 20px;
-            border-bottom: 2px solid #eee;
-            margin-bottom: 30px;
-        }
-
-        .hero-section img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 15px;
-            margin-top: 20px;
-        }
-
-        /* --- کارتەکان (Cards) --- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            border: 1px solid #
-
-    <footer>
-        <p>مافی بڵاوکردنەوە پارێزراوە بۆ پڕۆژەی بایۆلۆجی © 2026</p>
-        <p>گەشەپێدراوە لەلایەن: <b>ژیاو یوسف حسین</b></p>
-    </footer>
+<script>
+    // کاتێک لاپەڕەکە بەتەواوی باربوو، ئەم فەنکشنە ئیش دەکات
+    window.addEventListener('load', function() {
+        // دوای ٣ چرکە (٣٠٠٠ میلی چرکە) لاپەڕە سەوزەکە لادەبات
+        setTimeout(function() {
+            const loader = document.getElementById('loader');
+            loader.classList.add('fade-out');
+        }, 3000);
+    });
+</script>
 
 </body>
 </html>
