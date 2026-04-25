@@ -1,77 +1,55 @@
-<!DOCTYPE html>
-<html lang="ku" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>خانەناسی - Cytology</title>
-    <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
-    <style>
-        body { font-family: 'Rabar', sans-serif; margin: 0; background-color: #f4f7f6; display: flex; }
-        .sidebar { width: 250px; background-color: #2c3e50; height: 100vh; position: fixed; color: white; }
-        .sidebar a { padding: 15px 25px; text-decoration: none; color: #bdc3c7; display: block; }
-        .content { margin-right: 250px; padding: 40px; width: 100%; }
-        .info-section { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        img { width: 100%; max-height: 400px; object-fit: cover; border-radius: 15px; }
-        .video-container { margin-top: 30px; text-align: center; }
-        iframe { border-radius: 15px; width: 100%; height: 450px; }
-        /* ستایلی لاپەڕەی بەخێرهاتن */
-#loader {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #27ae60; /* ڕەنگی سەوز */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    color: white;
-    transition: opacity 0.5s ease;
-}
+<nav>
+    <a href="index.html">سەرەکی</a>
+    <a href="cell.html">خانەناسی</a>
+    <a href="#">بۆماوەزانی</a>
+    <a href="mailto:zhyaw.511123022@uor.edu.krd">پەیوەندی</a>
+</nav>
 
-/* ئەنیمەیشنی بازنە سوڕاوەکە */
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top-color: #fff;
-    animation: spin 1s ease-in-out infinite;
-    margin-bottom: 20px;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* کاتێک لادەچێت */
-.fade-out {
-    opacity: 0;
-    pointer-events: none;
-}
-    </style>
-</head>
-<body>
-
-    <div class="sidebar">
-        <h2 style="text-align: center;">بایۆلۆجی</h2>
-        <a href="index.html">🏠 گەڕانەوە</a>
+<div class="container">
+    <div class="main-card">
+        <h2>بایۆلۆجی چییە؟</h2>
+        <p style="margin-top: 15px; color: #666; font-size: 18px;">
+            زانستی زیندەزانی یان بایۆلۆجی بریتییە لەو زانستەی کە لە زیندەوەران و ژیان دەکۆڵێتەوە. 
+            ئەم زانستە زۆر فراوانە و هەموو شتێک لە میکرۆبە بچووکەکانەوە تا گەورەترین زیندەوەران دەگرێتەوە.
+        </p>
     </div>
 
-    <div class="content">
-        <div class="info-section">
-            <h1>زانستی خانە (Cytology)</h1>
-            <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1000" alt="Microscope">
-            <p style="font-size: 18px; line-height: 1.8;">
-                خانە بچووکترین یەکەی پەیکەری و فرمانییە لە زیندەوەراندا. هەموو زیندەوەرێک لە یەک خانە یان زیاتر پێکدێت. 
-                خانەکان دابەش دەبن بۆ دوو جۆری سەرەکی: خانەی ناوک ڕاستەقینە و خانەی ناوک سەرەتایی.
-            </p>
-
-            <div class="video-container">
-                <h3>ڤیدیۆی فێرکاری دەربارەی خانە</h3>
-                <iframe src="https://www.youtube.com/embed/8IlzKri08kk" frameborder="0" allowfullscreen></iframe>
+    <div class="grid">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=500" alt="Cell">
+            <div class="card-body">
+                <h3>خانەناسی</h3>
+                <p>فێری پێکاتەی خانە و ئەندامۆچکەکانی ناو خانە ببە.</p>
+                <a href="cell.html" class="btn">زیاتر بخوێنەوە</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=500" alt="DNA">
+            <div class="card-body">
+                <h3>بۆماوەزانی</h3>
+                <p>نهێنییەکانی DNA و گواستنەوەی سیفەتە بۆماوەییەکان.</p>
+                <a href="#" class="btn">بەمزووانە</a>
             </div>
         </div>
     </div>
+</div>
+
+<footer>
+    <h2>Biologist642</h2>
+    <p>دروستکراوە لەلایەن خوێندکاری بایۆلۆجی</p>
+    <p>© 2026 هەموو مافەکان پارێزراوە</p>
+</footer>
+
+<script>
+    // کاتێک لاپەڕەکە بەتەواوی باربوو، ئەم فەنکشنە ئیش دەکات
+    window.addEventListener('load', function() {
+        // دوای ٣ چرکە (٣٠٠٠ میلی چرکە) لاپەڕە سەوزەکە لادەبات
+        setTimeout(function() {
+            const loader = document.getElementById('loader');
+            loader.classList.add('fade-out');
+        }, 3000);
+    });
+</script>
 
 </body>
 </html>

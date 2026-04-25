@@ -1,55 +1,21 @@
-<nav>
-    <a href="index.html">سەرەکی</a>
-    <a href="cell.html">خانەناسی</a>
-    <a href="#">بۆماوەزانی</a>
-    <a href="mailto:zhyaw.511123022@uor.edu.krd">پەیوەندی</a>
-</nav>
-
-<div class="container">
-    <div class="main-card">
-        <h2>بایۆلۆجی چییە؟</h2>
-        <p style="margin-top: 15px; color: #666; font-size: 18px;">
-            زانستی زیندەزانی یان بایۆلۆجی بریتییە لەو زانستەی کە لە زیندەوەران و ژیان دەکۆڵێتەوە. 
-            ئەم زانستە زۆر فراوانە و هەموو شتێک لە میکرۆبە بچووکەکانەوە تا گەورەترین زیندەوەران دەگرێتەوە.
-        </p>
-    </div>
-
-    <div class="grid">
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=500" alt="Cell">
-            <div class="card-body">
-                <h3>خانەناسی</h3>
-                <p>فێری پێکاتەی خانە و ئەندامۆچکەکانی ناو خانە ببە.</p>
-                <a href="cell.html" class="btn">زیاتر بخوێنەوە</a>
-            </div>
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>خانەناسی - Cytology</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header><h1>زانستی خانە</h1></header>
+    <nav><a href="index.html">گەڕانەوە بۆ سەرەکی</a></nav>
+    <main class="container">
+        <div class="hero">
+            <h2>خانە چییە؟</h2>
+            <p>خانە یەکەی بنەڕەتی ژیانە...</p>
+            <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800" alt="Microscope">
         </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=500" alt="DNA">
-            <div class="card-body">
-                <h3>بۆماوەزانی</h3>
-                <p>نهێنییەکانی DNA و گواستنەوەی سیفەتە بۆماوەییەکان.</p>
-                <a href="#" class="btn">بەمزووانە</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <h2>Biologist642</h2>
-    <p>دروستکراوە لەلایەن خوێندکاری بایۆلۆجی</p>
-    <p>© 2026 هەموو مافەکان پارێزراوە</p>
-</footer>
-
-<script>
-    // کاتێک لاپەڕەکە بەتەواوی باربوو، ئەم فەنکشنە ئیش دەکات
-    window.addEventListener('load', function() {
-        // دوای ٣ چرکە (٣٠٠٠ میلی چرکە) لاپەڕە سەوزەکە لادەبات
-        setTimeout(function() {
-            const loader = document.getElementById('loader');
-            loader.classList.add('fade-out');
-        }, 3000);
-    });
-</script>
-
+    </main>
+    <footer><p>Biologist642</p></footer>
 </body>
 </html>

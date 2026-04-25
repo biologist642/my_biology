@@ -1,0 +1,34 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Rabar', sans-serif; background-color: #f4f7f6; color: #333; }
+
+/* Splash Screen */
+#loader {
+    position: fixed; width: 100%; height: 100vh; background: #27ae60;
+    display: flex; flex-direction: column; justify-content: center;
+    align-items: center; z-index: 9999; color: white;
+    transition: opacity 0.8s ease;
+}
+.spinner {
+    width: 50px; height: 50px; border: 5px solid rgba(255,255,255,0.3);
+    border-top-color: #fff; border-radius: 50%;
+    animation: spin 1s infinite linear; margin-bottom: 15px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.fade-out { opacity: 0; pointer-events: none; }
+
+/* Header & Nav */
+header { background: #27ae60; color: white; padding: 40px; text-align: center; }
+nav { background: #2c3e50; display: flex; justify-content: center; padding: 15px; position: sticky; top: 0; }
+nav a { color: white; text-decoration: none; margin: 0 15px; transition: 0.3s; }
+nav a:hover, nav a.active { color: #2ecc71; font-weight: bold; }
+
+/* Main Content */
+.container { max-width: 1000px; margin: 30px auto; padding: 20px; }
+.hero { background: white; padding: 30px; border-radius: 12px; text-align: center; margin-bottom: 30px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; padding-bottom: 20px; }
+.card img { width: 100%; height: 200px; object-fit: cover; }
+.btn { display: inline-block; background: #27ae60; color: white; padding: 8px 20px; border-radius: 5px; text-decoration: none; margin-top: 10px; }
+
+/* Footer */
+footer { background: #2c3e50; color: white; text-align: center; padding: 20px; margin-top: 40px; }
