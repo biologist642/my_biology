@@ -3,34 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioQuest | سەرەکی</title>
+    <title>BioQuest | گەشتێکی زانستی</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="light-mode">
+
+    <aside class="sidebar">
+        <div class="toggle-wrapper">
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider round"></span>
+            </label>
+            <span class="toggle-text">مۆدی تاریک</span>
+        </div>
+    </aside>
 
     <header>
-        <h1>بەخێربێن بۆ BioQuest 🧬</h1>
-        <p>گەشتێکی زانستی بۆ ناو قوڵایی ژیان</p>
+        <div id="canvas-container"></div>
+        <div class="header-overlay">
+            <h1 class="hero-title">BioQuest</h1>
+            <p class="hero-subtitle">گەشتێکی زانستی بۆ ناو قوڵایی ژیان</p>
+        </div>
     </header>
 
-    <nav>
+    <nav class="main-nav">
         <a href="index.html">سەرەکی</a>
         <a href="cell.html">خانەناسی</a>
     </nav>
 
-    <div class="container" style="text-align: center;">
-        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600" class="main-img" style="max-width: 500px;">
-        <h2 style="margin-top: 20px;">زانستی خانەناسی</h2>
+    <div class="container" style="text-align: center; padding: 50px 20px;">
+        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600" class="main-img" style="max-width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <h2 style="margin-top: 30px;">زانستی خانەناسی</h2>
         <p>خانە یەکەی بنەڕەتی ژیانە، لێرە هەموو زانیارییەکان فێربە.</p>
-        <a href="cell.html" style="display: inline-block; margin-top: 20px; color: #11998e; font-weight: bold; text-decoration: none; border: 2px solid #11998e; padding: 10px 25px; border-radius: 30px;">زیاتر بخوێنەوە ←</a>
+        <a href="cell.html" class="btn-more">زیاتر بخوێنەوە ←</a>
     </div>
 
     <footer>
-        <p>گەشەپێدەری وێب: ژیاو یوسف حسێن</p>
+        <p>گەشەپێدەری وێب: <span class="dev-name">ژیاو یوسف حسێن</span></p>
         <p>BioQuest ٢٠٢٦ - هەموو مافەکان پارێزراوە</p>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
