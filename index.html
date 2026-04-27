@@ -7,16 +7,11 @@
     <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="light-mode">
-
-    <aside class="sidebar">
-        <div class="toggle-wrapper">
-            <label class="switch">
-                <input type="checkbox" id="theme-toggle">
-                <span class="slider round"></span>
-            </label>
-            <span class="toggle-text">مۆدی تاریک</span>
-        </div>
+<body class="dark-mode"> <aside class="sidebar-toggle">
+        <button id="theme-button" aria-label="Toggle Theme">
+            <span class="icon">🧬</span>
+            <span class="text">مۆدی ڕووناک</span>
+        </button>
     </aside>
 
     <header>
@@ -24,7 +19,7 @@
         <div class="header-overlay">
             <h1 class="hero-title">BioQuest</h1>
             <p class="hero-subtitle">گەشتێکی زانستی بۆ ناو قوڵایی ژیان</p>
-        </div>
+        t</div>
     </header>
 
     <nav class="main-nav">
@@ -32,11 +27,15 @@
         <a href="cell.html">خانەناسی</a>
     </nav>
 
-    <div class="container" style="text-align: center; padding: 50px 20px;">
-        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600" class="main-img" style="max-width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-        <h2 style="margin-top: 30px;">زانستی خانەناسی</h2>
-        <p>خانە یەکەی بنەڕەتی ژیانە، لێرە هەموو زانیارییەکان فێربە.</p>
-        <a href="cell.html" class="btn-more">زیاتر بخوێنەوە ←</a>
+    <div class="container main-content">
+        <div class="content-box">
+            <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600" class="main-img">
+            <div class="text-content">
+                <h2>زانستی خانەناسی</h2>
+                <p>خانە یەکەی بنەڕەتی ژیانە، لێرە هەموو زانیارییەکان فێربە.</p>
+                <a href="cell.html" class="btn-more">زیاتر بخوێنەوە ←</a>
+            </div>
+        </div>
     </div>
 
     <footer>

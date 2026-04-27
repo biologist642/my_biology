@@ -1,85 +1,148 @@
+/* --- Variables & Core Theme --- */
 :root {
-    --primary-green: #2ecc71;
-    --dark-green: #27ae60;
-    --bg-color: #ffffff;
-    --text-color: #2c3e50;
-    --footer-bg: #f8f9fa;
+    /* Define colors based on image and user request */
+    --light-bg: #ffffff;
+    --light-content-bg: #ffffff;
+    --light-text: #2c3e50;
+    --light-nav-bg: #f8f9fa;
+    --light-header-bg: #ecf0f1;
+
+    --dark-bg: #101010; /* Near black, like deep space */
+    --dark-content-bg: #0d213b; /* Refined dark blue from image */
+    --dark-text: #ecf0f1;
+    --dark-nav-bg: #0a192e;
+    --dark-header-bg: #000;
+
+    /* Green color from original request */
+    --primary-green: #2ecc71; 
 }
 
-.dark-mode {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --footer-bg: #1a1a1a;
+/* Light Mode Styling */
+body.light-mode {
+    background-color: var(--light-bg);
+    color: var(--light-text);
 }
+body.light-mode .main-nav { background-color: var(--light-nav-bg); }
+body.light-mode footer { background-color: var(--light-nav-bg); }
+body.light-mode header { background-color: var(--light-header-bg); }
+body.light-mode .content-box { background-color: var(--light-content-bg); border: 1px solid #ddd;}
+body.light-mode .sidebar-toggle button { color: var(--light-text); border: 2px solid #ddd; }
 
+
+/* Dark Mode Styling (Default) */
+body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+body.dark-mode .main-nav { background-color: var(--dark-nav-bg); }
+body.dark-mode footer { background-color: var(--dark-nav-bg); }
+body.dark-mode header { background-color: var(--dark-header-bg); }
+body.dark-mode .content-box { background-color: var(--dark-content-bg); border: 1px solid rgba(255,255,255,0.05); }
+body.dark-mode .sidebar-toggle button { color: var(--dark-text); border: 2px solid rgba(255,255,255,0.1); }
+
+/* --- Core Styles --- */
 body {
     margin: 0;
     font-family: 'Rabar', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: all 0.3s ease;
+    transition: all 0.4s ease-in-out; /* Smooth transition */
 }
 
-/* 3D Header Section */
+/* --- Header & 3D (Refined) --- */
 header {
-    height: 60vh;
+    height: 70vh;
     position: relative;
-    background: #000;
     overflow: hidden;
+    /* Subtle deep space background for dark mode */
+    background-image: radial-gradient(circle, #001020 0%, #000000 100%);
 }
 
 #canvas-container {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1; /* Three.js scene behind text */
 }
 
 .header-overlay {
     position: relative;
-    z-index: 5;
+    z-index: 10; /* High z-index for text */
     text-align: center;
     top: 50%;
     transform: translateY(-50%);
-    color: white;
+    color: white; /* Header text always white for visibility */
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
-.hero-title { font-size: 5rem; margin: 0; color: var(--primary-green); font-weight: bold; }
-.hero-subtitle { font-size: 1.5rem; opacity: 0.9; }
+.hero-title { font-size: 5.5rem; margin: 0; color: var(--primary-green); font-weight: bold; }
+.hero-subtitle { font-size: 1.7rem; opacity: 0.9; }
 
-/* Sidebar */
-.sidebar {
+/* --- Sidebar Toggle Button (Matching Image style) --- */
+.sidebar-toggle {
     position: fixed;
-    right: 0; top: 0; height: 100%; width: 70px;
-    background: rgba(0,0,0,0.05);
-    display: flex;
-    justify-content: center;
-    padding-top: 100px;
+    top: 30px;
+    right: 30px; /* Positioned similarly to image */
     z-index: 1000;
 }
 
-.toggle-wrapper { transform: rotate(-90deg); display: flex; align-items: center; gap: 10px; }
+.sidebar-toggle button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 25px;
+    background: rgba(255,255,255,0.05); /* Semi-transparent */
+    border-radius: 50px;
+    cursor: pointer;
+    backdrop-filter: blur(5px); /* Clean glass look */
+    transition: 0.3s;
+    font-family: 'Rabar', sans-serif;
+    font-size: 1rem;
+}
 
-/* Navigation */
-.main-nav { background: var(--footer-bg); padding: 15px; text-align: center; }
-.main-nav a { text-decoration: none; color: var(--text-color); margin: 0 15px; font-weight: bold; }
+.sidebar-toggle button:hover { background: rgba(255,255,255,0.1); }
+.sidebar-toggle button .icon { font-size: 1.3rem; color: var(--primary-green); }
+
+/* --- Main Content & Layout --- */
+.container.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 50px 20px;
+}
+
+.content-box {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 60px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    max-width: 1000px;
+    width: 100%;
+}
+
+.main-img {
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.text-content h2 { margin-bottom: 20px; font-size: 2.2rem; }
+.text-content p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px; }
+
+/* --- Navigation & Button Styles (Green accent) --- */
+.main-nav { padding: 15px; text-align: center; }
+.main-nav a { text-decoration: none; color: inherit; margin: 0 15px; font-weight: bold; transition: 0.3s; }
 .main-nav a:hover { color: var(--primary-green); }
 
-/* Footer */
+.btn-more { display: inline-block; color: var(--primary-green); font-weight: bold; text-decoration: none; border: 2px solid var(--primary-green); padding: 12px 30px; border-radius: 30px; transition: 0.3s; font-size: 1rem; }
+.btn-more:hover { background: var(--primary-green); color: white; box-shadow: 0 5px 20px rgba(46, 204, 113, 0.4); }
+
+/* --- Footer (Specific Text Requirements) --- */
 footer {
-    padding: 40px;
+    padding: 50px 20px;
     text-align: center;
-    background-color: var(--footer-bg);
     margin-top: 50px;
 }
 
+footer p { margin: 10px 0; font-size: 1rem; }
 .dev-name { color: var(--primary-green); font-weight: bold; }
-
-/* Buttons & Switch CSS (Condensed) */
-.btn-more { display: inline-block; margin-top: 20px; color: var(--primary-green); font-weight: bold; text-decoration: none; border: 2px solid var(--primary-green); padding: 10px 25px; border-radius: 30px; transition: 0.3s; }
-.btn-more:hover { background: var(--primary-green); color: white; }
-
-.switch { position: relative; display: inline-block; width: 40px; height: 20px; }
-.switch input { opacity: 0; width: 0; height: 0; }
-.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
-.slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
-input:checked + .slider { background-color: var(--primary-green); }
-input:checked + .slider:before { transform: translateX(20px); }
