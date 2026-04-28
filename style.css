@@ -1,148 +1,155 @@
-/* --- Variables & Core Theme --- */
+/* --- Updated Variables --- */
 :root {
-    /* Define colors based on image and user request */
+    --primary-green: #2ecc71; 
     --light-bg: #ffffff;
     --light-content-bg: #ffffff;
     --light-text: #2c3e50;
-    --light-nav-bg: #f8f9fa;
-    --light-header-bg: #ecf0f1;
+    
+    /* Requested: Different colors for Header/Footer in Light Mode */
+    --light-header-bg: #f0fdf4; /* Very light green tint */
+    --light-footer-bg: #e8f5e9; /* Slightly darker light green */
+    --light-nav-bg: #ffffff;
 
-    --dark-bg: #101010; /* Near black, like deep space */
-    --dark-content-bg: #0d213b; /* Refined dark blue from image */
+    --dark-bg: #101010;
+    --dark-content-bg: #0d213b;
     --dark-text: #ecf0f1;
-    --dark-nav-bg: #0a192e;
-    --dark-header-bg: #000;
-
-    /* Green color from original request */
-    --primary-green: #2ecc71; 
+    --dark-header-bg: #000000;
+    --dark-footer-bg: #0a192e;
 }
 
-/* Light Mode Styling */
+/* --- Theme Switching Logic --- */
 body.light-mode {
     background-color: var(--light-bg);
     color: var(--light-text);
 }
-body.light-mode .main-nav { background-color: var(--light-nav-bg); }
-body.light-mode footer { background-color: var(--light-nav-bg); }
 body.light-mode header { background-color: var(--light-header-bg); }
-body.light-mode .content-box { background-color: var(--light-content-bg); border: 1px solid #ddd;}
-body.light-mode .sidebar-toggle button { color: var(--light-text); border: 2px solid #ddd; }
+body.light-mode footer { background-color: var(--light-footer-bg); }
+body.light-mode .main-nav { background-color: var(--light-nav-bg); border-bottom: 1px solid #eee; }
 
-
-/* Dark Mode Styling (Default) */
 body.dark-mode {
     background-color: var(--dark-bg);
     color: var(--dark-text);
 }
-body.dark-mode .main-nav { background-color: var(--dark-nav-bg); }
-body.dark-mode footer { background-color: var(--dark-nav-bg); }
 body.dark-mode header { background-color: var(--dark-header-bg); }
-body.dark-mode .content-box { background-color: var(--dark-content-bg); border: 1px solid rgba(255,255,255,0.05); }
-body.dark-mode .sidebar-toggle button { color: var(--dark-text); border: 2px solid rgba(255,255,255,0.1); }
+body.dark-mode footer { background-color: var(--dark-footer-bg); }
 
-/* --- Core Styles --- */
+/* --- Base Styles --- */
 body {
     margin: 0;
     font-family: 'Rabar', sans-serif;
-    transition: all 0.4s ease-in-out; /* Smooth transition */
+    transition: all 0.3s ease;
+    overflow-x: hidden; /* Prevents horizontal scrolling on mobile */
 }
 
-/* --- Header & 3D (Refined) --- */
 header {
-    height: 70vh;
+    height: 60vh;
     position: relative;
-    overflow: hidden;
-    /* Subtle deep space background for dark mode */
-    background-image: radial-gradient(circle, #001020 0%, #000000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 #canvas-container {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    z-index: 1; /* Three.js scene behind text */
 }
 
-.header-overlay {
-    position: relative;
-    z-index: 10; /* High z-index for text */
-    text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white; /* Header text always white for visibility */
-    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+.hero-title { 
+    font-size: clamp(3rem, 10vw, 5.5rem); /* Responsive font size */
+    margin: 0; 
+    color: var(--primary-green); 
+    position: relative; 
+    z-index: 10; 
 }
 
-.hero-title { font-size: 5.5rem; margin: 0; color: var(--primary-green); font-weight: bold; }
-.hero-subtitle { font-size: 1.7rem; opacity: 0.9; }
-
-/* --- Sidebar Toggle Button (Matching Image style) --- */
-.sidebar-toggle {
-    position: fixed;
-    top: 30px;
-    right: 30px; /* Positioned similarly to image */
-    z-index: 1000;
+.hero-subtitle { 
+    font-size: clamp(1rem, 4vw, 1.7rem); 
+    position: relative; 
+    z-index: 10; 
 }
 
-.sidebar-toggle button {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 25px;
-    background: rgba(255,255,255,0.05); /* Semi-transparent */
-    border-radius: 50px;
-    cursor: pointer;
-    backdrop-filter: blur(5px); /* Clean glass look */
-    transition: 0.3s;
-    font-family: 'Rabar', sans-serif;
-    font-size: 1rem;
-}
-
-.sidebar-toggle button:hover { background: rgba(255,255,255,0.1); }
-.sidebar-toggle button .icon { font-size: 1.3rem; color: var(--primary-green); }
-
-/* --- Main Content & Layout --- */
+/* --- Responsive Content Layout --- */
 .container.main-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
-    padding: 50px 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .content-box {
     display: flex;
+    flex-direction: row; /* Default side-by-side */
     align-items: center;
-    gap: 40px;
-    padding: 60px;
+    gap: 30px;
+    padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    max-width: 1000px;
-    width: 100%;
-}
-
-.main-img {
-    max-width: 400px;
-    border-radius: 15px;
+    margin-top: -50px; /* Overlap effect */
+    position: relative;
+    z-index: 20;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.text-content h2 { margin-bottom: 20px; font-size: 2.2rem; }
-.text-content p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px; }
-
-/* --- Navigation & Button Styles (Green accent) --- */
-.main-nav { padding: 15px; text-align: center; }
-.main-nav a { text-decoration: none; color: inherit; margin: 0 15px; font-weight: bold; transition: 0.3s; }
-.main-nav a:hover { color: var(--primary-green); }
-
-.btn-more { display: inline-block; color: var(--primary-green); font-weight: bold; text-decoration: none; border: 2px solid var(--primary-green); padding: 12px 30px; border-radius: 30px; transition: 0.3s; font-size: 1rem; }
-.btn-more:hover { background: var(--primary-green); color: white; box-shadow: 0 5px 20px rgba(46, 204, 113, 0.4); }
-
-/* --- Footer (Specific Text Requirements) --- */
-footer {
-    padding: 50px 20px;
-    text-align: center;
-    margin-top: 50px;
+.main-img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
 }
 
-footer p { margin: 10px 0; font-size: 1rem; }
+/* --- Sidebar Toggle Mobile Position --- */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* --- TABLET & MOBILE FIXES (The "Lose those codes" part) --- */
+
+@media (max-width: 992px) { /* Tablets */
+    .content-box {
+        flex-direction: column; /* Stack image on top of text */
+        text-align: center;
+        padding: 30px;
+    }
+    
+    .hero-title { font-size: 4rem; }
+}
+
+@media (max-width: 600px) { /* Phones */
+    header { height: 50vh; }
+    
+    .sidebar-toggle button .text {
+        display: none; /* Hide "Mode" text on tiny screens, keep icon only */
+    }
+    
+    .sidebar-toggle button {
+        padding: 10px;
+        border-radius: 50%; /* Make it a circle button on mobile */
+    }
+
+    .main-nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .content-box {
+        margin-top: 20px; /* Remove overlap on small screens */
+        padding: 20px;
+    }
+}
+
+/* --- Footer & UI --- */
+footer {
+    padding: 40px 20px;
+    text-align: center;
+}
 .dev-name { color: var(--primary-green); font-weight: bold; }
+.btn-more { 
+    display: inline-block; 
+    padding: 12px 25px; 
+    border: 2px solid var(--primary-green); 
+    text-decoration: none; 
+    border-radius: 30px; 
+    color: var(--primary-green);
+    font-weight: bold;
+}
