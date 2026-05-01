@@ -1,58 +1,92 @@
-<!DOCTYPE html>
-<html lang="ku" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioQuest | ٢٠٢٦</title>
-    <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="light-mode">
+:root {
+    --deep-green: #1b5e20; /* سەوزی تۆخ بۆ لایت مۆد */
+    --soft-green: #2ecc71;
+    --light-bg: #f4f7f6;
+    --dark-bg: #121212;
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-    <!-- بەشی سەرەوە بۆ مۆد و زمان -->
-    <nav class="top-control">
-        <div class="lang-menu">
-            <button onclick="setLanguage('ku')">Kurdî</button>
-            <button onclick="setLanguage('ar')">عربي</button>
-            <button onclick="setLanguage('en')">English</button>
-        </div>
-        <button id="theme-btn" class="theme-toggle">🌓 مۆدی تاریک</button>
-    </nav>
+body {
+    margin: 0; padding: 0; font-family: 'Rabar', sans-serif;
+    transition: background 0.3s ease;
+    overflow-x: hidden;
+}
 
-    <header>
-        <div id="canvas-container"></div>
-        <div class="header-content">
-            <h1 class="main-logo">BioQuest</h1>
-            <p id="hero-desc" class="hero-subtitle">گەشتێکی زانستی بۆ ناو قوڵایی ژیان</p>
-        </div>
-    </header>
+/* Light & Dark Modes */
+body.light-mode { background-color: var(--light-bg); color: #333; }
+body.light-mode header, body.light-mode footer { background-color: var(--deep-green); color: white; }
 
-    <nav class="main-sidebar">
-        <a href="index.html" id="nav-home" class="nav-item active">سەرەکی</a>
-        <a href="cell.html" id="nav-cell" class="nav-item">خانەناسی</a>
-    </nav>
+body.dark-mode { background-color: var(--dark-bg); color: #eee; }
+body.dark-mode header, body.dark-mode footer { background-color: #000; color: white; }
 
-    <main class="container">
-        <div class="cell-section">
-            <h2 id="cell-title">زانستی خانەناسی</h2>
-            <div class="content-card reveal">
-                <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600" alt="Cell">
-                </div>
-                <div class="text-box">
-                    <p id="cell-text">خانە یەکەی بنەڕەتی ژیانە، لێرە هەموو زانیارییەکان فێربە و گەشت بکە بەناو وردەکارییەکان.</p>
-                    <a href="cell.html" id="btn-text" class="btn-more">زیاتر بخوێنەوە</a>
-                </div>
-            </div>
-        </div>
-    </main>
+/* Top Control Bar */
+.top-control {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 5%; background: rgba(0,0,0,0.05); backdrop-filter: blur(10px);
+    position: sticky; top: 0; z-index: 1000;
+}
 
-    <footer>
-        <p>گەشەپێدەری وێب: <span class="highlight">ژیاو یوسف حسێن</span></p>
-        <p>BioQuest ٢٠٢٦ - هەموو مافەکان پارێزراوە</p>
-    </footer>
+.lang-menu button, .theme-toggle {
+    background: none; border: 1px solid var(--soft-green); 
+    padding: 5px 12px; border-radius: 20px; cursor: pointer;
+    font-family: 'Rabar'; color: inherit; transition: 0.3s;
+}
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+.lang-menu button:hover { background: var(--soft-green); color: white; }
+
+/* Header & 3D */
+header {
+    height: 50vh; position: relative; display: flex;
+    align-items: center; justify-content: center; text-align: center;
+}
+
+#canvas-container {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0.3; /* 3D مۆشنەکە کاڵتر کراوە */
+}
+
+.main-logo { font-size: clamp(2.5rem, 8vw, 5rem); margin: 0; z-index: 10; color: var(--soft-green); }
+
+/* Navigation Sidebar Style */
+.main-sidebar {
+    display: flex; justify-content: center; gap: 20px; padding: 15px;
+    background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.nav-item {
+    text-decoration: none; color: #555; font-weight: bold;
+    padding: 8px 20px; border-radius: 25px; transition: var(--transition);
+}
+
+.nav-item:hover, .nav-item.active {
+    background: var(--soft-green); color: white; transform: scale(1.1);
+}
+
+/* Cell Section & Animations */
+.cell-section { text-align: center; padding: 50px 5%; }
+#cell-title { font-size: 1.4rem; color: var(--deep-green); margin-bottom: 30px; }
+
+.content-card {
+    display: flex; flex-wrap: wrap; background: white;
+    max-width: 900px; margin: 0 auto; border-radius: 20px;
+    overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .content-card { background: #1e1e1e; }
+
+.img-box, .text-box { flex: 1; min-width: 300px; }
+.img-box img { width: 100%; height: 100%; object-fit: cover; }
+.text-box { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+
+/* Responsive Grid (Mobiles & Tablets) */
+@media (max-width: 768px) {
+    .content-card { flex-direction: column; }
+    header { height: 40vh; }
+    .main-sidebar { font-size: 0.9rem; gap: 10px; }
+}
+
+/* Footer */
+footer {
+    padding: 20px; text-align: center; font-size: 0.85rem;
+}
+.highlight { color: var(--soft-green); font-weight: bold; }
