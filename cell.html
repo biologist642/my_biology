@@ -1,25 +1,35 @@
-<article class="content-wrapper">
-    <!-- بەشی ڤیدیۆ و ناساندن -->
-    <div class="video-container">
-        <iframe width="100%" height="400" src="https://www.youtube.com/embed/URUJD5NEXC8" frameborder="0" allowfullscreen></iframe>
-    </div>
+<main class="cell-page" style="padding: 100px 10%;">
+    <section class="intro" style="animation: slideIn 1s ease-out;">
+        <h1 style="color: var(--primary);">خانە (The Cell)</h1>
+        <p style="font-size: 1.2rem; line-height: 1.8;">خانە بچووکترین یەکەی زیندەوەرە کە هەموو کردارە ژیانییەکانی تێدا ئەنجام دەدرێت.</p>
+    </section>
 
-    <div class="post-header">
-        <h1>پێکهاتەی خانە (Cell Structure)</h1>
-        <p>بناغەی ژیان لە ژێر وردبیندا</p>
-    </div>
+    <section class="organelles">
+        <div class="info-block" style="background: #1e293b; padding: 20px; border-radius: 15px; margin: 20px 0;">
+            <h3>١. ناوۆک (Nucleus)</h3>
+            <p>سەنتەری کۆنترۆڵکردنی خانەیە و ماددەی بۆماوەیی (DNA) تێدایە.</p>
+        </div>
+        http://googleusercontent.com/image_content/245
 
-    <div class="info-grid">
-        <div class="info-card" data-aos="fade-up">
-            <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=500&q=80" alt="Nucleus">
-            <h3>ناووک (Nucleus)</h3>
-            <p>مێشکی خانەیە و زانیارییە بۆماوەییەکانی تێدایە.</p>
+
+        <div class="info-block" style="background: #1e293b; padding: 20px; border-radius: 15px; margin: 20px 0;">
+            <h3>٢. مایتۆکۆندریا</h3>
+            <p>پێی دەوترێت کارگەی وزەی خانە، چونکە ATP بەرهەم دەهێنێت.</p>
         </div>
-        
-        <div class="info-card" data-aos="fade-up">
-            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=500&q=80" alt="Mitochondria">
-            <h3>مایتۆکۆندریا</h3>
-            <p>سەرچاوەی وزەی خانەیە (Powerhouse of the cell).</p>
+    </section>
+
+    <!-- ڤیدیۆ لە کۆتایی لاپەڕە -->
+    <section class="video-section" style="margin-top: 50px; text-align: center;">
+        <h2 style="margin-bottom: 20px;">ڤیدیۆی فێرکاری</h2>
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/URUJD5NEXC8" frameborder="0" allowfullscreen></iframe>
         </div>
-    </div>
-</article>
+    </section>
+</main>
+
+<style>
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+</style>

@@ -1,51 +1,60 @@
 :root {
-    --primary-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    --dark-bg: #0f172a;
-    --light-bg: #f8fafc;
-    --card-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    --primary: #10b981;
+    --dark-bg: #0b0f1a;
+    --card-bg: #161b2a;
+    --text: #ffffff;
+    --accent: #3b82f6;
 }
 
 body {
     margin: 0; font-family: 'Rabar', sans-serif;
-    background: var(--light-bg); transition: 0.5s;
+    background-color: var(--dark-bg); color: var(--text);
+    overflow-x: hidden; transition: 0.4s; direction: rtl;
 }
 
-/* هێدەری ڕەنگاوڕەنگ */
+/* Navbar وەک وێنەی یەکەم */
 .main-nav {
-    background: var(--primary-gradient);
-    padding: 15px 0; color: white;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 5%; background: rgba(11, 15, 26, 0.95);
+    backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000;
+}
+.nav-left { display: flex; gap: 15px; align-items: center; }
+.nav-right { color: var(--primary); font-weight: 800; font-size: 1.6rem; }
+
+.btn-icon {
+    background: #1e293b; border: none; color: white;
+    padding: 8px 12px; border-radius: 8px; cursor: pointer; transition: 0.3s;
+}
+.btn-icon:hover { background: var(--primary); }
+
+/* Hero Section وەک وێنەی دووەم */
+.hero {
+    height: 80vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    background: radial-gradient(circle at center, #1e293b 0%, #0b0f1a 100%);
+    position: relative;
+}
+.hero h1 { font-size: clamp(2rem, 8vw, 4rem); margin: 0; animation: glow 2s infinite alternate; }
+
+/* کارتەکان بە مۆشن */
+.content-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; padding: 50px 5%;
+}
+.card {
+    background: var(--card-bg); border-radius: 20px; padding: 25px;
+    border: 1px solid #2d3748; transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative; overflow: hidden;
+}
+.card:hover { transform: translateY(-15px) scale(1.02); border-color: var(--primary); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px var(--primary); }
+    to { text-shadow: 0 0 30px var(--accent); }
 }
 
-.brand { color: white !important; font-size: 1.8rem; }
-
-/* هێدەری سەرەکی بە وێنەی پاشبنەما */
-.minimal-hero {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url('https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1200&q=80');
-    background-size: cover; background-position: center;
-    color: white; padding: 120px 20px;
-    animation: fadeIn 1.5s ease-in;
-}
-
-/* مۆشن بۆ کارتەکان */
-.topic-card {
-    background: white; border-radius: 20px;
-    overflow: hidden; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: var(--card-shadow); border: none;
-}
-
-.topic-card:hover {
-    transform: scale(1.05); box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-}
-
-/* فووتەری تۆخ و کەشخە */
-.clean-footer {
-    background: var(--dark-bg); color: #94a3b8;
-    padding: 40px 0; margin-top: 50px;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Responsive */
+@media (max-width: 768px) {
+    .main-nav { flex-direction: row-reverse; }
+    .hero h1 { font-size: 2.5rem; }
 }
