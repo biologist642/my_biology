@@ -3,53 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پێکهاتەی خانە | BioQuest</title>
+    <title>BioQuest | زانستی خانە</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        .cell-explorer { padding: 50px 5%; background: var(--bg-color); }
-        .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .organelle-box { 
-            background: var(--card-bg); padding: 30px; border-radius: 25px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition: 0.4s; text-align: center;
+        .cell-page-body { background: var(--bg-color); }
+        .cell-header { 
+            padding: 80px 20px; text-align: center; 
+            background: linear-gradient(rgba(27, 94, 32, 0.8), rgba(27, 94, 32, 0.9)), 
+            url('https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=1000');
+            background-size: cover; color: white; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;
         }
-        .organelle-box:hover { transform: scale(1.03); border: 2px solid var(--accent-green); }
-        .org-icon { font-size: 3.5rem; margin-bottom: 20px; display: block; }
-        .dna-section { background: var(--primary-green); color: white; padding: 60px; border-radius: 40px; margin-top: 40px; text-align: center; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 50px 5%; }
+        .organelle-card { 
+            background: var(--card-bg); padding: 30px; border-radius: 25px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; 
+            transition: 0.4s; border: 1px solid rgba(0,0,0,0.05);
+        }
+        .organelle-card:hover { transform: translateY(-15px); border-color: var(--accent-green); }
+        .organelle-icon { font-size: 3.5rem; margin-bottom: 15px; display: block; }
+        .back-home { 
+            position: fixed; bottom: 30px; left: 30px; background: var(--accent-green); 
+            color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; 
+            box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3); z-index: 100;
+        }
     </style>
 </head>
-<body>
-    <button onclick="window.location.href='index.html'" style="margin:20px; padding:10px 25px; border-radius:15px; border:none; background:var(--accent-green); color:white; cursor:pointer;">⬅ گەڕانەوە بۆ سەرەکی</button>
+<body class="cell-page-body light-mode">
 
-    <section class="cell-explorer">
-        <h1 style="text-align:center; margin-bottom:50px;" data-aos="fade-down">گەشت بۆ ناو پێکهاتەی خانە</h1>
-        
-        <div class="grid-layout">
-            <div class="organelle-box" data-aos="fade-up">
-                <span class="org-icon">🛡️</span>
-                <h3>پەردەی خانە (Plasma Membrane)</h3>
-                <p>پەردەیەکی تەنکە کە دەوری خانە دەدات و ڕێکخەری چوونەژوورەوەی ماددەکانە.</p>
-            </div>
-            <div class="organelle-box" data-aos="fade-up" data-aos-delay="100">
-                <span class="org-icon">🧠</span>
-                <h3>ناووک (Nucleus)</h3>
-                <p>مێشکی خانەیە، هەموو چالاکییەکان و زانیارییە بۆماوەییەکان لێرەن.</p>
-            </div>
-            <div class="organelle-box" data-aos="fade-up" data-aos-delay="200">
-                <span class="org-icon">🔋</span>
-                <h3>مایتۆکۆندریا (Mitochondria)</h3>
-                <p>سەرچاوەی وزەی خانەیە، لێرە ATP بەرهەم دەهێنرێت بۆ زیندوو مانەوە.</p>
-            </div>
+    <header class="cell-header" data-aos="zoom-out">
+        <h1 style="font-size: 3.5rem;">پێکهاتەی خانە</h1>
+        <p>گەشتێکی ورد بۆ ناو یەکەی بنەڕەتی ژیان</p>
+    </header>
+
+    <div class="grid-container">
+        <div class="organelle-card" data-aos="fade-up">
+            <span class="organelle-icon">🛡️</span>
+            <h3>پەردەی خانە</h3>
+            <p>Cell Membrane: بەرگی دەرەکی خانەیە کە پارێزگاری لێ دەکات و هاتووچۆی ماددەکان ڕێکدەخات.</p>
         </div>
 
-        <div class="dna-section" data-aos="zoom-in">
-            <h2>🧬 کۆدی ژیان: DNA</h2>
-            <p>DNA ئەو نەخشە مەزنەیە کە هەموو تایبەتمەندییەکانت دیاری دەکات. لە ناو ناووکدا بە شێوەی کرۆمۆسۆم کۆکراوەتەوە.</p>
-            <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&q=80&w=600" alt="DNA Structure" style="width:100%; max-width:500px; border-radius:20px; margin-top:20px;">
+        <div class="organelle-card" data-aos="fade-up" data-aos-delay="100">
+            <span class="organelle-icon">🧠</span>
+            <h3>ناوک (Nucleus)</h3>
+            <p>مەڵبەندی کۆنترۆڵی خانە و شوێنی هەڵگرتنی زانیارییە بۆماوەییەکان (DNA).</p>
+        </div>
+
+        <div class="organelle-card" data-aos="fade-up" data-aos-delay="200">
+            <span class="organelle-icon">🔋</span>
+            <h3>مایتۆکۆندریا</h3>
+            <p>کارگەی وزەی خانە، لێرەدا خۆراک دەگۆڕێت بۆ ئەو وزەیەی کە خانە بۆ کارەکانی پێویستییەتی.</p>
+        </div>
+
+        <div class="organelle-card" data-aos="fade-up" data-aos-delay="300">
+            <span class="organelle-icon">🏗️</span>
+            <h3>ڕایبۆسۆمەکان</h3>
+            <p>بەرپرسن لە دروستکردنی پڕۆتینەکان کە بنچینەی گەشەی خانەن.</p>
+        </div>
+
+        <div class="organelle-card" data-aos="fade-up" data-aos-delay="400">
+            <span class="organelle-icon">🧪</span>
+            <h3>سایتۆپلازم</h3>
+            <p>ئەو ماددە جەلاتینیەیە کە هەموو ئەندامۆچکەکانی خانەی تێدا مەلە دەکەن.</p>
+        </div>
+
+        <div class="organelle-card" data-aos="fade-up" data-aos-delay="500">
+            <span class="organelle-icon">🧬</span>
+            <h3>DNA</h3>
+            <p>کۆدی سەرەکی ژیان کە هەموو تایبەتمەندییەکانت لە ناویدا نووسراوەتەوە.</p>
+        </div>
+    </div>
+
+    <section style="padding: 50px 5%; text-align: center;">
+        <h2 data-aos="fade-right">سەیری ڤیدیۆی فێربوون بکە</h2>
+        <div style="max-width: 800px; margin: 30px auto; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+            <iframe width="100%" height="450" src="https://www.youtube.com/embed/URUJD5NEXC8" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
 
+    <a href="index.html" class="back-home">⬅ گەڕانەوە بۆ سەرەکی</a>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init();</script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
 </body>
 </html>
