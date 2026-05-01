@@ -1,47 +1,57 @@
-// وەرگرتنی توخمەکان
-const splash = document.getElementById('splash-screen');
-const mainContent = document.getElementById('main-content');
-
-// سیستەمی سپلاش سکرین (٥ چرکە)
+// Splash Logic - 3 Seconds
 window.addEventListener('load', () => {
     setTimeout(() => {
-        splash.classList.add('splash-hidden');
-        mainContent.classList.add('show-content');
-        // ڕێگەدان بە سکرۆڵ کردن دوای نەمانی سپلاش
-        document.body.style.overflow = 'auto';
-    }, 5000);
+        document.getElementById('splash-screen').style.display = 'none';
+        document.getElementById('main-content').classList.remove('hidden-content');
+    }, 3000);
 });
 
-// ڕێگری لە سکرۆڵ کردن تا سپلاش تەواو دەبێت
-document.body.style.overflow = 'hidden';
-
-// --- Three.js 3D Animation ---
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.getElementById('hero-canvas').appendChild(renderer.domElement);
-
-// دروستکردنی شێوەیەکی ئەندازەیی مۆدێرن
-const geometry = new THREE.IcosahedronGeometry(10, 1);
-const material = new THREE.MeshBasicMaterial({ color: 0x2ecc71, wireframe: true });
-const mesh = new THREE.Mesh(geometry, material);
-scene.add(mesh);
-
-camera.position.z = 25;
-
-function animate() {
-    requestAnimationFrame(animate);
-    mesh.rotation.x += 0.005;
-    mesh.rotation.y += 0.005;
-    renderer.render(scene, camera);
+// Theme Toggle
+function toggleTheme() {
+    const body = document.body;
+    const btn = document.getElementById('theme-toggle');
+    body.classList.toggle('dark-mode');
+    
+    if (body.classList.contains('dark-mode')) {
+        btn.innerHTML = "☀️ مۆدی ڕووناک";
+    } else {
+        btn.innerHTML = "🌙 مۆدی تاریک";
+    }
 }
-animate();
 
-// گونجاندن لەگەڵ گۆڕینی قەبارەی شاشە
-window.addEventListener('resize', () => {
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-});
+// Tab Switching
+function showSection(section) {
+    const homeBtn = document.getElementById('tab-home');
+    const cellBtn = document.getElementById('tab-cell');
+    const title = document.getElementById('section-title');
+    
+    if (section === 'home') {
+        homeBtn.classList.add('active');
+        cellBtn.classList.remove('active');
+        title.innerText = "بەخێرهاتن بۆ BioQuest";
+    } else {
+        cellBtn.classList.add('active');
+        homeBtn.classList.remove('active');
+        title.innerText = "زانیاری خانەناسی";
+    }
+}
+
+// Language Logic
+const texts = {
+    ku: { subtitle: "گەشتێکی زانستی بۆ ناو قوڵایی ژیان", home: "سەرەکی", cell: "خانەناسی", read: "زیاتر بخوێنەوە", dir: "rtl" },
+    ar: { subtitle: "رحلة علمية في أعماق الحياة", home: "الرئيسية", cell: "علم الخلايا", read: "اقرأ المزيد", dir: "rtl" },
+    en: { subtitle: "A scientific journey into the depths of life", home: "Home", cell: "Cytology", read: "Read More", dir: "ltr" }
+};
+
+function setLang(lang) {
+    const t = texts[lang];
+    document.documentElement.dir = t.dir;
+    document.getElementById('hero-subtitle').innerText = t.subtitle;
+    document.getElementById('tab-home').innerText = t.home;
+    document.getElementById('tab-cell').innerText = t.cell;
+    document.getElementById('read-more').innerText = t.read;
+    
+    // Update active button style
+    document.querySelectorAll('.lang-switcher button').forEach(btn => btn.classList.remove('active-lang'));
+    event.target.classList.add('active-lang');
+}
