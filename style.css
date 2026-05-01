@@ -1,60 +1,63 @@
-<!DOCTYPE html>
-<html lang="ku" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioQuest | خانەناسی</title>
-    <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
-    <link rel="stylesheet" href="cell.css">
-</head>
-<body class="cell-page">
+:root {
+    --primary-green: #1b5e20;
+    --accent-green: #2ecc71;
+    --bg-color: #f9fbf9;
+    --text-color: #333;
+    --card-bg: #ffffff;
+}
 
-    <nav class="lang-bar">
-        <div class="btns">
-            <button onclick="updateLang('ku')">Kurdî</button>
-            <button onclick="updateLang('ar')">عربي</button>
-            <button onclick="updateLang('en')">English</button>
-        </div>
-        <a href="index.html" class="home-icon">🏠</a>
-    </nav>
+.dark-mode {
+    --primary-green: #0a2e0a;
+    --accent-green: #2ecc71;
+    --bg-color: #121212;
+    --text-color: #f4f4f4;
+    --card-bg: #1e1e1e;
+}
 
-    <main class="cell-container">
-        <header class="cell-header reveal">
-            <h1 id="c-title">زانستی خانەناسی</h1>
-            <p id="c-sub">گەشتێک بۆ ناو جیهانی مایکرۆسکۆپی</p>
-        </header>
+body {
+    margin: 0; font-family: 'Rabar', sans-serif;
+    background-color: var(--bg-color); color: var(--text-color);
+    transition: all 0.3s ease;
+}
 
-        <section class="glass-info reveal">
-            <h2 id="about-t">خانە چییە؟</h2>
-            <p id="about-d">خانە بچووکترین یەکەی پەیکەری و فرمانییە لە هەموو زیندەوەراندا. هەموو چالاکییە کیمیاییەکانی ژیان لە ناو ئەم جیهانە بچووکەدا ڕوودەدەن.</p>
-        </section>
+/* Splash Screen */
+#splash-screen {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: #1b5e20; display: flex; justify-content: center; align-items: center;
+    z-index: 10000; transition: opacity 0.8s ease;
+}
+.splash-logo { color: white; font-size: 5rem; font-weight: bold; }
+.loader { width: 50px; height: 50px; border: 5px solid rgba(255,255,255,0.2); border-top: 5px solid #2ecc71; border-radius: 50%; animation: spin 1s linear infinite; margin-top: 20px; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
 
-        <div class="cards-grid">
-            <div class="card reveal" style="--d: 0.2s">
-                <div class="icon">🧬</div>
-                <h3 id="p1-t">ناوک</h3>
-                <p id="p1-d">ناوەندی زانیارییە و دی ئێن ئەی (DNA) تێدایە.</p>
-            </div>
-            <div class="card reveal" style="--d: 0.4s">
-                <div class="icon">⚡</div>
-                <h3 id="p2-t">مایتۆکۆندریا</h3>
-                <p id="p2-d">وزەی پێویست (ATP) بۆ چالاکییەکان بەرهەم دەهێنێت.</p>
-            </div>
-            <div class="card reveal" style="--d: 0.6s">
-                <div class="icon">🛡️</div>
-                <h3 id="p3-t">پەردەی خانە</h3>
-                <p id="p3-d">پارێزگاری لە خانە دەکات و هاتووچۆ ڕێکدەخات.</p>
-            </div>
-        </div>
+/* Navigation */
+.top-nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; }
+.theme-switch button { background: none; border: 1px solid var(--text-color); padding: 8px 18px; border-radius: 25px; color: var(--text-color); cursor: pointer; }
+.lang-switcher button { background: none; border: 1px solid #ccc; padding: 6px 15px; border-radius: 20px; margin: 0 3px; cursor: pointer; color: var(--text-color); }
+.lang-switcher .active-lang { border-color: var(--accent-green); font-weight: bold; background: rgba(46, 204, 113, 0.1); }
 
-        <section class="video-section reveal">
-            <h2 id="v-title">ڤیدیۆی فێرکاری</h2>
-            <div class="vid-wrap">
-                <iframe src="https://www.youtube.com/embed/8IlzKri08kk" allowfullscreen></iframe>
-            </div>
-        </section>
-    </main>
+/* Hero Section */
+.hero-section { background-color: var(--primary-green); height: 450px; display: flex; align-items: center; justify-content: center; text-align: center; }
+.main-title { font-size: clamp(4rem, 10vw, 7rem); color: var(--accent-green); margin: 0; }
+#hero-subtitle { color: white; font-size: 1.2rem; margin-top: 10px; opacity: 0.9; }
 
-    <script src="cell.js"></script>
-</body>
-</html>
+/* Tabs */
+.tab-container { display: flex; justify-content: center; gap: 15px; margin-top: -30px; }
+.tab-btn { padding: 15px 50px; border: none; border-radius: 35px; background: var(--card-bg); color: var(--text-color); font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; }
+.tab-btn.active { background: var(--accent-green); color: white; }
+
+/* Content Card */
+.content-area { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+#section-title { text-align: center; font-size: 2.2rem; margin-bottom: 40px; }
+
+.info-card { display: flex; background: var(--card-bg); border-radius: 30px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
+.card-text { flex: 1.2; padding: 60px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.card-image { flex: 1; height: 450px; }
+.card-image img { width: 100%; height: 100%; object-fit: cover; }
+#read-more { color: #6a1b9a; text-decoration: underline; margin-top: 20px; display: block; font-weight: bold; }
+
+/* Footer */
+.main-footer { background-color: var(--primary-green); color: white; text-align: center; padding: 50px; margin-top: 80px; }
+.dev-name { color: var(--accent-green); font-weight: bold; }
+
+.hidden-content { display: none; }
