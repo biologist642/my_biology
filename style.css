@@ -1,44 +1,73 @@
-:root {
-    --primary: #1b5e20;
-    --accent: #2ecc71;
-    --bg: #f4f4f4;
-    --text: #333;
-    --card: #fff;
-}
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioQuest | گەشتێک لە بایۆلۆجیدا</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="light-mode">
 
-.dark-mode {
-    --bg: #121212;
-    --text: #f4f4f4;
-    --card: #1e1e1e;
-}
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="dna-loader">🧬</div>
+        <h1 class="splash-text">BioQuest</h1>
+    </div>
 
-body { margin: 0; font-family: 'Rabar', sans-serif; background: var(--bg); color: var(--text); transition: 0.3s; overflow-x: hidden; }
+    <div id="main-content" class="hidden">
+        <!-- Navigation -->
+        <nav class="navbar" data-aos="fade-down">
+            <div class="nav-controls">
+                <button id="theme-btn" onclick="toggleTheme()">🌙</button>
+                <div class="lang-dropdown">
+                    <button class="dropbtn">🌐 زمان</button>
+                    <div class="lang-content">
+                        <a href="#" onclick="changeLang('ku')">کوردی</a>
+                        <a href="#" onclick="changeLang('en')">English</a>
+                    </div>
+                </div>
+            </div>
+            <div class="logo">BioQuest</div>
+        </nav>
 
-/* Splash Screen */
-#splash-screen { position: fixed; inset: 0; background: var(--primary); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; }
-.splash-logo { color: white; font-size: 3rem; }
-.loader { width: 40px; height: 40px; border: 4px solid #fff; border-top-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite; }
-@keyframes spin { 100% { transform: rotate(360deg); } }
+        <!-- 3D Biology Header -->
+        <header class="hero-3d" id="scene">
+            <div class="layer" data-depth="0.2">
+                <div class="dna-bg">🧬</div>
+            </div>
+            <div class="hero-content" data-aos="zoom-in">
+                <h1 id="title">BioQuest</h1>
+                <p id="subtitle">گەشتێکی زانستی بۆ ناو قوڵایی ژیان</p>
+                <div class="hero-tags">
+                    <span>Cells</span>
+                    <span>Tissues</span>
+                    <span>Organs</span>
+                </div>
+            </div>
+        </header>
 
-/* 3D Header */
-.hero-section { height: 350px; background: var(--primary); perspective: 1000px; display: flex; align-items: center; justify-content: center; color: white; }
-.hero-inner { transform-style: preserve-3d; transition: 0.1s; text-align: center; }
-.main-title { font-size: 4rem; color: var(--accent); }
+        <!-- Main Content -->
+        <main class="container">
+            <div class="info-card" data-aos="fade-up">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=400" alt="Microscope">
+                </div>
+                <div class="card-info">
+                    <h2 id="card-title">زانستی شانەناسی (Histology)</h2>
+                    <p id="card-text">لێکۆڵینەوە دەکات دەربارەی پێکهاتە و فەرمانی خانە و شانەکان لە جەستەدا.</p>
+                    <a href="cell.html" class="pulse-btn">بچۆ ناو وانەکە</a>
+                </div>
+            </div>
+        </main>
 
-/* Responsive Grid */
-.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 40px; }
-.organelle-card { background: var(--card); padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        <footer>
+            <p>گەشەپێدەر: <span>ژیاو یوسف حسێن</span> | ٢٠٢٦</p>
+        </footer>
+    </div>
 
-/* Pulse Animation */
-.pulse-btn { 
-    display: inline-block; padding: 10px 25px; border: 2px solid #8e24aa; border-radius: 30px; 
-    color: #8e24aa; text-decoration: none; animation: pulse 2s infinite; 
-}
-@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(142,36,170,0.4); } 70% { box-shadow: 0 0 0 10px rgba(142,36,170,0); } }
-
-@media (max-width: 768px) {
-    .info-card { flex-direction: column; text-align: center; }
-    .main-title { font-size: 2.5rem; }
-}
-
-.hidden-content { display: none; }
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
