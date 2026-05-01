@@ -1,35 +1,60 @@
-<main class="cell-page" style="padding: 100px 10%;">
-    <section class="intro" style="animation: slideIn 1s ease-out;">
-        <h1 style="color: var(--primary);">خانە (The Cell)</h1>
-        <p style="font-size: 1.2rem; line-height: 1.8;">خانە بچووکترین یەکەی زیندەوەرە کە هەموو کردارە ژیانییەکانی تێدا ئەنجام دەدرێت.</p>
-    </section>
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioQuest | خانەناسی</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
+    <link rel="stylesheet" href="cell.css">
+</head>
+<body class="cell-page">
 
-    <section class="organelles">
-        <div class="info-block" style="background: #1e293b; padding: 20px; border-radius: 15px; margin: 20px 0;">
-            <h3>١. ناوۆک (Nucleus)</h3>
-            <p>سەنتەری کۆنترۆڵکردنی خانەیە و ماددەی بۆماوەیی (DNA) تێدایە.</p>
+    <nav class="lang-bar">
+        <div class="btns">
+            <button onclick="updateLang('ku')">Kurdî</button>
+            <button onclick="updateLang('ar')">عربي</button>
+            <button onclick="updateLang('en')">English</button>
         </div>
-        http://googleusercontent.com/image_content/245
+        <a href="index.html" class="home-icon">🏠</a>
+    </nav>
 
+    <main class="cell-container">
+        <header class="cell-header reveal">
+            <h1 id="c-title">زانستی خانەناسی</h1>
+            <p id="c-sub">گەشتێک بۆ ناو جیهانی مایکرۆسکۆپی</p>
+        </header>
 
-        <div class="info-block" style="background: #1e293b; padding: 20px; border-radius: 15px; margin: 20px 0;">
-            <h3>٢. مایتۆکۆندریا</h3>
-            <p>پێی دەوترێت کارگەی وزەی خانە، چونکە ATP بەرهەم دەهێنێت.</p>
+        <section class="glass-info reveal">
+            <h2 id="about-t">خانە چییە؟</h2>
+            <p id="about-d">خانە بچووکترین یەکەی پەیکەری و فرمانییە لە هەموو زیندەوەراندا. هەموو چالاکییە کیمیاییەکانی ژیان لە ناو ئەم جیهانە بچووکەدا ڕوودەدەن.</p>
+        </section>
+
+        <div class="cards-grid">
+            <div class="card reveal" style="--d: 0.2s">
+                <div class="icon">🧬</div>
+                <h3 id="p1-t">ناوک</h3>
+                <p id="p1-d">ناوەندی زانیارییە و دی ئێن ئەی (DNA) تێدایە.</p>
+            </div>
+            <div class="card reveal" style="--d: 0.4s">
+                <div class="icon">⚡</div>
+                <h3 id="p2-t">مایتۆکۆندریا</h3>
+                <p id="p2-d">وزەی پێویست (ATP) بۆ چالاکییەکان بەرهەم دەهێنێت.</p>
+            </div>
+            <div class="card reveal" style="--d: 0.6s">
+                <div class="icon">🛡️</div>
+                <h3 id="p3-t">پەردەی خانە</h3>
+                <p id="p3-d">پارێزگاری لە خانە دەکات و هاتووچۆ ڕێکدەخات.</p>
+            </div>
         </div>
-    </section>
 
-    <!-- ڤیدیۆ لە کۆتایی لاپەڕە -->
-    <section class="video-section" style="margin-top: 50px; text-align: center;">
-        <h2 style="margin-bottom: 20px;">ڤیدیۆی فێرکاری</h2>
-        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/URUJD5NEXC8" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </section>
-</main>
+        <section class="video-section reveal">
+            <h2 id="v-title">ڤیدیۆی فێرکاری</h2>
+            <div class="vid-wrap">
+                <iframe src="https://www.youtube.com/embed/8IlzKri08kk" allowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
 
-<style>
-@keyframes slideIn {
-    from { opacity: 0; transform: translateX(50px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-</style>
+    <script src="cell.js"></script>
+</body>
+</html>

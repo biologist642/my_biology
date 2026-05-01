@@ -1,21 +1,26 @@
-function toggleTheme() {
-    const body = document.body;
-    body.classList.toggle('dark-mode');
-    const icon = document.querySelector('#mode-toggle i');
-    icon.classList.toggle('fa-moon');
-    icon.classList.toggle('fa-sun');
-}
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ alpha: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.getElementById('hero-canvas').appendChild(renderer.domElement);
 
-const langContent = {
-    ku: { title: "زانستی بایۆلۆجی", sub: "گەشتێکی فێربوونی مۆدێرن لە جیهانی زیندەوەراندا", cardH: "بەشی خانەناسی", cardP: "وردەکارییەکانی خانە و فەرمانەکانی ببینە." },
-    en: { title: "Biological Science", sub: "A modern learning journey in the world of organisms", cardH: "Cell Biology Department", cardP: "Explore cell details and their functions." }
-};
+const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+const material = new THREE.MeshBasicMaterial({ color: 0x2ecc71, wireframe: true });
+const mesh = new THREE.Mesh(geometry, material);
+scene.add(mesh);
 
-function changeLang(lang) {
-    document.getElementById('main-title').innerText = langContent[lang].title;
-    document.getElementById('sub-title').innerText = langContent[lang].sub;
-    document.getElementById('card-h').innerText = langContent[lang].cardH;
-    document.getElementById('card-p').innerText = langContent[lang].cardP;
-    
-    document.documentElement.dir = (lang === 'ku') ? 'rtl' : 'ltr';
+camera.position.z = 30;
+
+function animate() {
+    requestAnimationFrame(animate);
+    mesh.rotation.x += 0.01;
+    mesh.rotation.y += 0.01;
+    renderer.render(scene, camera);
 }
+animate();
+
+window.addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+});
