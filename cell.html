@@ -3,71 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioQuest | گەشتێک لە بایۆلۆجیدا</title>
+    <title>BioQuest | زانیاری خانە</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="light-mode">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-right"></i> گەڕانەوە</a>
+            <div class="logo">Bio<span>Quest</span></div>
+        </div>
+    </nav>
 
-    <!-- Splash Screen -->
-    <div id="splash-screen">
-        <div class="dna-loader">🧬</div>
-        <h1 class="splash-text">BioQuest</h1>
+    <div class="cell-details">
+        <div class="container">
+            <h1 class="fade-in">پێکهاتەی خانە (Cell Structure)</h1>
+            <div class="grid-layout">
+                <div class="detail-box">
+                    <i class="fas fa-atom icon-spin"></i>
+                    <h3>ناوک (Nucleus)</h3>
+                    <p>ناوک مێشکی خانەیە و هەموو زانیارییە بۆماوەییەکانی تێدایە.</p>
+                </div>
+                <div class="detail-box">
+                    <i class="fas fa-bolt icon-pulse"></i>
+                    <h3>مایتۆکۆندریا</h3>
+                    <p>سەرچاوەی وزەی خانەیە و کردارە زیندەگییەکانی تێدا دەکرێت.</p>
+                </div>
+            </div>
+            <!-- بەشی ڤیدیۆ -->
+            <div class="video-container">
+                <img src="image_5b2cfa.png" style="width:100%; border-radius:15px;">
+                <p>ڤیدیۆی فێرکاری دەربارەی دابەشبوونی خانە</p>
+            </div>
+        </div>
     </div>
 
-    <div id="main-content" class="hidden">
-        <!-- Navigation -->
-        <nav class="navbar" data-aos="fade-down">
-            <div class="nav-controls">
-                <button id="theme-btn" onclick="toggleTheme()">🌙</button>
-                <div class="lang-dropdown">
-                    <button class="dropbtn">🌐 زمان</button>
-                    <div class="lang-content">
-                        <a href="#" onclick="changeLang('ku')">کوردی</a>
-                        <a href="#" onclick="changeLang('en')">English</a>
-                    </div>
-                </div>
-            </div>
-            <div class="logo">BioQuest</div>
-        </nav>
-
-        <!-- 3D Biology Header -->
-        <header class="hero-3d" id="scene">
-            <div class="layer" data-depth="0.2">
-                <div class="dna-bg">🧬</div>
-            </div>
-            <div class="hero-content" data-aos="zoom-in">
-                <h1 id="title">BioQuest</h1>
-                <p id="subtitle">گەشتێکی زانستی بۆ ناو قوڵایی ژیان</p>
-                <div class="hero-tags">
-                    <span>Cells</span>
-                    <span>Tissues</span>
-                    <span>Organs</span>
-                </div>
-            </div>
-        </header>
-
-        <!-- Main Content -->
-        <main class="container">
-            <div class="info-card" data-aos="fade-up">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=400" alt="Microscope">
-                </div>
-                <div class="card-info">
-                    <h2 id="card-title">زانستی شانەناسی (Histology)</h2>
-                    <p id="card-text">لێکۆڵینەوە دەکات دەربارەی پێکهاتە و فەرمانی خانە و شانەکان لە جەستەدا.</p>
-                    <a href="cell.html" class="pulse-btn">بچۆ ناو وانەکە</a>
-                </div>
-            </div>
-        </main>
-
-        <footer>
-            <p>گەشەپێدەر: <span>ژیاو یوسف حسێن</span> | ٢٠٢٦</p>
-        </footer>
-    </div>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <footer>
+        <p>گەشەپێدەر: <span>ژیاو یوسف حسێن</span></p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
