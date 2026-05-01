@@ -1,76 +1,57 @@
-// سیستەمی زمانەکان
-const content = {
-    ku: {
-        desc: "گەشتێکی زانستی بۆ ناو قوڵایی ژیان",
-        home: "سەرەکی",
-        cell: "خانەناسی",
-        title: "زانستی خانەناسی",
-        text: "خانە یەکەی بنەڕەتی ژیانە، لێرە هەموو زانیارییەکان فێربە.",
-        btn: "زیاتر بخوێنەوە",
-        dir: "rtl"
-    },
-    ar: {
-        desc: "رحلة علمية في أعماق الحياة",
-        home: "الرئيسية",
-        cell: "علم الخلايا",
-        title: "علم الخلايا",
-        text: "الخلية هي الوحدة الأساسية للحياة، تعلم كل المعلومات هنا.",
-        btn: "اقرأ المزيد",
-        dir: "rtl"
-    },
-    en: {
-        desc: "A scientific journey into the depths of life",
-        home: "Home",
-        cell: "Cytology",
-        title: "Cell Science",
-        text: "The cell is the basic unit of life, learn all information here.",
-        btn: "Read More",
-        dir: "ltr"
+// 1. Splash Screen Logic (3 Seconds)
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const splash = document.getElementById('splash-screen');
+        splash.style.display = 'none';
+        document.getElementById('main-content').classList.remove('hidden-content');
+    }, 3000);
+});
+
+// 2. Dark Mode Logic
+function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    const btn = document.getElementById('theme-toggle');
+    if (body.classList.contains('dark-mode')) {
+        btn.innerHTML = "☀️ مۆدی ڕووناک";
+    } else {
+        btn.innerHTML = "🌙 مۆدی تاریک";
     }
+}
+
+// 3. Tab Switching Logic
+function showSection(section) {
+    const title = document.getElementById('section-title');
+    const homeBtn = document.getElementById('tab-home');
+    const cellBtn = document.getElementById('tab-cell');
+    
+    if (section === 'home') {
+        title.innerText = "بەخێرهاتن بۆ BioQuest";
+        homeBtn.classList.add('active');
+        cellBtn.classList.remove('active');
+    } else {
+        title.innerText = "زانیاری خانەناسی";
+        cellBtn.classList.add('active');
+        homeBtn.classList.remove('active');
+    }
+}
+
+// 4. Multi-Language Logic
+const texts = {
+    ku: { subtitle: "گەشتێکی زانستی بۆ ناو قوڵایی ژیان", home: "سەرەکی", cell: "خانەناسی", read: "زیاتر بخوێنەوە", dir: "rtl" },
+    ar: { subtitle: "رحلة علمية في أعماق الحياة", home: "الرئيسية", cell: "علم الخلايا", read: "اقرأ المزيد", dir: "rtl" },
+    en: { subtitle: "A scientific journey into the depths of life", home: "Home", cell: "Cytology", read: "Read More", dir: "ltr" }
 };
 
-function setLanguage(lang) {
-    document.body.dir = content[lang].dir;
-    document.getElementById('hero-desc').innerText = content[lang].desc;
-    document.getElementById('nav-home').innerText = content[lang].home;
-    document.getElementById('nav-cell').innerText = content[lang].cell;
-    document.getElementById('cell-title').innerText = content[lang].title;
-    document.getElementById('cell-text').innerText = content[lang].text;
-    document.getElementById('btn-text').innerText = content[lang].btn;
+function setLang(lang) {
+    const t = texts[lang];
+    document.documentElement.dir = t.dir;
+    document.getElementById('hero-subtitle').innerText = t.subtitle;
+    document.getElementById('tab-home').innerText = t.home;
+    document.getElementById('tab-cell').innerText = t.cell;
+    document.getElementById('read-more').innerText = t.read;
+    
+    // Update active button
+    document.querySelectorAll('.lang-switcher button').forEach(btn => btn.classList.remove('active-lang'));
+    event.target.classList.add('active-lang');
 }
-
-// مۆدی تاریک و ڕووناک
-const themeBtn = document.getElementById('theme-btn');
-themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    document.body.classList.toggle('light-mode');
-    themeBtn.innerText = document.body.classList.contains('dark-mode') ? "☀️ مۆدی ڕووناک" : "🌓 مۆدی تاریک";
-});
-
-// 3D Motion (Three.js) - کاڵتر
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / (window.innerHeight * 0.5), 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ alpha: true });
-renderer.setSize(window.innerWidth, window.innerHeight * 0.5);
-document.getElementById('canvas-container').appendChild(renderer.domElement);
-
-const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
-const material = new THREE.MeshBasicMaterial({ color: 0x2ecc71, wireframe: true, transparent: true, opacity: 0.2 });
-const shape = new THREE.Mesh(geometry, material);
-scene.add(shape);
-
-camera.position.z = 30;
-
-function animate() {
-    requestAnimationFrame(animate);
-    shape.rotation.y += 0.005;
-    renderer.render(scene, camera);
-}
-animate();
-
-// چاککردنی قەبارە لە کاتی گۆڕینی شاشە
-window.addEventListener('resize', () => {
-    renderer.setSize(window.innerWidth, window.innerHeight * 0.5);
-    camera.aspect = window.innerWidth / (window.innerHeight * 0.5);
-    camera.updateProjectionMatrix();
-});
