@@ -5,56 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BioQuest | خانەناسی</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
-    <link rel="stylesheet" href="cell.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="cell-page">
+<body class="light-mode">
 
-    <nav class="lang-bar">
-        <div class="btns">
-            <button onclick="updateLang('ku')">Kurdî</button>
-            <button onclick="updateLang('ar')">عربي</button>
-            <button onclick="updateLang('en')">English</button>
+    <!-- بەشی کۆنترۆڵ: زمان و مۆد -->
+    <nav class="top-bar">
+        <div class="languages">
+            <button onclick="translateCell('ku')">Kurdî</button>
+            <button onclick="translateCell('ar')">عربي</button>
+            <button onclick="translateCell('en')">English</button>
         </div>
-        <a href="index.html" class="home-icon">🏠</a>
+        <button id="mode-btn" class="theme-toggle">🌓 مۆدی تاریک</button>
     </nav>
 
-    <main class="cell-container">
-        <header class="cell-header reveal">
-            <h1 id="c-title">زانستی خانەناسی</h1>
-            <p id="c-sub">گەشتێک بۆ ناو جیهانی مایکرۆسکۆپی</p>
-        </header>
+    <header class="cell-hero">
+        <div id="canvas-container"></div>
+        <div class="hero-info">
+            <h1 id="main-title">زانستی خانە (Cytology)</h1>
+            <a href="index.html" class="back-link" id="back-btn">🏠 گەڕانەوە بۆ سەرەکی</a>
+        </div>
+    </header>
 
-        <section class="glass-info reveal">
-            <h2 id="about-t">خانە چییە؟</h2>
-            <p id="about-d">خانە بچووکترین یەکەی پەیکەری و فرمانییە لە هەموو زیندەوەراندا. هەموو چالاکییە کیمیاییەکانی ژیان لە ناو ئەم جیهانە بچووکەدا ڕوودەدەن.</p>
+    <main class="container">
+        <!-- ناساندنی خانە -->
+        <section class="intro-card reveal">
+            <div class="glass-effect">
+                <h2 id="q-title">خانە چییە؟</h2>
+                <p id="q-desc">خانە بچووکترین یەکەی پەیکەری و فرمانییە لە زیندەوەراندا. هەموو زیندەوەرەکان لە خانە پێکهاتوون.</p>
+                <div class="cell-visual">
+                    <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1000" alt="Cell Structure" class="main-img">
+                </div>
+            </div>
         </section>
 
-        <div class="cards-grid">
-            <div class="card reveal" style="--d: 0.2s">
-                <div class="icon">🧬</div>
-                <h3 id="p1-t">ناوک</h3>
-                <p id="p1-d">ناوەندی زانیارییە و دی ئێن ئەی (DNA) تێدایە.</p>
+        <!-- پێکهاتەکان بە مۆشن -->
+        <div class="parts-container">
+            <div class="part-item reveal">
+                <span class="icon">🔬</span>
+                <h3 id="p1-title">ناوک (Nucleus)</h3>
+                <p id="p1-desc">ناوەندی بەڕێوەبردنی خانە و پاراستنی زانیارییەکان.</p>
             </div>
-            <div class="card reveal" style="--d: 0.4s">
-                <div class="icon">⚡</div>
-                <h3 id="p2-t">مایتۆکۆندریا</h3>
-                <p id="p2-d">وزەی پێویست (ATP) بۆ چالاکییەکان بەرهەم دەهێنێت.</p>
+            <div class="part-item reveal">
+                <span class="icon">🔋</span>
+                <h3 id="p2-title">مایتۆکۆندریا</h3>
+                <p id="p2-desc">سەرچاوەی سەرەکی بەرهەمهێنانی وزە بۆ خانە.</p>
             </div>
-            <div class="card reveal" style="--d: 0.6s">
-                <div class="icon">🛡️</div>
-                <h3 id="p3-t">پەردەی خانە</h3>
-                <p id="p3-d">پارێزگاری لە خانە دەکات و هاتووچۆ ڕێکدەخات.</p>
+            <div class="part-item reveal">
+                <span class="icon">🧪</span>
+                <h3 id="p3-title">سایتۆپلازم</h3>
+                <p id="p3-desc">ئەو ماددەیەی بەشەکانی خانەی تێدا جێگیر بووە.</p>
             </div>
         </div>
 
-        <section class="video-section reveal">
-            <h2 id="v-title">ڤیدیۆی فێرکاری</h2>
-            <div class="vid-wrap">
+        <!-- بەشی ڤیدیۆ -->
+        <section class="video-area reveal">
+            <h2 id="vid-title">فێربوونی زیاتر</h2>
+            <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/8IlzKri08kk" allowfullscreen></iframe>
             </div>
         </section>
     </main>
 
-    <script src="cell.js"></script>
+    <footer class="mini-footer">
+        <p>گەشەپێدەری وێب: <span class="green-text">ژیاو یوسف حسێن</span></p>
+        <p>BioQuest ٢٠٢٦</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

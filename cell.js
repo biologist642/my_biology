@@ -1,50 +1,85 @@
-const translations = {
-    ku: {
-        title: "زانستی خانەناسی", sub: "گەشتێک بۆ ناو جیهانی مایکرۆسکۆپی",
-        aboutT: "خانە چییە؟", aboutD: "خانە بچووکترین یەکەی پەیکەری و فرمانییە لە هەموو زیندەوەراندا.",
-        p1t: "ناوک", p1d: "ناوەندی زانیارییە و دی ئێن ئەی تێدایە.",
-        p2t: "مایتۆکۆندریا", p2d: "وزەی پێویست بۆ چالاکییەکان بەرهەم دەهێنێت.",
-        p3t: "پەردەی خانە", p3d: "پارێزگاری لە خانە دەکات و هاتووچۆ ڕێکدەخات.",
-        v: "ڤیدیۆی فێرکاری", dir: "rtl"
-    },
-    ar: {
-        title: "علم الأحياء الخلوي", sub: "رحلة إلى العالم المجهري",
-        aboutT: "ما هي الخلية؟", aboutD: "الخلية هي أصغر وحدة هيكلية ووظيفية في جميع الكائنات الحية.",
-        p1t: "النواة", p1d: "مركز المعلومات وتحتوي على الحمض النووي (DNA).",
-        p2t: "الميتوكوندريا", p2d: "تنتج الطاقة اللازمة للأنشطة الحيوية.",
-        p3t: "غشاء الخلية", p3d: "يحمي الخلية وينظم حركة المواد.",
-        v: "فيديو تعليمي", dir: "rtl"
-    },
-    en: {
-        title: "Cell Biology", sub: "A journey into the microscopic world",
-        aboutT: "What is a Cell?", aboutD: "The cell is the smallest structural and functional unit in all living organisms.",
-        p1t: "Nucleus", p1d: "The control center containing DNA.",
-        p2t: "Mitochondria", p2d: "Produces energy (ATP) for cellular activities.",
-        p3t: "Cell Membrane", p3d: "Protects the cell and regulates transport.",
-        v: "Educational Video", dir: "ltr"
-    }
-};
-
-function updateLang(lang) {
-    const t = translations[lang];
-    document.documentElement.dir = t.dir;
-    document.getElementById('c-title').innerText = t.title;
-    document.getElementById('c-sub').innerText = t.sub;
-    document.getElementById('about-t').innerText = t.aboutT;
-    document.getElementById('about-d').innerText = t.aboutD;
-    document.getElementById('p1-t').innerText = t.p1t;
-    document.getElementById('p1-d').innerText = t.p1d;
-    document.getElementById('p2-t').innerText = t.p2t;
-    document.getElementById('p2-d').innerText = t.p2d;
-    document.getElementById('p3-t').innerText = t.p3t;
-    document.getElementById('p3-d').innerText = t.p3d;
-    document.getElementById('v-title').innerText = t.v;
+/* Variables */
+:root {
+    --header-green: #1b5e20; /* سەوزی تۆخ بۆ لایت مۆد */
+    --accent-green: #2ecc71;
+    --text-color: #2c3e50;
+    --transition: all 0.5s ease-in-out;
 }
 
-// Scroll Reveal Logic
-window.addEventListener('scroll', () => {
-    document.querySelectorAll('.reveal').forEach(el => {
-        if(el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add('active');
-    });
-});
-window.dispatchEvent(new Event('scroll'));
+body {
+    margin: 0; font-family: 'Rabar', sans-serif;
+    transition: var(--transition);
+    background-color: #f8faf9;
+}
+
+/* Theme Modes */
+body.dark-mode { background-color: #0d1117; color: #e6edf3; }
+body.dark-mode .intro-card .glass-effect { background: #161b22; color: white; }
+body.dark-mode .part-item { background: #21262d; }
+
+/* Responsive Top Bar */
+.top-bar {
+    display: flex; justify-content: space-between; padding: 10px 5%;
+    background: rgba(255,255,255,0.8); backdrop-filter: blur(10px);
+    position: sticky; top: 0; z-index: 100;
+}
+
+/* Header with 3D */
+.cell-hero {
+    height: 45vh; background: var(--header-green);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+}
+
+#canvas-container {
+    position: absolute; width: 100%; height: 100%; opacity: 0.2; /* کاڵکراوەتەوە */
+}
+
+.hero-info { text-align: center; color: white; z-index: 5; }
+.back-link { color: var(--accent-green); text-decoration: none; font-weight: bold; }
+
+/* Main Content & Cards */
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+.intro-card .glass-effect {
+    background: white; padding: 40px; border-radius: 25px;
+    margin-top: -60px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.main-img { width: 100%; max-width: 600px; border-radius: 20px; margin-top: 20px; transition: 0.4s; }
+.main-img:hover { transform: scale(1.02); }
+
+/* Grid for Parts */
+.parts-container {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; margin-top: 40px;
+}
+
+.part-item {
+    background: white; padding: 30px; border-radius: 20px;
+    text-align: center; transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.part-item:hover { transform: translateY(-10px); background: var(--accent-green); color: white; }
+.part-item .icon { font-size: 2.5rem; display: block; margin-bottom: 10px; }
+
+/* Scroll Reveal Animation */
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* Footer */
+.mini-footer {
+    background: var(--header-green); color: white;
+    text-align: center; padding: 20px; margin-top: 50px; font-size: 0.85rem;
+}
+
+.green-text { color: var(--accent-green); font-weight: bold; }
+
+/* Tablet & Mobile */
+@media (max-width: 768px) {
+    .hero-info h1 { font-size: 1.8rem; }
+    .intro-card .glass-effect { padding: 20px; margin-top: -30px; }
+    .top-bar { flex-direction: column; gap: 10px; text-align: center; }
+}
