@@ -3,35 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioQuest | گەشتێک بۆ ناو خانە</title>
+    <title>BioQuest | ٢٠٢٦</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
 </head>
-<body>
+<body class="light-mode">
 
-    <nav>
-        <button class="nav-btn">سەرەکی</button>
-        <button class="nav-btn">خانەناسی</button>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">BioQuest</div>
+            <div class="nav-controls">
+                <button id="theme-btn" onclick="toggleTheme()">🌙 مۆدی تاریک</button>
+                <div class="lang-switcher">
+                    <button onclick="changeLang('ku')">Kurdî</button>
+                    <button onclick="changeLang('en')">English</button>
+                </div>
+            </div>
+        </div>
     </nav>
 
-    <div class="container">
-        <!-- وێنە مۆدێرنەکە بە ئەنیمەیشنەوە -->
-        <div class="image-box">
-            <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=600" alt="Microscopic Cell">
+    <!-- Hero Section -->
+    <header class="hero-section" id="hero">
+        <div class="hero-bg-animation">🧬</div>
+        <div class="hero-content">
+            <h1 id="main-title">BioQuest</h1>
+            <p id="sub-title">گەشتێکی زانستی بۆ ناو قوڵایی ژیان</p>
         </div>
+    </header>
 
-        <!-- دەقەکان -->
-        <div class="content-box">
-            <h2>زانستی خانە و ژیان</h2>
-            <p>خانە یەکەی بنەڕەتی ژیانە، لێرە هەموو زانیارییەکان بە شێوازێکی مۆدێرن فێربە و گەشت بکە بۆ ناو وردترین پێکهاتەکانی جەستە.</p>
-            <a href="#" class="pulse-btn">زیاتر بخوێنەوە</a>
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="info-card">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=500" alt="Cell">
+            </div>
+            <div class="card-detail">
+                <h2 id="card-h">زانستی خانە (Cell Biology)</h2>
+                <p id="card-p">خانە یەکەی بنەڕەتی پێکهاتنی هەموو زیندەوەرانە. لێرەدا دەتوانیت دەربارەی وردەکارییەکانی خانە فێرببیت.</p>
+                <a href="cell.html" class="action-btn" id="btn-text">بچۆ ناو وانە</a>
+            </div>
         </div>
-    </div>
+    </main>
 
+    <!-- Footer -->
     <footer>
-        <p>هەموو مافەکان پارێزراوە بۆ وێبسایتی <span>BioQuest</span></p>
-        <p>گەشەپێدەری وێب: <span>ژیاو یوسف حسێن</span></p>
+        <div class="footer-content">
+            <p>گەشەپێدەر: <span>ژیاو یوسف حسێن</span></p>
+            <p>&copy; ٢٠٢٦ BioQuest Project</p>
+        </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>

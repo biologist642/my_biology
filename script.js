@@ -1,42 +1,49 @@
-// Splash Screen Logic
-window.addEventListener('load', () => {
-    AOS.init({ duration: 1000, once: true });
-    setTimeout(() => {
-        document.getElementById('splash-screen').style.opacity = '0';
-        setTimeout(() => {
-            document.getElementById('splash-screen').style.display = 'none';
-            document.getElementById('main-content').classList.remove('hidden');
-        }, 500);
-    }, 2000);
-});
-
-// 3D Mouse Motion for Header
-const scene = document.getElementById('scene');
-const content = document.querySelector('.hero-content');
-
-scene.addEventListener('mousemove', (e) => {
-    const x = (window.innerWidth / 2 - e.pageX) / 20;
-    const y = (window.innerHeight / 2 - e.pageY) / 20;
-    content.style.transform = `rotateX(${y}deg) rotateY(${x}deg) translateZ(50px)`;
-});
-
-// Theme Toggle
+// Theme Toggle Logic
 function toggleTheme() {
-    document.body.classList.toggle('dark-mode');
-    const btn = document.getElementById('theme-btn');
-    btn.innerText = document.body.classList.contains('dark-mode') ? "☀️" : "🌙";
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    const isDark = body.classList.contains('dark-mode');
+    
+    const themeBtn = document.getElementById('theme-btn');
+    themeBtn.innerHTML = isDark ? "☀️ مۆدی ڕووناک" : "🌙 مۆدی تاریک";
+    
+    // Save preference
+    localStorage.setItem('bioquest-theme', isDark ? 'dark' : 'light');
 }
 
-// Language Switcher (Simple Version)
+// Language Translations
+const langData = {
+    ku: {
+        title: "BioQuest",
+        sub: "گەشتێکی زانستی بۆ ناو قوڵایی ژیان",
+        ch: "زانستی خانە (Cell Biology)",
+        cp: "خانە یەکەی بنەڕەتی پێکهاتنی هەموو زیندەوەرانە. لێرەدا دەتوانیت دەربارەی وردەکارییەکانی خانە فێرببیت.",
+        bt: "بچۆ ناو وانە"
+    },
+    en: {
+        title: "BioQuest",
+        sub: "A Scientific Journey into the Depths of Life",
+        ch: "Cell Biology",
+        cp: "The cell is the basic structural unit of all living organisms. Here you can learn about cellular details.",
+        bt: "Enter Lesson"
+    }
+};
+
 function changeLang(lang) {
-    const data = {
-        ku: { title: "BioQuest", sub: "گەشتێکی زانستی بۆ ناو قوڵایی ژیان", card: "بچۆ ناو وانەکە" },
-        en: { title: "BioQuest", sub: "A Scientific Journey into Life", card: "Enter Lesson" }
-    };
+    document.getElementById('main-title').innerText = langData[lang].title;
+    document.getElementById('sub-title').innerText = langData[lang].sub;
+    document.getElementById('card-h').innerText = langData[lang].ch;
+    document.getElementById('card-p').innerText = langData[lang].cp;
+    document.getElementById('btn-text').innerText = langData[lang].bt;
     
-    document.getElementById('title').innerText = data[lang].title;
-    document.getElementById('subtitle').innerText = data[lang].sub;
-    document.querySelector('.pulse-btn').innerText = data[lang].card;
-    
+    // Set Direction
     document.documentElement.dir = (lang === 'ku') ? 'rtl' : 'ltr';
+    document.body.style.textAlign = (lang === 'ku') ? 'right' : 'left';
 }
+
+// Mouse Parallax for Hero
+document.getElementById('hero').addEventListener('mousemove', (e) => {
+    const x = (window.innerWidth / 2 - e.pageX) / 30;
+    const y = (window.innerHeight / 2 - e.pageY) / 30;
+    document.querySelector('.hero-content').style.transform = `translateX(${x}px) translateY(${y}px)`;
+});
