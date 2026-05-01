@@ -3,58 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioQuest | خانەناسی</title>
-    <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
-    <link rel="stylesheet" href="cell.css">
+    <title>پێکهاتەی خانە | BioQuest</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .cell-explorer { padding: 50px 5%; background: var(--bg-color); }
+        .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .organelle-box { 
+            background: var(--card-bg); padding: 30px; border-radius: 25px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition: 0.4s; text-align: center;
+        }
+        .organelle-box:hover { transform: scale(1.03); border: 2px solid var(--accent-green); }
+        .org-icon { font-size: 3.5rem; margin-bottom: 20px; display: block; }
+        .dna-section { background: var(--primary-green); color: white; padding: 60px; border-radius: 40px; margin-top: 40px; text-align: center; }
+    </style>
 </head>
-<body class="cell-page">
+<body>
+    <button onclick="window.location.href='index.html'" style="margin:20px; padding:10px 25px; border-radius:15px; border:none; background:var(--accent-green); color:white; cursor:pointer;">⬅ گەڕانەوە بۆ سەرەکی</button>
 
-    <nav class="lang-bar">
-        <div class="btns">
-            <button onclick="updateLang('ku')">Kurdî</button>
-            <button onclick="updateLang('ar')">عربي</button>
-            <button onclick="updateLang('en')">English</button>
-        </div>
-        <a href="index.html" class="home-icon">🏠</a>
-    </nav>
-
-    <main class="cell-container">
-        <header class="cell-header reveal">
-            <h1 id="c-title">زانستی خانەناسی</h1>
-            <p id="c-sub">گەشتێک بۆ ناو جیهانی مایکرۆسکۆپی</p>
-        </header>
-
-        <section class="glass-info reveal">
-            <h2 id="about-t">خانە چییە؟</h2>
-            <p id="about-d">خانە بچووکترین یەکەی پەیکەری و فرمانییە لە هەموو زیندەوەراندا. هەموو چالاکییە کیمیاییەکانی ژیان لە ناو ئەم جیهانە بچووکەدا ڕوودەدەن.</p>
-        </section>
-
-        <div class="cards-grid">
-            <div class="card reveal" style="--d: 0.2s">
-                <div class="icon">🧬</div>
-                <h3 id="p1-t">ناوک</h3>
-                <p id="p1-d">ناوەندی زانیارییە و دی ئێن ئەی (DNA) تێدایە.</p>
+    <section class="cell-explorer">
+        <h1 style="text-align:center; margin-bottom:50px;" data-aos="fade-down">گەشت بۆ ناو پێکهاتەی خانە</h1>
+        
+        <div class="grid-layout">
+            <div class="organelle-box" data-aos="fade-up">
+                <span class="org-icon">🛡️</span>
+                <h3>پەردەی خانە (Plasma Membrane)</h3>
+                <p>پەردەیەکی تەنکە کە دەوری خانە دەدات و ڕێکخەری چوونەژوورەوەی ماددەکانە.</p>
             </div>
-            <div class="card reveal" style="--d: 0.4s">
-                <div class="icon">⚡</div>
-                <h3 id="p2-t">مایتۆکۆندریا</h3>
-                <p id="p2-d">وزەی پێویست (ATP) بۆ چالاکییەکان بەرهەم دەهێنێت.</p>
+            <div class="organelle-box" data-aos="fade-up" data-aos-delay="100">
+                <span class="org-icon">🧠</span>
+                <h3>ناووک (Nucleus)</h3>
+                <p>مێشکی خانەیە، هەموو چالاکییەکان و زانیارییە بۆماوەییەکان لێرەن.</p>
             </div>
-            <div class="card reveal" style="--d: 0.6s">
-                <div class="icon">🛡️</div>
-                <h3 id="p3-t">پەردەی خانە</h3>
-                <p id="p3-d">پارێزگاری لە خانە دەکات و هاتووچۆ ڕێکدەخات.</p>
+            <div class="organelle-box" data-aos="fade-up" data-aos-delay="200">
+                <span class="org-icon">🔋</span>
+                <h3>مایتۆکۆندریا (Mitochondria)</h3>
+                <p>سەرچاوەی وزەی خانەیە، لێرە ATP بەرهەم دەهێنرێت بۆ زیندوو مانەوە.</p>
             </div>
         </div>
 
-        <section class="video-section reveal">
-            <h2 id="v-title">ڤیدیۆی فێرکاری</h2>
-            <div class="vid-wrap">
-                <iframe src="https://www.youtube.com/embed/8IlzKri08kk" allowfullscreen></iframe>
-            </div>
-        </section>
-    </main>
+        <div class="dna-section" data-aos="zoom-in">
+            <h2>🧬 کۆدی ژیان: DNA</h2>
+            <p>DNA ئەو نەخشە مەزنەیە کە هەموو تایبەتمەندییەکانت دیاری دەکات. لە ناو ناووکدا بە شێوەی کرۆمۆسۆم کۆکراوەتەوە.</p>
+            <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&q=80&w=600" alt="DNA Structure" style="width:100%; max-width:500px; border-radius:20px; margin-top:20px;">
+        </div>
+    </section>
 
-    <script src="cell.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
 </body>
 </html>
