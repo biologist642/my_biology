@@ -1,77 +1,45 @@
-// 1. Splash Screen Logic (3 Seconds)
+// وەرگرتنی توخمەکان
 const splash = document.getElementById('splash-screen');
 const mainContent = document.getElementById('main-content');
 
+// سیستەمی سپلاش سکرین (٥ چرکە)
 window.addEventListener('load', () => {
     setTimeout(() => {
-        splash.style.opacity = '0';
-        setTimeout(() => {
-            splash.style.display = 'none';
-            mainContent.classList.add('show-content');
-        }, 800);
-    }, 3000); // 3000ms = 3 Seconds
+        splash.classList.add('splash-hidden');
+        mainContent.classList.add('show-content');
+        // ڕێگەدان بە سکرۆڵ کردن دوای نەمانی سپلاش
+        document.body.style.overflow = 'auto';
+    }, 5000);
 });
 
-// 2. Dark/Light Mode
-const themeToggle = document.getElementById('theme-toggle');
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    themeToggle.innerText = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-});
+// ڕێگری لە سکرۆڵ کردن تا سپلاش تەواو دەبێت
+document.body.style.overflow = 'hidden';
 
-// 3. Multi-Language Logic
-const translations = {
-    ku: {
-        home: "سەرەکی", cell: "خانەناسی",
-        title: "BioQuest ٢٠٢٦", desc: "پێشەنگ لە بڵاوکردنەوەی زانیاری بایۆلۆجی و تەکنەلۆژیا",
-        btn: "دەستپێبکە", dir: "rtl"
-    },
-    ar: {
-        home: "الرئيسية", cell: "علم الخلايا",
-        title: "BioQuest ٢٠٢٦", desc: "رائد في نشر المعلومات البيولوجية والتكنولوجيا",
-        btn: "ابدأ الآن", dir: "rtl"
-    },
-    en: {
-        home: "Home", cell: "Cytology",
-        title: "BioQuest 2026", desc: "Leader in biological information and technology",
-        btn: "Get Started", dir: "ltr"
-    }
-};
-
-function changeLanguage() {
-    const lang = document.getElementById('lang-select').value;
-    const t = translations[lang];
-    
-    document.documentElement.dir = t.dir;
-    document.getElementById('nav-home').innerText = t.home;
-    document.getElementById('nav-cell').innerText = t.cell;
-    document.getElementById('hero-title').innerText = t.title;
-    document.getElementById('hero-desc').innerText = t.desc;
-    document.getElementById('btn-text').innerText = t.btn;
-}
-
-// 4. Three.js Background
+// --- Three.js 3D Animation ---
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ alpha: true });
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById('hero-canvas').appendChild(renderer.domElement);
 
-const geometry = new THREE.SphereGeometry(15, 32, 16);
+// دروستکردنی شێوەیەکی ئەندازەیی مۆدێرن
+const geometry = new THREE.IcosahedronGeometry(10, 1);
 const material = new THREE.MeshBasicMaterial({ color: 0x2ecc71, wireframe: true });
-const sphere = new THREE.Mesh(geometry, material);
-scene.add(sphere);
+const mesh = new THREE.Mesh(geometry, material);
+scene.add(mesh);
 
-camera.position.z = 30;
+camera.position.z = 25;
 
 function animate() {
     requestAnimationFrame(animate);
-    sphere.rotation.y += 0.003;
-    sphere.rotation.x += 0.002;
+    mesh.rotation.x += 0.005;
+    mesh.rotation.y += 0.005;
     renderer.render(scene, camera);
 }
 animate();
 
+// گونجاندن لەگەڵ گۆڕینی قەبارەی شاشە
 window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.aspect = window.innerWidth / window.innerHeight;
