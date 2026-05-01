@@ -1,53 +1,50 @@
-// مۆدی تاریک
-const modeBtn = document.getElementById('mode-btn');
-modeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-});
-
-// ئەنیمەیشنی سکرۆڵ
-function reveal() {
-    let reveals = document.querySelectorAll(".reveal");
-    reveals.forEach(el => {
-        let windowHeight = window.innerHeight;
-        let elementTop = el.getBoundingClientRect().top;
-        if (elementTop < windowHeight - 100) el.classList.add("active");
-    });
-}
-window.addEventListener("scroll", reveal);
-reveal(); // بۆ دەرکەوتنی یەکەمجار
-
-// سیستەمی زمان تەنها بۆ بەشی خانەناسی
-const cellLang = {
-    ku: { title: "زانستی خانە (Cytology)", back: "🏠 گەڕانەوە", qT: "خانە چییە؟", qD: "خانە بچووکترین یەکەی پەیکەری و فرمانییە لە زیندەوەراندا.", dir: "rtl" },
-    ar: { title: "علم الخلايا (Cytology)", back: "🏠 العودة", qT: "ما هي الخلية؟", qD: "الخلية هي أصغر وحدة هيكلية ووظيفية في الكائنات الحية.", dir: "rtl" },
-    en: { title: "Cell Biology (Cytology)", back: "🏠 Back Home", qT: "What is a Cell?", qD: "The cell is the smallest structural and functional unit of organisms.", dir: "ltr" }
+const translations = {
+    ku: {
+        title: "زانستی خانەناسی", sub: "گەشتێک بۆ ناو جیهانی مایکرۆسکۆپی",
+        aboutT: "خانە چییە؟", aboutD: "خانە بچووکترین یەکەی پەیکەری و فرمانییە لە هەموو زیندەوەراندا.",
+        p1t: "ناوک", p1d: "ناوەندی زانیارییە و دی ئێن ئەی تێدایە.",
+        p2t: "مایتۆکۆندریا", p2d: "وزەی پێویست بۆ چالاکییەکان بەرهەم دەهێنێت.",
+        p3t: "پەردەی خانە", p3d: "پارێزگاری لە خانە دەکات و هاتووچۆ ڕێکدەخات.",
+        v: "ڤیدیۆی فێرکاری", dir: "rtl"
+    },
+    ar: {
+        title: "علم الأحياء الخلوي", sub: "رحلة إلى العالم المجهري",
+        aboutT: "ما هي الخلية؟", aboutD: "الخلية هي أصغر وحدة هيكلية ووظيفية في جميع الكائنات الحية.",
+        p1t: "النواة", p1d: "مركز المعلومات وتحتوي على الحمض النووي (DNA).",
+        p2t: "الميتوكوندريا", p2d: "تنتج الطاقة اللازمة للأنشطة الحيوية.",
+        p3t: "غشاء الخلية", p3d: "يحمي الخلية وينظم حركة المواد.",
+        v: "فيديو تعليمي", dir: "rtl"
+    },
+    en: {
+        title: "Cell Biology", sub: "A journey into the microscopic world",
+        aboutT: "What is a Cell?", aboutD: "The cell is the smallest structural and functional unit in all living organisms.",
+        p1t: "Nucleus", p1d: "The control center containing DNA.",
+        p2t: "Mitochondria", p2d: "Produces energy (ATP) for cellular activities.",
+        p3t: "Cell Membrane", p3d: "Protects the cell and regulates transport.",
+        v: "Educational Video", dir: "ltr"
+    }
 };
 
-function translateCell(lang) {
-    document.body.dir = cellLang[lang].dir;
-    document.getElementById('main-title').innerText = cellLang[lang].title;
-    document.getElementById('back-btn').innerText = cellLang[lang].back;
-    document.getElementById('q-title').innerText = cellLang[lang].qT;
-    document.getElementById('q-desc').innerText = cellLang[lang].qD;
+function updateLang(lang) {
+    const t = translations[lang];
+    document.documentElement.dir = t.dir;
+    document.getElementById('c-title').innerText = t.title;
+    document.getElementById('c-sub').innerText = t.sub;
+    document.getElementById('about-t').innerText = t.aboutT;
+    document.getElementById('about-d').innerText = t.aboutD;
+    document.getElementById('p1-t').innerText = t.p1t;
+    document.getElementById('p1-d').innerText = t.p1d;
+    document.getElementById('p2-t').innerText = t.p2t;
+    document.getElementById('p2-d').innerText = t.p2d;
+    document.getElementById('p3-t').innerText = t.p3t;
+    document.getElementById('p3-d').innerText = t.p3d;
+    document.getElementById('v-title').innerText = t.v;
 }
 
-// 3D Motion (Three.js)
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / (window.innerHeight * 0.45), 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ alpha: true });
-renderer.setSize(window.innerWidth, window.innerHeight * 0.45);
-document.getElementById('canvas-container').appendChild(renderer.domElement);
-
-const geometry = new THREE.IcosahedronGeometry(10, 1);
-const material = new THREE.MeshBasicMaterial({ color: 0x2ecc71, wireframe: true, transparent: true, opacity: 0.3 });
-const sphere = new THREE.Mesh(geometry, material);
-scene.add(sphere);
-
-camera.position.z = 20;
-
-function animate() {
-    requestAnimationFrame(animate);
-    sphere.rotation.y += 0.003;
-    renderer.render(scene, camera);
-}
-animate();
+// Scroll Reveal Logic
+window.addEventListener('scroll', () => {
+    document.querySelectorAll('.reveal').forEach(el => {
+        if(el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add('active');
+    });
+});
+window.dispatchEvent(new Event('scroll'));
