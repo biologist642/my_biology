@@ -3,57 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioQuest | ٢٠٢٦</title>
+    <title>BioQuest | گەشتێک بۆ ناو خانە</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<body class="light-mode">
+<body>
 
-    <div id="splash-screen">
-        <h1 class="splash-logo">BioQuest</h1>
-        <div class="loader"></div>
-    </div>
+    <nav>
+        <button class="nav-btn">سەرەکی</button>
+        <button class="nav-btn">خانەناسی</button>
+    </nav>
 
-    <div id="main-content" class="hidden-content">
-        <nav class="top-nav" data-aos="fade-down">
-            <button id="theme-toggle" onclick="toggleTheme()">🌙 مۆدی تاریک</button>
-            <div class="lang-switcher">
-                <button onclick="setLang('ku')" class="active-lang">Kurdî</button>
-                <button onclick="setLang('en')">English</button>
-            </div>
-        </nav>
-
-        <header class="hero-section" id="hero-area">
-            <div class="hero-inner" id="hero-target">
-                <h1 class="main-title">BioQuest</h1>
-                <p>گەشتێکی زانستی بۆ ناو قوڵایی ژیان</p>
-            </div>
-        </header>
-
-        <div class="tab-container" data-aos="fade-up">
-            <button class="tab-btn active">سەرەکی</button>
-            <button class="tab-btn" onclick="window.location.href='cell.html'">خانەناسی</button>
+    <div class="container">
+        <!-- وێنە مۆدێرنەکە بە ئەنیمەیشنەوە -->
+        <div class="image-box">
+            <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=600" alt="Microscopic Cell">
         </div>
 
-        <main class="content-area">
-            <div class="info-card" data-aos="zoom-in">
-                <div class="card-text">
-                    <p>خانە یەکەی بنەڕەتی ژیانە، لێرە هەموو زانیارییەکان فێربە.</p>
-                    <a href="cell.html" class="pulse-btn">زیاتر بخوێنەوە</a>
-                </div>
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=400" alt="Cell" class="float-anim">
-                </div>
-            </div>
-        </main>
-
-        <footer class="main-footer">
-            <p>گەشەپێدەری وێب: <span class="dev-name">ژیاو یوسف حسێن</span></p>
-        </footer>
+        <!-- دەقەکان -->
+        <div class="content-box">
+            <h2>زانستی خانە و ژیان</h2>
+            <p>خانە یەکەی بنەڕەتی ژیانە، لێرە هەموو زانیارییەکان بە شێوازێکی مۆدێرن فێربە و گەشت بکە بۆ ناو وردترین پێکهاتەکانی جەستە.</p>
+            <a href="#" class="pulse-btn">زیاتر بخوێنەوە</a>
+        </div>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
+    <footer>
+        <p>هەموو مافەکان پارێزراوە بۆ وێبسایتی <span>BioQuest</span></p>
+        <p>گەشەپێدەری وێب: <span>ژیاو یوسف حسێن</span></p>
+    </footer>
+
 </body>
 </html>
