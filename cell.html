@@ -3,90 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioQuest | زانستی خانە</title>
+    <title>BioQuest | گەشتێک لە بایۆلۆجیدا</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        .cell-page-body { background: var(--bg-color); }
-        .cell-header { 
-            padding: 80px 20px; text-align: center; 
-            background: linear-gradient(rgba(27, 94, 32, 0.8), rgba(27, 94, 32, 0.9)), 
-            url('https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=1000');
-            background-size: cover; color: white; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;
-        }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 50px 5%; }
-        .organelle-card { 
-            background: var(--card-bg); padding: 30px; border-radius: 25px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; 
-            transition: 0.4s; border: 1px solid rgba(0,0,0,0.05);
-        }
-        .organelle-card:hover { transform: translateY(-15px); border-color: var(--accent-green); }
-        .organelle-icon { font-size: 3.5rem; margin-bottom: 15px; display: block; }
-        .back-home { 
-            position: fixed; bottom: 30px; left: 30px; background: var(--accent-green); 
-            color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; 
-            box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3); z-index: 100;
-        }
-    </style>
 </head>
-<body class="cell-page-body light-mode">
+<body class="light-mode">
 
-    <header class="cell-header" data-aos="zoom-out">
-        <h1 style="font-size: 3.5rem;">پێکهاتەی خانە</h1>
-        <p>گەشتێکی ورد بۆ ناو یەکەی بنەڕەتی ژیان</p>
-    </header>
-
-    <div class="grid-container">
-        <div class="organelle-card" data-aos="fade-up">
-            <span class="organelle-icon">🛡️</span>
-            <h3>پەردەی خانە</h3>
-            <p>Cell Membrane: بەرگی دەرەکی خانەیە کە پارێزگاری لێ دەکات و هاتووچۆی ماددەکان ڕێکدەخات.</p>
-        </div>
-
-        <div class="organelle-card" data-aos="fade-up" data-aos-delay="100">
-            <span class="organelle-icon">🧠</span>
-            <h3>ناوک (Nucleus)</h3>
-            <p>مەڵبەندی کۆنترۆڵی خانە و شوێنی هەڵگرتنی زانیارییە بۆماوەییەکان (DNA).</p>
-        </div>
-
-        <div class="organelle-card" data-aos="fade-up" data-aos-delay="200">
-            <span class="organelle-icon">🔋</span>
-            <h3>مایتۆکۆندریا</h3>
-            <p>کارگەی وزەی خانە، لێرەدا خۆراک دەگۆڕێت بۆ ئەو وزەیەی کە خانە بۆ کارەکانی پێویستییەتی.</p>
-        </div>
-
-        <div class="organelle-card" data-aos="fade-up" data-aos-delay="300">
-            <span class="organelle-icon">🏗️</span>
-            <h3>ڕایبۆسۆمەکان</h3>
-            <p>بەرپرسن لە دروستکردنی پڕۆتینەکان کە بنچینەی گەشەی خانەن.</p>
-        </div>
-
-        <div class="organelle-card" data-aos="fade-up" data-aos-delay="400">
-            <span class="organelle-icon">🧪</span>
-            <h3>سایتۆپلازم</h3>
-            <p>ئەو ماددە جەلاتینیەیە کە هەموو ئەندامۆچکەکانی خانەی تێدا مەلە دەکەن.</p>
-        </div>
-
-        <div class="organelle-card" data-aos="fade-up" data-aos-delay="500">
-            <span class="organelle-icon">🧬</span>
-            <h3>DNA</h3>
-            <p>کۆدی سەرەکی ژیان کە هەموو تایبەتمەندییەکانت لە ناویدا نووسراوەتەوە.</p>
-        </div>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="dna-loader">🧬</div>
+        <h1 class="splash-text">BioQuest</h1>
     </div>
 
-    <section style="padding: 50px 5%; text-align: center;">
-        <h2 data-aos="fade-right">سەیری ڤیدیۆی فێربوون بکە</h2>
-        <div style="max-width: 800px; margin: 30px auto; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
-            <iframe width="100%" height="450" src="https://www.youtube.com/embed/URUJD5NEXC8" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </section>
+    <div id="main-content" class="hidden">
+        <!-- Navigation -->
+        <nav class="navbar" data-aos="fade-down">
+            <div class="nav-controls">
+                <button id="theme-btn" onclick="toggleTheme()">🌙</button>
+                <div class="lang-dropdown">
+                    <button class="dropbtn">🌐 زمان</button>
+                    <div class="lang-content">
+                        <a href="#" onclick="changeLang('ku')">کوردی</a>
+                        <a href="#" onclick="changeLang('en')">English</a>
+                    </div>
+                </div>
+            </div>
+            <div class="logo">BioQuest</div>
+        </nav>
 
-    <a href="index.html" class="back-home">⬅ گەڕانەوە بۆ سەرەکی</a>
+        <!-- 3D Biology Header -->
+        <header class="hero-3d" id="scene">
+            <div class="layer" data-depth="0.2">
+                <div class="dna-bg">🧬</div>
+            </div>
+            <div class="hero-content" data-aos="zoom-in">
+                <h1 id="title">BioQuest</h1>
+                <p id="subtitle">گەشتێکی زانستی بۆ ناو قوڵایی ژیان</p>
+                <div class="hero-tags">
+                    <span>Cells</span>
+                    <span>Tissues</span>
+                    <span>Organs</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container">
+            <div class="info-card" data-aos="fade-up">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=400" alt="Microscope">
+                </div>
+                <div class="card-info">
+                    <h2 id="card-title">زانستی شانەناسی (Histology)</h2>
+                    <p id="card-text">لێکۆڵینەوە دەکات دەربارەی پێکهاتە و فەرمانی خانە و شانەکان لە جەستەدا.</p>
+                    <a href="cell.html" class="pulse-btn">بچۆ ناو وانەکە</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>گەشەپێدەر: <span>ژیاو یوسف حسێن</span> | ٢٠٢٦</p>
+        </footer>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
