@@ -3,45 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioQuest | بەخێرهاتن</title>
+    <title>BioQuest | سەرەکی</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Splash Screen (شاشەی بەخێرهاتن) -->
-    <div id="splash-screen">
-        <div class="splash-content">
-            <h1 class="splash-logo">BioQuest</h1>
-            <p class="splash-text">گەشتێکی زانستی بۆ ناو قوڵایی ژیان</p>
-            <div class="loader"></div>
+    <nav class="main-nav">
+        <div class="logo">BioQuest</div>
+        <div class="nav-links">
+            <a href="index.html" class="active">سەرەکی</a>
+            <a href="cell.html">خانەناسی</a>
         </div>
-    </div>
+    </nav>
 
-    <!-- وێبسایتە سەرەکییەکە (سەرەتا شاراوەیە) -->
-    <div id="main-content" class="hidden-content">
-        <nav class="main-nav">
-            <div class="logo">BioQuest</div>
-            <div class="nav-links">
-                <a href="index.html" class="active">سەرەکی</a>
-                <a href="cell.html">خانەناسی</a>
-            </div>
-        </nav>
+    <header class="hero">
+        <div id="hero-canvas"></div>
+        <div class="hero-content">
+            <h1 class="glow-text">BioQuest</h1>
+            <p>گەشتێک بۆ ناو جیهانی زیندەناسی</p>
+            <a href="cell.html" class="btn-start">دەستپێبکە</a>
+        </div>
+    </header>
 
-        <header class="hero">
-            <div id="hero-canvas"></div>
-            <div class="hero-content">
-                <h1 class="glow-text">BioQuest ٢٠٢٦</h1>
-                <p>پێشەنگ لە بڵاوکردنەوەی زانیاری بایۆلۆجی و تەکنەلۆژیا</p>
-                <a href="cell.html" class="btn-start">دەستپێبکە</a>
-            </div>
-        </header>
-
-        <footer>
-            <p>گەشەپێدەری وێب: <span class="highlight">ژیاو یوسف حسێن</span></p>
-            <p>BioQuest - هەموو مافەکان پارێزراوە</p>
-        </footer>
-    </div>
+    <footer>
+        <p>گەشەپێدەر: ژیاو یوسف حسێن</p>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
