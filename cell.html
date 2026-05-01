@@ -7,42 +7,64 @@
     <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="light-mode">
 
-    <header>
-        <h1>زانستی خانە (Cytology)</h1>
+    <header class="cell-header">
+        <div id="canvas-container"></div>
+        <div class="header-overlay">
+            <h1 class="fade-in">زانستی خانە (Cytology)</h1>
+            <nav class="inner-nav">
+                <a href="index.html" class="back-btn">🏠 گەڕانەوە بۆ سەرەکی</a>
+            </nav>
+        </div>
     </header>
 
-    <nav>
-        <a href="index.html">🏠 گەڕانەوە</a>
-    </nav>
+    <main class="container">
+        <!-- بەشی ناساندن -->
+        <section class="info-section reveal">
+            <div class="glass-card">
+                <h2>خانە چییە؟</h2>
+                <p>خانە بچووکترین یەکەی پەیکەری و فرمانییە لە زیندەوەراندا. هەموو زیندەوەرەکان لە خانە پێکهاتوون. خانەکان بە میکرۆسکۆب دەبینرێن و کاری زۆر ئاڵۆز ئەنجام دەدەن.</p>
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1000" class="hover-img" alt="Cell Image">
+                </div>
+            </div>
+        </section>
 
-    <div class="container">
-        <div class="cell-info">
-            <h2>خانە چییە؟</h2>
-            <p>خانە بچووکترین یەکەی پەیکەری و فرمانییە لە زیندەوەراندا. هەموو زیندەوەرەکان لە خانە پێکهاتوون. خانەکان بە میکرۆسکۆب دەبینرێن و کاری زۆر ئاڵۆز ئەنجام دەدەن.</p>
-            
-            
-            <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1000" class="main-img" alt="Cell Image">
+        <!-- بەشەکانی خانە بە شێوەی کارت و مۆشن -->
+        <section class="parts-grid">
+            <div class="part-card reveal">
+                <div class="icon">🧬</div>
+                <h3>ناوک (Nucleus)</h3>
+                <p>ناوەندی فەرماندەیی خانەکەیە و زانیارییە بۆماوەییەکانی تێدایە.</p>
+            </div>
+            <div class="part-card reveal" style="transition-delay: 0.2s;">
+                <div class="icon">⚡</div>
+                <h3>مایتۆکۆندریا</h3>
+                <p>کارگەی وزەی خانەیە، کرداری هەناسەدانی خانە لێرەدا دەبێت.</p>
+            </div>
+            <div class="part-card reveal" style="transition-delay: 0.4s;">
+                <div class="icon">💧</div>
+                <h3>سایتۆپلازم</h3>
+                <p>ماددەیەکی جەلاتینییە کە ئەندامۆچکەکانی خانەی تێدا مەلە دەکەن.</p>
+            </div>
+        </section>
 
-            <h2 style="margin-top: 30px;">بەشە سەرەکییەکانی خانە</h2>
-            <ul style="margin-right: 20px;">
-                <li><b>ناوک (Nucleus):</b> ناوەندی فەرماندەیی خانەکەیە.</li>
-                <li><b>مایتۆکۆندریا:</b> وزە بۆ خانە دابین دەکات.</li>
-                <li><b>سایتۆپلازم:</b> ماددەیەکی جەلاتینییە بەشەکانی خانەی تێدایە.</li>
-            </ul>
-
-            <h2 style="margin-top: 40px;">بینەری ئەم ڤیدیۆیە ببە:</h2>
-            <div class="video-box">
+        <!-- بەشی ڤیدیۆ -->
+        <section class="video-section reveal">
+            <h2>بینەری ئەم ڤیدیۆیە ببە</h2>
+            <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/8IlzKri08kk" allowfullscreen></iframe>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
-    <footer>
-        <p>گەشەپێدەری وێب: ژیاو یوسف حسێن</p>
+    <footer class="small-footer">
+        <p>گەشەپێدەری وێب: <span class="dev-name">ژیاو یوسف حسێن</span></p>
+        <p>BioQuest ٢٠٢٦</p>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
