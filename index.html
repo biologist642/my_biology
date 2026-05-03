@@ -8,7 +8,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="light-mode">
+<body>
 
     <nav class="navbar">
         <div class="logo">Bio<span>Quest</span></div>
@@ -18,53 +18,69 @@
                 <option value="en">English</option>
                 <option value="ar">العربية</option>
             </select>
-            <button id="themeToggle"><i class="fas fa-moon"></i></button>
+            <button id="themeToggle" class="icon-btn"><i class="fas fa-moon"></i></button>
         </div>
     </nav>
 
     <header class="hero">
-        <div class="hero-content" data-aos="zoom-in">
-            <h1 id="mainTitle">ئەتڵەسی زانستی ڕوەک</h1>
-            <p id="mainSub">گەشتێکی سۆمایی بەناو ژیانی ڕوەک و تاقیگەدا</p>
-            <div class="hero-btns">
-                <a href="#ch1" class="btn-primary">دەستپێبکە</a>
-            </div>
+        <div class="hero-content" data-aos="zoom-out">
+            <h1>ئەتڵەسی زانستی ڕوەک</h1>
+            <p>گەشتێکی بینراو بەناو جیهانی مۆرفۆلۆژیا و فیسیۆلۆژیا</p>
+            <a href="#ch1" class="main-btn">دەستپێبکە <i class="fas fa-arrow-down"></i></a>
         </div>
     </header>
 
-    <div class="main-layout">
-        <aside class="sidebar" data-aos="fade-left">
-            <h3 id="sideTitle">بەشەکان</h3>
+    <div class="container">
+        <aside class="sidebar">
             <ul>
-                <li><a href="#ch1"><i class="fas fa-leaf"></i> <span class="ch-text" data-key="ch1">مۆرفۆلۆژیا</span></a></li>
-                <li><a href="#ch2"><i class="fas fa-microscope"></i> <span class="ch-text" data-key="ch2">فیسیۆلۆژیا</span></a></li>
-                <li><a href="#ch3"><i class="fas fa-flask"></i> <span class="ch-text" data-key="ch3">تاقیگە</span></a></li>
+                <li><a href="#ch1"><i class="fas fa-leaf"></i> <span data-key="ch1">مۆرفۆلۆژیا</span></a></li>
+                <li><a href="#ch2"><i class="fas fa-microscope"></i> <span data-key="ch2">فیسیۆلۆژیا</span></a></li>
+                <li><a href="#ch3"><i class="fas fa-flask"></i> <span data-key="ch3">تاقیگە</span></a></li>
             </ul>
         </aside>
 
         <main class="content">
-            <section id="ch1" class="chapter" data-aos="fade-up">
-                <div class="chapter-info">
-                    <h2 data-key="ch1Title">چاپتەری ١: مۆرفۆلۆژیای ڕوەک</h2>
-                    <p data-key="ch1Desc">لێکۆڵینەوە لە پێکهاتە فیزییکییەکانی ڕوەک، گەڵا، و قەد بە وردی.</p>
+            <section id="ch1" class="card" data-aos="fade-up">
+                <div class="card-header">
+                    <span class="num">01</span>
+                    <h2 data-key="ch1Title">مۆرفۆلۆژیای ڕوەک</h2>
                 </div>
-                <div class="chapter-card">
-                    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800" alt="Plant">
+                <div class="card-body">
+                    <p>لێکۆڵینەوە لە شێوەی دەرەوەی ڕوەکەکان، لەوانە سیستەمی ڕەگ، قەد، و جۆرە جیاوازەکانی گەڵا.</p>
+                    <div class="media-box">
+                        <img src="https://images.unsplash.com/photo-1533038595782-1fd682523971?w=800" alt="Plant Morphology">
+                    </div>
                 </div>
             </section>
 
-            <section id="ch2" class="chapter" data-aos="fade-up">
-                <h2 data-key="ch2Title">چاپتەری ٢: فیسیۆلۆژیا</h2>
+            <section id="ch2" class="card" data-aos="fade-up">
+                <div class="card-header">
+                    <span class="num">02</span>
+                    <h2 data-key="ch2Title">فیسیۆلۆژیای خانە</h2>
+                </div>
                 <div class="info-grid">
-                    <div class="info-box">
+                    <div class="grid-item">
                         <i class="fas fa-sun"></i>
                         <h3>Photosynthesis</h3>
-                        <p>کرداری ڕۆشنەپێکهاتن و کلۆرۆپلاست.</p>
+                        <p>چۆنیەتی بەرهەمهێنانی خۆراک لە ڕێگەی تیشکی خۆرەوە.</p>
                     </div>
-                    <div class="info-box">
-                        <i class="fas fa-water"></i>
+                    <div class="grid-item">
+                        <i class="fas fa-droplet"></i>
                         <h3>Transpiration</h3>
-                        <p>بەهەڵمبوونی ئاوی ڕوەک.</p>
+                        <p>بەهەڵمبوونی ئاو و پاراستنی پەستانی خانەکان.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="ch3" class="card" data-aos="fade-up">
+                <div class="card-header">
+                    <span class="num">03</span>
+                    <h2 data-key="ch3Title">تاقیگە: Salinity Stress</h2>
+                </div>
+                <div class="lab-content">
+                    <p>لێکۆڵینەوە لە کاریگەری خوێ (NaCl) لەسەر ڕێژەی کلۆرۆفیل و گەشەی گەڵاکان.</p>
+                    <div class="video-box">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/D1Yj6H6I7lE" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </section>
@@ -72,8 +88,10 @@
     </div>
 
     <footer>
-        <p>Atlas of Plant</p>
-        <p>گەشە پێدەری وێب: <b>ژیاو یوسف حسین</b></p>
+        <div class="footer-text">
+            <h3>Atlas of Plant</h3>
+            <p>گەشەپێدەری وێب: <span>ژیاو یوسف حسین</span></p>
+        </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
