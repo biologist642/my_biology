@@ -1,58 +1,124 @@
 <!DOCTYPE html>
-<html lang="ku" dir="rtl">
+<html lang="ku" dir="rtl" id="mainHtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioQuest | ٢٠٢٦</title>
-    <link href="https://cdn.jsdelivr.net/gh/rastikurd/kurdit-fonts@main/Rabar/font.css" rel="stylesheet">
+    <title>BioQuest | Advanced Plant Atlas</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="light-mode">
 
-    <!-- بەشی سەرەوە بۆ مۆد و زمان -->
-    <nav class="top-control">
-        <div class="lang-menu">
-            <button onclick="setLanguage('ku')">Kurdî</button>
-            <button onclick="setLanguage('ar')">عربي</button>
-            <button onclick="setLanguage('en')">English</button>
-        </div>
-        <button id="theme-btn" class="theme-toggle">🌓 مۆدی تاریک</button>
-    </nav>
-
-    <header>
-        <div id="canvas-container"></div>
-        <div class="header-content">
-            <h1 class="main-logo">BioQuest</h1>
-            <p id="hero-desc" class="hero-subtitle">گەشتێکی زانستی بۆ ناو قوڵایی ژیان</p>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">Bio<span>Quest</span></div>
+            <div class="nav-controls">
+                <select id="langSwitcher" onchange="changeLanguage()">
+                    <option value="ku">کوردی</option>
+                    <option value="en">English</option>
+                    <option value="ar">العربية</option>
+                </select>
+                <button id="themeToggle" title="گۆڕینی مۆد"><i class="fas fa-moon"></i></button>
+            </div>
+        </nav>
+        
+        <div class="hero">
+            <div class="hero-content" data-aos="zoom-in">
+                <h1 id="mainTitle">ئەتڵەسی پێشکەوتووی ڕوەک</h1>
+                <p id="mainSub">گەشتێک بەناو خانە، مۆرفۆلۆژیا و تاقیگەی ڕوەکناسی</p>
+                <a href="#ch1" class="cta-btn">دەستپێبکە</a>
+            </div>
         </div>
     </header>
 
-    <nav class="main-sidebar">
-        <a href="index.html" id="nav-home" class="nav-item active">سەرەکی</a>
-        <a href="cell.html" id="nav-cell" class="nav-item">خانەناسی</a>
-    </nav>
+    <div class="main-wrapper">
+        <aside class="sidebar-nav">
+            <ul>
+                <li><a href="#ch1"><i class="fas fa-seedling"></i> <span class="ch-text" data-key="ch1">مۆرفۆلۆژیا</span></a></li>
+                <li><a href="#ch2"><i class="fas fa-microscope"></i> <span class="ch-text" data-key="ch2">فیسیۆلۆژیا</span></a></li>
+                <li><a href="#ch3"><i class="fas fa-flask-vial"></i> <span class="ch-text" data-key="ch3">تاقیگە</span></a></li>
+                <li><a href="#ch4"><i class="fas fa-dna"></i> <span class="ch-text" data-key="ch4">پۆلێنکردن</span></a></li>
+            </ul>
+        </aside>
 
-    <main class="container">
-        <div class="cell-section">
-            <h2 id="cell-title">زانستی خانەناسی</h2>
-            <div class="content-card reveal">
-                <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600" alt="Cell">
+        <main class="main-body">
+            <section id="ch1" class="chapter-card" data-aos="fade-right">
+                <div class="chapter-header">
+                    <span class="chapter-num">01</span>
+                    <h2 data-key="ch1Title">مۆرفۆلۆژیای ڕوەک (Plant Morphology)</h2>
                 </div>
-                <div class="text-box">
-                    <p id="cell-text">خانە یەکەی بنەڕەتی ژیانە، لێرە هەموو زانیارییەکان فێربە و گەشت بکە بەناو وردەکارییەکان.</p>
-                    <a href="cell.html" id="btn-text" class="btn-more">زیاتر بخوێنەوە</a>
+                <div class="chapter-content">
+                    <div class="text-side">
+                        <p data-key="ch1Desc">لێرەدا لێکۆڵینەوە لە شێوەی دەرەوەی ڕوەک دەکەین، لەوانە جۆرەکانی گەڵا (Leaf Venation) و سیستەمی ڕەگی (Root Systems).</p>
+                        <ul class="scientific-list">
+                            <li><i class="fas fa-check"></i> پێکهاتەی گەڵا و ستۆماتا</li>
+                            <li><i class="fas fa-check"></i> شانە گواستەرەوەکان (Xylem & Phloem)</li>
+                        </ul>
+                    </div>
+                    <div class="image-side">
+                        <img src="https://images.unsplash.com/photo-1596708053410-d399e68d357d?w=500" alt="Plant Structure">
+                    </div>
+                </div>
+            </section>
+
+            <section id="ch2" class="chapter-card" data-aos="fade-left">
+                <div class="chapter-header">
+                    <span class="chapter-num">02</span>
+                    <h2 data-key="ch2Title">فیسیۆلۆژیا: ژیانی خانە</h2>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <i class="fas fa-sun"></i>
+                        <h3>Photosynthesis</h3>
+                        <p>گۆڕینی تیشک بۆ وزە لە کلۆرۆپلاست.</p>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-water"></i>
+                        <h3>Transpiration</h3>
+                        <p>پرۆسەی هەڵمبوونی ئاو لە گەڵاکانەوە.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="ch3" class="chapter-card" data-aos="zoom-in">
+                <div class="chapter-header">
+                    <span class="chapter-num">03</span>
+                    <h2 data-key="ch3Title">تاقیگەی پسپۆڕی</h2>
+                </div>
+                <div class="lab-preview">
+                    <div class="glass-box">
+                        <h3>Salinity Stress Study</h3>
+                        <p>لێکۆڵینەوە لە کاریگەری خوێی NaCl لەسەر گەشەی ڕوەک و ڕێژەی کلۆرۆفیل.</p>
+                        <div class="video-mock">
+                            <i class="fas fa-play"></i>
+                            <span>بینینی ڤیدیۆی تاقیکردنەوە</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+                <h2>Atlas of Plant</h2>
+                <p>سەکۆیەکی فێربوونی پێشکەوتوو بۆ خوێندکارانی بایۆلۆجی</p>
+            </div>
+            <hr>
+            <div class="footer-bottom">
+                <p>گەشەپێدەری وێب: <span>ژیاو یوسف حسین</span></p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
-    </main>
-
-    <footer>
-        <p>گەشەپێدەری وێب: <span class="highlight">ژیاو یوسف حسێن</span></p>
-        <p>BioQuest ٢٠٢٦ - هەموو مافەکان پارێزراوە</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
