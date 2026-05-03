@@ -8,7 +8,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="light-mode">
+<body>
 
     <nav class="navbar">
         <div class="logo">Bio<span>Quest</span></div>
@@ -25,46 +25,75 @@
     <header class="hero">
         <div class="hero-content" data-aos="zoom-in">
             <h1 id="mainTitle">ئەتڵەسی زانستی ڕوەک</h1>
-            <p id="mainSub">گەشتێکی سۆمایی بەناو ژیانی ڕوەک و تاقیگەدا</p>
-            <div class="hero-btns">
-                <a href="#ch1" class="btn-primary">دەستپێبکە</a>
-            </div>
+            <p id="mainSub">لێکۆڵینەوەی قووڵ لە فیسیۆلۆژیا و تاقیگەی ڕوەکناسی</p>
         </div>
     </header>
 
-    <div class="main-layout">
-        <aside class="sidebar" data-aos="fade-left">
-            <h3 id="sideTitle">بەشەکان</h3>
+    <div class="main-wrapper">
+        <aside class="sidebar-nav">
             <ul>
-                <li><a href="#ch1"><i class="fas fa-leaf"></i> <span class="ch-text" data-key="ch1">مۆرفۆلۆژیا</span></a></li>
+                <li><a href="#ch1"><i class="fas fa-seedling"></i> <span class="ch-text" data-key="ch1">مۆرفۆلۆژیا</span></a></li>
                 <li><a href="#ch2"><i class="fas fa-microscope"></i> <span class="ch-text" data-key="ch2">فیسیۆلۆژیا</span></a></li>
-                <li><a href="#ch3"><i class="fas fa-flask"></i> <span class="ch-text" data-key="ch3">تاقیگە</span></a></li>
+                <li><a href="#ch3"><i class="fas fa-flask-vial"></i> <span class="ch-text" data-key="ch3">تاقیگە</span></a></li>
             </ul>
         </aside>
 
-        <main class="content">
-            <section id="ch1" class="chapter" data-aos="fade-up">
-                <div class="chapter-info">
-                    <h2 data-key="ch1Title">چاپتەری ١: مۆرفۆلۆژیای ڕوەک</h2>
-                    <p data-key="ch1Desc">لێکۆڵینەوە لە پێکهاتە فیزییکییەکانی ڕوەک، گەڵا، و قەد بە وردی.</p>
+        <main class="main-body">
+            <section id="ch1" class="chapter-card" data-aos="fade-up">
+                <div class="chapter-header">
+                    <span class="chapter-num">01</span>
+                    <h2 data-key="chTitle1">مۆرفۆلۆژیای ڕوەک (Plant Morphology)</h2>
                 </div>
-                <div class="chapter-card">
-                    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800" alt="Plant">
+                <div class="content-box">
+                    <p>مۆرفۆلۆژیای ڕوەک لێکۆڵینەوەیە لە شێوەی دەرەوەی ڕوەک. ئەم بەشە گرنگە بۆ پۆلێنکردنی زانستی:</p>
+                    <ul class="science-list">
+                        <li><b>Vegetative Organs:</b> وەک ڕەگ (Root)، قەد (Stem)، و گەڵا (Leaf).</li>
+                        <li><b>Reproductive Organs:</b> وەک گوڵ (Flower) و میوە (Fruit).</li>
+                        <li><b>Leaf Venation:</b> جۆرەکانی دەمارگیری گەڵا وەک (Parallel & Reticulate).</li>
+                    </ul>
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1592150621744-aca64f48394a?w=800" alt="Plant Structure">
+                    </div>
                 </div>
             </section>
 
-            <section id="ch2" class="chapter" data-aos="fade-up">
-                <h2 data-key="ch2Title">چاپتەری ٢: فیسیۆلۆژیا</h2>
-                <div class="info-grid">
-                    <div class="info-box">
-                        <i class="fas fa-sun"></i>
-                        <h3>Photosynthesis</h3>
-                        <p>کرداری ڕۆشنەپێکهاتن و کلۆرۆپلاست.</p>
+            <section id="ch2" class="chapter-card" data-aos="fade-up">
+                <div class="chapter-header">
+                    <span class="chapter-num">02</span>
+                    <h2 data-key="chTitle2">فیسیۆلۆژیا و وزە</h2>
+                </div>
+                <div class="content-box">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h4>Photosynthesis</h4>
+                            <p>پرۆسەی گۆڕینی وزەی تیشک بۆ وزەی کیمیایی (Glucose) لە ناو کلۆرۆپلاست.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Cell Respiration</h4>
+                            <p>چۆنیەتی بەکارهێنانی ئۆکسیجن بۆ بەرهەمهێنانی ATP لە خانەکاندا.</p>
+                        </div>
                     </div>
-                    <div class="info-box">
-                        <i class="fas fa-water"></i>
-                        <h3>Transpiration</h3>
-                        <p>بەهەڵمبوونی ئاوی ڕوەک.</p>
+                </div>
+            </section>
+
+            <section id="ch3" class="chapter-card" data-aos="fade-up">
+                <div class="chapter-header">
+                    <span class="chapter-num">03</span>
+                    <h2 data-key="chTitle3">تاقیگە: Salinity Stress</h2>
+                </div>
+                <div class="content-box">
+                    <p>لێکۆڵینەوە لەسەر کاریگەری خوێ (Salinity) لەسەر ڕوەکەکان یەکێکە لە بابەتە گرنگەکانی فیسیۆلۆژیا:</p>
+                    <div class="lab-table-container">
+                        <table class="lab-table">
+                            <thead>
+                                <tr><th>Concentration (NaCl)</th><th>Chlorophyll Content</th><th>Growth Rate</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>0 mM (Control)</td><td>High</td><td>Normal</td></tr>
+                                <tr><td>50 mM</td><td>Medium</td><td>Slight Decrease</td></tr>
+                                <tr><td>100 mM</td><td>Low</td><td>Stunted</td></tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </section>
@@ -72,8 +101,10 @@
     </div>
 
     <footer>
-        <p>Atlas of Plant</p>
-        <p>گەشە پێدەری وێب: <b>ژیاو یوسف حسین</b></p>
+        <div class="footer-inner">
+            <h3>Atlas of Plant</h3>
+            <p>گەشەپێدەری وێب: <span>ژیاو یوسف حسین</span></p>
+        </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
