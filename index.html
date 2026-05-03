@@ -3,94 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioQuest | Advanced Plant Atlas</title>
+    <title>BioQuest Pro | ئەتڵەسی ڕوەک</title>
     <link rel="stylesheet" href="style.css">
+    <!-- کتێبخانەی مۆشن و فۆنتەکان -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="light-mode">
 
+    <!-- Navbar -->
     <nav class="navbar">
-        <div class="logo">Bio<span>Quest</span></div>
-        <div class="nav-controls">
-            <select id="langSwitcher" onchange="changeLanguage()">
-                <option value="ku">Kurdî</option>
-                <option value="en">English</option>
-                <option value="ar">العربية</option>
-            </select>
-            <button id="themeToggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+        <div class="nav-container">
+            <div class="logo" data-aos="fade-left">Bio<span>Quest</span></div>
+            <div class="nav-controls" data-aos="fade-right">
+                <select id="langSwitcher" onchange="changeLanguage()">
+                    <option value="ku">Kurdî</option>
+                    <option value="en">English</option>
+                    <option value="ar">العربية</option>
+                </select>
+                <button id="themeToggle" class="mode-btn"><i class="fas fa-moon"></i></button>
+            </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <header class="hero">
-        <div class="hero-content" data-aos="zoom-out">
-            <h1>ئەتڵەسی زانستی ڕوەک</h1>
-            <p>گەشتێکی بینراو بەناو جیهانی مۆرفۆلۆژیا و فیسیۆلۆژیا</p>
-            <a href="#ch1" class="main-btn">دەستپێبکە <i class="fas fa-arrow-down"></i></a>
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-aos="zoom-out" data-aos-duration="1500">
+            <h1 id="mainTitle">ئەتڵەسی پێشکەوتووی زانستی ڕوەک</h1>
+            <p id="mainSub">گەشتێک بۆ ناو جیهانی مۆرفۆلۆژیا، فیسیۆلۆژیا و تاقیگەی بایۆلۆجی</p>
+            <a href="#ch1" class="explore-btn">دەستپێبکە <i class="fas fa-chevron-down"></i></a>
         </div>
     </header>
 
-    <div class="container">
-        <aside class="sidebar">
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" data-aos="fade-left">
+            <div class="sidebar-header">بەشەکان</div>
             <ul>
-                <li><a href="#ch1"><i class="fas fa-leaf"></i> <span data-key="ch1">مۆرفۆلۆژیا</span></a></li>
-                <li><a href="#ch2"><i class="fas fa-microscope"></i> <span data-key="ch2">فیسیۆلۆژیا</span></a></li>
-                <li><a href="#ch3"><i class="fas fa-flask"></i> <span data-key="ch3">تاقیگە</span></a></li>
+                <li><a href="#ch1" class="side-link"><i class="fas fa-leaf"></i> <span data-key="ch1">مۆرفۆلۆژیا</span></a></li>
+                <li><a href="#ch2" class="side-link"><i class="fas fa-microscope"></i> <span data-key="ch2">فیسیۆلۆژیا</span></a></li>
+                <li><a href="#ch3" class="side-link"><i class="fas fa-flask-vial"></i> <span data-key="ch3">تاقیگە</span></a></li>
             </ul>
         </aside>
 
-        <main class="content">
-            <section id="ch1" class="card" data-aos="fade-up">
-                <div class="card-header">
-                    <span class="num">01</span>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Chapter 1 -->
+            <section id="ch1" class="chapter-card" data-aos="fade-up">
+                <div class="card-head">
+                    <span class="badge">Chapter 01</span>
                     <h2 data-key="ch1Title">مۆرفۆلۆژیای ڕوەک</h2>
                 </div>
                 <div class="card-body">
-                    <p>لێکۆڵینەوە لە شێوەی دەرەوەی ڕوەکەکان، لەوانە سیستەمی ڕەگ، قەد، و جۆرە جیاوازەکانی گەڵا.</p>
-                    <div class="media-box">
-                        <img src="https://images.unsplash.com/photo-1533038595782-1fd682523971?w=800" alt="Plant Morphology">
+                    <div class="text-block">
+                        <p>مۆرفۆلۆژیا لێکۆڵینەوەیە لە شێوە و پێکهاتەی دەرەوەی ڕوەک. لێرەدا باس لە جۆرەکانی ڕەگ، قەد، و گەڵا دەکەین.</p>
+                        <ul class="feat-list">
+                            <li><i class="fas fa-check-circle"></i> پێکهاتەی خانەیی گەڵا</li>
+                            <li><i class="fas fa-check-circle"></i> سیستەمی ڕەگی سەرەکی و لاوەکی</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1592150621744-aca64f48394a?w=800" alt="Plant">
                     </div>
                 </div>
             </section>
 
-            <section id="ch2" class="card" data-aos="fade-up">
-                <div class="card-header">
-                    <span class="num">02</span>
-                    <h2 data-key="ch2Title">فیسیۆلۆژیای خانە</h2>
+            <!-- Chapter 2 -->
+            <section id="ch2" class="chapter-card" data-aos="fade-up">
+                <div class="card-head">
+                    <span class="badge">Chapter 02</span>
+                    <h2 data-key="ch2Title">فیسیۆلۆژیا و وزە</h2>
                 </div>
-                <div class="info-grid">
-                    <div class="grid-item">
+                <div class="grid-container">
+                    <div class="grid-card">
                         <i class="fas fa-sun"></i>
                         <h3>Photosynthesis</h3>
-                        <p>چۆنیەتی بەرهەمهێنانی خۆراک لە ڕێگەی تیشکی خۆرەوە.</p>
+                        <p>چۆنیەتی گۆڕینی تیشکی خۆر بۆ وزەی کیمیایی لەناو کلۆرۆپلاستدا.</p>
                     </div>
-                    <div class="grid-item">
-                        <i class="fas fa-droplet"></i>
-                        <h3>Transpiration</h3>
-                        <p>بەهەڵمبوونی ئاو و پاراستنی پەستانی خانەکان.</p>
+                    <div class="grid-card">
+                        <i class="fas fa-tint"></i>
+                        <h3>Salinity Stress</h3>
+                        <p>کاریگەری خوێ و پەستانی ئۆسمۆزی لەسەر گەشەی ڕوەک.</p>
                     </div>
                 </div>
             </section>
 
-            <section id="ch3" class="card" data-aos="fade-up">
-                <div class="card-header">
-                    <span class="num">03</span>
-                    <h2 data-key="ch3Title">تاقیگە: Salinity Stress</h2>
+            <!-- Chapter 3 -->
+            <section id="ch3" class="chapter-card" data-aos="fade-up">
+                <div class="card-head">
+                    <span class="badge">Chapter 03</span>
+                    <h2 data-key="ch3Title">تاقیگەی کرداری</h2>
                 </div>
-                <div class="lab-content">
-                    <p>لێکۆڵینەوە لە کاریگەری خوێ (NaCl) لەسەر ڕێژەی کلۆرۆفیل و گەشەی گەڵاکان.</p>
-                    <div class="video-box">
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/D1Yj6H6I7lE" frameborder="0" allowfullscreen></iframe>
+                <div class="video-section">
+                    <p>بینەری تاقیکردنەوەی دەرکێشانی کلۆرۆفیل بە شێوازی زانستی بەرز:</p>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/D1Yj6H6I7lE" title="Plant Lab" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </section>
         </main>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <div class="footer-text">
+        <div class="footer-content">
             <h3>Atlas of Plant</h3>
             <p>گەشەپێدەری وێب: <span>ژیاو یوسف حسین</span></p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
         </div>
     </footer>
 

@@ -1,5 +1,5 @@
 // چالاککردنی مۆشنەکان
-AOS.init();
+AOS.init({ duration: 1000, once: true });
 
 // دوگمەی دارک مۆد
 const themeBtn = document.getElementById('themeToggle');
@@ -10,18 +10,19 @@ themeBtn.addEventListener('click', () => {
     icon.classList.toggle('fa-sun');
 });
 
-// سیستەمی وەرگێڕان
+// سیستەمی زمان
 const translations = {
-    ku: { ch1: "مۆرفۆلۆژیا", ch2: "فیسیۆلۆژیا", ch3: "تاقیگە", ch1Title: "مۆرفۆلۆژیای ڕوەک", dir: "rtl" },
-    en: { ch1: "Morphology", ch2: "Physiology", ch3: "Lab", ch1Title: "Plant Morphology", dir: "ltr" },
-    ar: { ch1: "المورفولوجيا", ch2: "الفسيولوجيا", ch3: "المختبر", ch1Title: "مورفولوجيا النبات", dir: "rtl" }
+    ku: { title: "ئەتڵەسی پێشکەوتووی ڕوەک", ch1: "مۆرفۆلۆژیا", ch2: "فیسیۆلۆژیا", ch3: "تاقیگە", dir: "rtl" },
+    en: { title: "Advanced Plant Atlas", ch1: "Morphology", ch2: "Physiology", ch3: "Laboratory", dir: "ltr" },
+    ar: { title: "أطلس النبات المتقدم", ch1: "المورفولوجيا", ch2: "الفسيولوجيا", ch3: "المختبر", dir: "rtl" }
 };
 
 function changeLanguage() {
     const lang = document.getElementById('langSwitcher').value;
     const data = translations[lang];
-    
     document.getElementById('mainHtml').dir = data.dir;
+    document.getElementById('mainTitle').innerText = data.title;
+    
     document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
         if(data[key]) el.innerText = data[key];
