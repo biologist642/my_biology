@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BioQuest Pro | ئەتڵەسی ڕوەک</title>
     <link rel="stylesheet" href="style.css">
-    <!-- کتێبخانەی مۆشن و فۆنتەکان -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body class="light-mode">
 
@@ -26,10 +26,14 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content" data-aos="zoom-out" data-aos-duration="1500">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-particles" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+            <span class="hero-badge">BioQuest Pro</span>
             <h1 id="mainTitle">ئەتڵەسی پێشکەوتووی زانستی ڕوەک</h1>
             <p id="mainSub">گەشتێک بۆ ناو جیهانی مۆرفۆلۆژیا، فیسیۆلۆژیا و تاقیگەی بایۆلۆجی</p>
             <a href="#ch1" class="explore-btn">دەستپێبکە <i class="fas fa-chevron-down"></i></a>
@@ -44,6 +48,8 @@
                 <li><a href="#ch1" class="side-link"><i class="fas fa-leaf"></i> <span data-key="ch1">مۆرفۆلۆژیا</span></a></li>
                 <li><a href="#ch2" class="side-link"><i class="fas fa-microscope"></i> <span data-key="ch2">فیسیۆلۆژیا</span></a></li>
                 <li><a href="#ch3" class="side-link"><i class="fas fa-flask-vial"></i> <span data-key="ch3">تاقیگە</span></a></li>
+                <li class="sidebar-divider"></li>
+                <li><a href="cell.html" class="side-link side-link--page"><i class="fas fa-dna"></i> <span data-key="cell">خانەناسی</span></a></li>
             </ul>
         </aside>
 
@@ -55,7 +61,7 @@
                     <span class="badge">Chapter 01</span>
                     <h2 data-key="ch1Title">مۆرفۆلۆژیای ڕوەک</h2>
                 </div>
-                <div class="card-body">
+                <div class="card-body ch1-layout">
                     <div class="text-block">
                         <p>مۆرفۆلۆژیا لێکۆڵینەوەیە لە شێوە و پێکهاتەی دەرەوەی ڕوەک. لێرەدا باس لە جۆرەکانی ڕەگ، قەد، و گەڵا دەکەین.</p>
                         <ul class="feat-list">
@@ -63,8 +69,26 @@
                             <li><i class="fas fa-check-circle"></i> سیستەمی ڕەگی سەرەکی و لاوەکی</li>
                         </ul>
                     </div>
-                    <div class="img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1592150621744-aca64f48394a?w=800" alt="Plant">
+                    <div class="media-showcase" id="ch1Media">
+                        <div class="media-toolbar">
+                            <span class="media-label"><i class="fas fa-image"></i> <span data-key="mediaLabel">وێنەی مۆرفۆلۆژیا</span></span>
+                            <button type="button" class="media-expand-btn" id="openLightbox" aria-label="View full image">
+                                <i class="fas fa-expand"></i>
+                                <span data-key="viewImage">بینینی گەورە</span>
+                            </button>
+                        </div>
+                        <button type="button" class="media-frame" id="ch1ImageTrigger" aria-label="Open image viewer">
+                            <img
+                                src="https://images.unsplash.com/photo-1592150621744-aca64f48394a?w=1200&q=80"
+                                data-full="https://images.unsplash.com/photo-1592150621744-aca64f48394a?w=1920&q=90"
+                                alt="Plant morphology"
+                                id="ch1PreviewImg">
+                            <span class="media-zoom-hint">
+                                <i class="fas fa-search-plus"></i>
+                                <span data-key="clickZoom">کلیک بکە بۆ گەورەکردن</span>
+                            </span>
+                        </button>
+                        <p class="media-caption" data-key="imageCaption">نموونەی گەڵا و پێکهاتەی ڕەگی ڕوەک لە ژێر میکرۆسکۆپ</p>
                     </div>
                 </div>
             </section>
@@ -116,6 +140,22 @@
             </div>
         </div>
     </footer>
+
+    <div class="image-lightbox" id="imageLightbox" aria-hidden="true" role="dialog" aria-modal="true" hidden>
+        <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+        <div class="lightbox-panel">
+            <div class="lightbox-header">
+                <span class="lightbox-title" data-key="lightboxTitle">مۆرفۆلۆژیای ڕوەک</span>
+                <button type="button" class="lightbox-close" id="closeLightbox" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lightbox-body">
+                <img src="" alt="" id="lightboxImg">
+            </div>
+            <p class="lightbox-caption" data-key="imageCaption">نموونەی گەڵا و پێکهاتەی ڕەگی ڕوەک لە ژێر میکرۆسکۆپ</p>
+        </div>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
