@@ -1,207 +1,503 @@
+
+
+Plant home · HTML
 <!DOCTYPE html>
-<html lang="ku" dir="rtl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Plant</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body, html {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            background-color: #fcfbf7; /* پاشبنەمایەکی نەرم و گونجاو لەجیاتی سپی کەم کەم */
-            overflow: hidden;
-        }
-
-        /* کۆنتێنەری سەرەکی کورتکراوەتەوە بۆ ئەو شوێنەی خەتت لێداوە */
-        .hero-section {
-            width: 100%;
-            height: 65vh; /* کورتکراوەتەوە بەپێی هێڵە ڕەشەکە */
-            position: relative;
-            display: flex;
-            background-color: #f4f6f4; /* ڕەنگێکی جیاواز لە سپی */
-            overflow: hidden;
-            border-bottom: 2px solid rgba(0,0,0,0.05);
-        }
-
-        /* بەشی لای ڕاست (تێکست و زانیارییەکان) */
-        .content-side {
-            flex: 1.2;
-            padding-right: 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            z-index: 2;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            color: #1a252f;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        .text-section {
-            max-width: 550px;
-        }
-
-        .main-heading {
-            font-size: clamp(30px, 3.5vw, 48px);
-            color: #1a252f;
-            line-height: 1.3;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        .sub-text {
-            font-size: 16px;
-            color: #556263;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-
-        .cta-btn {
-            display: inline-block;
-            background-color: #00b4d8;
-            color: white;
-            text-decoration: none;
-            padding: 12px 40px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-        }
-
-        .cta-btn:hover {
-            background-color: #0096c7;
-            transform: translateY(-2px);
-        }
-
-        /* بەشی لای چەپ (شێوە سەوزەکە و گەڵاکە) */
-        .image-side {
-            flex: 1;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* شێوە سەوزەکە کە ئێستا بە تەواوی دیارە و ون نابێت */
-        .green-shape {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 85%;
-            height: 100%;
-            background-color: #52b788;
-            border-bottom-right-radius: 350px;
-            z-index: 1;
-        }
-
-        /* گەڵا گەورە مۆیشندارەکە لە شوێنی ئیمەیجە شینەکە */
-        .leaf-container {
-            position: absolute;
-            z-index: 2;
-            width: 65%;
-            max-width: 380px;
-            left: 10%;
-            transform-origin: bottom center;
-            animation: windSway 6s ease-in-out infinite alternate;
-        }
-
-        .main-leaf-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            filter: drop-shadow(10px 15px 25px rgba(0,0,0,0.15));
-        }
-
-        /* شێوە زەردەکەی خوارەوە کە داوات کردبوو */
-        .yellow-shape-bottom {
-            position: absolute;
-            bottom: -30px;
-            right: -30px;
-            width: 180px;
-            height: 180px;
-            background-color: #ffca3a;
-            border-radius: 50%;
-            z-index: 1;
-            opacity: 0.85;
-        }
-
-        /* ──── ئەنیمەیشنی مۆوشنی گەڵا ──── */
-        @keyframes windSway {
-            0% { transform: rotate(-3deg) translateY(0px); }
-            50% { transform: rotate(3deg) translateY(-5px); }
-            100% { transform: rotate(-1deg) translateY(2px); }
-        }
-
-        /* گونجاندن بۆ مۆبایل */
-        @media (max-width: 992px) {
-            .hero-section {
-                height: auto;
-                min-height: 100vh;
-                flex-direction: column;
-            }
-            .content-side {
-                padding: 40px 20px;
-                order: 2;
-                align-items: center;
-                text-align: center;
-            }
-            .image-side {
-                height: 40vh;
-                order: 1;
-                width: 100%;
-            }
-            .green-shape {
-                width: 100%;
-                border-bottom-right-radius: 150px;
-            }
-            .leaf-container {
-                width: 45%;
-                left: auto;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plant Home – Take Care of Your Plants</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  :root {
+    --green-dark:   #2D5016;
+    --green-mid:    #4A7C2F;
+    --green-cta:    #3D9A3E;
+    --green-light:  #C8E6B0;
+    --green-pale:   #E8F5E1;
+    --cream:        #F7F5F0;
+    --mint-bg:      #D6EDD0;
+    --text-dark:    #1A1A1A;
+    --text-muted:   #6B7A5E;
+    --white:        #FFFFFF;
+    --radius-blob:  60% 40% 55% 45% / 50% 60% 40% 50%;
+  }
+ 
+  html { scroll-behavior: smooth; }
+ 
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+ 
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5%;
+    background: rgba(247,245,240,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    animation: slideDown .6s ease both;
+  }
+ 
+  .logo {
+    display: flex; align-items: center; gap: .45rem;
+    font-family: 'Inter', sans-serif;
+    font-size: .95rem; font-weight: 500;
+    color: var(--text-dark); text-decoration: none;
+  }
+  .logo svg { width: 18px; height: 18px; }
+ 
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a {
+    font-size: .875rem; font-weight: 400; color: var(--text-muted);
+    text-decoration: none; letter-spacing: .02em;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--green-dark); }
+ 
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+  .nav-toggle span {
+    display: block; width: 22px; height: 2px;
+    background: var(--text-dark); margin: 5px 0;
+    transition: all .3s;
+  }
+ 
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 6rem 5% 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  /* Decorative blob bg */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -10%; right: -5%;
+    width: 55%; height: 100%;
+    background: var(--mint-bg);
+    border-radius: var(--radius-blob);
+    animation: morphBlob 12s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+ 
+  /* Small accent circle */
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 8%; left: 22%;
+    width: 80px; height: 80px;
+    background: var(--green-light);
+    border-radius: 50%;
+    opacity: .6;
+    animation: float 5s ease-in-out infinite;
+    z-index: 0;
+  }
+ 
+  .hero-text { position: relative; z-index: 1; }
+ 
+  .eyebrow {
+    display: inline-block;
+    font-size: .72rem; font-weight: 600;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: var(--green-mid);
+    margin-bottom: 1.2rem;
+    opacity: 0;
+    animation: fadeUp .7s .3s ease forwards;
+  }
+ 
+  .hero-text h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.6rem, 5.5vw, 4.5rem);
+    line-height: 1.08;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp .7s .5s ease forwards;
+  }
+ 
+  .hero-text h1 em {
+    font-style: italic;
+    color: var(--green-mid);
+  }
+ 
+  .divider-line {
+    width: 2px; height: 100%;
+    background: var(--green-cta);
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+ 
+  .hero-desc {
+    display: flex;
+    gap: 1rem;
+    font-size: .875rem; line-height: 1.75;
+    color: var(--text-muted);
+    max-width: 340px;
+    margin-bottom: 2.4rem;
+    opacity: 0;
+    animation: fadeUp .7s .7s ease forwards;
+  }
+ 
+  .cta-group {
+    display: flex; align-items: center; gap: 1.8rem;
+    opacity: 0;
+    animation: fadeUp .7s .9s ease forwards;
+  }
+ 
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .9rem 2rem;
+    background: var(--green-cta);
+    color: var(--white);
+    font-size: .875rem; font-weight: 600;
+    border-radius: 100px;
+    text-decoration: none;
+    border: none; cursor: pointer;
+    transition: background .25s, transform .2s, box-shadow .25s;
+    box-shadow: 0 4px 18px rgba(61,154,62,.35);
+  }
+  .btn-primary:hover {
+    background: var(--green-mid);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(61,154,62,.45);
+  }
+ 
+  .btn-ghost {
+    font-size: .875rem; color: var(--text-muted);
+    text-decoration: none; font-weight: 500;
+    display: flex; align-items: center; gap: .4rem;
+    transition: color .2s;
+  }
+  .btn-ghost:hover { color: var(--green-dark); }
+  .btn-ghost svg { transition: transform .2s; }
+  .btn-ghost:hover svg { transform: translateX(3px); }
+ 
+  /* ── HERO IMAGE ── */
+  .hero-visual {
+    position: relative; z-index: 1;
+    display: flex; justify-content: center; align-items: center;
+  }
+ 
+  .plant-frame {
+    position: relative;
+    width: clamp(260px, 40vw, 480px);
+    height: clamp(320px, 50vw, 560px);
+    opacity: 0;
+    animation: fadeIn .9s .6s ease forwards;
+  }
+ 
+  /* Big plant img */
+  .plant-main {
+    position: absolute; top: 0; right: 0;
+    width: 90%; height: 90%;
+    object-fit: cover;
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+    filter: drop-shadow(0 20px 40px rgba(45,80,22,.25));
+    animation: float 6s ease-in-out infinite;
+  }
+ 
+  /* Small plant bottom-left */
+  .plant-secondary {
+    position: absolute; bottom: 0; left: 0;
+    width: 42%;
+    object-fit: cover;
+    border-radius: 50%;
+    filter: drop-shadow(0 12px 24px rgba(45,80,22,.2));
+    animation: float 7s 1s ease-in-out infinite;
+  }
+ 
+  /* Stat pill */
+  .stat-pill {
+    position: absolute; top: 15%; left: -8%;
+    background: var(--white);
+    border-radius: 100px;
+    padding: .6rem 1rem;
+    display: flex; align-items: center; gap: .6rem;
+    box-shadow: 0 6px 24px rgba(0,0,0,.09);
+    font-size: .75rem;
+    animation: fadeIn .7s 1.2s ease both, floatPill 5s 1.5s ease-in-out infinite;
+  }
+  .stat-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-cta); }
+  .stat-pill strong { font-weight: 600; color: var(--text-dark); }
+  .stat-pill span { color: var(--text-muted); }
+ 
+  /* ── STRIP BELOW HERO ── */
+  .features {
+    display: flex; gap: 2.5rem;
+    padding: 3.5rem 5%;
+    border-top: 1px solid var(--green-light);
+    position: relative; z-index: 1;
+    flex-wrap: wrap;
+  }
+ 
+  .feature-item {
+    flex: 1; min-width: 180px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .5s, transform .5s;
+  }
+  .feature-item.visible { opacity: 1; transform: translateY(0); }
+ 
+  .feature-icon {
+    width: 40px; height: 40px;
+    background: var(--green-pale);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: .8rem;
+  }
+  .feature-icon svg { width: 20px; height: 20px; }
+ 
+  .feature-item h3 {
+    font-size: .925rem; font-weight: 600;
+    margin-bottom: .35rem; color: var(--text-dark);
+  }
+  .feature-item p {
+    font-size: .8rem; line-height: 1.65; color: var(--text-muted);
+  }
+ 
+  /* ── KEYFRAMES ── */
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-12px); }
+  }
+  @keyframes floatPill {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+  }
+  @keyframes morphBlob {
+    0%   { border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; }
+    33%  { border-radius: 50% 50% 40% 60% / 60% 40% 55% 45%; }
+    66%  { border-radius: 45% 55% 60% 40% / 45% 55% 50% 50%; }
+    100% { border-radius: 55% 45% 45% 55% / 55% 45% 60% 40%; }
+  }
+ 
+  /* ── REDUCED MOTION ── */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  }
+ 
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      text-align: center;
+      gap: 2.5rem;
+    }
+    .hero::before { width: 75%; height: 55%; top: auto; bottom: 0; right: 50%; transform: translateX(50%); }
+    .hero::after  { display: none; }
+ 
+    .hero-desc { max-width: 100%; justify-content: center; }
+    .cta-group { justify-content: center; }
+    .hero-visual { order: -1; }
+    .plant-frame { width: clamp(220px, 70vw, 380px); height: clamp(260px, 80vw, 440px); }
+    .stat-pill { left: 50%; transform: translateX(-50%); }
+  }
+ 
+  @media (max-width: 580px) {
+    nav { padding: 1rem 4%; }
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 1rem 4%; gap: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,.07); }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: block; }
+ 
+    .hero { padding: 5rem 4% 2.5rem; gap: 2rem; }
+    .features { gap: 1.5rem; }
+  }
+</style>
 </head>
 <body>
-
-    <div class="hero-section">
-        
-        <div class="image-side">
-            <div class="green-shape"></div>
-            
-            <div class="leaf-container">
-                <img class="main-leaf-img" src="https://i.ibb.co/9v8X8v6/monstera-leaf.png" alt="Monstera Leaf">
-            </div>
-        </div>
-
-        <div class="content-side">
-            <div class="logo">NOVAPLANT</div>
-            
-            <div class="text-section">
-                <h1 class="main-heading">ئەتڵەسی پێشکەوتووی زانستی ڕووەک</h1>
-                <p class="sub-text">
-                    گەشتێک بۆ ناو جیهانی پێکهاتە، شێوە و کارلێک و زانستی ڕووەکی.
-                </p>
-                <a href="#" class="cta-btn">دەستپێبکە</a>
-            </div>
-        </div>
-
-        <div class="yellow-shape-bottom"></div>
-        
+ 
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22V12M12 12C12 7 7 4 2 6c0 5 3 9 10 6M12 12c0-5 5-8 10-6-1 5-4 9-10 6"/>
+    </svg>
+    plant<strong>·home</strong>
+  </a>
+ 
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Pricing</a></li>
+  </ul>
+ 
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+ 
+<!-- HERO -->
+<section class="hero">
+ 
+  <div class="hero-text">
+    <span class="eyebrow">Indoor Plant Care</span>
+    <h1>Take care of<br>your <em>plants.</em></h1>
+    <div class="hero-desc">
+      <div class="divider-line"></div>
+      <p>Discover the best tips for caring for your indoor plants. Moisture, light, temperature… Choose the plant that best suits your home.</p>
     </div>
-
+    <div class="cta-group">
+      <a class="btn-primary" href="#">
+        Free Trial
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn-ghost" href="#">
+        Learn more
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+ 
+  <div class="hero-visual">
+    <div class="plant-frame">
+ 
+      <!-- Using SVG placeholders that mimic the lush plant look -->
+      <svg class="plant-main" viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bg1" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stop-color="#C8E6B0"/>
+            <stop offset="100%" stop-color="#A8D490"/>
+          </radialGradient>
+          <radialGradient id="leaf1" cx="30%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#5EA832"/>
+            <stop offset="100%" stop-color="#2D5016"/>
+          </radialGradient>
+          <radialGradient id="leaf2" cx="40%" cy="20%" r="70%">
+            <stop offset="0%" stop-color="#4A8C28"/>
+            <stop offset="100%" stop-color="#1E3A0D"/>
+          </radialGradient>
+        </defs>
+        <ellipse cx="200" cy="230" rx="190" ry="220" fill="url(#bg1)"/>
+        <!-- Main large leaf -->
+        <path d="M200 380 Q80 320 60 180 Q50 80 200 40 Q240 100 260 200 Q280 300 200 380Z" fill="url(#leaf1)"/>
+        <!-- Leaf vein -->
+        <path d="M200 380 Q200 240 200 40" stroke="#2D5016" stroke-width="2" fill="none" opacity=".4"/>
+        <path d="M200 200 Q140 160 90 120" stroke="#2D5016" stroke-width="1.5" fill="none" opacity=".3"/>
+        <path d="M200 260 Q150 230 110 200" stroke="#2D5016" stroke-width="1.5" fill="none" opacity=".3"/>
+        <path d="M200 160 Q250 130 290 100" stroke="#2D5016" stroke-width="1.5" fill="none" opacity=".3"/>
+        <!-- Second leaf -->
+        <path d="M200 370 Q310 300 340 170 Q360 80 220 60 Q180 130 180 230 Q180 310 200 370Z" fill="url(#leaf2)" opacity=".9"/>
+        <path d="M200 370 Q200 240 220 60" stroke="#1E3A0D" stroke-width="2" fill="none" opacity=".35"/>
+        <!-- Third smaller leaf left -->
+        <path d="M170 360 Q90 300 70 220 Q60 150 140 130 Q170 180 175 270 Q178 320 170 360Z" fill="#4A7C2F" opacity=".75"/>
+      </svg>
+ 
+      <!-- Small plant bottom-left -->
+      <svg class="plant-secondary" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bg2" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stop-color="#D6EDD0"/>
+            <stop offset="100%" stop-color="#B8D8A0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="100" cy="100" r="95" fill="url(#bg2)"/>
+        <!-- Pot -->
+        <path d="M70 160 Q100 180 130 160 L125 145 Q100 155 75 145Z" fill="#8B6914"/>
+        <rect x="72" y="138" width="56" height="10" rx="4" fill="#A07820"/>
+        <!-- Stem -->
+        <line x1="100" y1="138" x2="100" y2="90" stroke="#4A7C2F" stroke-width="3"/>
+        <!-- Leaves -->
+        <path d="M100 110 Q60 80 50 50 Q80 45 100 90Z" fill="#5EA832"/>
+        <path d="M100 95 Q140 65 150 35 Q120 32 100 88Z" fill="#3D7A20"/>
+        <path d="M100 125 Q65 120 45 100 Q55 85 100 118Z" fill="#4A7C2F"/>
+        <path d="M100 120 Q135 112 155 92 Q148 78 100 116Z" fill="#3D7A20"/>
+      </svg>
+ 
+      <!-- Stat pill -->
+      <div class="stat-pill">
+        <div class="dot"></div>
+        <strong>1,200+</strong>
+        <span>plants catalogued</span>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- FEATURE STRIP -->
+<section class="features" id="features">
+  <div class="feature-item">
+    <div class="feature-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#4A7C2F" stroke-width="2" stroke-linecap="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+    </div>
+    <h3>Watering Guide</h3>
+    <p>Personalised schedules based on your plant species and local climate.</p>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#4A7C2F" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+      </svg>
+    </div>
+    <h3>Light Tracker</h3>
+    <p>Know exactly how much sun each corner of your home receives daily.</p>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#4A7C2F" stroke-width="2" stroke-linecap="round">
+        <path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3H14z"/>
+        <path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/>
+      </svg>
+    </div>
+    <h3>Plant Matcher</h3>
+    <p>Find the species that fits your space, lifestyle, and experience level.</p>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#4A7C2F" stroke-width="2" stroke-linecap="round">
+        <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
+        <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+      </svg>
+    </div>
+    <h3>Care Reminders</h3>
+    <p>Never forget to repot or fertilise with gentle, timely nudges.</p>
+  </div>
+</section>
+ 
+<script>
+  // Mobile nav toggle
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+ 
+  // Scroll-triggered feature reveal
+  const items = document.querySelectorAll('.feature-item');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 120);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  items.forEach(el => io.observe(el));
+</script>
 </body>
 </html>
