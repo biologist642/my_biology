@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaPlant | ئەتڵەسی زانستی پێشکەوتوو</title>
+    <title>NovaPlant</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,7 +25,7 @@
   html { scroll-behavior: smooth; }
  
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Noto Kufi Arabic', 'Poppins', sans-serif;
     background: var(--cream);
     color: var(--text-dark);
     overflow-x: hidden;
@@ -44,20 +44,74 @@
  
   .logo {
     display: flex; align-items: center; gap: .45rem;
-    font-family: 'Inter', sans-serif;
-    font-size: .95rem; font-weight: 500;
+    font-size: .95rem; font-weight: 700;
     color: var(--text-dark); text-decoration: none;
   }
   .logo svg { width: 18px; height: 18px; }
  
+  .nav-center { display: flex; align-items: center; gap: 2rem; }
+
   .nav-links { display: flex; gap: 2.2rem; list-style: none; }
   .nav-links a {
-    font-size: .875rem; font-weight: 400; color: var(--text-muted);
+    font-size: .875rem; font-weight: 600; color: var(--text-muted);
     text-decoration: none; letter-spacing: .02em;
     transition: color .2s;
   }
   .nav-links a:hover { color: var(--green-dark); }
  
+  /* Language Selector Button */
+  .lang-selector {
+    position: relative;
+    display: inline-block;
+  }
+  .lang-btn {
+    background: var(--white);
+    color: var(--text-dark);
+    border: 1px solid var(--green-light);
+    padding: .5rem 1rem;
+    font-size: .85rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
+    transition: all .2s;
+  }
+  .lang-btn:hover {
+    background: var(--green-pale);
+    border-color: var(--green-mid);
+  }
+  .lang-dropdown {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background: var(--white);
+    min-width: 120px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.1);
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 101;
+    border: 1px solid rgba(0,0,0,.05);
+  }
+  .lang-dropdown.show { display: block; }
+  .lang-dropdown button {
+    width: 100%;
+    padding: .6rem 1rem;
+    background: none;
+    border: none;
+    text-align: right;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: background .2s;
+  }
+  html[dir="ltr"] .lang-dropdown button { text-align: left; }
+  .lang-dropdown button:hover { background: var(--green-pale); color: var(--green-dark); }
+
   .nav-toggle { display: none; background: none; border: none; cursor: pointer; }
   .nav-toggle span {
     display: block; width: 22px; height: 2px;
@@ -71,9 +125,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    padding: 6rem 5% 3rem;
+    padding: 7rem 5% 3rem;
     position: relative;
     overflow: hidden;
+    gap: 2rem;
   }
  
   /* Decorative blob bg */
@@ -87,6 +142,7 @@
     animation: morphBlob 12s ease-in-out infinite alternate;
     z-index: 0;
   }
+  html[dir="ltr"] .hero::before { right: auto; left: -5%; }
  
   /* Small accent circle */
   .hero::after {
@@ -105,8 +161,7 @@
  
   .eyebrow {
     display: inline-block;
-    font-size: .72rem; font-weight: 600;
-    letter-spacing: .18em; text-transform: uppercase;
+    font-size: .8rem; font-weight: 700;
     color: var(--green-mid);
     margin-bottom: 1.2rem;
     opacity: 0;
@@ -114,9 +169,8 @@
   }
  
   .hero-text h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2.6rem, 5.5vw, 4.5rem);
-    line-height: 1.08;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.2;
     color: var(--text-dark);
     margin-bottom: 1.5rem;
     opacity: 0;
@@ -128,22 +182,20 @@
     color: var(--green-mid);
   }
  
-  .divider-line {
-    width: 2px; height: 100%;
-    background: var(--green-cta);
-    margin-right: 1rem;
-    flex-shrink: 0;
-  }
- 
   .hero-desc {
     display: flex;
     gap: 1rem;
-    font-size: .875rem; line-height: 1.75;
+    font-size: .9rem; line-height: 1.8;
     color: var(--text-muted);
-    max-width: 340px;
+    max-width: 450px;
     margin-bottom: 2.4rem;
     opacity: 0;
     animation: fadeUp .7s .7s ease forwards;
+  }
+
+  .divider-line {
+    width: 3px; background: var(--green-cta);
+    flex-shrink: 0;
   }
  
   .cta-group {
@@ -169,16 +221,15 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(61,154,62,.45);
   }
+  html[dir="ltr"] .btn-primary svg, html[dir="ltr"] .btn-ghost svg { transform: scaleX(-1); }
  
   .btn-ghost {
     font-size: .875rem; color: var(--text-muted);
-    text-decoration: none; font-weight: 500;
+    text-decoration: none; font-weight: 600;
     display: flex; align-items: center; gap: .4rem;
     transition: color .2s;
   }
   .btn-ghost:hover { color: var(--green-dark); }
-  .btn-ghost svg { transition: transform .2s; }
-  .btn-ghost:hover svg { transform: translateX(3px); }
  
   /* ── HERO IMAGE ── */
   .hero-visual {
@@ -188,13 +239,12 @@
  
   .plant-frame {
     position: relative;
-    width: clamp(260px, 40vw, 480px);
-    height: clamp(320px, 50vw, 560px);
+    width: clamp(260px, 35vw, 440px);
+    height: clamp(320px, 45vw, 520px);
     opacity: 0;
     animation: fadeIn .9s .6s ease forwards;
   }
  
-  /* Big plant img */
   .plant-main {
     position: absolute; top: 0; right: 0;
     width: 90%; height: 90%;
@@ -203,8 +253,8 @@
     filter: drop-shadow(0 20px 40px rgba(45,80,22,.25));
     animation: float 6s ease-in-out infinite;
   }
+  html[dir="ltr"] .plant-main { right: auto; left: 0; }
  
-  /* Small plant bottom-left */
   .plant-secondary {
     position: absolute; bottom: 0; left: 0;
     width: 42%;
@@ -213,8 +263,8 @@
     filter: drop-shadow(0 12px 24px rgba(45,80,22,.2));
     animation: float 7s 1s ease-in-out infinite;
   }
+  html[dir="ltr"] .plant-secondary { left: auto; right: 0; }
  
-  /* Stat pill */
   .stat-pill {
     position: absolute; top: 15%; left: -8%;
     background: var(--white);
@@ -225,8 +275,9 @@
     font-size: .75rem;
     animation: fadeIn .7s 1.2s ease both, floatPill 5s 1.5s ease-in-out infinite;
   }
+  html[dir="ltr"] .stat-pill { left: auto; right: -8%; }
   .stat-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-cta); }
-  .stat-pill strong { font-weight: 600; color: var(--text-dark); }
+  .stat-pill strong { font-weight: 700; color: var(--text-dark); }
   .stat-pill span { color: var(--text-muted); }
  
   /* ── KEYFRAMES ── */
@@ -238,17 +289,9 @@
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  @keyframes fadeIn {
-    from { opacity: 0; } to { opacity: 1; }
-  }
-  @keyframes float {
-    0%,100% { transform: translateY(0); }
-    50%      { transform: translateY(-12px); }
-  }
-  @keyframes floatPill {
-    0%,100% { transform: translateY(0); }
-    50%      { transform: translateY(-6px); }
-  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  @keyframes floatPill { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
   @keyframes morphBlob {
     0%   { border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; }
     33%  { border-radius: 50% 50% 40% 60% / 60% 40% 55% 45%; }
@@ -256,78 +299,100 @@
     100% { border-radius: 55% 45% 45% 55% / 55% 45% 60% 40%; }
   }
  
-  /* ── REDUCED MOTION ── */
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  /* ── RESPONSIVE (Tablets & Mobiles) ── */
+  @media (max-width: 1024px) {
+    .hero { padding-top: 8rem; gap: 1.5rem; }
+    .hero-text h1 { font-size: 2.5rem; }
   }
- 
-  /* ── RESPONSIVE ── */
+
   @media (max-width: 900px) {
     .hero {
       grid-template-columns: 1fr;
-      grid-template-rows: auto auto;
       text-align: center;
-      gap: 2.5rem;
+      padding-top: 8rem;
     }
-    .hero::before { width: 75%; height: 55%; top: auto; bottom: 0; right: 50%; transform: translateX(50%); }
+    .hero::before { width: 80%; height: 60%; top: auto; bottom: 0; right: 50%; transform: translateX(50%); }
+    html[dir="ltr"] .hero::before { left: 50%; transform: translateX(-50%); }
     .hero::after  { display: none; }
  
-    .hero-desc { max-width: 100%; justify-content: center; }
+    .hero-desc { max-width: 100%; justify-content: center; text-align: center; }
     .cta-group { justify-content: center; }
-    .hero-visual { order: -1; }
-    .plant-frame { width: clamp(220px, 70vw, 380px); height: clamp(260px, 80vw, 440px); }
+    .hero-visual { order: -1; margin-bottom: 1rem; }
+    .plant-frame { width: 340px; height: 400px; }
     .stat-pill { left: 50%; transform: translateX(-50%); }
+    html[dir="ltr"] .stat-pill { right: auto; left: 50%; transform: translateX(-50%); }
   }
  
   @media (max-width: 580px) {
-    nav { padding: 1rem 4%; }
-    .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); padding: 1rem 4%; gap: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,.07); }
+    nav { padding: 1rem 5%; }
+    .nav-links { 
+      display: none; 
+      flex-direction: column; 
+      position: absolute; 
+      top: 100%; left: 0; right: 0; 
+      background: var(--cream); 
+      padding: 1.5rem 5%; 
+      gap: 1.2rem; 
+      box-shadow: 0 8px 20px rgba(0,0,0,.07); 
+      text-align: center;
+    }
     .nav-links.open { display: flex; }
     .nav-toggle { display: block; }
  
-    .hero { padding: 5rem 4% 2.5rem; gap: 2rem; }
+    .hero { padding: 6rem 4% 3rem; }
+    .plant-frame { width: 260px; height: 320px; }
   }
 </style>
 </head>
 <body>
  
-<!-- NAV -->
 <nav>
   <a class="logo" href="#">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M12 22V12M12 12C12 7 7 4 2 6c0 5 3 9 10 6M12 12c0-5 5-8 10-6-1 5-4 9-10 6"/>
     </svg>
-    plant<strong>·home</strong>
+    <span>plant<strong>·home</strong></span>
   </a>
  
-  <ul class="nav-links" id="nav-links">
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Pricing</a></li>
-  </ul>
- 
-  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-center">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#" id="link-about">دەربارەمان</a></li>
+      <li><a href="#" id="link-services">خزمەتگوزارییەکان</a></li>
+      <li><a href="#" id="link-pricing">نرخەکان</a></li>
+    </ul>
+   
+    <div class="lang-selector">
+      <button class="lang-btn" onclick="toggleLangDropdown()">
+        🌐 <span id="current-lang">کوردی</span>
+      </button>
+      <div class="lang-dropdown" id="lang-dropdown">
+        <button onclick="changeLanguage('ku')">کوردی</button>
+        <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('ar')">العربية</button>
+      </div>
+    </div>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
  
-<!-- HERO -->
 <section class="hero">
- 
   <div class="hero-text">
-    <span class="eyebrow">Indoor Plant Care</span>
-    <h1>Take care of<br>your <em>plants.</em></h1>
+    <span class="eyebrow" id="hero-eyebrow">خزمەتکردنی ڕووەکی ناوماڵ</span>
+    <h1 id="hero-title">ئاگاداری <em>ڕووەکەکانت</em> بە.</h1>
     <div class="hero-desc">
       <div class="divider-line"></div>
-      <p>Discover the best tips for caring for your indoor plants. Moisture, light, temperature… Choose the plant that best suits your home.</p>
+      <p id="hero-desc-txt">باشترین ڕێنمایی بۆ چاودێریکردنی ڕووەکەکانت؛ ئاو، ڕووناکی و پلەی گەرمی گونجاو بدۆزەرەوە.</p>
     </div>
     <div class="cta-group">
-      <a class="btn-primary" href="#">
-        Free Trial
+      <a class="btn-primary" href="#" id="btn-free">
+        <span id="btn-free-txt">تاقیکردنەوەی بێبەرامبەر</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a class="btn-ghost" href="#">
-        Learn more
+      <a class="btn-ghost" href="#" id="btn-more">
+        <span id="btn-more-txt">زیاتر بزانە</span>
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -335,66 +400,48 @@
  
   <div class="hero-visual">
     <div class="plant-frame">
- 
-      <!-- Using SVG placeholders that mimic the lush plant look -->
       <svg class="plant-main" viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="bg1" cx="50%" cy="50%" r="60%">
-            <stop offset="0%" stop-color="#C8E6B0"/>
-            <stop offset="100%" stop-color="#A8D490"/>
+            <stop offset="0%" stop-color="#C8E6B0"/><stop offset="100%" stop-color="#A8D490"/>
           </radialGradient>
           <radialGradient id="leaf1" cx="30%" cy="30%" r="70%">
-            <stop offset="0%" stop-color="#5EA832"/>
-            <stop offset="100%" stop-color="#2D5016"/>
+            <stop offset="0%" stop-color="#5EA832"/><stop offset="100%" stop-color="#2D5016"/>
           </radialGradient>
           <radialGradient id="leaf2" cx="40%" cy="20%" r="70%">
-            <stop offset="0%" stop-color="#4A8C28"/>
-            <stop offset="100%" stop-color="#1E3A0D"/>
+            <stop offset="0%" stop-color="#4A8C28"/><stop offset="100%" stop-color="#1E3A0D"/>
           </radialGradient>
         </defs>
         <ellipse cx="200" cy="230" rx="190" ry="220" fill="url(#bg1)"/>
-        <!-- Main large leaf -->
         <path d="M200 380 Q80 320 60 180 Q50 80 200 40 Q240 100 260 200 Q280 300 200 380Z" fill="url(#leaf1)"/>
-        <!-- Leaf vein -->
         <path d="M200 380 Q200 240 200 40" stroke="#2D5016" stroke-width="2" fill="none" opacity=".4"/>
         <path d="M200 200 Q140 160 90 120" stroke="#2D5016" stroke-width="1.5" fill="none" opacity=".3"/>
         <path d="M200 260 Q150 230 110 200" stroke="#2D5016" stroke-width="1.5" fill="none" opacity=".3"/>
         <path d="M200 160 Q250 130 290 100" stroke="#2D5016" stroke-width="1.5" fill="none" opacity=".3"/>
-        <!-- Second leaf -->
         <path d="M200 370 Q310 300 340 170 Q360 80 220 60 Q180 130 180 230 Q180 310 200 370Z" fill="url(#leaf2)" opacity=".9"/>
         <path d="M200 370 Q200 240 220 60" stroke="#1E3A0D" stroke-width="2" fill="none" opacity=".35"/>
-        <!-- Third smaller leaf left -->
         <path d="M170 360 Q90 300 70 220 Q60 150 140 130 Q170 180 175 270 Q178 320 170 360Z" fill="#4A7C2F" opacity=".75"/>
       </svg>
  
-      <!-- Small plant bottom-left -->
       <svg class="plant-secondary" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <radialGradient id="bg2" cx="50%" cy="50%" r="60%">
-            <stop offset="0%" stop-color="#D6EDD0"/>
-            <stop offset="100%" stop-color="#B8D8A0"/>
-          </radialGradient>
+          <radialGradient id="bg2" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#D6EDD0"/><stop offset="100%" stop-color="#B8D8A0"/></radialGradient>
         </defs>
         <circle cx="100" cy="100" r="95" fill="url(#bg2)"/>
-        <!-- Pot -->
         <path d="M70 160 Q100 180 130 160 L125 145 Q100 155 75 145Z" fill="#8B6914"/>
         <rect x="72" y="138" width="56" height="10" rx="4" fill="#A07820"/>
-        <!-- Stem -->
         <line x1="100" y1="138" x2="100" y2="90" stroke="#4A7C2F" stroke-width="3"/>
-        <!-- Leaves -->
         <path d="M100 110 Q60 80 50 50 Q80 45 100 90Z" fill="#5EA832"/>
         <path d="M100 95 Q140 65 150 35 Q120 32 100 88Z" fill="#3D7A20"/>
         <path d="M100 125 Q65 120 45 100 Q55 85 100 118Z" fill="#4A7C2F"/>
         <path d="M100 120 Q135 112 155 92 Q148 78 100 116Z" fill="#3D7A20"/>
       </svg>
  
-      <!-- Stat pill -->
       <div class="stat-pill">
         <div class="dot"></div>
         <strong>1,200+</strong>
-        <span>plants catalogued</span>
+        <span id="stat-txt">ڕووەک پۆلێنکراون</span>
       </div>
- 
     </div>
   </div>
 </section>
@@ -404,6 +451,72 @@
   const toggle = document.getElementById('nav-toggle');
   const links  = document.getElementById('nav-links');
   toggle.addEventListener('click', () => links.classList.toggle('open'));
+
+  // Language Dropdown Toggle
+  function toggleLangDropdown() {
+    document.getElementById('lang-dropdown').classList.toggle('show');
+  }
+
+  // Close dropdown when clicking outside
+  window.onclick = function(event) {
+    if (!event.target.matches('.lang-btn') && !event.target.parentElement?.matches('.lang-btn')) {
+      var dropdowns = document.getElementsByClassName("lang-dropdown");
+      for (var i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
+  // Multi-language Data
+  const translations = {
+    ku: {
+      dir: 'rtl', langName: 'کوردی',
+      about: 'دەربارەمان', services: 'خزمەتگوزارییەکان', pricing: 'نرخەکان',
+      eyebrow: 'خزمەتکردنی ڕووەکی ناوماڵ', title: 'ئاگاداری <em>ڕووەکەکانت</em> بە.',
+      desc: 'باشترین ڕێنمایی بۆ چاودێریکردنی ڕووەکەکانت؛ ئاو، ڕووناکی و پلەی گەرمی گونجاو بدۆزەرەوە.',
+      free: 'تاقیکردنەوەی بێبەرامبەر', more: 'زیاتر بزانە', stat: 'ڕووەک پۆلێنکراون'
+    },
+    en: {
+      dir: 'ltr', langName: 'English',
+      about: 'About Us', services: 'Services', pricing: 'Pricing',
+      eyebrow: 'Indoor Plant Care', title: 'Take care of<br>your <em>plants.</em>',
+      desc: 'Discover the best tips for caring for your indoor plants. Choose what best suits your home.',
+      free: 'Free Trial', more: 'Learn more', stat: 'plants catalogued'
+    },
+    ar: {
+      dir: 'rtl', langName: 'العربية',
+      about: 'من نحن', services: 'خدماتنا', pricing: 'الأسعار',
+      eyebrow: 'العناية بالنباتات الداخلية', title: 'اعتني بـ <em>نباتاتك</em> المنزلية.',
+      desc: 'اكتشف أفضل النصائح لرعاية نباتاتك؛ اختر ما يناسب بيئتك ومنزلك تماماً.',
+      free: 'تجربة مجانية', more: 'اقرأ المزيد', stat: 'نبات تم تصنيفه'
+    }
+  };
+
+  // Change Language Function
+  function changeLanguage(lang) {
+    const data = translations[lang];
+    const htmlTag = document.getElementById('html-tag');
+    
+    htmlTag.setAttribute('lang', lang);
+    htmlTag.setAttribute('dir', data.dir);
+    
+    document.getElementById('current-lang').innerText = data.langName;
+    document.getElementById('link-about').innerText = data.about;
+    document.getElementById('link-services').innerText = data.services;
+    document.getElementById('link-pricing').innerText = data.pricing;
+    document.getElementById('hero-eyebrow').innerText = data.eyebrow;
+    document.getElementById('hero-title').innerHTML = data.title;
+    document.getElementById('hero-desc-txt').innerText = data.desc;
+    document.getElementById('btn-free-txt').innerText = data.free;
+    document.getElementById('btn-more-txt').innerText = data.more;
+    document.getElementById('stat-txt').innerText = data.stat;
+    
+    // Close dropdown after selection
+    document.getElementById('lang-dropdown').classList.remove('show');
+  }
 </script>
 </body>
 </html>
