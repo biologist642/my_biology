@@ -341,11 +341,6 @@
     animation: none;
     opacity: 0.05;
   }
-
-  .chapters-section { padding: 50px 12px; }
-            .chapters-grid { grid-template-columns: 1fr; gap: 45px; }
-            .card-content-box { width: 92%; margin-top: -45px; padding: 20px; }
-            .card-title { font-size: 17px; }
 }
 
 @media (max-width: 360px) {
@@ -353,109 +348,6 @@
   .logo span { display: none; }
   .capsule-toggle button { padding: .25rem .45rem; font-size: .65rem; }
 }
-
-       /* 🖼️ بەشی کارتەکان */
-       .chapters-section {
-            padding: 100px 6%;
-            background-color: var(--bg-chapters);
-        }
-
-        .section-main-title { text-align: center; font-size: 38px; margin-bottom: 12px; font-weight: 700; }
-        .section-main-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 80px; font-size: 16px; }
-
-        .chapters-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 60px 40px; 
-        }
-
-        .chapter-card {
-            background: transparent;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-image-area {
-            height: 260px;
-            width: 100%;
-            overflow: hidden;
-            border-radius: 20px; 
-            box-shadow: var(--shadow-sm);
-            position: relative;
-            z-index: 1;
-        }
-
-        .card-image-area img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .chapter-card:hover .card-image-area img { transform: scale(1.06); }
-
-        .card-chapter-tag {
-            position: absolute;
-            top: 15px; right: 15px;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(5px);
-            color: #34d399;
-            padding: 5px 14px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 700;
-            z-index: 5;
-            direction: ltr;
-        }
-        :lang(en) .card-chapter-tag { right: auto; left: 15px; }
-
-        .card-content-box {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 26px;
-            width: 90%; 
-            margin: -60px auto 0 auto; 
-            position: relative;
-            z-index: 2; 
-            box-shadow: var(--shadow-md);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex-grow: 1;
-            border: 1px solid rgba(16, 185, 129, 0.08);
-        }
-
-        .card-title {
-            font-size: 19px;
-            color: var(--text-main);
-            font-weight: 700;
-            margin-bottom: 12px;
-            display: block;
-        }
-        
-        .card-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
-
-        .card-footer-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(16, 185, 129, 0.05);
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 700;
-            padding: 12px 20px;
-            border-radius: 12px;
-            width: 100%; 
-            border: 1px solid rgba(16, 185, 129, 0.15);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        .card-footer-btn:hover {
-            background: var(--primary);
-            color: #ffffff;
-            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
-            transform: translateY(-2px);
-        }
 </style>
 </head>
 <body class="light-mode">
@@ -499,15 +391,6 @@
       </a>
     </div>
   </div>
-
-  <section id="chapters-area" class="chapters-section">
-    <div class="section-inner-container">
-        <h2 class="section-main-title" id="sec-title">بەشەکانی ماڵپەڕ</h2>
-        <p class="section-main-subtitle" id="sec-subtitle">لێرەوە بڕوانە ناو بەشە جیاوازەکانی زانستی ڕووەک و زانیارییەکان</p>
-
-        <div class="chapters-grid" id="grid-container"></div>
-    </div>
-</section>
  
   <div class="hero-visual">
     <div class="plant-frame">
@@ -587,29 +470,7 @@
     document.getElementById('hero-title').innerHTML = content[lang].title;
     document.getElementById('hero-desc-txt').innerText = content[lang].desc;
     document.getElementById('btn-txt').innerText = content[lang].btn;
-    document.getElementById("sec-title").innerText = data.secTitle;
-    document.getElementById("sec-subtitle").innerText = data.secSubtitle;
   }
-
-  data.chapters.forEach(item => {
-                const cardHTML = `
-                    <div class="chapter-card">
-                        <div class="card-image-area">
-                            <span class="card-chapter-tag">${data.tagStr}${item.ch}</span>
-                            <img src="${item.img}" alt="${item.title}">
-                        </div>
-                        <div class="card-content-box">
-                            <div>
-                                <h3 class="card-title">${item.title}</h3>
-                                <p class="card-desc">${item.desc}</p>
-                            </div>
-                            <a href="#" class="card-footer-btn">${data.readMore}</a>
-                        </div>
-                    </div>
-                `;
-                container.innerHTML += cardHTML;
-            });
-
 
   function setTheme(theme) {
     const body = document.body;
@@ -626,6 +487,7 @@
     }
   }
 
+  
 </script>
 </body>
 </html>
