@@ -138,7 +138,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    padding: 6rem 5% 2rem;
+    padding: 7rem 5% 2rem;
     position: relative;
     overflow: hidden;
     gap: 2rem;
@@ -265,12 +265,12 @@
     100% { border-radius: 55% 45% 45% 55% / 55% 45% 60% 40%; }
   }
  
-  /* ── RESPONSIVE ── */
+  /* ── RESPONSIVE (FIXED FOR MOBILE) ── */
   @media (max-width: 900px) {
     .hero {
       grid-template-columns: 1fr;
       text-align: center;
-      padding-top: 7rem;
+      padding-top: 8.5rem;
       min-height: auto;
     }
     .hero::before { width: 80%; height: 50%; top: auto; bottom: 0; right: 50%; transform: translateX(50%); }
@@ -283,15 +283,30 @@
   }
  
   @media (max-width: 600px) {
-    nav { padding: 0.8rem 4%; flex-direction: column; gap: .8rem; text-align: center; }
-    .hero { padding-top: 9rem; }
-    .capsule-toggle button { padding: .3rem .6rem; font-size: .75rem; }
+    nav { 
+      padding: 0.8rem 5%; 
+      flex-direction: column; 
+      gap: .7rem; 
+      text-align: center; 
+    }
+    .nav-controls {
+      width: 100%;
+      justify-content: center;
+      gap: .5rem;
+      flex-wrap: wrap; /* Prevents button breaking on small screens */
+    }
+    .hero { 
+      padding-top: 11rem; /* Added extra padding so text doesn't overlap with the stacked nav */
+    }
+    .capsule-toggle button { 
+      padding: .35rem .65rem; 
+      font-size: .75rem; 
+    }
   }
 </style>
 </head>
 <body class="light-mode">
  
-<!-- NAV BAR -->
 <nav>
   <a class="logo" href="#">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -301,7 +316,6 @@
   </a>
  
   <div class="nav-controls">
-    <!-- Language Slider Switcher -->
     <div class="capsule-toggle lang-toggle" id="langToggle" data-active="ku">
       <div class="slider"></div>
       <button onclick="setLanguage('ar')" id="btn-ar">عربي</button>
@@ -309,7 +323,6 @@
       <button onclick="setLanguage('ku')" id="btn-ku" class="active">Kurdî</button>
     </div>
 
-    <!-- Theme Slider Switcher -->
     <div class="capsule-toggle theme-toggle" id="themeToggle" data-active="light">
       <div class="slider"></div>
       <button onclick="setTheme('dark')" id="btn-dark">Dark</button>
@@ -318,7 +331,6 @@
   </div>
 </nav>
  
-<!-- HERO SECTION -->
 <section class="hero">
   <div class="hero-text">
     <span class="eyebrow" id="hero-eyebrow">خزمەتکردنی ڕووەکی ناوماڵ</span>
@@ -337,7 +349,6 @@
  
   <div class="hero-visual">
     <div class="plant-frame">
-      <!-- FIXED: SVG Plant Main (All layers and leaves restored) -->
       <svg class="plant-main" viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="bg1" cx="50%" cy="50%" r="60%">
@@ -351,21 +362,16 @@
           </radialGradient>
         </defs>
         <ellipse cx="200" cy="230" rx="190" ry="220" fill="url(#bg1)"/>
-        <!-- Main large leaf -->
         <path d="M200 380 Q80 320 60 180 Q50 80 200 40 Q240 100 260 200 Q280 300 200 380Z" fill="url(#leaf1)"/>
-        <!-- Leaf veins -->
         <path d="M200 380 Q200 240 200 40" stroke="#2D5016" stroke-width="2" fill="none" opacity=".4"/>
         <path d="M200 200 Q140 160 90 120" stroke="#2D5016" stroke-width="1.5" fill="none" opacity=".3"/>
         <path d="M200 260 Q150 230 110 200" stroke="#2D5016" stroke-width="1.5" fill="none" opacity=".3"/>
         <path d="M200 160 Q250 130 290 100" stroke="#2D5016" stroke-width="1.5" fill="none" opacity=".3"/>
-        <!-- Second large leaf -->
         <path d="M200 370 Q310 300 340 170 Q360 80 220 60 Q180 130 180 230 Q180 310 200 370Z" fill="url(#leaf2)" opacity=".9"/>
         <path d="M200 370 Q200 240 220 60" stroke="#1E3A0D" stroke-width="2" fill="none" opacity=".35"/>
-        <!-- Third smaller leaf left -->
         <path d="M170 360 Q90 300 70 220 Q60 150 140 130 Q170 180 175 270 Q178 320 170 360Z" fill="#4A7C2F" opacity=".75"/>
       </svg>
  
-      <!-- FIXED: SVG Plant Secondary (All details and leaves fully restored) -->
       <svg class="plant-secondary" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="bg2" cx="50%" cy="50%" r="60%">
@@ -373,12 +379,9 @@
           </radialGradient>
         </defs>
         <circle cx="100" cy="100" r="95" fill="url(#bg2)"/>
-        <!-- Pot -->
         <path d="M70 160 Q100 180 130 160 L125 145 Q100 155 75 145Z" fill="#8B6914"/>
         <rect x="72" y="138" width="56" height="10" rx="4" fill="#A07820"/>
-        <!-- Stem -->
         <line x1="100" y1="138" x2="100" y2="90" stroke="#4A7C2F" stroke-width="3"/>
-        <!-- All Leaves restored -->
         <path d="M100 110 Q60 80 50 50 Q80 45 100 90Z" fill="#5EA832"/>
         <path d="M100 95 Q140 65 150 35 Q120 32 100 88Z" fill="#3D7A20"/>
         <path d="M100 125 Q65 120 45 100 Q55 85 100 118Z" fill="#4A7C2F"/>
@@ -389,11 +392,10 @@
 </section>
  
 <script>
-  // Languages Database
   const content = {
     ku: {
       dir: 'rtl', eyebrow: 'خزمەتکردنی ڕووەکی ناوماڵ', title: 'ئاگاداری <em>ڕووەکەکانت</em> بە.',
-      desc: 'باشترین ڕێنمایی بۆ چاودێریکردنی ڕووەکەکانت؛ ئاو, ڕووناکی و پلەی گەرمی گونجاو بدۆزەرەوە.',
+      desc: 'باشترین ڕێنمایی بۆ چاودێریکردنی ڕووەکەکانت؛ ئاو، ڕووناکی و پلەی گەرمی گونجاو بدۆزەرەوە.',
       btn: 'دەست پێبکە'
     },
     en: {
