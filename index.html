@@ -12,93 +12,91 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* لادانی تەواوی بۆشاییەکان بۆ ئەوەی پڕ بە پڕی شاشە بێت */
         body, html {
             width: 100%;
             height: 100%;
-            overflow-x: hidden;
-            background-color: #f7f9f9;
+            margin: 0;
+            padding: 0;
+            background-color: #fcfbf7; /* پاشبنەمایەکی نەرم و گونجاو لەجیاتی سپی کەم کەم */
+            overflow: hidden;
         }
 
-        /* کۆنتێنەری سەرەکی پڕ بە شاشە */
-        .main-screen {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
+        /* کۆنتێنەری سەرەکی کورتکراوەتەوە بۆ ئەو شوێنەی خەتت لێداوە */
+        .hero-section {
+            width: 100%;
+            height: 65vh; /* کورتکراوەتەوە بەپێی هێڵە ڕەشەکە */
             position: relative;
+            display: flex;
+            background-color: #f4f6f4; /* ڕەنگێکی جیاواز لە سپی */
+            overflow: hidden;
+            border-bottom: 2px solid rgba(0,0,0,0.05);
         }
 
         /* بەشی لای ڕاست (تێکست و زانیارییەکان) */
         .content-side {
             flex: 1.2;
-            padding: 80px;
+            padding-right: 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background-color: #f7f9f9;
+            align-items: flex-start;
             z-index: 2;
         }
 
         .logo {
-            font-size: 28px;
-            font-weight: 700;
+            font-size: 24px;
+            font-weight: 800;
             color: #1a252f;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             letter-spacing: 1px;
         }
 
         .text-section {
-            max-width: 600px;
+            max-width: 550px;
         }
 
-        /* تێکستی سەرەکی نوێ لە وێنەی دووەمەوە */
         .main-heading {
-            font-size: clamp(35px, 4vw, 55px);
+            font-size: clamp(30px, 3.5vw, 48px);
             color: #1a252f;
             line-height: 1.3;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             font-weight: 800;
         }
 
-        /* ژێرنووسی نوێ لە وێنەی دووەمەوە */
         .sub-text {
-            font-size: 18px;
+            font-size: 16px;
             color: #556263;
-            line-height: 1.8;
-            margin-bottom: 35px;
+            line-height: 1.7;
+            margin-bottom: 25px;
         }
 
-        /* دوگمەی نوێ (دەستپێبکە) */
         .cta-btn {
             display: inline-block;
             background-color: #00b4d8;
             color: white;
             text-decoration: none;
-            padding: 14px 45px;
-            font-size: 18px;
+            padding: 12px 40px;
+            font-size: 16px;
             font-weight: 600;
             border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
             transition: all 0.3s ease;
         }
 
         .cta-btn:hover {
             background-color: #0096c7;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
+            transform: translateY(-2px);
         }
 
-        /* بەشی لای چەپ (شێوە سەوزەکە و گەڵا گەورەکە) */
+        /* بەشی لای چەپ (شێوە سەوزەکە و گەڵاکە) */
         .image-side {
             flex: 1;
             position: relative;
-            background-color: #f7f9f9;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        /* پاشبنەما سەوزەکە ڕێک وەک وێنەکە */
+        /* شێوە سەوزەکە کە ئێستا بە تەواوی دیارە و ون نابێت */
         .green-shape {
             position: absolute;
             top: 0;
@@ -106,124 +104,103 @@
             width: 85%;
             height: 100%;
             background-color: #52b788;
-            border-bottom-right-radius: 400px;
+            border-bottom-right-radius: 350px;
             z-index: 1;
         }
 
-        /* کۆنتێنەری گەڵاکە بۆ جووڵەی مۆوشن */
+        /* گەڵا گەورە مۆیشندارەکە لە شوێنی ئیمەیجە شینەکە */
         .leaf-container {
             position: absolute;
             z-index: 2;
-            width: 75%;
-            max-width: 500px;
+            width: 65%;
+            max-width: 380px;
+            left: 10%;
             transform-origin: bottom center;
-            /* ئینمەیشنی با لێدانی سروشتی */
             animation: windSway 6s ease-in-out infinite alternate;
-            transition: transform 0.5s ease;
         }
 
-        /* هۆڤەر مۆوشن */
-        .leaf-container:hover {
-            transform: scale(1.04) rotate(4deg);
-            animation-play-state: paused;
-        }
-
-        /* بەکارهێنانی وێنەی ڕاستەقینەی گەڵای مۆنستێرا بەبێ باکگراوند */
         .main-leaf-img {
             width: 100%;
             height: auto;
             display: block;
-            filter: drop-shadow(15px 20px 30px rgba(0,0,0,0.2));
+            filter: drop-shadow(10px 15px 25px rgba(0,0,0,0.15));
         }
 
-        /* ڕووەکە بچووکەکەی خوارەوەی لای ڕاست */
-        .bottom-right-plant {
+        /* شێوە زەردەکەی خوارەوە کە داوات کردبوو */
+        .yellow-shape-bottom {
             position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 160px;
-            z-index: 3;
-            filter: drop-shadow(-5px -5px 15px rgba(0,0,0,0.08));
+            bottom: -30px;
+            right: -30px;
+            width: 180px;
+            height: 180px;
+            background-color: #ffca3a;
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0.85;
         }
 
-        /* ──── ئەنیمەیشنی مۆوشنی گەڵا (Motion Effect) ──── */
+        /* ──── ئەنیمەیشنی مۆوشنی گەڵا ──── */
         @keyframes windSway {
-            0% {
-                transform: rotate(-3deg) translateY(0px);
-            }
-            50% {
-                transform: rotate(3deg) translateY(-8px) scaleX(1.02);
-            }
-            100% {
-                transform: rotate(-1deg) translateY(4px);
-            }
+            0% { transform: rotate(-3deg) translateY(0px); }
+            50% { transform: rotate(3deg) translateY(-5px); }
+            100% { transform: rotate(-1deg) translateY(2px); }
         }
 
-        /* گونجاندن بۆ مۆبایل و تابلێت */
+        /* گونجاندن بۆ مۆبایل */
         @media (max-width: 992px) {
-            .main-screen {
-                flex-direction: column;
+            .hero-section {
                 height: auto;
-                width: 100%;
+                min-height: 100vh;
+                flex-direction: column;
             }
             .content-side {
                 padding: 40px 20px;
                 order: 2;
-                text-align: center;
                 align-items: center;
+                text-align: center;
             }
             .image-side {
-                height: 50vh;
+                height: 40vh;
                 order: 1;
                 width: 100%;
             }
             .green-shape {
                 width: 100%;
-                border-bottom-right-radius: 200px;
+                border-bottom-right-radius: 150px;
             }
             .leaf-container {
-                width: 50%;
-            }
-            .bottom-right-plant {
-                width: 100px;
+                width: 45%;
+                left: auto;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="main-screen">
+    <div class="hero-section">
         
-        <!-- لای ڕاست: ناوەڕۆک و تێکستە نوێیەکان -->
-        <div class="content-side">
-            <div class="logo">NOVAPLANT</div>
-            
-            <div class="text-section">
-                <!-- تێکستی وێنەی دووەم -->
-                <h1 class="main-heading">ئەتڵەسی پێشکەوتووی زانستی ڕووەک</h1>
-                <!-- ژێرنووسی وێنەی دووەم -->
-                <p class="sub-text">
-                    گەشتێک بۆ ناو جیهانی پێکهاتە، شێوە و کارلێک و زانستی ڕووەکی.
-                </p>
-                <!-- دوگمەی دەستپێبکە -->
-                <a href="#" class="cta-btn">دەستپێبکە</a>
-            </div>
-        </div>
-
-        <!-- لای چەپ: پاشبنەمای سەوز و گەڵا جوڵاوەکە -->
         <div class="image-side">
-            <!-- پاشبنەما سەوزەکە -->
             <div class="green-shape"></div>
             
-            <!-- گەڵا گەورەکە کە مۆوشنی هەیە -->
             <div class="leaf-container">
                 <img class="main-leaf-img" src="https://i.ibb.co/9v8X8v6/monstera-leaf.png" alt="Monstera Leaf">
             </div>
         </div>
 
-        <!-- ڕووەکە بچووکەکەی گۆشەی خوارەوەی لای ڕاست -->
-        <img class="bottom-right-plant" src="https://i.ibb.co/Z60gX8L/small-pot-plant.png" alt="Small Plant">
+        <div class="content-side">
+            <div class="logo">NOVAPLANT</div>
+            
+            <div class="text-section">
+                <h1 class="main-heading">ئەتڵەسی پێشکەوتووی زانستی ڕووەک</h1>
+                <p class="sub-text">
+                    گەشتێک بۆ ناو جیهانی پێکهاتە، شێوە و کارلێک و زانستی ڕووەکی.
+                </p>
+                <a href="#" class="cta-btn">دەستپێبکە</a>
+            </div>
+        </div>
 
+        <div class="yellow-shape-bottom"></div>
+        
     </div>
 
 </body>
