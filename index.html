@@ -266,7 +266,7 @@
     100% { border-radius: 55% 45% 45% 55% / 55% 45% 60% 40%; }
   }
  
- /* ── PERFECT MOBILE RESPONSIVE ── */
+/* ── PERFECT MOBILE RESPONSIVE ── */
 @media (max-width: 768px) {
   nav {
     padding: 0.7rem 4%;
@@ -279,54 +279,68 @@
     font-size: .7rem;
   }
 
-  /* باوکە سەرەکییەکە دەکەینە فۆڕمی ستوونی بۆ ڕێکخستنی هەموو بەشەکان */
+  /* باوکی سەرەکی (Hero) */
   .hero {
     display: flex;
-    flex-direction: column; /* هەموو شتێک بە ستوونی ڕێکدەخات */
+    flex-direction: column;
     text-align: center;
-    padding-top: 4rem;
+    padding-top: 3rem;
+    padding-bottom: 2.5rem; /* بۆ ئەوەی کەمێک مەودا لە سەرووی هێڵەکە هەبێت */
     gap: 1.5rem;
+    position: relative;
+    
+    /* ── دروستکردنی هێڵە سەوزەکەی خوارەوە ── */
+    border-bottom: 2px solid #2ecc71; /* دەتوانیت کۆدی ڕەنگە سەوزەکەی خۆت لێرە دابنێیت */
+    margin-bottom: 2rem; /* مەودای نێوان هێرۆ و بەشەکەی خوارەوەی */
   }
 
-  /* ١. وێنە و شەیپە گەورەکە دەچێتە بەرزترین بەش (سەرەوە) */
+  /* وێنە گەورەکە لە سەرەوە */
   .hero-visual {
     order: 1; 
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     display: flex;
     justify-content: center;
     position: relative;
   }
 
-  /* ٢. نووسینەکان (ناونیشان و وەسفەکە) دێنە ناوەڕاست */
+  /* ── جیاکردنەوە/لادانی ڕووەکە بچووکەکە لە مۆبایل ── */
+  /* ئەگەر کلاسەکەی جیاوازە، ناوی کلاسەکەی خۆتی پێبدە */
+  .hero-visual .small-plant, 
+  .hero-visual ::before, /* ئەگەر بە before دروستت کردووە */
+  .hero-visual img:last-child { 
+    display: none !important; /* ڕووەکە بچووکەکە لە مۆبایل دەشارێتەوە بۆ ئەوەی نەچێتە سەر گەڵا گەورەکە */
+  }
+
+  /* نووسینەکان لە ناوەڕاست */
   .hero-text {
     order: 2; 
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 
   .hero-desc {
-    max-width: 100%;
-    justify-content: center;
-    margin-bottom: 1rem;
+    max-width: 90%; /* کەمێک تەسکتر بۆ ئەوەی لە مۆبایل جوانتر دانیشێت */
+    margin: 0 auto 1.5rem auto;
   }
 
   .divider-line {
-    display: none; /* هێڵەکە لادەبات بۆ ناوەڕاستبوونی تەواوی دەقەکە */
+    display: none; 
   }
 
-  /* ٣. دوگمەی دەستپێکردن (CTA) دەچێتە خوارەوەی نووسینەکە */
+  /* دوگمەکە لە خوارەوە */
   .cta-group {
     order: 3;
     display: flex;
     justify-content: center;
-    margin-top: 0.5rem;
+    margin-bottom: 1rem;
   }
 
-  /* ڕێکخستنی قەبارەی چوارچێوەی ڕووەکەکە */
+  /* قەبارەی چوارچێوەی گەڵا گەورەکە */
   .plant-frame {
-    width: 260px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
   }
 
   .hero::before {
