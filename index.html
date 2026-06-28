@@ -20,6 +20,20 @@
     --text-muted:   #6B7A5E;
     --white:        #FFFFFF;
     --radius-blob:  60% 40% 55% 45% / 50% 60% 40% 50%;
+    
+    /* Toggle Colors */
+    --toggle-bg: rgba(45, 80, 22, 0.1);
+    --toggle-active: #00c896;
+  }
+
+  /* Dark Mode Overrides */
+  body.dark-mode {
+    --cream: #12180e;
+    --text-dark: #F7F5F0;
+    --text-muted: #a3b299;
+    --white: #1a2315;
+    --mint-bg: #223518;
+    --toggle-bg: rgba(255,255,255,0.1);
   }
  
   html { scroll-behavior: smooth; }
@@ -29,114 +43,113 @@
     background: var(--cream);
     color: var(--text-dark);
     overflow-x: hidden;
+    transition: background 0.3s, color 0.3s;
   }
  
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 5%;
+    padding: 1rem 5%;
     background: rgba(247,245,240,0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    animation: slideDown .6s ease both;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  body.dark-mode nav {
+    background: rgba(18, 24, 14, 0.85);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
   }
  
   .logo {
     display: flex; align-items: center; gap: .45rem;
-    font-size: .95rem; font-weight: 700;
-    color: var(--text-dark); text-decoration: none;
+    font-size: 1.2rem; font-weight: 700;
+    color: var(--green-dark); text-decoration: none;
   }
-  .logo svg { width: 18px; height: 18px; }
+  body.dark-mode .logo { color: var(--white); }
+  .logo svg { width: 22px; height: 22px; stroke: var(--green-cta); }
  
-  .nav-center { display: flex; align-items: center; gap: 2rem; }
-
-  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-  .nav-links a {
-    font-size: .875rem; font-weight: 600; color: var(--text-muted);
-    text-decoration: none; letter-spacing: .02em;
-    transition: color .2s;
-  }
-  .nav-links a:hover { color: var(--green-dark); }
- 
-  /* Language Selector Button */
-  .lang-selector {
-    position: relative;
-    display: inline-block;
-  }
-  .lang-btn {
-    background: var(--white);
-    color: var(--text-dark);
-    border: 1px solid var(--green-light);
-    padding: .5rem 1rem;
-    font-size: .85rem;
-    font-weight: 600;
-    border-radius: 50px;
-    cursor: pointer;
+  .nav-controls {
     display: flex;
     align-items: center;
-    gap: .4rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,.04);
-    transition: all .2s;
+    gap: 1rem;
   }
-  .lang-btn:hover {
-    background: var(--green-pale);
-    border-color: var(--green-mid);
+
+  /* ── IMAGE 24E01D CAPSULE SWITCHERS ── */
+  .capsule-toggle {
+    display: flex;
+    background: var(--toggle-bg);
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 3px;
+    border-radius: 50px;
+    position: relative;
   }
-  .lang-dropdown {
-    display: none;
-    position: absolute;
-    top: 110%;
-    left: 0;
-    background: var(--white);
-    min-width: 120px;
-    box-shadow: 0 8px 24px rgba(0,0,0,.1);
-    border-radius: 12px;
-    overflow: hidden;
-    z-index: 101;
-    border: 1px solid rgba(0,0,0,.05);
-  }
-  .lang-dropdown.show { display: block; }
-  .lang-dropdown button {
-    width: 100%;
-    padding: .6rem 1rem;
+  body.dark-mode .capsule-toggle { border-color: rgba(255,255,255,0.05); }
+
+  .capsule-toggle button {
     background: none;
     border: none;
-    text-align: right;
-    font-size: .85rem;
+    padding: .4rem .8rem;
+    font-size: .8rem;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-muted);
     cursor: pointer;
-    transition: background .2s;
+    border-radius: 50px;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+    font-family: inherit;
   }
-  html[dir="ltr"] .lang-dropdown button { text-align: left; }
-  .lang-dropdown button:hover { background: var(--green-pale); color: var(--green-dark); }
 
-  .nav-toggle { display: none; background: none; border: none; cursor: pointer; }
-  .nav-toggle span {
-    display: block; width: 22px; height: 2px;
-    background: var(--text-dark); margin: 5px 0;
-    transition: all .3s;
+  /* Active Slider Layer */
+  .capsule-toggle .slider {
+    position: absolute;
+    top: 3px; bottom: 3px;
+    background: var(--toggle-active);
+    border-radius: 50px;
+    z-index: 1;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 2px 8px rgba(0, 200, 150, 0.4);
+  }
+
+  /* Language Switcher Widths & Positions */
+  .lang-toggle .slider { width: 55px; }
+  html[dir="rtl"] .lang-toggle[data-active="ku"] .slider { right: 3px; }
+  html[dir="rtl"] .lang-toggle[data-active="en"] .slider { right: 58px; width: 48px; }
+  html[dir="rtl"] .lang-toggle[data-active="ar"] .slider { right: 106px; width: 52px; }
+  
+  html[dir="ltr"] .lang-toggle[data-active="ku"] .slider { left: 104px; width: 55px; }
+  html[dir="ltr"] .lang-toggle[data-active="en"] .slider { left: 52px; width: 48px; }
+  html[dir="ltr"] .lang-toggle[data-active="ar"] .slider { left: 3px; width: 52px; }
+
+  /* Theme Switcher Positions */
+  .theme-toggle .slider { width: 52px; }
+  .theme-toggle[data-active="light"] .slider { left: 3px; }
+  .theme-toggle[data-active="dark"] .slider { left: 55px; width: 52px; }
+  html[dir="rtl"] .theme-toggle[data-active="light"] .slider { right: 55px; }
+  html[dir="rtl"] .theme-toggle[data-active="dark"] .slider { right: 3px; }
+
+  .capsule-toggle button.active {
+    color: #ffffff !important;
   }
  
-  /* ── HERO ── */
+  /* ── HERO (COMPACTED) ── */
   .hero {
-    min-height: 100vh;
+    min-height: 80vh; /* Reduced height from 100vh */
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    padding: 7rem 5% 3rem;
+    padding: 6rem 5% 2rem;
     position: relative;
     overflow: hidden;
     gap: 2rem;
   }
  
-  /* Decorative blob bg */
   .hero::before {
     content: '';
     position: absolute;
-    top: -10%; right: -5%;
-    width: 55%; height: 100%;
+    top: -15%; right: -5%;
+    width: 50%; height: 110%;
     background: var(--mint-bg);
     border-radius: var(--radius-blob);
     animation: morphBlob 12s ease-in-out infinite alternate;
@@ -144,92 +157,69 @@
   }
   html[dir="ltr"] .hero::before { right: auto; left: -5%; }
  
-  /* Small accent circle */
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: 8%; left: 22%;
-    width: 80px; height: 80px;
-    background: var(--green-light);
-    border-radius: 50%;
-    opacity: .6;
-    animation: float 5s ease-in-out infinite;
-    z-index: 0;
-  }
- 
   .hero-text { position: relative; z-index: 1; }
  
   .eyebrow {
     display: inline-block;
     font-size: .8rem; font-weight: 700;
     color: var(--green-mid);
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
     opacity: 0;
     animation: fadeUp .7s .3s ease forwards;
   }
  
   .hero-text h1 {
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: clamp(2rem, 3.8vw, 3.2rem);
     line-height: 1.2;
     color: var(--text-dark);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     opacity: 0;
     animation: fadeUp .7s .5s ease forwards;
   }
  
-  .hero-text h1 em {
-    font-style: italic;
-    color: var(--green-mid);
-  }
+  .hero-text h1 em { font-style: italic; color: var(--green-mid); }
  
   .hero-desc {
     display: flex;
     gap: 1rem;
-    font-size: .9rem; line-height: 1.8;
+    font-size: .9rem; line-height: 1.7;
     color: var(--text-muted);
-    max-width: 450px;
-    margin-bottom: 2.4rem;
+    max-width: 460px;
+    margin-bottom: 2rem;
     opacity: 0;
     animation: fadeUp .7s .7s ease forwards;
   }
 
   .divider-line {
-    width: 3px; background: var(--green-cta);
-    flex-shrink: 0;
+    width: 3px; background: var(--green-cta); flex-shrink: 0;
   }
  
   .cta-group {
-    display: flex; align-items: center; gap: 1.8rem;
+    display: flex; align-items: center;
     opacity: 0;
     animation: fadeUp .7s .9s ease forwards;
   }
  
   .btn-primary {
     display: inline-flex; align-items: center; gap: .5rem;
-    padding: .9rem 2rem;
+    padding: .85rem 2.4rem;
     background: var(--green-cta);
+    color: #ffffff;
     color: var(--white);
-    font-size: .875rem; font-weight: 600;
+    font-size: .9rem; font-weight: 600;
     border-radius: 100px;
     text-decoration: none;
     border: none; cursor: pointer;
     transition: background .25s, transform .2s, box-shadow .25s;
     box-shadow: 0 4px 18px rgba(61,154,62,.35);
   }
+
   .btn-primary:hover {
     background: var(--green-mid);
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(61,154,62,.45);
   }
-  html[dir="ltr"] .btn-primary svg, html[dir="ltr"] .btn-ghost svg { transform: scaleX(-1); }
- 
-  .btn-ghost {
-    font-size: .875rem; color: var(--text-muted);
-    text-decoration: none; font-weight: 600;
-    display: flex; align-items: center; gap: .4rem;
-    transition: color .2s;
-  }
-  .btn-ghost:hover { color: var(--green-dark); }
+  html[dir="ltr"] .btn-primary svg { transform: scaleX(-1); }
  
   /* ── HERO IMAGE ── */
   .hero-visual {
@@ -239,8 +229,8 @@
  
   .plant-frame {
     position: relative;
-    width: clamp(260px, 35vw, 440px);
-    height: clamp(320px, 45vw, 520px);
+    width: clamp(240px, 32vw, 400px);
+    height: clamp(300px, 40vw, 460px);
     opacity: 0;
     animation: fadeIn .9s .6s ease forwards;
   }
@@ -265,116 +255,66 @@
   }
   html[dir="ltr"] .plant-secondary { left: auto; right: 0; }
  
-  .stat-pill {
-    position: absolute; top: 15%; left: -8%;
-    background: var(--white);
-    border-radius: 100px;
-    padding: .6rem 1rem;
-    display: flex; align-items: center; gap: .6rem;
-    box-shadow: 0 6px 24px rgba(0,0,0,.09);
-    font-size: .75rem;
-    animation: fadeIn .7s 1.2s ease both, floatPill 5s 1.5s ease-in-out infinite;
-  }
-  html[dir="ltr"] .stat-pill { left: auto; right: -8%; }
-  .stat-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-cta); }
-  .stat-pill strong { font-weight: 700; color: var(--text-dark); }
-  .stat-pill span { color: var(--text-muted); }
- 
   /* ── KEYFRAMES ── */
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
   }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-  @keyframes floatPill { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
   @keyframes morphBlob {
     0%   { border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; }
     33%  { border-radius: 50% 50% 40% 60% / 60% 40% 55% 45%; }
-    66%  { border-radius: 45% 55% 60% 40% / 45% 55% 50% 50%; }
     100% { border-radius: 55% 45% 45% 55% / 55% 45% 60% 40%; }
   }
  
-  /* ── RESPONSIVE (Tablets & Mobiles) ── */
-  @media (max-width: 1024px) {
-    .hero { padding-top: 8rem; gap: 1.5rem; }
-    .hero-text h1 { font-size: 2.5rem; }
-  }
-
+  /* ── RESPONSIVE (Mobiles & Tablets) ── */
   @media (max-width: 900px) {
     .hero {
       grid-template-columns: 1fr;
       text-align: center;
-      padding-top: 8rem;
+      padding-top: 7rem;
+      min-height: auto;
     }
-    .hero::before { width: 80%; height: 60%; top: auto; bottom: 0; right: 50%; transform: translateX(50%); }
+    .hero::before { width: 80%; height: 50%; top: auto; bottom: 0; right: 50%; transform: translateX(50%); }
     html[dir="ltr"] .hero::before { left: 50%; transform: translateX(-50%); }
-    .hero::after  { display: none; }
  
-    .hero-desc { max-width: 100%; justify-content: center; text-align: center; }
+    .hero-desc { max-width: 100%; justify-content: center; }
     .cta-group { justify-content: center; }
-    .hero-visual { order: -1; margin-bottom: 1rem; }
-    .plant-frame { width: 340px; height: 400px; }
-    .stat-pill { left: 50%; transform: translateX(-50%); }
-    html[dir="ltr"] .stat-pill { right: auto; left: 50%; transform: translateX(-50%); }
+    .hero-visual { order: -1; }
+    .plant-frame { width: 280px; height: 340px; }
   }
  
-  @media (max-width: 580px) {
-    nav { padding: 1rem 5%; }
-    .nav-links { 
-      display: none; 
-      flex-direction: column; 
-      position: absolute; 
-      top: 100%; left: 0; right: 0; 
-      background: var(--cream); 
-      padding: 1.5rem 5%; 
-      gap: 1.2rem; 
-      box-shadow: 0 8px 20px rgba(0,0,0,.07); 
-      text-align: center;
-    }
-    .nav-links.open { display: flex; }
-    .nav-toggle { display: block; }
- 
-    .hero { padding: 6rem 4% 3rem; }
-    .plant-frame { width: 260px; height: 320px; }
+  @media (max-width: 600px) {
+    nav { padding: 0.8rem 4%; flex-direction: column; gap: .8rem; text-align: center; }
+    .hero { padding-top: 9rem; }
+    .capsule-toggle button { padding: .3rem .6rem; font-size: .75rem; }
   }
 </style>
 </head>
-<body>
+<body class="light-mode">
  
 <nav>
   <a class="logo" href="#">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="M12 22V12M12 12C12 7 7 4 2 6c0 5 3 9 10 6M12 12c0-5 5-8 10-6-1 5-4 9-10 6"/>
     </svg>
-    <span>plant<strong>·home</strong></span>
+    <span>NovaPlant</span>
   </a>
  
-  <div class="nav-center">
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#" id="link-about">دەربارەمان</a></li>
-      <li><a href="#" id="link-services">خزمەتگوزارییەکان</a></li>
-      <li><a href="#" id="link-pricing">نرخەکان</a></li>
-    </ul>
-   
-    <div class="lang-selector">
-      <button class="lang-btn" onclick="toggleLangDropdown()">
-        🌐 <span id="current-lang">کوردی</span>
-      </button>
-      <div class="lang-dropdown" id="lang-dropdown">
-        <button onclick="changeLanguage('ku')">کوردی</button>
-        <button onclick="changeLanguage('en')">English</button>
-        <button onclick="changeLanguage('ar')">العربية</button>
-      </div>
+  <div class="nav-controls">
+    <div class="capsule-toggle lang-toggle" id="langToggle" data-active="ku">
+      <div class="slider"></div>
+      <button onclick="setLanguage('ar')" id="btn-ar">عربي</button>
+      <button onclick="setLanguage('en')" id="btn-en">Eng</button>
+      <button onclick="setLanguage('ku')" id="btn-ku" class="active">Kurdî</button>
     </div>
 
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="capsule-toggle theme-toggle" id="themeToggle" data-active="light">
+      <div class="slider"></div>
+      <button onclick="setTheme('dark')" id="btn-dark">Dark</button>
+      <button onclick="setTheme('light')" id="btn-light" class="active">Light</button>
+    </div>
   </div>
 </nav>
  
@@ -387,13 +327,9 @@
       <p id="hero-desc-txt">باشترین ڕێنمایی بۆ چاودێریکردنی ڕووەکەکانت؛ ئاو، ڕووناکی و پلەی گەرمی گونجاو بدۆزەرەوە.</p>
     </div>
     <div class="cta-group">
-      <a class="btn-primary" href="#" id="btn-free">
-        <span id="btn-free-txt">تاقیکردنەوەی بێبەرامبەر</span>
+      <a class="btn-primary" href="#">
+        <span id="btn-txt">دەست پێبکە</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a class="btn-ghost" href="#" id="btn-more">
-        <span id="btn-more-txt">زیاتر بزانە</span>
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
   </div>
@@ -408,114 +344,76 @@
           <radialGradient id="leaf1" cx="30%" cy="30%" r="70%">
             <stop offset="0%" stop-color="#5EA832"/><stop offset="100%" stop-color="#2D5016"/>
           </radialGradient>
-          <radialGradient id="leaf2" cx="40%" cy="20%" r="70%">
-            <stop offset="0%" stop-color="#4A8C28"/><stop offset="100%" stop-color="#1E3A0D"/>
-          </radialGradient>
         </defs>
         <ellipse cx="200" cy="230" rx="190" ry="220" fill="url(#bg1)"/>
         <path d="M200 380 Q80 320 60 180 Q50 80 200 40 Q240 100 260 200 Q280 300 200 380Z" fill="url(#leaf1)"/>
         <path d="M200 380 Q200 240 200 40" stroke="#2D5016" stroke-width="2" fill="none" opacity=".4"/>
-        <path d="M200 200 Q140 160 90 120" stroke="#2D5016" stroke-width="1.5" fill="none" opacity=".3"/>
-        <path d="M200 260 Q150 230 110 200" stroke="#2D5016" stroke-width="1.5" fill="none" opacity=".3"/>
-        <path d="M200 160 Q250 130 290 100" stroke="#2D5016" stroke-width="1.5" fill="none" opacity=".3"/>
-        <path d="M200 370 Q310 300 340 170 Q360 80 220 60 Q180 130 180 230 Q180 310 200 370Z" fill="url(#leaf2)" opacity=".9"/>
-        <path d="M200 370 Q200 240 220 60" stroke="#1E3A0D" stroke-width="2" fill="none" opacity=".35"/>
-        <path d="M170 360 Q90 300 70 220 Q60 150 140 130 Q170 180 175 270 Q178 320 170 360Z" fill="#4A7C2F" opacity=".75"/>
       </svg>
  
       <svg class="plant-secondary" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="bg2" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#D6EDD0"/><stop offset="100%" stop-color="#B8D8A0"/></radialGradient>
-        </defs>
-        <circle cx="100" cy="100" r="95" fill="url(#bg2)"/>
-        <path d="M70 160 Q100 180 130 160 L125 145 Q100 155 75 145Z" fill="#8B6914"/>
-        <rect x="72" y="138" width="56" height="10" rx="4" fill="#A07820"/>
-        <line x1="100" y1="138" x2="100" y2="90" stroke="#4A7C2F" stroke-width="3"/>
+        <circle cx="100" cy="100" r="95" fill="#D6EDD0"/>
+        <path d="M70 160 Q100 180 130 160 L125 145 Z" fill="#8B6914"/>
         <path d="M100 110 Q60 80 50 50 Q80 45 100 90Z" fill="#5EA832"/>
-        <path d="M100 95 Q140 65 150 35 Q120 32 100 88Z" fill="#3D7A20"/>
-        <path d="M100 125 Q65 120 45 100 Q55 85 100 118Z" fill="#4A7C2F"/>
-        <path d="M100 120 Q135 112 155 92 Q148 78 100 116Z" fill="#3D7A20"/>
       </svg>
- 
-      <div class="stat-pill">
-        <div class="dot"></div>
-        <strong>1,200+</strong>
-        <span id="stat-txt">ڕووەک پۆلێنکراون</span>
-      </div>
     </div>
   </div>
 </section>
  
 <script>
-  // Mobile nav toggle
-  const toggle = document.getElementById('nav-toggle');
-  const links  = document.getElementById('nav-links');
-  toggle.addEventListener('click', () => links.classList.toggle('open'));
-
-  // Language Dropdown Toggle
-  function toggleLangDropdown() {
-    document.getElementById('lang-dropdown').classList.toggle('show');
-  }
-
-  // Close dropdown when clicking outside
-  window.onclick = function(event) {
-    if (!event.target.matches('.lang-btn') && !event.target.parentElement?.matches('.lang-btn')) {
-      var dropdowns = document.getElementsByClassName("lang-dropdown");
-      for (var i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
-
-  // Multi-language Data
-  const translations = {
+  // Languages Database
+  const content = {
     ku: {
-      dir: 'rtl', langName: 'کوردی',
-      about: 'دەربارەمان', services: 'خزمەتگوزارییەکان', pricing: 'نرخەکان',
-      eyebrow: 'خزمەتکردنی ڕووەکی ناوماڵ', title: 'ئاگاداری <em>ڕووەکەکانت</em> بە.',
+      dir: 'rtl', eyebrow: 'خزمەتکردنی ڕووەکی ناوماڵ', title: 'ئاگاداری <em>ڕووەکەکانت</em> بە.',
       desc: 'باشترین ڕێنمایی بۆ چاودێریکردنی ڕووەکەکانت؛ ئاو، ڕووناکی و پلەی گەرمی گونجاو بدۆزەرەوە.',
-      free: 'تاقیکردنەوەی بێبەرامبەر', more: 'زیاتر بزانە', stat: 'ڕووەک پۆلێنکراون'
+      btn: 'دەست پێبکە'
     },
     en: {
-      dir: 'ltr', langName: 'English',
-      about: 'About Us', services: 'Services', pricing: 'Pricing',
-      eyebrow: 'Indoor Plant Care', title: 'Take care of<br>your <em>plants.</em>',
+      dir: 'ltr', eyebrow: 'Indoor Plant Care', title: 'Take care of<br>your <em>plants.</em>',
       desc: 'Discover the best tips for caring for your indoor plants. Choose what best suits your home.',
-      free: 'Free Trial', more: 'Learn more', stat: 'plants catalogued'
+      btn: 'Get Started'
     },
     ar: {
-      dir: 'rtl', langName: 'العربية',
-      about: 'من نحن', services: 'خدماتنا', pricing: 'الأسعار',
-      eyebrow: 'العناية بالنباتات الداخلية', title: 'اعتني بـ <em>نباتاتك</em> المنزلية.',
+      dir: 'rtl', eyebrow: 'العناية بالنباتات الداخلية', title: 'اعتني بـ <em>نباتاتك</em> المنزلية.',
       desc: 'اكتشف أفضل النصائح لرعاية نباتاتك؛ اختر ما يناسب بيئتك ومنزلك تماماً.',
-      free: 'تجربة مجانية', more: 'اقرأ المزيد', stat: 'نبات تم تصنيفه'
+      btn: 'ابدأ الآن'
     }
   };
 
-  // Change Language Function
-  function changeLanguage(lang) {
-    const data = translations[lang];
-    const htmlTag = document.getElementById('html-tag');
+  // Switch Language with Motion
+  function setLanguage(lang) {
+    const html = document.getElementById('html-tag');
+    const toggle = document.getElementById('langToggle');
     
-    htmlTag.setAttribute('lang', lang);
-    htmlTag.setAttribute('dir', data.dir);
+    // Update active state animation
+    toggle.setAttribute('data-active', lang);
+    document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+    document.getElementById(`btn-${lang}`).classList.add('active');
     
-    document.getElementById('current-lang').innerText = data.langName;
-    document.getElementById('link-about').innerText = data.about;
-    document.getElementById('link-services').innerText = data.services;
-    document.getElementById('link-pricing').innerText = data.pricing;
-    document.getElementById('hero-eyebrow').innerText = data.eyebrow;
-    document.getElementById('hero-title').innerHTML = data.title;
-    document.getElementById('hero-desc-txt').innerText = data.desc;
-    document.getElementById('btn-free-txt').innerText = data.free;
-    document.getElementById('btn-more-txt').innerText = data.more;
-    document.getElementById('stat-txt').innerText = data.stat;
+    // Apply structural changes
+    html.setAttribute('lang', lang);
+    html.setAttribute('dir', content[lang].dir);
     
-    // Close dropdown after selection
-    document.getElementById('lang-dropdown').classList.remove('show');
+    // Apply texts
+    document.getElementById('hero-eyebrow').innerText = content[lang].eyebrow;
+    document.getElementById('hero-title').innerHTML = content[lang].title;
+    document.getElementById('hero-desc-txt').innerText = content[lang].desc;
+    document.getElementById('btn-txt').innerText = content[lang].btn;
+  }
+
+  // Switch Theme (Light/Dark) with Motion
+  function setTheme(theme) {
+    const body = document.body;
+    const toggle = document.getElementById('themeToggle');
+    
+    toggle.setAttribute('data-active', theme);
+    document.querySelectorAll('.theme-toggle button').forEach(b => b.classList.remove('active'));
+    document.getElementById(`btn-${theme}`).classList.add('active');
+    
+    if(theme === 'dark') {
+      body.classList.add('dark-mode');
+    } else {
+      body.classList.remove('dark-mode');
+    }
   }
 </script>
 </body>
