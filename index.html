@@ -3,108 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Plant - Take Care</title>
+    <title>Nova Plant</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Times New Roman', Times, serif, 'Segoe UI', Tahoma;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        body {
-            background-color: #eef2f3;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        /* چوارچێوەی سەرەکی هاوشێوەی وێنەکە */
-        .main-frame {
+        /* لادانی تەواوی بۆشاییەکان بۆ ئەوەی پڕ بە پڕی شاشە بێت */
+        body, html {
             width: 100%;
-            max-width: 1200px;
-            height: 85vh;
+            height: 100%;
+            overflow-x: hidden;
             background-color: #f7f9f9;
-            border-radius: 4px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            position: relative;
-            display: flex;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
 
-        /* بەشی لای چەپ (تێکست و زانیاری) */
+        /* کۆنتێنەری سەرەکی پڕ بە شاشە */
+        .main-screen {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            position: relative;
+        }
+
+        /* بەشی لای ڕاست (تێکست و زانیارییەکان) */
         .content-side {
             flex: 1.2;
-            padding: 60px;
+            padding: 80px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            position: relative;
+            justify-content: center;
+            background-color: #f7f9f9;
             z-index: 2;
         }
 
         .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #2c3e50;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .logo span {
-            color: #27ae60;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a252f;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
         }
 
         .text-section {
-            margin-top: 40px;
-            max-width: 500px;
+            max-width: 600px;
         }
 
+        /* تێکستی سەرەکی نوێ لە وێنەی دووەمەوە */
         .main-heading {
-            font-size: clamp(40px, 5vw, 65px);
+            font-size: clamp(35px, 4vw, 55px);
             color: #1a252f;
-            line-height: 1.1;
+            line-height: 1.3;
             margin-bottom: 25px;
-            font-weight: 500;
+            font-weight: 800;
         }
 
+        /* ژێرنووسی نوێ لە وێنەی دووەمەوە */
         .sub-text {
-            font-size: 16px;
-            color: #7f8c8d;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            font-family: 'Segoe UI', sans-serif;
+            font-size: 18px;
+            color: #556263;
+            line-height: 1.8;
+            margin-bottom: 35px;
         }
 
+        /* دوگمەی نوێ (دەستپێبکە) */
         .cta-btn {
             display: inline-block;
-            background-color: #27ae60;
+            background-color: #00b4d8;
             color: white;
             text-decoration: none;
-            padding: 12px 35px;
-            font-size: 16px;
-            font-family: 'Segoe UI', sans-serif;
-            transition: background 0.3s ease, transform 0.2s ease;
+            padding: 14px 45px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+            transition: all 0.3s ease;
         }
 
         .cta-btn:hover {
-            background-color: #219653;
-            transform: translateY(-2px);
+            background-color: #0096c7;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
         }
 
-        /* ڕووەکە بچووکەکەی خوارەوەی لای چەپ */
-        .bottom-plant {
-            width: 180px;
-            height: auto;
-            align-self: flex-start;
-            opacity: 0.9;
-        }
-
-        /* بەشی لای ڕاست (باکگراوندە سەوزەکە و گەڵا گەورەکە) */
+        /* بەشی لای چەپ (شێوە سەوزەکە و گەڵا گەورەکە) */
         .image-side {
             flex: 1;
             position: relative;
@@ -114,138 +98,131 @@
             align-items: center;
         }
 
-        /* شێوە سەوزە نیوە بازنەییەکەی پشتەوە */
+        /* پاشبنەما سەوزەکە ڕێک وەک وێنەکە */
         .green-shape {
             position: absolute;
-            top: 40px;
-            right: 40px;
+            top: 0;
+            left: 0;
             width: 85%;
-            height: 85%;
+            height: 100%;
             background-color: #52b788;
-            border-bottom-left-radius: 500px;
-            border-bottom-right-radius: 500px;
+            border-bottom-right-radius: 400px;
             z-index: 1;
-            overflow: hidden;
         }
 
-        /* نێڤیگەیشنی ناو بەشە سەوزەکە */
-        .top-nav {
-            position: absolute;
-            top: 30px;
-            right: 50px;
-            display: flex;
-            gap: 30px;
-            z-index: 3;
-        }
-
-        .top-nav a {
-            color: #1a252f;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 500;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        /* کۆنتێنەری گەڵا گەورەکە بۆ کۆنتڕۆڵکردنی جووڵە */
+        /* کۆنتێنەری گەڵاکە بۆ جووڵەی مۆوشن */
         .leaf-container {
             position: absolute;
-            bottom: 5%;
-            right: 5%;
-            width: 90%;
-            height: auto;
             z-index: 2;
+            width: 75%;
+            max-width: 500px;
             transform-origin: bottom center;
-            /* لێرەدا ئینمەیشنی با لێدانی بۆ دادەنێین */
+            /* ئینمەیشنی با لێدانی سروشتی */
             animation: windSway 6s ease-in-out infinite alternate;
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
+            transition: transform 0.5s ease;
         }
 
-        /* کاتێک ماوسی دەبەیتە سەر کەمێک گەورەتر دەبێت و دەسوڕێتەوە */
+        /* هۆڤەر مۆوشن */
         .leaf-container:hover {
-            transform: scale(1.03) rotate(3deg);
-            animation-play-state: paused; /* کاتێک هۆڤەری دەکەی ئینمەیشنە بنەڕەتیەکە ڕادەوەستێت */
+            transform: scale(1.04) rotate(4deg);
+            animation-play-state: paused;
         }
 
+        /* بەکارهێنانی وێنەی ڕاستەقینەی گەڵای مۆنستێرا بەبێ باکگراوند */
         .main-leaf-img {
             width: 100%;
             height: auto;
             display: block;
-            filter: drop-shadow(10px 15px 25px rgba(0,0,0,0.15));
+            filter: drop-shadow(15px 20px 30px rgba(0,0,0,0.2));
         }
 
-        /* ──── ئەنیمەیشنی جووڵەی گەڵاکان (Motion Effect) ──── */
+        /* ڕووەکە بچووکەکەی خوارەوەی لای ڕاست */
+        .bottom-right-plant {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 160px;
+            z-index: 3;
+            filter: drop-shadow(-5px -5px 15px rgba(0,0,0,0.08));
+        }
+
+        /* ──── ئەنیمەیشنی مۆوشنی گەڵا (Motion Effect) ──── */
         @keyframes windSway {
             0% {
-                transform: rotate(-2deg) translateY(0px);
+                transform: rotate(-3deg) translateY(0px);
             }
             50% {
-                transform: rotate(2deg) translateY(-5px) scaleX(1.01);
+                transform: rotate(3deg) translateY(-8px) scaleX(1.02);
             }
             100% {
-                transform: rotate(-1deg) translateY(3px);
+                transform: rotate(-1deg) translateY(4px);
             }
         }
 
-        /* گونجاندن بۆ مۆبایل */
-        @media (max-width: 900px) {
-            .main-frame {
+        /* گونجاندن بۆ مۆبایل و تابلێت */
+        @media (max-width: 992px) {
+            .main-screen {
                 flex-direction: column;
                 height: auto;
+                width: 100%;
             }
             .content-side {
-                padding: 30px;
+                padding: 40px 20px;
                 order: 2;
+                text-align: center;
+                align-items: center;
             }
             .image-side {
-                height: 400px;
+                height: 50vh;
                 order: 1;
+                width: 100%;
             }
             .green-shape {
                 width: 100%;
-                right: 0;
-                top: 0;
-                height: 100%;
-                border-radius: 0;
+                border-bottom-right-radius: 200px;
             }
-            .top-nav {
-                right: 20px;
-                top: 20px;
+            .leaf-container {
+                width: 50%;
+            }
+            .bottom-right-plant {
+                width: 100px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="main-frame">
+    <div class="main-screen">
         
+        <!-- لای ڕاست: ناوەڕۆک و تێکستە نوێیەکان -->
         <div class="content-side">
-            <div class="logo">plant<span>•</span>home</div>
+            <div class="logo">NOVAPLANT</div>
             
             <div class="text-section">
-                <h1 class="main-heading">Take care of<br>your plants.</h1>
+                <!-- تێکستی وێنەی دووەم -->
+                <h1 class="main-heading">ئەتڵەسی پێشکەوتووی زانستی ڕووەک</h1>
+                <!-- ژێرنووسی وێنەی دووەم -->
                 <p class="sub-text">
-                    باشترین ڕێنماییەکان بدۆزەرەوە بۆ چاودێریکردنی ڕووەکە ناوخۆییەکانت. شێداری، ڕووناکی و پلەی گەرمی گونجاو دابین بکە بۆ ئەوەی هەمیشە گەشاوە بن.
+                    گەشتێک بۆ ناو جیهانی پێکهاتە، شێوە و کارلێک و زانستی ڕووەکی.
                 </p>
-                <a href="#" class="cta-btn">Free Trial</a>
+                <!-- دوگمەی دەستپێبکە -->
+                <a href="#" class="cta-btn">دەستپێبکە</a>
             </div>
-
-            <img class="bottom-plant" src="https://i.ibb.co/Z60gX8L/small-pot-plant.png" alt="ڕووەکی ناو گۆزە" onerror="this.src='https://images.unsplash.com/photo-1545241047-6083a3684587?q=80&w=300'">
         </div>
 
+        <!-- لای چەپ: پاشبنەمای سەوز و گەڵا جوڵاوەکە -->
         <div class="image-side">
-            <div class="top-nav">
-                <a href="#">About Us</a>
-                <a href="#">Services</a>
-                <a href="#">Pricing</a>
-            </div>
-            
+            <!-- پاشبنەما سەوزەکە -->
             <div class="green-shape"></div>
             
+            <!-- گەڵا گەورەکە کە مۆوشنی هەیە -->
             <div class="leaf-container">
-                <img class="main-leaf-img" src="https://i.ibb.co/9v8X8v6/monstera-leaf.png" alt="گەڵای مۆنستێرا" onerror="this.src='https://assets.codegen.gq/placeholder-monstera.png'">
+                <img class="main-leaf-img" src="https://i.ibb.co/9v8X8v6/monstera-leaf.png" alt="Monstera Leaf">
             </div>
         </div>
+
+        <!-- ڕووەکە بچووکەکەی گۆشەی خوارەوەی لای ڕاست -->
+        <img class="bottom-right-plant" src="https://i.ibb.co/Z60gX8L/small-pot-plant.png" alt="Small Plant">
 
     </div>
 
