@@ -75,7 +75,7 @@
     gap: 1rem;
   }
 
-  /* ── IMAGE 24E01D CAPSULE SWITCHERS ── */
+  /* ── CAPSULE SWITCHERS ── */
   .capsule-toggle {
     display: flex;
     background: var(--toggle-bg);
@@ -101,7 +101,6 @@
     font-family: inherit;
   }
 
-  /* Active Slider Layer */
   .capsule-toggle .slider {
     position: absolute;
     top: 3px; bottom: 3px;
@@ -135,7 +134,7 @@
  
   /* ── HERO (COMPACTED) ── */
   .hero {
-    min-height: 80vh; /* Reduced height from 100vh */
+    min-height: 80vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -204,7 +203,6 @@
     display: inline-flex; align-items: center; gap: .5rem;
     padding: .85rem 2.4rem;
     background: var(--green-cta);
-    color: #ffffff;
     color: var(--white);
     font-size: .9rem; font-weight: 600;
     border-radius: 100px;
@@ -213,7 +211,6 @@
     transition: background .25s, transform .2s, box-shadow .25s;
     box-shadow: 0 4px 18px rgba(61,154,62,.35);
   }
-
   .btn-primary:hover {
     background: var(--green-mid);
     transform: translateY(-2px);
@@ -268,7 +265,7 @@
     100% { border-radius: 55% 45% 45% 55% / 55% 45% 60% 40%; }
   }
  
-  /* ── RESPONSIVE (Mobiles & Tablets) ── */
+  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .hero {
       grid-template-columns: 1fr;
@@ -294,6 +291,7 @@
 </head>
 <body class="light-mode">
  
+<!-- NAV BAR -->
 <nav>
   <a class="logo" href="#">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -303,6 +301,7 @@
   </a>
  
   <div class="nav-controls">
+    <!-- Language Slider Switcher -->
     <div class="capsule-toggle lang-toggle" id="langToggle" data-active="ku">
       <div class="slider"></div>
       <button onclick="setLanguage('ar')" id="btn-ar">عربي</button>
@@ -310,6 +309,7 @@
       <button onclick="setLanguage('ku')" id="btn-ku" class="active">Kurdî</button>
     </div>
 
+    <!-- Theme Slider Switcher -->
     <div class="capsule-toggle theme-toggle" id="themeToggle" data-active="light">
       <div class="slider"></div>
       <button onclick="setTheme('dark')" id="btn-dark">Dark</button>
@@ -318,6 +318,7 @@
   </div>
 </nav>
  
+<!-- HERO SECTION -->
 <section class="hero">
   <div class="hero-text">
     <span class="eyebrow" id="hero-eyebrow">خزمەتکردنی ڕووەکی ناوماڵ</span>
@@ -336,6 +337,7 @@
  
   <div class="hero-visual">
     <div class="plant-frame">
+      <!-- FIXED: SVG Plant Main (All layers and leaves restored) -->
       <svg class="plant-main" viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="bg1" cx="50%" cy="50%" r="60%">
@@ -344,16 +346,43 @@
           <radialGradient id="leaf1" cx="30%" cy="30%" r="70%">
             <stop offset="0%" stop-color="#5EA832"/><stop offset="100%" stop-color="#2D5016"/>
           </radialGradient>
+          <radialGradient id="leaf2" cx="40%" cy="20%" r="70%">
+            <stop offset="0%" stop-color="#4A8C28"/><stop offset="100%" stop-color="#1E3A0D"/>
+          </radialGradient>
         </defs>
         <ellipse cx="200" cy="230" rx="190" ry="220" fill="url(#bg1)"/>
+        <!-- Main large leaf -->
         <path d="M200 380 Q80 320 60 180 Q50 80 200 40 Q240 100 260 200 Q280 300 200 380Z" fill="url(#leaf1)"/>
+        <!-- Leaf veins -->
         <path d="M200 380 Q200 240 200 40" stroke="#2D5016" stroke-width="2" fill="none" opacity=".4"/>
+        <path d="M200 200 Q140 160 90 120" stroke="#2D5016" stroke-width="1.5" fill="none" opacity=".3"/>
+        <path d="M200 260 Q150 230 110 200" stroke="#2D5016" stroke-width="1.5" fill="none" opacity=".3"/>
+        <path d="M200 160 Q250 130 290 100" stroke="#2D5016" stroke-width="1.5" fill="none" opacity=".3"/>
+        <!-- Second large leaf -->
+        <path d="M200 370 Q310 300 340 170 Q360 80 220 60 Q180 130 180 230 Q180 310 200 370Z" fill="url(#leaf2)" opacity=".9"/>
+        <path d="M200 370 Q200 240 220 60" stroke="#1E3A0D" stroke-width="2" fill="none" opacity=".35"/>
+        <!-- Third smaller leaf left -->
+        <path d="M170 360 Q90 300 70 220 Q60 150 140 130 Q170 180 175 270 Q178 320 170 360Z" fill="#4A7C2F" opacity=".75"/>
       </svg>
  
+      <!-- FIXED: SVG Plant Secondary (All details and leaves fully restored) -->
       <svg class="plant-secondary" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="95" fill="#D6EDD0"/>
-        <path d="M70 160 Q100 180 130 160 L125 145 Z" fill="#8B6914"/>
+        <defs>
+          <radialGradient id="bg2" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stop-color="#D6EDD0"/><stop offset="100%" stop-color="#B8D8A0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="100" cy="100" r="95" fill="url(#bg2)"/>
+        <!-- Pot -->
+        <path d="M70 160 Q100 180 130 160 L125 145 Q100 155 75 145Z" fill="#8B6914"/>
+        <rect x="72" y="138" width="56" height="10" rx="4" fill="#A07820"/>
+        <!-- Stem -->
+        <line x1="100" y1="138" x2="100" y2="90" stroke="#4A7C2F" stroke-width="3"/>
+        <!-- All Leaves restored -->
         <path d="M100 110 Q60 80 50 50 Q80 45 100 90Z" fill="#5EA832"/>
+        <path d="M100 95 Q140 65 150 35 Q120 32 100 88Z" fill="#3D7A20"/>
+        <path d="M100 125 Q65 120 45 100 Q55 85 100 118Z" fill="#4A7C2F"/>
+        <path d="M100 120 Q135 112 155 92 Q148 78 100 116Z" fill="#3D7A20"/>
       </svg>
     </div>
   </div>
@@ -364,7 +393,7 @@
   const content = {
     ku: {
       dir: 'rtl', eyebrow: 'خزمەتکردنی ڕووەکی ناوماڵ', title: 'ئاگاداری <em>ڕووەکەکانت</em> بە.',
-      desc: 'باشترین ڕێنمایی بۆ چاودێریکردنی ڕووەکەکانت؛ ئاو، ڕووناکی و پلەی گەرمی گونجاو بدۆزەرەوە.',
+      desc: 'باشترین ڕێنمایی بۆ چاودێریکردنی ڕووەکەکانت؛ ئاو, ڕووناکی و پلەی گەرمی گونجاو بدۆزەرەوە.',
       btn: 'دەست پێبکە'
     },
     en: {
@@ -379,28 +408,23 @@
     }
   };
 
-  // Switch Language with Motion
   function setLanguage(lang) {
     const html = document.getElementById('html-tag');
     const toggle = document.getElementById('langToggle');
     
-    // Update active state animation
     toggle.setAttribute('data-active', lang);
     document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
     document.getElementById(`btn-${lang}`).classList.add('active');
     
-    // Apply structural changes
     html.setAttribute('lang', lang);
     html.setAttribute('dir', content[lang].dir);
     
-    // Apply texts
     document.getElementById('hero-eyebrow').innerText = content[lang].eyebrow;
     document.getElementById('hero-title').innerHTML = content[lang].title;
     document.getElementById('hero-desc-txt').innerText = content[lang].desc;
     document.getElementById('btn-txt').innerText = content[lang].btn;
   }
 
-  // Switch Theme (Light/Dark) with Motion
   function setTheme(theme) {
     const body = document.body;
     const toggle = document.getElementById('themeToggle');
