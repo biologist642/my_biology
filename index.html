@@ -1,13 +1,10 @@
-
-
-Novaplant · HTML
 <!DOCTYPE html>
 <html lang="ku" dir="rtl" id="html-tag">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NovaPlant</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2 family=Noto+Kufi+Arabic:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
  
@@ -84,16 +81,57 @@ Novaplant · HTML
   body.dark-mode .logo { color: var(--white); }
   .logo svg { width: 20px; height: 20px; stroke: var(--green-cta); }
  
-  .nav-links {
-    display: flex; list-style: none; gap: 1.5rem;
+  /* Search Box Design & Motion */
+  .search-container {
+    flex-grow: 1;
+    max-width: 450px;
+    margin: 0 1.5rem;
+    position: relative;
   }
-  .nav-links a {
-    text-decoration: none;
-    font-size: .9rem; font-weight: 600;
-    color: var(--text-muted);
-    transition: color .2s;
+  .search-wrapper {
+    position: relative;
+    width: 100%;
   }
-  .nav-links a:hover { color: var(--green-cta); }
+  .search-input {
+    width: 100%;
+    padding: 0.6rem 2.8rem 0.6rem 1.2rem;
+    border: 1.5px solid rgba(74, 124, 47, 0.2);
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    outline: none;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  html[dir="ltr"] .search-input {
+    padding: 0.6rem 1.2rem 0.6rem 2.8rem;
+  }
+  body.dark-mode .search-input {
+    background: rgba(30, 45, 24, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .search-input:focus {
+    border-color: var(--green-cta);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(61, 154, 62, 0.15);
+    transform: scale(1.01);
+  }
+  .search-icon {
+    position: absolute;
+    top: 50%; right: 1rem;
+    transform: translateY(-50%);
+    width: 18px; height: 18px;
+    stroke: var(--text-muted);
+    pointer-events: none;
+    transition: stroke 0.3s;
+  }
+  html[dir="ltr"] .search-icon {
+    right: auto; left: 1rem;
+  }
+  .search-input:focus + .search-icon {
+    stroke: var(--green-cta);
+  }
  
   .nav-actions {
     display: flex; align-items: center; gap: .6rem;
@@ -142,12 +180,12 @@ Novaplant · HTML
   .hero {
     min-height: 85vh;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.1fr 0.9fr;
     align-items: center;
-    padding: 6.5rem 5% 2rem;
+    padding: 6.5rem 8% 2rem;
     position: relative;
     overflow: hidden;
-    gap: 2rem;
+    gap: 3rem;
     border-bottom: 2px solid var(--green-cta);
     margin-bottom: 0;
   }
@@ -164,70 +202,109 @@ Novaplant · HTML
   }
   html[dir="ltr"] .hero::before { right: auto; left: -5%; }
  
-  .hero-text { position: relative; z-index: 1; display: flex; flex-direction: column; }
+  .hero-text { 
+    position: relative; 
+    z-index: 1; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+  }
  
   .eyebrow {
     display: inline-block;
-    font-size: .8rem; font-weight: 700;
+    font-size: .85rem; font-weight: 700;
     color: var(--green-mid);
     margin-bottom: 1rem;
     opacity: 0;
     animation: fadeUp .7s .3s ease forwards;
   }
  
+  /* Letter by Letter Hover Motion Effect */
   .hero-text h1 {
-    font-size: clamp(1.8rem, 3.8vw, 3.2rem);
-    line-height: 1.25;
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    line-height: 1.3;
     color: var(--text-dark);
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
     opacity: 0;
     animation: fadeUp .7s .5s ease forwards;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.1rem;
   }
  
-  .hero-text h1 em { font-style: italic; color: var(--green-mid); }
+  .hero-text h1 span {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s;
+    cursor: default;
+  }
+  .hero-text h1 span:hover {
+    transform: translateY(-15px) scale(1.15);
+    color: var(--green-cta);
+  }
  
   .hero-desc {
     display: flex;
-    gap: 1rem;
-    font-size: .9rem; line-height: 1.7;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.05rem; line-height: 1.8;
     color: var(--text-muted);
-    max-width: 460px;
+    max-width: 550px;
     margin-bottom: 2rem;
     opacity: 0;
     animation: fadeUp .7s .7s ease forwards;
   }
  
-  .divider-line {
-    width: 3px; background: var(--green-cta); flex-shrink: 0;
-  }
- 
   .cta-group {
     display: flex; align-items: center;
+    justify-content: center;
     opacity: 0;
     animation: fadeUp .7s .9s ease forwards;
   }
  
+  /* Enhanced Main Button Design & Motion */
   .btn-primary {
-    display: inline-flex; align-items: center; gap: .5rem;
-    padding: .85rem 2.4rem;
+    display: inline-flex; align-items: center; gap: .7rem;
+    padding: 1rem 3.5rem;
     background: var(--green-cta);
     color: #fff;
-    font-size: .9rem; font-weight: 600;
+    font-size: 1.05rem; font-weight: 700;
     border-radius: 100px;
     text-decoration: none;
     border: none; cursor: pointer;
-    transition: background .25s, transform .2s, box-shadow .25s;
-    box-shadow: 0 4px 18px rgba(61,154,62,.35);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 6px 22px rgba(61,154,62,.35);
     font-family: inherit;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: all 0.6s;
+  }
+  .btn-primary:hover::before {
+    left: 100%;
   }
   .btn-primary:hover {
     background: var(--green-mid);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(61,154,62,.45);
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(61,154,62,.45);
   }
+  .btn-primary svg {
+    transition: transform 0.3s ease;
+  }
+  .btn-primary:hover svg {
+    transform: translateX(-5px);
+  }
+  html[dir="ltr"] .btn-primary:hover svg { transform: translateX(5px); }
   html[dir="ltr"] .btn-primary svg { transform: scaleX(-1); }
  
-  /* ── HERO VISUAL ── */
+  /* ── HERO VISUAL (Optimized Spacing & Size) ── */
   .hero-visual {
     position: relative; z-index: 1;
     display: flex; justify-content: center; align-items: center;
@@ -235,15 +312,15 @@ Novaplant · HTML
  
   .plant-frame {
     position: relative;
-    width: clamp(230px, 32vw, 380px);
-    height: clamp(280px, 40vw, 440px);
+    width: clamp(280px, 36vw, 440px);
+    height: clamp(320px, 44vw, 500px);
     opacity: 0;
     animation: fadeIn .9s .6s ease forwards;
   }
  
   .plant-main {
     position: absolute; top: 0; right: 0;
-    width: 90%; height: 90%;
+    width: 100%; height: 100%;
     object-fit: cover;
     border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
     filter: drop-shadow(0 15px 30px rgba(45,80,22,.2));
@@ -252,14 +329,14 @@ Novaplant · HTML
   html[dir="ltr"] .plant-main { right: auto; left: 0; }
  
   .plant-secondary {
-    position: absolute; bottom: 0; left: 0;
-    width: 42%;
+    position: absolute; bottom: -10px; left: -20px;
+    width: 45%;
     object-fit: cover;
     border-radius: 50%;
     filter: drop-shadow(0 10px 20px rgba(45,80,22,.15));
     animation: float 7s 1s ease-in-out infinite;
   }
-  html[dir="ltr"] .plant-secondary { left: auto; right: 0; }
+  html[dir="ltr"] .plant-secondary { left: auto; right: -20px; }
  
   /* ── CHAPTERS SECTION ── */
   .chapters-section {
@@ -267,98 +344,96 @@ Novaplant · HTML
     background-color: var(--bg-chapters);
   }
  
-  .section-main-title {
-    text-align: center; font-size: 38px;
-    margin-bottom: 12px; font-weight: 700;
-    color: var(--text-dark);
-  }
-  .section-main-subtitle {
-    text-align: center; color: var(--text-muted);
-    margin-bottom: 80px; font-size: 16px;
-  }
- 
-  .chapters-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 60px 40px;
-  }
- 
-  .chapter-card {
-    background: transparent;
+  /* Creative Header Lines & Motion */
+  .section-header-wrapper {
+    text-align: center;
+    margin-bottom: 70px;
     position: relative;
-    display: flex;
-    flex-direction: column;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
   }
- 
-  .card-image-area {
-    height: 260px; width: 100%;
-    overflow: hidden;
-    border-radius: 20px;
-    box-shadow: var(--shadow-sm);
-    position: relative; z-index: 1;
+  .section-main-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    margin-bottom: 15px; font-weight: 700;
+    color: var(--text-dark);
+    position: relative;
+    display: inline-block;
+    padding: 0 15px;
   }
- 
-  .card-image-area img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  }
- 
-  .chapter-card:hover .card-image-area img { transform: scale(1.06); }
- 
-  .card-chapter-tag {
+  .section-main-title::before, .section-main-title::after {
+    content: '';
     position: absolute;
-    top: 15px; right: 15px;
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(5px);
-    color: #34d399;
-    padding: 5px 14px;
-    border-radius: 30px;
-    font-size: 12px; font-weight: 700;
-    z-index: 5;
-    direction: ltr;
+    bottom: -8px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--green-cta);
+    transition: all 0.4s ease;
   }
-  html[dir="ltr"] .card-chapter-tag { right: auto; left: 15px; }
- 
-  .card-content-box {
-    background: var(--card-bg);
-    border-radius: 20px;
-    padding: 26px;
-    width: 90%;
-    margin: -60px auto 0 auto;
-    position: relative; z-index: 2;
-    box-shadow: var(--shadow-md);
-    display: flex; flex-direction: column;
-    justify-content: space-between;
-    flex-grow: 1;
-    border: 1px solid rgba(16,185,129,0.08);
+  .section-main-title::before {
+    right: 0; width: 60%;
   }
- 
-  .card-title {
-    font-size: 19px; color: var(--text-main);
-    font-weight: 700; margin-bottom: 12px; display: block;
+  .section-main-title::after {
+    left: 0; width: 25%;
   }
-  .card-desc {
-    font-size: 13.5px; color: var(--text-muted);
-    line-height: 1.6; margin-bottom: 20px;
+  .section-header-wrapper:hover .section-main-title::before {
+    width: 30%;
+  }
+  .section-header-wrapper:hover .section-main-title::after {
+    width: 55%;
+  }
+  
+  .section-main-subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-top: 10px;
   }
  
-  .card-footer-btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    background: rgba(16,185,129,0.05);
-    color: var(--primary);
+  /* Chapters Link Row Style (Matching Last Image) */
+  .chapters-links-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .chapter-link-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.7rem 1.4rem;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(74, 124, 47, 0.15);
+    border-radius: 14px;
     text-decoration: none;
-    font-size: 14px; font-weight: 700;
-    padding: 12px 20px;
-    border-radius: 12px; width: 100%;
-    border: 1px solid rgba(16,185,129,0.15);
+    color: var(--green-dark);
+    font-size: 0.88rem;
+    font-weight: 600;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    font-family: inherit;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
   }
-  .card-footer-btn:hover {
-    background: var(--primary);
-    color: #ffffff;
-    box-shadow: 0 8px 20px rgba(16,185,129,0.2);
-    transform: translateY(-2px);
+  body.dark-mode .chapter-link-card {
+    background: rgba(30, 45, 24, 0.7);
+    border-color: rgba(255,255,255,0.08);
+    color: var(--white);
+  }
+  .chapter-link-card:hover {
+    background: var(--green-cta);
+    color: var(--white);
+    border-color: var(--green-cta);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(61,154,62,0.25);
+  }
+  .chapter-link-card svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    transition: transform 0.3s;
+  }
+  .chapter-link-card:hover stroke {
+    stroke: var(--white);
   }
  
   /* ── FOOTER ── */
@@ -454,12 +529,15 @@ Novaplant · HTML
     100% { border-radius: 55% 45% 45% 55% / 55% 45% 60% 40%; }
   }
  
-  /* ── MOBILE ── */
+  /* ── MOBILE RESPONSIVE ── */
+  @media (max-width: 992px) {
+    nav.navbar { padding: 1rem 3%; }
+    .search-container { max-width: 300px; margin: 0 0.8rem; }
+  }
   @media (max-width: 768px) {
-    nav.navbar { padding: 0.7rem 4%; flex-wrap: wrap; }
+    nav.navbar { padding: 0.8rem 4%; flex-wrap: wrap; justify-content: space-between; }
+    .search-container { order: 4; max-width: 100%; width: 100%; margin: 0.5rem 0 0 0; }
     .logo span { font-size: 1rem; }
-    .nav-links { gap: 1rem; }
-    .nav-links a { font-size: .82rem; }
     .theme-btn, .lang-btn,
     .theme-switcher-container button,
     .lang-switcher-container button {
@@ -470,8 +548,8 @@ Novaplant · HTML
       display: flex;
       flex-direction: column;
       text-align: center;
-      padding-top: 5rem;
-      gap: 1.5rem;
+      padding-top: 8rem;
+      gap: 2.5rem;
     }
  
     .hero-visual { order: 1; margin-bottom: 1rem; }
@@ -479,9 +557,8 @@ Novaplant · HTML
     .cta-group   { order: 3; justify-content: center; margin-top: 0.5rem; }
  
     .hero-desc { max-width: 100%; justify-content: center; margin-bottom: 1rem; }
-    .divider-line { display: none; }
  
-    .plant-frame { width: 260px; height: 300px; }
+    .plant-frame { width: 300px; height: 340px; }
  
     .hero::before {
       width: 100%; height: 100%;
@@ -489,11 +566,8 @@ Novaplant · HTML
       border-radius: 0; animation: none; opacity: 0.05;
     }
  
-    .chapters-section { padding: 50px 12px; }
-    .chapters-grid { grid-template-columns: 1fr; gap: 45px; }
-    .section-main-title { font-size: 26px; }
-    .card-content-box { width: 92%; margin-top: -45px; padding: 20px; }
-    .card-title { font-size: 17px; }
+    .chapters-section { padding: 60px 16px; }
+    .chapter-link-card { width: 100%; justify-content: center; }
   }
  
   @media (max-width: 360px) {
@@ -514,10 +588,16 @@ Novaplant · HTML
     <span>NovaPlant</span>
   </a>
  
-  <ul class="nav-links">
-    <li><a href="#" id="nav-home">سەرەکی</a></li>
-    <li><a href="#chapters-area" id="nav-chapters">چاپتەرەکان</a></li>
-  </ul>
+  <!-- Search Box Instead of Links -->
+  <div class="search-container">
+    <div class="search-wrapper">
+      <input type="text" class="search-input" id="search-bar" placeholder="گەڕان بەدوای چاپتەرەکاندا...">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </div>
+  </div>
  
   <div class="nav-actions">
     <div class="theme-switcher-container">
@@ -536,15 +616,16 @@ Novaplant · HTML
 <section class="hero">
   <div class="hero-text">
     <span class="eyebrow" id="hero-eyebrow">خزمەتکردنی ڕووەکی ناوماڵ</span>
-    <h1 id="hero-title">ئاگاداری <em>ڕووەکەکانت</em> بە.</h1>
+    <h1 id="hero-title">
+      <!-- Animated letters injected by JavaScript -->
+    </h1>
     <div class="hero-desc">
-      <div class="divider-line"></div>
       <p id="hero-desc-txt">باشترین ڕێنمایی بۆ چاودێریکردنی ڕووەکەکانت؛ ئاو، ڕووناکی و پلەی گەرمی گونجاو بدۆزەرەوە.</p>
     </div>
     <div class="cta-group">
       <button class="btn-primary" onclick="document.getElementById('chapters-area').scrollIntoView({behavior:'smooth'})">
         <span id="btn-txt">دەست پێبکە</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
     </div>
   </div>
@@ -594,9 +675,13 @@ Novaplant · HTML
  
 <!-- ── CHAPTERS ── -->
 <section class="chapters-section" id="chapters-area">
-  <h2 class="section-main-title" id="sec-title">بەشەکانی پلاتفۆرم</h2>
-  <p class="section-main-subtitle" id="sec-subtitle">لێرەوە بڕوانە ناو کایە جیاوازەکانی زانستی ڕووەک و سەرچاوەکان</p>
-  <div class="chapters-grid" id="grid-container"></div>
+  <div class="section-header-wrapper">
+    <h2 class="section-main-title" id="sec-title">بەشەکانی پلاتفۆرم</h2>
+    <p class="section-main-subtitle" id="sec-subtitle">لێرەوە بڕوانە ناو کایە جیاوازەکانی زانستی ڕووەک و سەرچاوەکان</p>
+  </div>
+  
+  <!-- Pill Tags Row Representation -->
+  <div class="chapters-links-row" id="links-container"></div>
 </section>
  
 <!-- ── FOOTER ── -->
@@ -629,81 +714,84 @@ Novaplant · HTML
  
   const translations = {
     ku: {
-      dir: "rtl", homeNav: "سەرەکی", chaptersNav: "چاپتەرەکان",
+      dir: "rtl", 
+      searchPlaceholder: "گەڕان بەدوای چاپتەرەکاندا...",
       eyebrow: "خزمەتکردنی ڕووەکی ناوماڵ",
-      title: "ئاگاداری <em>ڕووەکەکانت</em> بە.",
-      desc: "باشترین ڕێنمایی بۆ چاودێریکردنی ڕووەکەکانت؛ ئاو، ڕووناکی و پلەی گەرمی گونجاو بدۆزەرەوە.",
-      btn: "دەست پێبکە",
-      tagStr: "چاپتەری ",
+      title: "ئاگاداری ڕووەکەکانت بە.",
       secTitle: "بەشەکانی پلاتفۆرم",
       secSubtitle: "لێرەوە بڕوانە ناو کایە جیاوازەکانی زانستی ڕووەک و سەرچاوەکان",
-      readMore: "خوێندنەوەی زیاتر",
+      btn: "دەست پێبکە",
       footTitle: "ئەتڵەسی پێشکەوتووی زانستی ڕووەک",
       footDept: "بەشی بایۆلوجی - کۆلێژی زانست - زانکۆی ڕاپەڕین",
       footViews: "بینەری گشتی:", footRights: "سەرجەم مافەکانی پارێزراوە © 2026",
       footDev: "ڕێکخەری زانستی و گەشەپێدەری وێب: ژیاو یوسف حسین",
       chapters: [
-        { ch: "1", img: pinnedImage, title: "زانیاری زیاتر", desc: "دەربارەی پڕۆژەکە، ناساندنی تیمەکە، ئامانجەکانمان و پەیوەندی زانکۆیی." },
-        { ch: "2", img: "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?q=80&w=600", title: "فەرهەنگی بایۆلۆجی", desc: "فەرهەنگێکی دەوڵەمەندی کوردی-ئینگلیزی بۆ وەرگێڕان و تێگەیشتنی زاراوە بایۆلۆجییەکان." },
-        { ch: "3", img: "https://images.unsplash.com/photo-1516962215378-7fa2e137ae93?q=80&w=600", title: "لێکۆڵینەوە و وتار", desc: "کۆمەڵێک توێژینەوەی نوێ، وتاری زانستی و بابەتگەلی بڵاوکراوە لەسەر زانستی ڕووەک." },
-        { ch: "4", img: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?q=80&w=600", title: "ڕێنمایی تاقیگە و تەکنەلۆژیا", desc: "پڕۆتۆکۆلەکانی تاقیگە، شێوازی کارکردن لەسەر ئامێرەکان و بەکارهێنانی تەکنەلۆژیا لە بایۆلۆجیدا." },
-        { ch: "5", img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=600", title: "ڕوونکردنەوەی ڤیدیۆیی", desc: "بینینی ڤیدیۆی فێرکاری تاقیگەیی، ئەنیمەیشنی سێ ڕەهەندی و شیکردنەوەی پرۆسەکان." },
-        { ch: "6", img: "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=600", title: "ئەناتۆمی و مۆرفۆلۆژیای ڕووەک", desc: "تاوتێکردنی پێکهاتە و شێوەی دەرەکی و ناوەوەی ڕەگ، قەد، و گەڵای ڕووەکەکان." },
-        { ch: "7", img: "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600", title: "تاکسۆنۆمی و هەمەچەشنی ڕووەک", desc: "پۆلێنکردنی خێزانە ڕووەکییەکان، ناسینەوەی جۆرەکان و فرەچەشنی ڕووەکی." },
-        { ch: "8", img: "https://images.unsplash.com/photo-1532187863486-abf9d39d6618?q=80&w=600", title: "فیزیۆلۆژیا و بایۆکیمیا", desc: "میکانیزمەکانی ڕۆشنەپێکهاتن، هۆرمۆنە ڕووەکییەکان و کارلێکە کیمیاییەکانی ناو خانەکان." },
-        { ch: "9", img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600", title: "کوئیز و تاقیکردنەوە", desc: "خۆت تاقی بکەرەوە! لێرەدا کۆمەڵێک پرسیار و کویزی زانستی ئامادەکراون بۆ هەڵسەنگاندنی زانیارییەکانت." }
+        { title: "زانیاری زیاتر" },
+        { title: "فەرهەنگی بایۆلۆجی" },
+        { title: "لێکۆڵینەوە و وتار" },
+        { title: "ڕێنمایی تاقیگە و تەکنەلۆژیا" },
+        { title: "ڕوونکردنەوەی ڤیدیۆیی" },
+        { title: "ئەناتۆمی و مۆرفۆلۆژیای ڕووەک" },
+        { title: "تاکسۆنۆمی و هەمەچەشنی ڕووەک" },
+        { title: "فیزیۆلۆژیا و بایۆکیمیا" },
+        { title: "کوئیز و تاقیکردنەوە" },
+        { title: "تەکنەلۆژیاای نوێ لە زانستی ڕووەکدا" },
+        { title: "پڕۆسە کرداریەکانی کشتوکاڵ" },
+        { title: "نەخۆشییەکانی ڕووەک و نیشانە دەرەکیەکان" }
       ]
     },
     en: {
-      dir: "ltr", homeNav: "Home", chaptersNav: "Chapters",
+      dir: "ltr", 
+      searchPlaceholder: "Search chapters...",
       eyebrow: "Indoor Plant Care",
-      title: "Take care of your <em>plants.</em>",
-      desc: "Discover the best tips for caring for your indoor plants. Choose what best suits your home.",
-      btn: "Get Started",
-      tagStr: "Chapter ",
+      title: "Take care of your plants.",
       secTitle: "Platform Chapters",
       secSubtitle: "Explore various domains of plant science and research resources from here.",
-      readMore: "Read More",
+      btn: "Get Started",
       footTitle: "Advanced Botanical Science Atlas",
       footDept: "Department of Biology - College of Science - University of Raparin",
       footViews: "Total Views:", footRights: "All Rights Reserved © 2026",
       footDev: "Scientific Coordinator & Web Developer: Zhyaw Yusf Husen",
       chapters: [
-        { ch: "1", img: pinnedImage, title: "More Information", desc: "About the project, team introduction, our core objectives, and academic relations." },
-        { ch: "2", img: "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?q=80&w=600", title: "Biological Dictionary", desc: "A rich multilingual dictionary for translating and understanding complex biological terms." },
-        { ch: "3", img: "https://images.unsplash.com/photo-1516962215378-7fa2e137ae93?q=80&w=600", title: "Research & Articles", desc: "A collection of modern research papers, scientific articles, and botanical publications." },
-        { ch: "4", img: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?q=80&w=600", title: "Lab Guide & Technology", desc: "Laboratory protocols, equipment operation methods, and tech integration in biology." },
-        { ch: "5", img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=600", title: "Video Explanations", desc: "Watch educational lab tutorials, 3D animations, and dynamic biological process breakdowns." },
-        { ch: "6", img: "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=600", title: "Plant Anatomy & Morphology", desc: "Detailed study of external morphology and internal anatomy of roots, stems, and leaves." },
-        { ch: "7", img: "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600", title: "Taxonomy & Diversity", desc: "Classification of plant families, species identification, and ecological biodiversity." },
-        { ch: "8", img: "https://images.unsplash.com/photo-1532187863486-abf9d39d6618?q=80&w=600", title: "Plant Physiology & Biochem", desc: "Mechanisms of photosynthesis, plant hormones, and cellular chemical reactions." },
-        { ch: "9", img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600", title: "Quiz & Knowledge Evaluation", desc: "Test yourself! Participate in biological quizzes designed to evaluate your botanical knowledge." }
+        { title: "More Information" },
+        { title: "Biological Dictionary" },
+        { title: "Research & Articles" },
+        { title: "Lab Guide & Technology" },
+        { title: "Video Explanations" },
+        { title: "Plant Anatomy & Morphology" },
+        { title: "Taxonomy & Diversity" },
+        { title: "Plant Physiology & Biochem" },
+        { title: "Quiz & Evaluation" },
+        { title: "New Technology in Plant Science" },
+        { title: "Practical Agricultural Processes" },
+        { title: "Plant Diseases & External Symptoms" }
       ]
     },
     ar: {
-      dir: "rtl", homeNav: "الرئيسية", chaptersNav: "الفصول",
+      dir: "rtl", 
+      searchPlaceholder: "البحث عن الفصول...",
       eyebrow: "العناية بالنباتات الداخلية",
-      title: "اعتني بـ <em>نباتاتك</em> المنزلية.",
-      desc: "اكتشف أفضل النصائح لرعاية نباتاتك؛ اختر ما يناسب بيئتك ومنزلك تماماً.",
-      btn: "ابدأ الآن",
-      tagStr: "الفصل ",
+      title: "اعتني بنباتاتك المنزلية.",
       secTitle: "أقسام المنصة",
       secSubtitle: "استكشف المجالات المختلفة لعلوم النبات والموارد العلمية من هنا.",
-      readMore: "اقرأ المزيد",
+      btn: "ابدأ الآن",
       footTitle: "أطلس علوم النبات المتقدم",
       footDept: "قسم الأحياء - كلية العلوم - جامعة رابرين",
       footViews: "إجمالي المشاهدات:", footRights: "جميع الحقوق محفوظة © 2026",
       footDev: "المنسق العلمي ومطور الموقع: ژیاو يوسف حسين",
       chapters: [
-        { ch: "١", img: pinnedImage, title: "مزيد من المعلومات", desc: "حول المشروع، التعريف بالفريق، أهدافنا الأساسية، والعلاقات الأكاديمية." },
-        { ch: "٢", img: "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?q=80&w=600", title: "القاموس البيولوجي", desc: "قاموس غني ومصطلحات متعددة اللغات لترجمة وفهم المصطلحات البيولوجية المعقدة." },
-        { ch: "٣", img: "https://images.unsplash.com/photo-1516962215378-7fa2e137ae93?q=80&w=600", title: "الأبحاث والمقالات", desc: "مجموعة من الأوراق البحثية الحديثة، المقالات العلمية، والمنشورات البوتانية." },
-        { ch: "٤", img: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?q=80&w=600", title: "دليل المختبر والتكنولوجيا", desc: "بروتوكولات المختبر، طرق تشغيل الأجهزة، ودمج التكنولوجيا في علم الأحياء." },
-        { ch: "٥", img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=600", title: "شروحات مرئية", desc: "شاهد الدروس التعليمية المختبرية، الرسوم المتحركة ثلاثية الأبعاد، وتفاعلات الخلايا." },
-        { ch: "٦", img: "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=600", title: "تشريح وشكل النبات", desc: "دراسة مفصلة للمورفولوجيا الخارجية والتشريح الداخلي للجذور، السيقان، والأوراق." },
-        { ch: "٧", img: "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600", title: "تصنيف وتنوع النبات", desc: "تصنيف العائلات النباتية، تحديد الأنواع، والتنوع البيولوجي البيئي." },
-        { ch: "٨", img: "https://images.unsplash.com/photo-1532187863486-abf9d39d6618?q=80&w=600", title: "فسيولوجيا النبات والكيمياء الحيوية", desc: "آليات البناء الضوئي، الهرمونات النباتية، والتفاعلات الكيميائية الخلوية." },
-        { ch: "٩", img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600", title: "الاختبارات والكويزات", desc: "اختبر نفسك! شارك في الكويزات العلمية المصممة لتقييم وفحص معلوماتك البوتانية والبيولوجية." }
+        { title: "مزيد من المعلومات" },
+        { title: "القاموس البيولوجي" },
+        { title: "الأبحاث والمقالات" },
+        { title: "دليل المختبر والتكنولوجيا" },
+        { title: "شروحات مرئية" },
+        { title: "تشريح وشكل النبات" },
+        { title: "تصنيف وتنوع النبات" },
+        { title: "فسيولوجيا النبات والكيمياء الحيوية" },
+        { title: "الاختبارات والكويزات" },
+        { title: "التكنولوجيا الحديثة في علم النبات" },
+        { title: "العمليات الزراعية التطبيقية" },
+        { title: "أمراض النبات والأعراض الخارجية" }
       ]
     }
   };
@@ -717,11 +805,8 @@ Novaplant · HTML
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
     document.getElementById(`btn-${lang}`).classList.add('active');
  
-    document.getElementById("nav-home").innerText = data.homeNav;
-    document.getElementById("nav-chapters").innerText = data.chaptersNav;
+    document.getElementById("search-bar").placeholder = data.searchPlaceholder;
     document.getElementById("hero-eyebrow").innerText = data.eyebrow;
-    document.getElementById("hero-title").innerHTML = data.title;
-    document.getElementById("hero-desc-txt").innerText = data.desc;
     document.getElementById("btn-txt").innerText = data.btn;
     document.getElementById("sec-title").innerText = data.secTitle;
     document.getElementById("sec-subtitle").innerText = data.secSubtitle;
@@ -731,25 +816,46 @@ Novaplant · HTML
     document.getElementById("foot-rights").innerText = data.footRights;
     document.getElementById("foot-developer").innerText = data.footDev;
  
-    const container = document.getElementById("grid-container");
+    // Inject Letter by Letter Animation safely
+    const titleContainer = document.getElementById("hero-title");
+    titleContainer.innerHTML = "";
+    [...data.title].forEach(letter => {
+      const span = document.createElement("span");
+      span.innerHTML = letter === " " ? "&nbsp;" : letter;
+      titleContainer.appendChild(span);
+    });
+
+    // Render Pill Cards Link Row layout
+    renderLinks(data.chapters);
+  }
+ 
+  function renderLinks(chaptersList) {
+    const container = document.getElementById("links-container");
     container.innerHTML = "";
-    data.chapters.forEach(item => {
+    chaptersList.forEach(item => {
       container.innerHTML += `
-        <div class="chapter-card">
-          <div class="card-image-area">
-            <span class="card-chapter-tag">${data.tagStr}${item.ch}</span>
-            <img src="${item.img}" alt="${item.title}" loading="lazy">
-          </div>
-          <div class="card-content-box">
-            <div>
-              <h3 class="card-title">${item.title}</h3>
-              <p class="card-desc">${item.desc}</p>
-            </div>
-            <a href="#" class="card-footer-btn">${data.readMore}</a>
-          </div>
-        </div>`;
+        <a href="#" class="chapter-link-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>${item.title}</span>
+        </a>`;
     });
   }
+
+  // Active Live Search Filter Functionality
+  document.getElementById("search-bar").addEventListener("input", function(e) {
+    const term = e.target.value.toLowerCase().trim();
+    const cards = document.querySelectorAll(".chapter-link-card");
+    cards.forEach(card => {
+      const txt = card.querySelector("span").innerText.toLowerCase();
+      if(txt.includes(term)) {
+        card.style.display = "inline-flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
  
   function setTheme(mode) {
     document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
