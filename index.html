@@ -1,3 +1,6 @@
+
+
+Index · HTML
 <!DOCTYPE html>
 <html lang="ku" dir="rtl" id="html-tag">
 <head>
@@ -135,6 +138,24 @@
   .nav-actions {
     display: flex; align-items: center; gap: .6rem;
   }
+
+  .mobile-search-btn {
+    display: none;
+    align-items: center; justify-content: center;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(74, 124, 47, 0.2);
+    background: rgba(255,255,255,0.6);
+    color: var(--text-muted);
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  body.dark-mode .mobile-search-btn {
+    background: rgba(30, 45, 24, 0.6);
+    border-color: rgba(255,255,255,0.1);
+    color: var(--text-muted);
+  }
+  .mobile-search-btn svg { width: 17px; height: 17px; }
  
   .theme-switcher-container, .lang-switcher-container {
     display: flex;
@@ -169,91 +190,149 @@
     box-shadow: 0 2px 6px rgba(0,200,150,0.3);
   }
  
-  /* ── HERO (UPDATED DESIGN & BOUNDS) ── */
+  /* ── HERO ── */
   .hero {
     min-height: 85vh;
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     align-items: center;
-    padding: 7.5rem 8% 3rem;
+    padding: 6.5rem 8% 2rem;
     position: relative;
-    overflow: hidden; /* ڕێگری لە چوونەدەرەوەی شەیپەکان دەکات */
+    overflow: hidden;
     gap: 3rem;
-    border-bottom: 2px solid var(--green-cta);
+  }
+
+  /* ── HERO DIVIDER (animated wave) ── */
+  .hero-divider {
+    position: relative;
+    width: 100%;
+    height: 56px;
+    overflow: hidden;
+    z-index: 15;
+    line-height: 0;
+  }
+  .hero-divider svg {
+    display: block;
+    width: 200%;
+    height: 100%;
+    animation: waveDrift 14s linear infinite;
+  }
+  html[dir="ltr"] .hero-divider svg { animation-direction: reverse; }
+  .hero-divider .wave-back {
+    fill: var(--green-light);
+    opacity: .55;
+  }
+  .hero-divider .wave-front {
+    fill: var(--green-cta);
+  }
+  @keyframes waveDrift {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
   }
  
-  /* ڕێکخستنی قەبارەی باکگراوندەکە بۆ ئەوەی لە خەتەکە تێنەپەڕێت */
+  /* لێرەدا شەیپەکە کراوەتە زەمینە لە دواوەی هەموو شتەکان */
   .hero::before {
     content: '';
     position: absolute;
-    top: 5%; 
-    right: 0%;
-    width: 48%; 
-    height: 90%;
+    top: -18%; right: -12%;
+    width: 92%; height: 138%;
     background: var(--mint-bg);
     border-radius: var(--radius-blob);
-    animation: morphBlob 10s ease-in-out infinite alternate;
-    z-index: 0;
+    animation: morphBlob 16s ease-in-out infinite alternate;
+    z-index: 1; /* خراوەتە پێش ڕوکاری سپی گشتی بەڵام لەپشت نووسینەکانە */
   }
-  html[dir="ltr"] .hero::before { right: auto; left: 0%; }
+  html[dir="ltr"] .hero::before { right: auto; left: -12%; }
  
+  /* دڵنیابوونەوە لەوەی دەق و ڤیژواڵ دەکەونە پێش شەیپەکە */
   .hero-text { 
     position: relative; 
-    z-index: 1; 
+    z-index: 5; 
     display: flex; 
     flex-direction: column; 
     align-items: center;
     text-align: center;
   }
  
+  /* ستایلی نوێی دەقەکانی هیرۆ بۆ ڕاکێشانی سەرنج */
   .eyebrow {
     display: inline-block;
-    font-size: .95rem; font-weight: 700;
-    color: var(--green-mid);
-    background: rgba(74, 124, 47, 0.1);
-    padding: .4rem 1.2rem;
+    font-size: 1.05rem; font-weight: 700;
+    color: #10B981;
+    background: rgba(16, 185, 129, 0.1);
+    padding: 6px 16px;
     border-radius: 50px;
-    margin-bottom: 1.5rem;
-    animation: textFloatContinuous 4s ease-in-out infinite alternate;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 10px rgba(16, 185, 129, 0.05);
+    opacity: 0;
+    animation: fadeUp .7s .3s ease forwards;
   }
  
-  /* مۆوشنی بەردەوامی دەقەکە بەبێ هۆڤەر */
   .hero-text h1 {
-    font-size: clamp(2.6rem, 5.5vw, 4rem);
+    font-size: clamp(2.8rem, 5.5vw, 4rem);
     line-height: 1.3;
     color: var(--text-dark);
     margin-bottom: 1.5rem;
-    font-weight: 800;
+    font-weight: 700;
+    opacity: 0;
+    animation: fadeUp .7s .5s ease forwards;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.6rem;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.05);
   }
  
   .hero-text h1 span {
     display: inline-block;
-    color: var(--green-dark);
-    animation: textWaveContinuous 3s ease-in-out infinite alternate;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s;
+    cursor: default;
+    background: linear-gradient(135deg, var(--green-dark), var(--green-cta));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: letterFloat 3.2s ease-in-out infinite, gradientShift 5s ease-in-out infinite;
   }
-  body.dark-mode .hero-text h1 span { color: var(--white); }
-
-  /* جیاکردنەوەی کاتی جوڵەی وشەکان بۆ دروستبوونی شەپۆل */
-  .hero-text h1 span:nth-child(2) {
-    animation-delay: 0.4s;
+  .hero-text h1 span:nth-child(1) { animation-delay: 0s, 0s; }
+  .hero-text h1 span:nth-child(2) { animation-delay: .15s, .3s; }
+  .hero-text h1 span:nth-child(3) { animation-delay: .3s, .6s; }
+  .hero-text h1 span:nth-child(4) { animation-delay: .45s, .9s; }
+  body.dark-mode .hero-text h1 span {
+    background: linear-gradient(135deg, #ffffff, #86efac);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-text h1 span:hover {
+    animation-play-state: paused;
+    transform: translateY(-10px) scale(1.08) rotate(1deg);
+  }
+  @keyframes letterFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+  }
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
  
   .hero-desc {
-    font-size: 1.2rem; line-height: 1.8;
+    font-size: 1.2rem; line-height: 1.9;
     color: var(--text-muted);
-    max-width: 600px;
+    max-width: 650px;
     margin-bottom: 2.5rem;
-    animation: textFloatContinuous 4.5s ease-in-out infinite alternate-reverse;
+    font-weight: 400;
+    opacity: 0;
+    animation: fadeUp .7s .7s ease forwards;
   }
  
   .cta-group {
     display: flex; align-items: center;
     justify-content: center;
-    animation: textFloatContinuous 5s ease-in-out infinite alternate;
+    opacity: 0;
+    animation: fadeUp .7s .9s ease forwards;
+    position: relative;
+    z-index: 10;
   }
  
   .btn-primary {
@@ -290,7 +369,8 @@
   html[dir="ltr"] .btn-primary svg { transform: scaleX(-1); }
  
   .hero-visual {
-    position: relative; z-index: 1;
+    position: relative; 
+    z-index: 5; /* دڵنیایی کە دەکەوێتە پێش شەیپەکە */
     display: flex; justify-content: center; align-items: center;
   }
  
@@ -298,6 +378,8 @@
     position: relative;
     width: clamp(280px, 36vw, 440px);
     height: clamp(320px, 44vw, 500px);
+    opacity: 0;
+    animation: fadeIn .9s .6s ease forwards;
   }
  
   .plant-main {
@@ -324,6 +406,8 @@
   .chapters-section {
     padding: 80px 5%;
     background-color: var(--bg-chapters);
+    position: relative;
+    z-index: 10;
   }
 
   .section-main-title {
@@ -378,6 +462,14 @@
     background: #f1f5f9;
   }
 
+  .card-image-area::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.05) 55%, transparent 75%);
+    z-index: 1;
+  }
+
   .card-image-area img {
     width: 100%;
     height: 100%;
@@ -387,23 +479,6 @@
 
   .chapter-card:hover .card-image-area img {
     transform: scale(1.08);
-  }
-
-  .card-wave-shape {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    fill: var(--card-bg);
-    z-index: 2;
-    transition: transform 0.4s ease, fill 0.3s;
-    transform: scaleY(1);
-    transform-origin: bottom;
-  }
-
-  .chapter-card:hover .card-wave-shape {
-    transform: scaleY(1.25) translateY(-2px);
   }
 
   .card-chapter-tag {
@@ -424,8 +499,20 @@
     left: 15px;
   }
 
+  .card-chapter-tag::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #34d399;
+    margin-inline-end: 6px;
+    box-shadow: 0 0 6px #34d399;
+  }
+
   .card-content-box {
-    padding: 24px;
+    padding: 22px 24px 24px;
+    margin-top: -26px;
+    border-radius: 22px 22px 0 0;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -433,6 +520,7 @@
     position: relative;
     z-index: 3;
     background: var(--card-bg);
+    box-shadow: 0 -10px 20px rgba(0,0,0,0.05);
     transition: background 0.3s;
   }
 
@@ -488,6 +576,7 @@
     border-top: var(--border-nav);
     position: relative;
     overflow: hidden;
+    z-index: 10;
   }
  
   .leaves-container {
@@ -559,26 +648,28 @@
  
   .footer-dev { color: #86efac; font-weight: 600; font-size: 13.5px; }
  
-  /* ── KEYFRAMES (NEW & ENHANCED) ── */
-  @keyframes textWaveContinuous {
-    0% { transform: translateY(0); color: var(--green-mid); }
-    100% { transform: translateY(-6px); color: var(--green-cta); }
+  /* ── KEYFRAMES ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
-
-  @keyframes textFloatContinuous {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-4px); }
-  }
-
-  @keyframes float { 
-    0%, 100% { transform: translateY(0) rotate(0deg); } 
-    50% { transform: translateY(-12px) rotate(1deg); } 
-  }
-
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  
+  /* چاککردن و نەرمکردنەوەی جووڵەی شەیپەکە بۆ ئەوەی زۆر بێزارکەر نەبێت */
   @keyframes morphBlob {
-    0%   { border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%; }
-    50%  { border-radius: 55% 45% 55% 45% / 45% 55% 45% 55%; }
-    100% { border-radius: 45% 55% 40% 60% / 50% 50% 50% 50%; }
+    0% { 
+      border-radius: 50% 60% 55% 45% / 50% 55% 45% 55%; 
+      transform: scale(1);
+    }
+    50% { 
+      border-radius: 65% 45% 60% 50% / 55% 60% 40% 50%; 
+      transform: scale(1.04) rotate(15deg);
+    }
+    100% { 
+      border-radius: 50% 60% 55% 45% / 50% 55% 45% 55%; 
+      transform: scale(1);
+    }
   }
  
   /* ── MOBILE & TABLET RESPONSIVE ── */
@@ -593,9 +684,28 @@
     .search-container { max-width: 300px; margin: 0 0.8rem; }
   }
   @media (max-width: 768px) {
-    nav.navbar { padding: 0.8rem 4%; flex-wrap: wrap; justify-content: space-between; }
-    .search-container { order: 4; max-width: 100%; width: 100%; margin: 0.5rem 0 0 0; }
-    .logo span { font-size: 1rem; }
+    nav.navbar { padding: 0.7rem 4%; flex-wrap: nowrap; justify-content: space-between; gap: .4rem; }
+    .search-container { display: none; }
+    .search-container.mobile-open {
+      display: block;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      margin: 0; max-width: 100%;
+      padding: .7rem 5%;
+      background: var(--cream);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      animation: fadeUp .25s ease;
+    }
+    body.dark-mode .search-container.mobile-open {
+      background: var(--white);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .mobile-search-btn { display: flex; }
+    .logo span { font-size: .92rem; }
+    .nav-actions { gap: .35rem; }
+    .theme-switcher-container button,
+    .lang-switcher-container button { padding: .3rem .5rem; font-size: .68rem; }
     
     .hero {
       display: flex;
@@ -639,7 +749,7 @@
     <span>NovaPlant</span>
   </a>
  
-  <div class="search-container">
+  <div class="search-container" id="search-container">
     <div class="search-wrapper">
       <input type="text" class="search-input" id="search-bar" placeholder="گەڕان بەدوای چاپتەرەکاندا...">
       <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -648,6 +758,13 @@
       </svg>
     </div>
   </div>
+
+  <button class="mobile-search-btn" id="mobile-search-btn" onclick="toggleMobileSearch()" aria-label="Search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+  </button>
  
   <div class="nav-actions">
     <div class="theme-switcher-container">
@@ -665,9 +782,9 @@
 <section class="hero">
   <div class="hero-text">
     <span class="eyebrow" id="hero-eyebrow">زانستی درەوشاوەی ڕووەک</span>
-    <h1 id="hero-title"></h1>
+    <h1 id="hero-title">NovaPlant</h1>
     <div class="hero-desc">
-      <p id="hero-desc-txt">پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران، مامۆستایان، توێژەران و جووتیاران بەکارهێنانی تازەترین زانیاری سەردەم.</p>
+      <p id="hero-desc-txt">پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران، مامۆستایان، توێژەران و جووتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.</p>
     </div>
     <div class="cta-group">
       <button class="btn-primary" onclick="document.getElementById('chapters-area').scrollIntoView({behavior:'smooth'})">
@@ -719,6 +836,13 @@
     </div>
   </div>
 </section>
+
+<div class="hero-divider">
+  <svg viewBox="0 0 2880 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path class="wave-back" d="M0,55 C120,85 240,25 360,55 C480,85 600,25 720,55 C840,85 960,25 1080,55 C1200,85 1320,25 1440,55 L1440,100 L0,100 Z M1440,55 C1560,85 1680,25 1800,55 C1920,85 2040,25 2160,55 C2280,85 2400,25 2520,55 C2640,85 2760,25 2880,55 L2880,100 L1440,100 Z"></path>
+    <path class="wave-front" d="M0,70 C150,40 300,95 450,70 C600,45 750,95 900,70 C1050,45 1200,95 1350,70 L1440,65 L1440,100 L0,100 Z M1440,70 C1590,40 1740,95 1890,70 C2040,45 2190,95 2340,70 C2490,45 2640,95 2790,70 L2880,65 L2880,100 L1440,100 Z"></path>
+  </svg>
+</div>
  
 <section class="chapters-section" id="chapters-area">
   <div class="section-header-wrapper">
@@ -781,13 +905,13 @@
         { ch: "٩", title: "کوئیز و تاقیکردنەوە", desc: "ئاستی زانیاریت لێرە تاقی بکەرەوە بە شێوەی ئۆنلاین.", img: fallbackImg },
         { ch: "١٠", title: "تەکنەلۆژیاای نوێ لە زانستی ڕووەکدا", desc: "بەکارهێنانی زیرەکی دەستکرد و تەکنەلۆژیای جینی لە ڕووەکدا.", img: fallbackImg },
         { ch: "١١", title: "پڕۆسە کرداریەکانی کشتوکاڵ", desc: "ئامادەکردنی خاک، چاندنی تۆو, و بەڕێوبردنی کێڵگەکان.", img: fallbackImg },
-        { ch: "١2", title: "نەخۆشییەکانی ڕووەک و نیشانە دەرەکیەکان", desc: "ناسینەوەی قارچک، بەکتریا و نیشانەکانی کەمبوونی ماددە خۆراکیەکان.", img: fallbackImg }
+        { ch: "١٢", title: "نەخۆشییەکانی ڕووەک و نیشانە دەرەکیەکان", desc: "ناسینەوەی قارچک، بەکتریا و نیشانەکانی کەمبوونی ماددە خۆراکیەکان.", img: fallbackImg }
       ]
     },
     en: {
       dir: "ltr", tagStr: "Chapter ", readMore: "Read More",
       searchPlaceholder: "Search chapters...",
-      eyebrow: "Brilliant Plant Science",
+      eyebrow: "Brilliant Botanical Science",
       title: "NovaPlant",
       secTitle: "Platform Chapters",
       secSubtitle: "Explore various domains of plant science and research resources from here.",
@@ -814,7 +938,7 @@
     ar: {
       dir: "rtl", tagStr: "الفصل ", readMore: "قراءة المزيد",
       searchPlaceholder: "البحث عن الفصول...",
-      eyebrow: "علوم النبات المتألقة",
+      eyebrow: "علم النبات المشرق",
       title: "NovaPlant",
       secTitle: "أقسام المنصة",
       secSubtitle: "استكشف المجالات المختلفة لعلوم النبات والموارد العلمية من هنا.",
@@ -887,9 +1011,6 @@
           <div class="card-image-area">
             <span class="card-chapter-tag">${data.tagStr}${item.ch}</span>
             <img src="${item.img}" alt="${item.title}" loading="lazy">
-            <svg class="card-wave-shape" viewBox="0 0 1440 120" preserveAspectRatio="none">
-              <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z"></path>
-            </svg>
           </div>
           <div class="card-content-box">
             <h3 class="card-title">${item.title}</h3>
@@ -912,6 +1033,14 @@
       }
     });
   });
+ 
+  function toggleMobileSearch() {
+    const sc = document.getElementById("search-container");
+    sc.classList.toggle("mobile-open");
+    if (sc.classList.contains("mobile-open")) {
+      document.getElementById("search-bar").focus();
+    }
+  }
  
   function setTheme(mode) {
     document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
