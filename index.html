@@ -182,40 +182,47 @@
     border-bottom: 2px solid var(--green-cta);
   }
  
-  /* لێرەدا قەبارەی شەیپەکە گەورەکراوە و نوێکراوەتەوە بۆ داپۆشینی تەواوی نووسینەکان */
+  /* لێرەدا شەیپەکە کراوەتە زەمینە لە دواوەی هەموو شتەکان */
   .hero::before {
     content: '';
     position: absolute;
-    top: -10%; right: -10%;
-    width: 75%; height: 120%;
+    top: -5%; right: -5%;
+    width: 75%; height: 110%;
     background: var(--mint-bg);
     border-radius: var(--radius-blob);
-    animation: morphBlob 18s ease-in-out infinite alternate;
-    z-index: 0;
+    animation: morphBlob 16s ease-in-out infinite alternate;
+    z-index: 1; /* خراوەتە پێش ڕوکاری سپی گشتی بەڵام لەپشت نووسینەکانە */
   }
-  html[dir="ltr"] .hero::before { right: auto; left: -10%; }
+  html[dir="ltr"] .hero::before { right: auto; left: -5%; }
  
+  /* دڵنیابوونەوە لەوەی دەق و ڤیژواڵ دەکەونە پێش شەیپەکە */
   .hero-text { 
     position: relative; 
-    z-index: 1; 
+    z-index: 5; 
     display: flex; 
     flex-direction: column; 
     align-items: center;
     text-align: center;
   }
  
+  /* ستایلی نوێی دەقەکانی هیرۆ بۆ ڕاکێشانی سەرنج */
   .eyebrow {
     display: inline-block;
-    font-size: .95rem; font-weight: 700;
-    color: var(--green-mid);
-    margin-bottom: 1rem;
+    font-size: 1.05rem; font-weight: 700;
+    color: #10B981;
+    background: rgba(16, 185, 129, 0.1);
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 10px rgba(16, 185, 129, 0.05);
     opacity: 0;
     animation: fadeUp .7s .3s ease forwards;
   }
  
   .hero-text h1 {
-    font-size: clamp(2.4rem, 5vw, 3.6rem);
-    line-height: 1.4;
+    font-size: clamp(2.8rem, 5.5vw, 4rem);
+    line-height: 1.3;
     color: var(--text-dark);
     margin-bottom: 1.5rem;
     font-weight: 700;
@@ -225,23 +232,32 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.6rem;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.05);
   }
  
   .hero-text h1 span {
     display: inline-block;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s;
     cursor: default;
+    background: linear-gradient(135deg, var(--green-dark), var(--green-cta));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  body.dark-mode .hero-text h1 span {
+    background: linear-gradient(135deg, #ffffff, #86efac);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   .hero-text h1 span:hover {
-    transform: translateY(-8px) scale(1.05);
-    color: var(--green-cta);
+    transform: translateY(-10px) scale(1.08) rotate(1deg);
   }
  
   .hero-desc {
-    font-size: 1.15rem; line-height: 1.8;
+    font-size: 1.2rem; line-height: 1.9;
     color: var(--text-muted);
-    max-width: 600px;
+    max-width: 650px;
     margin-bottom: 2.5rem;
+    font-weight: 400;
     opacity: 0;
     animation: fadeUp .7s .7s ease forwards;
   }
@@ -251,6 +267,8 @@
     justify-content: center;
     opacity: 0;
     animation: fadeUp .7s .9s ease forwards;
+    position: relative;
+    z-index: 10;
   }
  
   .btn-primary {
@@ -287,7 +305,8 @@
   html[dir="ltr"] .btn-primary svg { transform: scaleX(-1); }
  
   .hero-visual {
-    position: relative; z-index: 1;
+    position: relative; 
+    z-index: 5; /* دڵنیایی کە دەکەوێتە پێش شەیپەکە */
     display: flex; justify-content: center; align-items: center;
   }
  
@@ -323,6 +342,8 @@
   .chapters-section {
     padding: 80px 5%;
     background-color: var(--bg-chapters);
+    position: relative;
+    z-index: 10;
   }
 
   .section-main-title {
@@ -487,6 +508,7 @@
     border-top: var(--border-nav);
     position: relative;
     overflow: hidden;
+    z-index: 10;
   }
  
   .leaves-container {
@@ -566,23 +588,19 @@
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
   
-  /* نۆژەنکردنەوەی جووڵەی شەیپەکە بۆ مۆشنێکی نەرمتر و پێشکەوتووتر */
+  /* چاککردن و نەرمکردنەوەی جووڵەی شەیپەکە بۆ ئەوەی زۆر بێزارکەر نەبێت */
   @keyframes morphBlob {
     0% { 
-      border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%; 
-      transform: rotate(0deg) scale(1);
+      border-radius: 50% 60% 55% 45% / 50% 55% 45% 55%; 
+      transform: scale(1);
     }
-    34% { 
-      border-radius: 60% 40% 55% 45% / 50% 65% 35% 50%; 
-      transform: rotate(60deg) scale(1.05);
-    }
-    67% { 
-      border-radius: 45% 55% 40% 60% / 60% 45% 55% 40%; 
-      transform: rotate(120deg) scale(0.95);
+    50% { 
+      border-radius: 65% 45% 60% 50% / 55% 60% 40% 50%; 
+      transform: scale(1.04) rotate(15deg);
     }
     100% { 
-      border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%; 
-      transform: rotate(180deg) scale(1);
+      border-radius: 50% 60% 55% 45% / 50% 55% 45% 55%; 
+      transform: scale(1);
     }
   }
  
@@ -669,10 +687,10 @@
  
 <section class="hero">
   <div class="hero-text">
-    <span class="eyebrow" id="hero-eyebrow">خزمەتکردنی ڕووەکی ناوماڵ</span>
-    <h1 id="hero-title"></h1>
+    <span class="eyebrow" id="hero-eyebrow">زانستی درەوشاوەی ڕووەک</span>
+    <h1 id="hero-title">NovaPlant</h1>
     <div class="hero-desc">
-      <p id="hero-desc-txt">باشترین ڕێنمایی بۆ چاودێریکردنی ڕووەکەکانت؛ ئاو, ڕووناکی و پلەی گەرمی گونجاو بدۆزەرەوە.</p>
+      <p id="hero-desc-txt">پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران، مامۆستایان، توێژەران و جووتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.</p>
     </div>
     <div class="cta-group">
       <button class="btn-primary" onclick="document.getElementById('chapters-area').scrollIntoView({behavior:'smooth'})">
@@ -765,7 +783,7 @@
     ku: {
       dir: "rtl", tagStr: "چاپتەری ", readMore: "خوێندنەوەی زیاتر",
       searchPlaceholder: "گەڕان بەدوای چاپتەرەکاندا...",
-      eyebrow: "خزمەتکردنی ڕووەکی ناوماڵ",
+      eyebrow: "زانستی درەوشاوەی ڕووەک",
       title: "NovaPlant",
       secTitle: "بەشەکانی پلاتفۆرم",
       secSubtitle: "لێرەوە بڕوانە ناو کایە جیاوازەکانی زانستی ڕووەک و سەرچاوەکان",
@@ -792,7 +810,7 @@
     en: {
       dir: "ltr", tagStr: "Chapter ", readMore: "Read More",
       searchPlaceholder: "Search chapters...",
-      eyebrow: "Indoor Plant Care",
+      eyebrow: "Brilliant Botanical Science",
       title: "NovaPlant",
       secTitle: "Platform Chapters",
       secSubtitle: "Explore various domains of plant science and research resources from here.",
@@ -819,7 +837,7 @@
     ar: {
       dir: "rtl", tagStr: "الفصل ", readMore: "قراءة المزيد",
       searchPlaceholder: "البحث عن الفصول...",
-      eyebrow: "العناية بالنباتات الداخلية",
+      eyebrow: "علم النبات المشرق",
       title: "NovaPlant",
       secTitle: "أقسام المنصة",
       secSubtitle: "استكشف المجالات المختلفة لعلوم النبات والموارد العلمية من هنا.",
