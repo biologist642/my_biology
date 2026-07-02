@@ -1,6 +1,3 @@
-
-
-Index · HTML
 <!DOCTYPE html>
 <html lang="ku" dir="rtl" id="html-tag">
 <head>
@@ -33,6 +30,7 @@ Index · HTML
     --shadow-sm:    0 4px 12px rgba(0,0,0,0.08);
     --shadow-md:    0 10px 30px rgba(0,0,0,0.10);
     --border-nav:   1px solid rgba(16,185,129,0.15);
+    --arrow-hover-transform: translateX(-5px);
   }
  
   body.dark-mode {
@@ -47,6 +45,10 @@ Index · HTML
     --text-main:    #e8f5e1;
     --shadow-sm:    0 4px 12px rgba(0,0,0,0.3);
     --shadow-md:    0 10px 30px rgba(0,0,0,0.35);
+  }
+
+  html[dir="ltr"] {
+    --arrow-hover-transform: translateX(5px);
   }
  
   html { scroll-behavior: smooth; }
@@ -230,7 +232,6 @@ Index · HTML
     to   { transform: translateX(-50%); }
   }
  
-  /* لێرەدا شەیپەکە کراوەتە زەمینە لە دواوەی هەموو شتەکان */
   .hero::before {
     content: '';
     position: absolute;
@@ -239,11 +240,10 @@ Index · HTML
     background: var(--mint-bg);
     border-radius: var(--radius-blob);
     animation: morphBlob 16s ease-in-out infinite alternate;
-    z-index: 1; /* خراوەتە پێش ڕوکاری سپی گشتی بەڵام لەپشت نووسینەکانە */
+    z-index: 1;
   }
   html[dir="ltr"] .hero::before { right: auto; left: -12%; }
  
-  /* دڵنیابوونەوە لەوەی دەق و ڤیژواڵ دەکەونە پێش شەیپەکە */
   .hero-text { 
     position: relative; 
     z-index: 5; 
@@ -253,7 +253,6 @@ Index · HTML
     text-align: center;
   }
  
-  /* ستایلی نوێی دەقەکانی هیرۆ بۆ ڕاکێشانی سەرنج */
   .eyebrow {
     display: inline-block;
     font-size: 1.05rem; font-weight: 700;
@@ -364,13 +363,12 @@ Index · HTML
     box-shadow: 0 12px 28px rgba(61,154,62,.45);
   }
   .btn-primary svg { transition: transform 0.3s ease; }
-  .btn-primary:hover svg { transform: translateX(-5px); }
-  html[dir="ltr"] .btn-primary:hover svg { transform: translateX(5px); }
+  .btn-primary:hover svg { transform: var(--arrow-hover-transform); }
   html[dir="ltr"] .btn-primary svg { transform: scaleX(-1); }
  
   .hero-visual {
     position: relative; 
-    z-index: 5; /* دڵنیایی کە دەکەوێتە پێش شەیپەکە */
+    z-index: 5; 
     display: flex; justify-content: center; align-items: center;
   }
  
@@ -656,7 +654,6 @@ Index · HTML
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
   
-  /* چاککردن و نەرمکردنەوەی جووڵەی شەیپەکە بۆ ئەوەی زۆر بێزارکەر نەبێت */
   @keyframes morphBlob {
     0% { 
       border-radius: 50% 60% 55% 45% / 50% 55% 45% 55%; 
@@ -863,7 +860,7 @@ Index · HTML
   <div class="footer-container">
     <div class="footer-info-side">
       <div class="footer-project-name">NovaPlant Website</div>
-      <div class="footer-title" id="foot-main-title">ئەتڵەسی پێشکەوتووی زانستی ڕووەک</div>
+      <div class="footer-title" id="foot-main-title">ئەتڵەسی پێشکەوی زانستی ڕووەک</div>
       <div class="footer-dept" id="foot-dept">بەشی بایۆلوجی - کۆلێژی زانست - زانکۆی ڕاپەڕین</div>
     </div>
     <div class="viewer-counter-box">
@@ -974,6 +971,8 @@ Index · HTML
     document.getElementById(`btn-${lang}`).classList.add('active');
  
     document.getElementById("search-bar").placeholder = data.searchPlaceholder;
+    document.getElementById("search-bar").value = ""; // Clear values to prevent visual filter bugs
+    
     document.getElementById("hero-eyebrow").innerText = data.eyebrow;
     document.getElementById("btn-txt").innerText = data.btn;
     document.getElementById("sec-title").innerText = data.secTitle;
@@ -1015,7 +1014,7 @@ Index · HTML
           <div class="card-content-box">
             <h3 class="card-title">${item.title}</h3>
             <p class="card-desc">${item.desc}</p>
-            <a href="#" class="card-footer-btn">${data.readMore}</a>
+            <a href="javascript:void(0)" class="card-footer-btn">${data.readMore}</a>
           </div>
         </div>`;
     });
