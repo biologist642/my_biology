@@ -213,37 +213,41 @@
     z-index: 15;
     line-height: 0;
   }
-  .hero-divider svg {
-    display: block;
-    width: 200%;
-    height: 100%;
-    animation: waveDrift 14s linear infinite;
-  }
-  html[dir="ltr"] .hero-divider svg { animation-direction: reverse; }
-  .hero-divider .wave-back {
-    fill: var(--green-light);
-    opacity: .55;
-  }
-  .hero-divider .wave-front {
-    fill: var(--green-cta);
-  }
-  @keyframes waveDrift {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
+  nav.navbar + .hero + .hero-divider svg, /* یان ڕاستەوخۆ سێلێکتەری خوارەوە */
+.hero-divider svg {
+  display: block;
+  width: 100%; /* لەجیاتی 200% کرا بە 100% بۆ ئەوەی لەرەز لێ نەدات */
+  height: 100%;
+  animation: waveDrift 4s ease-in-out infinite alternate; /* جووڵەی سەر و خوار پێچەوانە */
+}
+
+@keyframes waveDrift {
+  from { transform: translateY(0); }
+  to   { transform: translateY(8px); } /* تەنها بە نەرمی دێتە خوارەوە و دەچێتە سەرەوە */
+}
  
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -18%; right: -12%;
-    width: 92%; height: 138%;
-    background: var(--mint-bg);
-    border-radius: var(--radius-blob);
-    animation: morphBlob 16s ease-in-out infinite alternate;
-    z-index: 1;
-  }
-  html[dir="ltr"] .hero::before { right: auto; left: -12%; }
- 
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0; 
+  right: auto; /* دڵنیابوونەوە لەوەی لە لای چەپەوە جێگیر دەبێت */
+  width: 50%;  /* پانییەکەی دەبێتە ڕێک نیوەی شاشەکە تا هێڵی ناوەڕاست */
+  height: 100%;
+  background: var(--mint-bg);
+  /* دەتوانیت لێوارەکەی کەمێک خڕ بکەیت یان وەک خۆی لێگەڕێیت بۆ شێوازی مۆدێرن */
+  border-radius: 0 0 80px 0; 
+  animation: none; /* ئەنیمەیشنی شێواندنی شەیپەکە لادەبەین بۆ ئەوەی لە هێڵەکە دەرنەچێت */
+  z-index: 1;
+}
+
+/* بۆ ئەوەی لە زمانی ئینگلیزیشدا تێک نەچێت */
+html[dir="ltr"] .hero::before {
+  left: auto;
+  right: 0;
+  border-radius: 0 0 0 80px;
+}
+
   .hero-text { 
     position: relative; 
     z-index: 5; 
