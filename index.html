@@ -25,7 +25,7 @@
     --primary:      #10B981;
     --card-bg:      #ffffff;
     --bg-chapters:  #f0f7ec;
-    --bg-footer:    #0c1608;
+    --bg-footer:    #1e3a1a; /* ڕەنگی سەوزی مامناوەند بۆ فووتەر و نەڤبار */
     --text-main:    #1A1A1A;
     --shadow-sm:    0 4px 12px rgba(0,0,0,0.08);
     --shadow-md:    0 10px 30px rgba(0,0,0,0.10);
@@ -45,6 +45,7 @@
     --text-main:    #e8f5e1;
     --shadow-sm:    0 4px 12px rgba(0,0,0,0.3);
     --shadow-md:    0 10px 30px rgba(0,0,0,0.35);
+    --bg-footer:    #1e3a1a; /* هێشتنەوەی هەمان سەوز لە مۆدی تاریکیشدا */
   }
 
   html { scroll-behavior: smooth; }
@@ -62,14 +63,22 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 1rem 5%;
-    background: rgba(247,245,240,0.85);
+    background: var(--bg-footer); /* ڕەنگی سەوزی فووتەر بۆ نەڤبار */
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
     gap: 1rem;
   }
+  nav.navbar .logo { color: #ffffff !important; }
+  nav.navbar .search-input { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.2); color: #ffffff; }
+  nav.navbar .search-input::placeholder { color: rgba(255,255,255,0.7); }
+  nav.navbar .search-icon { stroke: rgba(255,255,255,0.7); }
+  nav.navbar .theme-switcher-container { background: rgba(255,255,255,0.1); }
+  nav.navbar .lang-switcher-container { background: rgba(255,255,255,0.1); }
+  nav.navbar .theme-switcher-container button, nav.navbar .lang-switcher-container button { color: rgba(255,255,255,0.7); }
+
   body.dark-mode nav.navbar {
-    background: rgba(18, 24, 14, 0.85);
+    background: var(--bg-footer);
     border-bottom: 1px solid rgba(255,255,255,0.05);
   }
  
@@ -120,7 +129,8 @@
   }
   .search-input:focus {
     border-color: var(--green-cta);
-    background: var(--white);
+    background: var(--white) !important;
+    color: var(--text-dark) !important;
     box-shadow: 0 0 0 4px rgba(61, 154, 62, 0.15);
     transform: scale(1.01);
   }
@@ -140,7 +150,7 @@
     stroke: var(--text-muted);
   }
   .search-input:focus + .search-icon {
-    stroke: var(--green-cta);
+    stroke: var(--green-cta) !important;
   }
  
   .nav-actions {
@@ -209,7 +219,7 @@
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     align-items: center;
-    padding: 6.5rem 8% 0rem;
+    padding: 8.5rem 8% 0rem;
     position: relative;
     overflow: hidden;
     gap: 3rem;
@@ -589,7 +599,7 @@
   }
 
   .card-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 12px;
     background: linear-gradient(100deg, #B8860B, #E6A817, #B8860B);
@@ -641,16 +651,15 @@
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
   }
  
-  /* ── NEW PREMIUM FOOTER ── */
+  /* ── FOOTER ── */
   .main-footer {
     background-color: var(--bg-footer);
-    color: #e2e8f0;
-    padding: 70px 5% 30px;
-    border-top: 3px solid var(--green-cta);
+    color: #f8fafc;
+    padding: 60px 5%;
+    border-top: var(--border-nav);
     position: relative;
     overflow: hidden;
     z-index: 10;
-    font-size: 0.95rem;
   }
  
   .leaves-container {
@@ -661,168 +670,111 @@
  
   .leaf-element {
     position: absolute;
-    background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(5,150,105,0.03));
+    background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(5,150,105,0.05));
     border-radius: 0px 15px;
     animation: leafFallAnimation 9s infinite linear;
   }
  
   @keyframes leafFallAnimation {
     0%   { transform: translateY(-30px) rotate(0deg); opacity: 0; }
-    10%  { opacity: 0.4; }
-    90%  { opacity: 0.4; }
-    100% { transform: translateY(220px) rotate(360deg); opacity: 0; }
+    10%  { opacity: 0.6; }
+    90%  { opacity: 0.6; }
+    100% { transform: translateY(180px) rotate(360deg); opacity: 0; }
   }
  
-  .leaf-element:nth-child(1) { left: 8%; width: 14px; height: 22px; animation-duration: 8s; }
-  .leaf-element:nth-child(2) { left: 28%; width: 18px; height: 28px; animation-duration: 11s; animation-delay: 2s; }
-  .leaf-element:nth-child(3) { left: 70%; width: 12px; height: 20px; animation-duration: 7s; animation-delay: 4s; }
-  .leaf-element:nth-child(4) { left: 92%; width: 16px; height: 25px; animation-duration: 10s; animation-delay: 1s; }
+  .leaf-element:nth-child(1) { left: 12%; width: 14px; height: 22px; animation-duration: 8s; }
+  .leaf-element:nth-child(2) { left: 35%; width: 18px; height: 28px; animation-duration: 11s; animation-delay: 2s; }
+  .leaf-element:nth-child(3) { left: 65%; width: 12px; height: 20px; animation-duration: 7s; animation-delay: 4s; }
+  .leaf-element:nth-child(4) { left: 88%; width: 16px; height: 25px; animation-duration: 10s; animation-delay: 1s; }
  
-  .footer-grid {
+  .footer-grid-layout {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 2fr 1fr 1.5fr;
+    grid-template-columns: 1.2fr 1fr 1fr;
     gap: 40px;
     position: relative;
     z-index: 2;
-    padding-bottom: 40px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     text-align: start;
   }
-
+  html[dir="rtl"] .footer-grid-layout { text-align: right; }
+ 
   .footer-col {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-  }
-
-  .footer-logo-area {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-  }
-  .footer-logo-area svg {
-    width: 32px;
-    height: 32px;
-    stroke: var(--primary);
-  }
-
-  .footer-brand-name {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: #ffffff;
-  }
-
-  .footer-about-text {
-    color: #94a3b8;
-    line-height: 1.8;
-    font-size: 0.9rem;
+    gap: 15px;
   }
 
   .footer-col-title {
-    font-size: 1.1rem;
+    font-size: 16px;
     font-weight: 700;
     color: #ffffff;
     position: relative;
     padding-bottom: 8px;
+    border-bottom: 2px solid rgba(16, 185, 129, 0.3);
+    display: inline-block;
+    align-self: flex-start;
   }
-  .footer-col-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 35px;
-    height: 2.5px;
-    background: var(--primary);
-    border-radius: 2px;
-  }
-  html[dir="ltr"] .footer-col-title::after {
-    right: auto;
-    left: 0;
-  }
-
-  .footer-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .footer-links a {
-    color: #cbd5e1;
-    text-decoration: none;
-    transition: all 0.25s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.9rem;
-  }
-  .footer-links a:hover {
-    color: var(--primary);
-    transform: translateX(-4px);
-  }
-  html[dir="ltr"] .footer-links a:hover {
-    transform: translateX(4px);
-  }
-
-  .footer-univ-box {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 16px;
-    border-radius: 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .univ-title {
-    font-weight: 700;
-    color: #f8fafc;
-    font-size: 0.95rem;
-  }
-
-  .univ-dept {
-    color: #a3b299;
-    font-size: 0.85rem;
-    line-height: 1.6;
-  }
-
+ 
+  .footer-project-name { font-size: 24px; font-weight: 800; color: var(--primary); }
+  .footer-title { font-size: 15px; font-weight: 600; color: #e2e8f0; line-height: 1.6; }
+  .footer-dept { font-size: 13px; color: #94a3b8; line-height: 1.5; }
+ 
   .viewer-counter-box {
-    background: rgba(16, 185, 129, 0.08);
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    padding: 10px 16px;
-    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(16,185,129,0.2);
+    padding: 8px 16px;
+    border-radius: 12px;
     display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center; gap: 10px;
+    align-self: flex-start;
     margin-top: 10px;
   }
  
-  .viewer-text { font-size: 0.85rem; color: #cbd5e1; }
+  .viewer-text { font-size: 13px; color: #cbd5e1; }
   .viewer-count {
     font-weight: 700; color: #ffffff;
     background: #064e3b;
     padding: 3px 12px;
-    border-radius: 6px; font-size: 0.9rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    border-radius: 8px; font-size: 14px;
   }
- 
-  .footer-bottom-row {
-    max-width: 1200px;
-    margin: 25px auto 0;
-    position: relative;
-    z-index: 2;
-    display: flex;
+
+  /* ستوونی بەستەرەکانی پلاتفۆرم */
+  .footer-links-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .footer-links-list li a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 13.5px;
+    transition: all 0.25s ease;
+    display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
-    font-size: 0.85rem;
-    color: #64748b;
+    gap: 6px;
+  }
+  .footer-links-list li a:hover {
+    color: #34d399;
+    transform: translateX(-4px);
+  }
+  html[dir="ltr"] .footer-links-list li a:hover {
+    transform: translateX(4px);
   }
  
-  .footer-dev { color: #86efac; font-weight: 600; }
+  .footer-rights {
+    grid-column: 1 / -1;
+    width: 100%; font-size: 13px; color: #64748b;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 20px;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 8px;
+    text-align: center;
+  }
+ 
+  .footer-dev { color: #86efac; font-weight: 600; font-size: 13.5px; }
  
   /* ── KEYFRAMES ── */
   @keyframes fadeUp {
@@ -833,32 +785,15 @@
   @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
   
   @keyframes morphBlob {
-    0% { 
-      border-radius: 50% 60% 55% 45% / 50% 55% 45% 55%; 
-      transform: scale(1);
-    }
-    50% { 
-      border-radius: 65% 45% 60% 50% / 55% 60% 40% 50%; 
-      transform: scale(1.04) rotate(15deg);
-    }
-    100% { 
-      border-radius: 50% 60% 55% 45% / 50% 55% 45% 55%; 
-      transform: scale(1);
-    }
+    0% { border-radius: 50% 60% 55% 45% / 50% 55% 45% 55%; transform: scale(1); }
+    50% { border-radius: 65% 45% 60% 50% / 55% 60% 40% 50%; transform: scale(1.04) rotate(15deg); }
+    100% { border-radius: 50% 60% 55% 45% / 50% 55% 45% 55%; transform: scale(1); }
   }
  
   /* ── RESPONSIVE ── */
   @media (max-width: 1024px) {
-    .chapters-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-    .footer-grid {
-      grid-template-columns: 1.5fr 1fr;
-    }
-    .footer-col.univ-col {
-      grid-column: span 2;
-    }
+    .chapters-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .footer-grid-layout { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 992px) {
     nav.navbar { padding: 1rem 3%; }
@@ -873,59 +808,31 @@
       top: 100%; left: 0; right: 0;
       margin: 0; max-width: 100%;
       padding: .7rem 5%;
-      background: var(--cream);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      background: var(--bg-footer);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
       animation: fadeUp .25s ease;
-    }
-    body.dark-mode .search-container.mobile-open {
-      background: var(--white);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .mobile-search-btn { display: flex; }
     .logo span { font-size: 1.1rem; }
     .nav-actions { gap: .35rem; }
-    .theme-switcher-container button,
-    .lang-switcher-container button { padding: .3rem .5rem; font-size: .68rem; }
+    .theme-switcher-container button, .lang-switcher-container button { padding: .3rem .5rem; font-size: .68rem; }
     
-    .hero {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      padding-top: 8.5rem;
-      gap: 2.5rem;
-    }
- 
+    .hero { display: flex; flex-direction: column; text-align: center; padding-top: 9.5rem; gap: 2.5rem; }
     .hero-visual { order: 1; }
     .hero-text   { order: 2; align-items: center; }
     .cta-group   { order: 3; }
- 
     .hero-desc { max-width: 100%; margin-bottom: 1.5rem; }
     .plant-frame { width: 290px; height: 330px; }
- 
-    .hero::before {
-      width: 100%; height: 100%;
-      top: 0; right: 0; left: 0; bottom: 0;
-      border-radius: 0; animation: none; opacity: 0.04;
-    }
-
-    .footer-grid {
-      grid-template-columns: 1fr;
-      gap: 30px;
-    }
-    .footer-col.univ-col {
-      grid-column: span 1;
-    }
-    .footer-bottom-row {
-      flex-direction: column;
-      text-align: center;
-    }
+    .hero::before { width: 100%; height: 100%; top: 0; right: 0; left: 0; bottom: 0; border-radius: 0; animation: none; opacity: 0.04; }
+    
+    .footer-grid-layout { grid-template-columns: 1fr; text-align: center !important; gap: 30px; }
+    .footer-col-title { align-self: center; }
+    .viewer-counter-box { align-self: center; }
+    .footer-links-list li a { justify-content: center; }
   }
   @media (max-width: 680px) {
-    .chapters-grid {
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
+    .chapters-grid { grid-template-columns: 1fr; gap: 20px; }
     .chapters-section { padding: 50px 16px; }
   }
 </style>
@@ -1060,42 +967,31 @@
     <div class="leaf-element"></div>
     <div class="leaf-element"></div>
   </div>
-  
-  <div class="footer-grid">
+  <div class="footer-grid-layout">
     <div class="footer-col">
-      <a class="footer-logo-area" href="#">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22V12M12 12C12 7 7 4 2 6c0 5 3 9 10 6M12 12c0-5 5-8 10-6-1 5-4 9-10 6"/>
-        </svg>
-        <span class="footer-brand-name">NovaPlant</span>
-      </a>
-      <p class="footer-about-text" id="foot-about-desc">ئەتڵەسێکی پێشکەوتووی دیجیتاڵییە کە تایبەتە بە لێکۆڵینەوە و شیکردنەوەی تەواوی کایەکانی زانستی ڕووەک بە شێوازی ئەکادیمی نوێ.</p>
-    </div>
-
-    <div class="footer-col">
-      <h4 class="footer-col-title" id="foot-links-title">بەستەرە خێراکان</h4>
-      <ul class="footer-links">
-        <li><a href="#" id="link-home">سەرەکی</a></li>
-        <li><a href="javascript:void(0)" onclick="document.getElementById('chapters-area').scrollIntoView({behavior:'smooth'})" id="link-chaps">بەشەکانی پلاتفۆرم</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col univ-col">
-      <h4 class="footer-col-title" id="foot-acad-title">سەرچاوەی ئەکادیمی</h4>
-      <div class="footer-univ-box">
-        <div class="univ-title" id="foot-main-title">ئەتڵەسی پێشکەوی زانستی ڕووەک</div>
-        <div class="univ-dept" id="foot-dept">بەشی بایۆلوجی - کۆلێژی زانست - زانکۆی ڕاپەڕین</div>
-      </div>
+      <div class="footer-project-name">NovaPlant Website</div>
+      <div class="footer-title" id="foot-main-title">ئەتڵەسی پێشکەوی زانستی ڕووەک</div>
+      <div class="footer-dept" id="foot-dept">بەشی بایۆلوجی - کۆلێژی زانست - زانکۆی ڕاپەڕین</div>
       <div class="viewer-counter-box">
         <span class="viewer-text" id="foot-view-text">بینەری گشتی:</span>
         <span class="viewer-count" id="view-count-num">0</span>
       </div>
     </div>
-  </div>
+    
+    <div class="footer-col">
+      <h4 class="footer-col-title" id="foot-links-title">بەستەرەکانی پلاتفۆرم</h4>
+      <ul class="footer-links-list" id="footer-links-col1"></ul>
+    </div>
 
-  <div class="footer-bottom-row">
-    <span id="foot-rights">سەرجەم مافەکانی پارێزراوە © 2026</span>
-    <div class="footer-dev" id="foot-developer">ڕێکخەری زانستی و گەشەپێدەری وێب: ژیاو یوسف حسین</div>
+    <div class="footer-col">
+      <h4 class="footer-col-title" style="opacity: 0; max-height: 25px;" id="foot-links-title-2">‌</h4>
+      <ul class="footer-links-list" id="footer-links-col2"></ul>
+    </div>
+    
+    <div class="footer-rights">
+      <span id="foot-rights">سەرجەم مافەکانی پارێزراوە © 2026</span>
+      <div class="footer-dev" id="foot-developer">ڕێکخەری زانستی و گەشەپێدەری وێب: ژیاو یوسف حسین</div>
+    </div>
   </div>
 </footer>
  
@@ -1113,27 +1009,24 @@
       secSubtitle: "لێرەوە بڕوانە ناو کایە جیاوازەکانی زانستی ڕووەک و سەرچاوەکان",
       btn: "دەست پێبکە",
       lightBtn: "ڕووناک", darkBtn: "تاریک",
-      footAbout: "ئەتڵەسێکی پێشکەوتووی دیجیتاڵییە کە تایبەتە بە لێکۆڵینەوە و شیکردنەوەی تەواوی کایەکانی زانستی ڕووەک بە شێوازی ئەکادیمی نوێ.",
-      footLinks: "بەستەرە خێراکان",
-      footAcad: "سەرچاوەی ئەکادیمی",
-      lHome: "سەرەکی", lChaps: "بەشەکانی پلاتفۆرم",
       footTitle: "ئەتڵەسی پێشکەوتووی زانستی ڕووەک",
+      footLinks: "بەستەرەکانی پلاتفۆرم",
       footDept: "بەشی بایۆلوجی - کۆلێژی زانست - زانکۆی ڕاپەڕین",
       footViews: "بینەری گشتی:", footRights: "سەرجەم مافەکانی پارێزراوە © 2026",
       footDev: "ڕێکخەری زانستی و گەشەپێدەری وێب: ژیاو یوسف حسین",
       chapters: [
         { ch: "١", title: "زانیاری زیاتر", desc: "سەرەتایەک لەسەر ژینگەی ڕووەکە جیاوازەکان.", img: fallbackImg },
-        { ch: "٢", title: "فەرهەنگی بایۆلۆجی", desc: "چەمک و زاراوە گرنگەکانی زانستی فۆڕمی ڕووەک.", img: fallbackImg },
-        { ch: "٣", title: "لێکۆڵینەوە و وتار", desc: "بابەتە زانستییە بڵاوکراوەکانی پلاتفۆرمەکەمان.", img: fallbackImg },
-        { ch: "٤", title: "ڕێنمایی تاقیگە و تەکنەلۆژیا", desc: "شێوازی کارکردنی ئامێرەکان لە تاقیگەدا.", img: fallbackImg },
-        { ch: "٥", title: "ڕوونکردنەوەی ڤیدیۆیی", desc: "بابەتە کردارەکیەکان بە ڤیدیۆ لێرە ببینە.", img: fallbackImg },
-        { ch: "٦", title: "ئەناتۆمی و مۆرفۆلۆژیای ڕووەک", desc: "پێکهاتەی ناوەوەی ڕووەکە جیاوازەکان و خانەکان.", img: fallbackImg },
-        { ch: "٧", title: "تاکسۆنۆمی و هەمەچەشنی ڕووەک", desc: "پۆلێنکردنی خێزانە سەرەکیەکانی جیهانی ڕووەک.", img: fallbackImg },
-        { ch: "٨", title: "فیزیۆلۆژیا و بایۆکیمیا", desc: "پڕۆسە کیمیاییەکان و کارلێکەکانی ناو ڕووەک.", img: fallbackImg },
-        { ch: "٩", title: "کوئیز و تاقیکردنەوە", desc: "ئاستی زانیاریت لێرە تاقی بکەرەوە بە شێوەی ئۆنلاین.", img: fallbackImg },
-        { ch: "١٠", title: "تەکنەلۆژیاای نوێ لە زانستی ڕووەکدا", desc: "بەکارهێنانی زیرەکی دەستکرد و تەکنەلۆژیای جینی لە ڕووەکدا.", img: fallbackImg },
-        { ch: "١١", title: "پڕۆسە کرداریەکانی کشتوکاڵ", desc: "ئامادەکردنی خاک، چاندنی تۆو, و بەڕێوبردنی کێڵگەکان.", img: fallbackImg },
-        { ch: "١٢", title: "نەخۆشییەکانی ڕووەک و نیشانە دەرەکیەکان", desc: "ناسینەوەی قارچک، بەکتریا و نیشانەکانی کەمبوونی ماددە خۆراکیەکان.", img: fallbackImg }
+        { ch: "٢", title: "فەرهەنگی زاراوەکانی ڕووەک", desc: "چەمک و زاراوە گرنگەکانی زانستی فۆڕمی ڕووەک.", img: fallbackImg },
+        { ch: "٣", title: "پێکهاتە ناوەکی و شێوەناسی ڕووەک", desc: "پێکهاتەی ناوەوەی ڕووەکە جیاوازەکان و خانەکان.", img: fallbackImg },
+        { ch: "٤", title: "پۆلێن کردن و هەمەچەشنی ڕووەک", desc: "پۆلێنکردنی خێزانە سەرەکیەکانی جیهانی ڕووەک.", img: fallbackImg },
+        { ch: "٥", title: "کارئەندام زانی و کارلێکەکانی ڕووەک", desc: "پڕۆسە کیمیاییەکان و کارلێکەکانی ناو ڕووەک.", img: fallbackImg },
+        { ch: "٦", title: "تەکنەلۆجیای نوێ لە زانستی ڕووەک", desc: "بەکارهێنانی زیرەکی دەستکرد و تەکنەلۆژیای جینی لە ڕووەکدا.", img: fallbackImg },
+        { ch: "٧", title: "نەخۆشییەکانی ڕووەک و نیشانە دەرەکییەکان", desc: "ناسینەوەی قارچک، بەکتریا و نیشانەکانی کەمبوونی ماددە خۆراکیەکان.", img: fallbackImg },
+        { ch: "٨", title: "پڕۆسە کرداریەکانی کشتوکاڵ", desc: "ئامادەکردنی خاک، چاندنی تۆو, و بەڕێوبردنی کێڵگەکان.", img: fallbackImg },
+        { ch: "٩", title: "ڕێنمای تاقیگە بۆ ڕووەک", desc: "شێوازی کارکردنی ئامێرەکان لە تاقیگەدا.", img: fallbackImg },
+        { ch: "١٠", title: "توێژینەوە و وتار", desc: "بابەتە زانستییە بڵاوکراوەکانی پلاتفۆرمەکەمان.", img: fallbackImg },
+        { ch: "١١", title: "ڕوونکردنەوەی ڤیدیۆیی", desc: "بابەتە کردارەکیەکان بە ڤیدیۆ لێرە ببینە.", img: fallbackImg },
+        { ch: "١٢", title: "کویز و تاقیکردنەوە", desc: "ئاستی زانیاریت لێرە تاقی بکەرەوە بە شێوەی ئۆنلاین.", img: fallbackImg }
       ]
     },
     en: {
@@ -1146,27 +1039,24 @@
       secSubtitle: "Explore various domains of plant science and research resources from here.",
       btn: "Get Started",
       lightBtn: "Light", darkBtn: "Dark",
-      footAbout: "Advanced digital botanical atlas specialized in comprehensive analysis, research, and documentation of plant ecosystems.",
-      footLinks: "Quick Links",
-      footAcad: "Academic Source",
-      lHome: "Home", lChaps: "Platform Chapters",
       footTitle: "Advanced Botanical Science Atlas",
+      footLinks: "Platform Links",
       footDept: "Department of Biology - College of Science - University of Raparin",
       footViews: "Total Views:", footRights: "All Rights Reserved © 2026",
       footDev: "Scientific Coordinator & Web Developer: Zhyaw Yusf Husen",
       chapters: [
         { ch: "1", title: "More Information", desc: "An introduction to different plant environments.", img: fallbackImg },
-        { ch: "2", title: "Biological Dictionary", desc: "Important terms and concepts in plant morphology.", img: fallbackImg },
-        { ch: "3", title: "Research & Articles", desc: "Scientific articles and publications on our platform.", img: fallbackImg },
-        { ch: "4", title: "Lab Guide & Technology", desc: "How lab instruments operate in biological workflows.", img: fallbackImg },
-        { ch: "5", title: "Video Explanations", desc: "Watch practical demonstrations and videos here.", img: fallbackImg },
-        { ch: "6", title: "Plant Anatomy & Morphology", desc: "Internal cell structures and tissues of plant forms.", img: fallbackImg },
-        { ch: "7", title: "Taxonomy & Diversity", desc: "Classification of main kingdoms in the plant world.", img: fallbackImg },
-        { ch: "8", title: "Plant Physiology & Biochem", desc: "Chemical activities and processes inside the plant.", img: fallbackImg },
-        { ch: "9", title: "Quiz & Evaluation", desc: "Test your skills and biological knowledge online.", img: fallbackImg },
-        { ch: "10", title: "New Technology in Plant Science", desc: "Using AI and gene technologies in modern botany.", img: fallbackImg },
-        { ch: "11", title: "Practical Agricultural Processes", desc: "Soil preparation, seed sowing, and farm operations.", img: fallbackImg },
-        { ch: "12", title: "Plant Diseases & External Symptoms", desc: "Identifying fungi, bacteria, and nutrient deficiency signs.", img: fallbackImg }
+        { ch: "2", title: "Plant Glossary & Dictionary", desc: "Important terms and concepts in plant morphology.", img: fallbackImg },
+        { ch: "3", title: "Plant Anatomy & Morphology", desc: "Internal cell structures and tissues of plant forms.", img: fallbackImg },
+        { ch: "4", title: "Taxonomy & Diversity", desc: "Classification of main kingdoms in the plant world.", img: fallbackImg },
+        { ch: "5", title: "Plant Physiology & Biochem", desc: "Chemical activities and processes inside the plant.", img: fallbackImg },
+        { ch: "6", title: "New Technology in Plant Science", desc: "Using AI and gene technologies in modern botany.", img: fallbackImg },
+        { ch: "7", title: "Plant Diseases & External Symptoms", desc: "Identifying fungi, bacteria, and nutrient deficiency signs.", img: fallbackImg },
+        { ch: "8", title: "Practical Agricultural Processes", desc: "Soil preparation, seed sowing, and farm operations.", img: fallbackImg },
+        { ch: "9", title: "Lab Guide & Technology", desc: "How lab instruments operate in biological workflows.", img: fallbackImg },
+        { ch: "10", title: "Research & Articles", desc: "Scientific articles and publications on our platform.", img: fallbackImg },
+        { ch: "11", title: "Video Explanations", desc: "Watch practical demonstrations and videos here.", img: fallbackImg },
+        { ch: "12", title: "Quiz & Evaluation", desc: "Test your skills and biological knowledge online.", img: fallbackImg }
       ]
     },
     ar: {
@@ -1179,27 +1069,24 @@
       secSubtitle: "استکشف المجالات المختلفة لعلوم النبات والموارد العلمية من هنا.",
       btn: "ابدأ الآن",
       lightBtn: "فاتح", darkBtn: "مظلم",
-      footAbout: "أطلس رقمي متقدم متخصص في دراسة وتوثيق كافة مجالات علوم النبات المختلفة بطرق أكاديمية حديثة.",
-      footLinks: "روابط سريعة",
-      footAcad: "المصدر الأكاديمي",
-      lHome: "الرئيسية", lChaps: "أقسام المنصة",
       footTitle: "أطلس علوم النبات المتقدم",
+      footLinks: "روابط المنصة",
       footDept: "قسم الأحياء - كلية العلوم - جامعة رابرين",
       footViews: "إجمالي المشاهدات:", footRights: "جميع الحقوق محفوظة © 2026",
       footDev: "المنسق العلمي ومطور الموقع: ژیاو يوسف حسين",
       chapters: [
         { ch: "١", title: "مزيد من المعلومات", desc: "مقدمة عامة حول بيئات النباتات المختلفة وطبيعتها.", img: fallbackImg },
-        { ch: "٢", title: "القاموس البيولوجي", desc: "أهم المصطلحات والمفاهيم في مورفولوجيا النبات.", img: fallbackImg },
-        { ch: "٣", title: "الأبحاث والمقالات", desc: "المقالات العلمية والمنشورات المتاحة على منصتنا.", img: fallbackImg },
-        { ch: "٤", title: "دليل المختبر والتكنولوجيا", desc: "كيفية تشغيل الأجهزة المختبرية في سير العمل البيولوجي.", img: fallbackImg },
-        { ch: "٥", title: "شروحات مرئية", desc: "شاهد العروض العملية والمقاطع التعليمية هنا.", img: fallbackImg },
-        { ch: "٦", title: "تشريح وشكل النبات", desc: "الهياكل الخلوية الداخلية والأنسجة للأشكال النباتية.", img: fallbackImg },
-        { ch: "٧", title: "تصنيف وتنوع النبات", desc: "تصنيف الممالك الرئيسية في عالم النبات المتنوع.", img: fallbackImg },
-        { ch: "٨", title: "فسيولوجيا النبات والكيمياء الحيوية", desc: "الأنشطة والعمليات الكيميائية الحيوية داخل النبات.", img: fallbackImg },
-        { ch: "٩", title: "الاختبارات والكويزات", desc: "اختبر مهاراتك ومعرفتك البيولوجية مباشرة عبر الإنترنت.", img: fallbackImg },
-        { ch: "١٠", title: "التكنولوجيا الحديثة في علم النبات", desc: "استخدام الذكاء الاصطناعي وتقنيات الجينات في علم النبات الحديث.", img: fallbackImg },
-        { ch: "١١", title: "العمليات الزراعية التطبيقية", desc: "تحضير التربة، زراعة البذور، وإدارة العمليات الحقلية.", img: fallbackImg },
-        { ch: "١٢", title: "أمراض النبات والأعراض الخارجية", desc: "التعرف على الفطريات، البكتيريا، وعلامات نقص العناصر الغذائية.", img: fallbackImg }
+        { ch: "٢", title: "قاموس مصطلحات النبات", desc: "أهم المصطلحات والمفاهيم في مورفولوجيا النبات.", img: fallbackImg },
+        { ch: "٣", title: "تشريح وشكل النبات", desc: "الهياكل الخلوية الداخلية والأنسجة للأشكال النباتية.", img: fallbackImg },
+        { ch: "٤", title: "تصنيف وتنوع النبات", desc: "تصنيف الممالك الرئيسية في عالم النبات المتنوع.", img: fallbackImg },
+        { ch: "٥", title: "فسيولوجيا النبات والكيمياء الحيوية", desc: "الأنشطة والعمليات الكيميائية الحيوية داخل النبات.", img: fallbackImg },
+        { ch: "٦", title: "التكنولوجيا الحديثة في علم النبات", desc: "استخدام الذكاء الاصطناعي وتقنيات الجينات في علم النبات الحديث.", img: fallbackImg },
+        { ch: "٧", title: "أمراض النبات والأعراض الخارجية", desc: "التعرف على الفطريات، البكتيريا، وعلامات نقص العناصر الغذائية.", img: fallbackImg },
+        { ch: "٨", title: "العمليات الزراعية التطبيقية", desc: "تحضير التربة، زراعة البذور، وإدارة العمليات الحقلية.", img: fallbackImg },
+        { ch: "٩", title: "دليل المختبر والتكنولوجيا", desc: "كيفية تشغيل الأجهزة المختبرية في سير العمل البيولوجي.", img: fallbackImg },
+        { ch: "١٠", title: "الأبحاث والمقالات", desc: "المقالات العلمية والمنشورات المتاحة على منصتنا.", img: fallbackImg },
+        { ch: "١١", title: "شروحات مرئية", desc: "شاهد العروض العملية والمقاطع التعليمية هنا.", img: fallbackImg },
+        { ch: "١٢", title: "الاختبارات والكويزات", desc: "اختبر مهاراتك ومعرفتك البيولوجية مباشرة عبر الإنترنت.", img: fallbackImg }
       ]
     }
   };
@@ -1223,14 +1110,8 @@
     document.getElementById("theme-dark-btn").innerText = data.darkBtn;
     document.getElementById("sec-title").innerText = data.secTitle;
     document.getElementById("sec-subtitle").innerText = data.secSubtitle;
-
-    // Footer dynamics
-    document.getElementById("foot-about-desc").innerText = data.footAbout;
-    document.getElementById("foot-links-title").innerText = data.footLinks;
-    document.getElementById("foot-acad-title").innerText = data.footAcad;
-    document.getElementById("link-home").innerText = data.lHome;
-    document.getElementById("link-chaps").innerText = data.lChaps;
     document.getElementById("foot-main-title").innerText = data.footTitle;
+    document.getElementById("foot-links-title").innerText = data.footLinks;
     document.getElementById("foot-dept").innerText = data.footDept;
     document.getElementById("foot-view-text").innerText = data.footViews;
     document.getElementById("foot-rights").innerText = data.footRights;
@@ -1252,6 +1133,7 @@
     });
 
     renderGrid(data.chapters, data);
+    renderFooterLinks(data.chapters);
   }
  
   function renderGrid(chaptersList, data) {
@@ -1271,6 +1153,22 @@
             <a href="javascript:void(0)" class="card-footer-btn">${data.readMore}</a>
           </div>
         </div>`;
+    });
+  }
+
+  function renderFooterLinks(chaptersList) {
+    const col1 = document.getElementById("footer-links-col1");
+    const col2 = document.getElementById("footer-links-col2");
+    col1.innerHTML = "";
+    col2.innerHTML = "";
+    
+    chaptersList.forEach((item, index) => {
+      const liHtml = `<li><a href="javascript:void(0)">⬅️ ${item.title}</a></li>`;
+      if (index < 6) {
+        col1.innerHTML += liHtml;
+      } else {
+        col2.innerHTML += liHtml;
+      }
     });
   }
 
