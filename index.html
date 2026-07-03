@@ -198,7 +198,7 @@
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     align-items: center;
-    padding: 5rem 8% 0rem;
+    padding: 6.5rem 8% 0rem;
     position: relative;
     overflow: hidden;
     gap: 3rem;
@@ -258,13 +258,12 @@
   .eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 1.15rem; /* گەورەکردنی فۆنتی باجی سەرەوە بۆ بینینی ڕوونتر */
-    font-weight: 700;
+    gap: 10px;
+    font-size: 0.95rem; font-weight: 700;
     color: var(--green-dark);
     background: linear-gradient(120deg, rgba(16,185,129,0.12), rgba(74,124,47,0.18), rgba(16,185,129,0.12));
     background-size: 220% 100%;
-    padding: 8px 22px;
+    padding: 8px 20px;
     border-radius: 50px;
     margin-bottom: 1.2rem;
     letter-spacing: 0.3px;
@@ -276,11 +275,11 @@
   body.dark-mode .eyebrow { color: #86efac; }
   .eyebrow .eyebrow-icon {
     display: inline-flex;
-    width: 20px; height: 20px;
+    width: 18px; height: 18px;
     flex-shrink: 0;
     animation: eyebrowIconPulse 2.4s ease-in-out infinite;
   }
-  .eyebrow .eyebrow-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; }
+  .eyebrow .eyebrow-icon svg { width: 100%; height: 100%; stroke: currentColor; }
   @keyframes eyebrowSheen {
     0%   { background-position: 0% 50%; }
     100% { background-position: 220% 50%; }
@@ -591,6 +590,7 @@
     transition: background 0.3s;
   }
 
+  /* ئەنیمەیشنی نوێ بۆ ناونیشانی سەرەکی کارتەکان */
   .card-title {
     font-size: 1.2rem;
     font-weight: 700;
@@ -601,13 +601,19 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    transition: background-position 0.6s ease, transform 0.3s ease;
+    transition: background-position 0.6s ease;
     display: inline-block;
+    animation: titleFloat 3.5s ease-in-out infinite alternate;
   }
 
   .chapter-card:hover .card-title {
     background-position: 100% 50%;
-    transform: translateY(-2px) scale(1.03);
+  }
+
+  /* مۆشنی سەرەوخواری هێمن بۆ ناونیشانی دەقی کارتەکان */
+  @keyframes titleFloat {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-4px); }
   }
 
   .card-desc {
@@ -824,7 +830,7 @@
  
   <div class="search-container" id="search-container">
     <div class="search-wrapper">
-      <input type="text" class="search-input" id="search-bar" placeholder="گەڕان بەدوای چاپتەرەکاندا...">
+      <input type="text" class="search-input" id="search-bar" placeholder="گەڕان بەدوای بەشەکاندا...">
       <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="11" cy="11" r="8"></circle>
         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -856,15 +862,16 @@
   <div class="hero-text">
     <span class="eyebrow">
       <span class="eyebrow-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22V12M12 12C12 7 7 4 2 6c0 5 3 9 10 6M12 12c0-5 5-8 10-6-1 5-4 9-10 6"/>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3 2 8l10 5 10-5-10-5Z"/>
+          <path d="M6 10.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-5.5"/>
         </svg>
       </span>
       <span id="hero-eyebrow">زانستی درەوشاوەی ڕووەک</span>
     </span>
     <h1 id="hero-title">NovaPlant</h1>
     <div class="hero-desc">
-      <p id="hero-desc-txt">پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران، مامۆستایان، توێژەران و جووتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.</p>
+      <p id="hero-desc-txt">پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران، مامۆستایان, توێژەران و جووتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.</p>
     </div>
     <div class="cta-group">
       <button class="btn-primary" onclick="document.getElementById('chapters-area').scrollIntoView({behavior:'smooth'})">
@@ -919,8 +926,8 @@
 
 <div class="hero-divider">
   <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
-    <path class="wave-back" d="M0,30 Q360,50 720,30 T1440,30 L1440,60 L0,60 Z"></path>
-    <path class="wave-front" d="M0,40 Q360,20 720,40 T1440,40 L1440,60 L0,60 Z"></path>
+    <path class="wave-back" d="M0,30 C240,70 480,0 720,30 C960,60 1200,10 1440,40 L1440,60 L0,60 Z"></path>
+    <path class="wave-front" d="M0,40 C300,10 600,50 900,20 C1200,0 1350,40 1440,30 L1440,60 L0,60 Z"></path>
   </svg>
 </div>
 
@@ -962,8 +969,8 @@
  
   const translations = {
     ku: {
-      dir: "rtl", tagStr: "چاپتەری ", readMore: "خوێندنەوەی زیاتر",
-      searchPlaceholder: "گەڕان بەدوای چاپتەرەکاندا...",
+      dir: "rtl", tagStr: "بەشی ", readMore: "خوێندنەوەی زیاتر",
+      searchPlaceholder: "گەڕان بەدوای بەشەکاندا...",
       eyebrow: "زانستی درەوشاوەی ڕووەک",
       title: "NovaPlant",
       secTitle: "بەشەکانی پلاتفۆرم",
@@ -1087,7 +1094,9 @@
   function renderGrid(chaptersList, data) {
     const container = document.getElementById("grid-container");
     container.innerHTML = "";
-    chaptersList.forEach(item => {
+    chaptersList.forEach((item, index) => {
+      // لایەنی مۆشنەکە بە لادانی تایم-دیڵەی (animation-delay) کەمێک جیاواز بۆ ئەوەی هەموو کارتەکان پێکەوە بە یەک ئاست دانەبەزن.
+      const delay = (index % 3) * 0.3;
       container.innerHTML += `
         <div class="chapter-card">
           <div class="card-image-area">
@@ -1095,7 +1104,7 @@
             <img src="${item.img}" alt="${item.title}" loading="lazy">
           </div>
           <div class="card-content-box">
-            <h3 class="card-title">${item.title}</h3>
+            <h3 class="card-title" style="animation-delay: ${delay}s">${item.title}</h3>
             <p class="card-desc">${item.desc}</p>
             <a href="javascript:void(0)" class="card-footer-btn">${data.readMore}</a>
           </div>
