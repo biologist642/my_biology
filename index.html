@@ -57,6 +57,7 @@
     transition: background 0.3s, color 0.3s;
   }
  
+  /* ── NAV ── */
   nav.navbar {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -98,16 +99,9 @@
     position: relative;
     width: 100%;
   }
-
-  /* Fixed layout alignment for RTL and LTR modes */
-  html[dir="rtl"] .search-input {
-    padding: 0.6rem 2.8rem 0.6rem 1.2rem;
-  }
-  html[dir="ltr"] .search-input {
-    padding: 0.6rem 1.2rem 0.6rem 2.8rem;
-  }
   .search-input {
     width: 100%;
+    padding: 0.6rem 2.8rem 0.6rem 1.2rem;
     border: 1.5px solid rgba(74, 124, 47, 0.2);
     background: rgba(255, 255, 255, 0.8);
     border-radius: 50px;
@@ -116,6 +110,9 @@
     color: var(--text-dark);
     outline: none;
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  html[dir="ltr"] .search-input {
+    padding: 0.6rem 1.2rem 0.6rem 2.8rem;
   }
   body.dark-mode .search-input {
     background: rgba(30, 45, 24, 0.8);
@@ -131,15 +128,12 @@
   }
   .search-icon {
     position: absolute;
-    top: 50%;
+    top: 50%; right: 1rem;
     transform: translateY(-50%);
     width: 18px; height: 18px;
     stroke: var(--text-muted);
     pointer-events: none;
     transition: stroke 0.3s;
-  }
-  html[dir="rtl"] .search-icon {
-    right: 1rem; left: auto;
   }
   html[dir="ltr"] .search-icon {
     right: auto; left: 1rem;
@@ -255,14 +249,13 @@
   .hero::before {
     content: '';
     position: absolute;
-    top: -18%;
+    top: -18%; right: -12%;
     width: 65%; height: 138%;
     background: var(--mint-bg);
     border-radius: var(--radius-blob);
     animation: morphBlob 16s ease-in-out infinite alternate;
     z-index: 1;
   }
-  html[dir="rtl"] .hero::before { right: -12%; left: auto; }
   html[dir="ltr"] .hero::before { right: auto; left: -12%; }
  
   .hero-text { 
@@ -439,25 +432,23 @@
   }
  
   .plant-main {
-    position: absolute; top: 0;
+    position: absolute; top: 0; right: 0;
     width: 100%; height: 100%;
     object-fit: cover;
     border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
     filter: drop-shadow(0 15px 30px rgba(45,80,22,.2));
     animation: float 6s ease-in-out infinite;
   }
-  html[dir="rtl"] .plant-main { right: 0; left: auto; }
   html[dir="ltr"] .plant-main { right: auto; left: 0; }
  
   .plant-secondary {
-    position: absolute; bottom: 45px;
+    position: absolute; bottom: 45px; left: -20px;
     width: 45%;
     object-fit: cover;
     border-radius: 50%;
     filter: drop-shadow(0 10px 20px rgba(45,80,22,.15));
     animation: float 7s 1s ease-in-out infinite;
   }
-  html[dir="rtl"] .plant-secondary { left: -20px; right: auto; }
   html[dir="ltr"] .plant-secondary { left: auto; right: -20px; }
  
   /* ── CHAPTERS GRID ── */
@@ -562,6 +553,7 @@
   .card-chapter-tag {
     position: absolute;
     top: 15px;
+    right: 15px;
     background: rgba(15, 23, 42, 0.8);
     backdrop-filter: blur(4px);
     color: #34d399;
@@ -571,7 +563,6 @@
     font-weight: 700;
     z-index: 5;
   }
-  html[dir="rtl"] .card-chapter-tag { right: 15px; left: auto; }
   html[dir="ltr"] .card-chapter-tag { right: auto; left: 15px; }
 
   .card-chapter-tag::before {
@@ -696,92 +687,99 @@
     gap: 40px;
     position: relative;
     z-index: 2;
+    text-align: start;
   }
   html[dir="rtl"] .footer-grid-layout { text-align: right; }
-  html[dir="ltr"] .footer-grid-layout { text-align: left; }
  
+  /* ڕێکخستنی نوێی چوار ستوونی */
   .footer-row-top {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 40px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
     align-items: flex-start;
   }
 
-  .footer-col-info {
+  .footer-col-custom {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
   }
 
   .footer-col-title-yellow {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     color: #facc15; 
     text-decoration: underline; 
     text-underline-offset: 5px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     display: inline-block;
   }
  
-  .footer-project-name-custom { font-size: 24px; font-weight: 800; color: #ffffff; margin-bottom: 2px; }
-  .footer-title-custom { font-size: 15px; font-weight: 600; color: #e2e8f0; line-height: 1.6; }
+  .footer-project-name-custom { font-size: 22px; font-weight: 800; color: #ffffff; }
+  .footer-title-custom { font-size: 14px; font-weight: 600; color: #e2e8f0; line-height: 1.5; }
+  .footer-desc-custom { font-size: 12px; color: #cbd5e1; line-height: 1.6; }
  
   .viewer-counter-box {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(16,185,129,0.2);
-    padding: 8px 16px;
-    border-radius: 12px;
+    padding: 6px 12px;
+    border-radius: 10px;
     display: inline-flex;
-    align-items: center; gap: 10px;
+    align-items: center; gap: 8px;
     align-self: flex-start;
-    margin-top: 15px;
+    margin-top: 5px;
   }
  
-  .viewer-text { font-size: 13px; color: #cbd5e1; }
+  .viewer-text { font-size: 12px; color: #cbd5e1; }
   .viewer-count {
     font-weight: 700; color: #ffffff;
     background: #064e3b;
-    padding: 3px 12px;
-    border-radius: 8px; font-size: 14px;
+    padding: 2px 10px;
+    border-radius: 6px; font-size: 13px;
   }
 
-  .footer-col-links-full {
+  /* ستوونی دووەم: بەشەکانی ماڵپەڕ لە ژێر یەک */
+  .footer-links-column-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-  }
-
-  .footer-links-row-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 14px; 
+    gap: 6px; 
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
-  .footer-links-row-container li {
-    display: inline-block;
-  }
-
-  .footer-links-row-container li a {
-    color: #facc15; 
-    text-decoration: underline; 
-    text-underline-offset: 3px;
-    font-size: 12.5px; 
-    font-weight: 500;
+  .footer-links-column-container li a {
+    color: #cbd5e1; 
+    text-decoration: none; 
+    font-size: 12px; 
+    font-weight: 400;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     display: inline-flex;
     align-items: center;
-    gap: 3px;
-    white-space: nowrap;
+    gap: 4px;
   }
 
-  .footer-links-row-container li a:hover,
-  .footer-links-row-container li a:active {
-    color: #fef08a; 
-    text-decoration: underline;
-    transform: translateY(-2px); 
+  .footer-links-column-container li a:hover {
+    color: #facc15; 
+    transform: translateX(-3px); 
+  }
+  html[dir="ltr"] .footer-links-column-container li a:hover {
+    transform: translateX(3px);
+  }
+
+  /* لۆگۆی زانکۆ لە ستوونی چوارەم */
+  .uor-logo-container {
+    margin-top: 8px;
+    display: inline-block;
+  }
+  .uor-logo-container img {
+    height: 55px;
+    width: auto;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
+    transition: transform 0.3s ease;
+  }
+  .uor-logo-container img:hover {
+    transform: scale(1.05);
   }
  
   .footer-rights {
@@ -813,11 +811,11 @@
   /* ── RESPONSIVE ── */
   @media (max-width: 1024px) {
     .chapters-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .footer-row-top { grid-template-columns: repeat(2, 1fr); gap: 30px; }
   }
   @media (max-width: 992px) {
     nav.navbar { padding: 1rem 3%; }
     .search-container { max-width: 300px; margin: 0 0.8rem; }
-    .footer-row-top { grid-template-columns: 1fr; gap: 30px; }
   }
   @media (max-width: 768px) {
     nav.navbar { padding: 0.7rem 4%; flex-wrap: nowrap; justify-content: space-between; gap: .4rem; }
@@ -850,9 +848,9 @@
     .hero::before { width: 100%; height: 100%; top: 0; right: 0; left: 0; bottom: 0; border-radius: 0; animation: none; opacity: 0.04; }
     
     .footer-grid-layout { text-align: center !important; }
-    .footer-col-title-yellow { align-self: center; }
+    .footer-col-custom { align-items: center; }
     .viewer-counter-box { align-self: center; }
-    .footer-links-row-container { justify-content: center; }
+    .footer-row-top { grid-template-columns: 1fr; gap: 35px; }
   }
   @media (max-width: 680px) {
     .chapters-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -993,10 +991,11 @@
   <div class="footer-grid-layout">
     
     <div class="footer-row-top">
-      <div class="footer-col-info">
-        <h4 class="footer-col-title-yellow" id="foot-links-title-yellow">پلاتفۆرم</h4>
-        <div class="footer-project-name-custom">NovaPlant</div>
+      <div class="footer-col-custom">
+        <h4 class="footer-col-title-yellow" id="foot-title-col1">پلاتفۆرم</h4>
+        <div class="footer-project-name-custom">NovaPlant Platform</div>
         <div class="footer-title-custom" id="foot-main-title-custom">پلاتفۆرمی درەوشاوەی ڕووەک</div>
+        <div class="footer-desc-custom" id="foot-desc-custom">پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران، مامۆستایان, توێژەران و جووتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.</div>
         
         <div class="viewer-counter-box">
           <span class="viewer-text" id="foot-view-text">بینەری گشتی:</span>
@@ -1004,8 +1003,41 @@
         </div>
       </div>
       
-      <div class="footer-col-links-full">
-        <ul class="footer-links-row-container" id="footer-links-row"></ul>
+      <div class="footer-col-custom">
+        <h4 class="footer-col-title-yellow" id="foot-title-col2">بەشەکانی پلاتفۆرم</h4>
+        <ul class="footer-links-column-container" id="footer-chapters-list-col"></ul>
+      </div>
+
+      <div class="footer-col-custom">
+        <h4 class="footer-col-title-yellow" id="foot-title-col3">لینکی پلاتفۆرمی تر</h4>
+        <ul class="footer-links-column-container">
+          <li>
+            <a href="https://biologist642.github.io/novaentomo/#chapters" target="_blank">
+              <span>🐛</span> NovaEntomo
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col-custom">
+        <h4 class="footer-col-title-yellow" id="foot-title-col4">زانیاری پلاتفۆرم</h4>
+        <div class="footer-desc-custom" id="foot-info-academic">
+          • بەش : بایۆلۆجی<br>
+          • کۆلێژ : زانست<br>
+          • زانکۆ : زانکۆی ڕاپەڕین<br>
+          • بابەت : ڕووەک<br>
+          • ساڵ : ٢٠٢٦ - ٢٠٢٧<br>
+          • زمان : کوردی - عربی - English
+        </div>
+        <a class="uor-logo-container" href="https://uor.edu.krd/en/quick-links/" target="_blank" aria-label="University of Raparin">
+          <svg width="60" height="60" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="90" stroke="#ffffff" stroke-width="6" fill="rgba(255,255,255,0.1)"/>
+            <path d="M60 140 L100 60 L140 140 Z" fill="#facc15"/>
+            <path d="M100 60 L100 140" stroke="#1e3a1a" stroke-width="4"/>
+            <path d="M80 110 L120 110" stroke="#1e3a1a" stroke-width="4"/>
+            <circle cx="100" cy="45" r="10" fill="#ffffff"/>
+          </svg>
+        </a>
       </div>
     </div>
     
@@ -1021,7 +1053,7 @@
  
   const translations = {
     ku: {
-      dir: "rtl", arrow: "⬅️", tagStr: "بەشی ", readMore: "خوێندنەوەی زیاتر",
+      dir: "rtl", tagStr: "بەشی ", readMore: "خوێندنەوەی زیاتر",
       searchPlaceholder: "گەڕان بەدوای بەشەکاندا...",
       eyebrow: "زانستی درەوشاوەی ڕووەک",
       title: "NovaPlant",
@@ -1030,10 +1062,15 @@
       secSubtitle: "لێرەوە بڕوانە ناو کایە جیاوازەکانی زانستی ڕووەک و سەرچاوەکان",
       btn: "دەست پێبکە",
       lightBtn: "ڕووناک", darkBtn: "تاریک",
-      footPlatform: "پلاتفۆرم",
+      footCol1: "پلاتفۆرم",
+      footCol2: "بەشەکانی پلاتفۆرم",
+      footCol3: "لینکی پلاتفۆرمی تر",
+      footCol4: "زانیاری پلاتفۆرم",
       footTitle: "پلاتفۆرمی درەوشاوەی ڕووەک",
+      footDesc: "پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران، مامۆستایان, توێژەران و جووتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.",
       footViews: "بینەری گشتی:", footRights: "سەرجەم مافەکانی پارێزراوە © 2026",
       footDev: "ڕێکخەری زانستی و گەشەپێدەری وێب: ژیاو یوسف حسین",
+      footAcademic: "• بەش : بایۆلۆجی<br>• کۆلێژ : زانست<br>• زانکۆ : زانکۆی ڕاپەڕین<br>• بابەت : ڕووەک<br>• ساڵ : ٢٠٢٦ - ٢٠٢٧<br>• زمان : کوردی - عربی - English",
       chapters: [
         { ch: "١", title: "زانیاری زیاتر", desc: "سەرەتایەک لەسەر ژینگەی ڕووەکە جیاوازەکان.", img: fallbackImg },
         { ch: "٢", title: "فەرهەنگی زاراوەکانی ڕووەک", desc: "چەمک و زاراوە گرنگەکانی زانستی فۆڕمی ڕووەک.", img: fallbackImg },
@@ -1050,7 +1087,7 @@
       ]
     },
     en: {
-      dir: "ltr", arrow: "➡️", tagStr: "Chapter ", readMore: "Read More",
+      dir: "ltr", tagStr: "Chapter ", readMore: "Read More",
       searchPlaceholder: "Search chapters...",
       eyebrow: "Brilliant Botanical Science",
       title: "NovaPlant",
@@ -1059,10 +1096,15 @@
       secSubtitle: "Explore various domains of plant science and research resources from here.",
       btn: "Get Started",
       lightBtn: "Light", darkBtn: "Dark",
-      footPlatform: "Platform",
+      footCol1: "Platform",
+      footCol2: "Platform Chapters",
+      footCol3: "Other Platform Links",
+      footCol4: "Platform Info",
       footTitle: "Brilliant Botanical Platform",
+      footDesc: "Advanced scientific and academic platform for students, teachers, researchers, and farmers using modern information.",
       footViews: "Total Views:", footRights: "All Rights Reserved © 2026",
       footDev: "Scientific Coordinator & Web Developer: Zhyaw Yusf Husen",
+      footAcademic: "• Dept : Biology<br>• Faculty : Science<br>• University : University of Raparin<br>• Subject : Plant<br>• Year : 2026 - 2027<br>• Lang : Kurdish - Arabic - English",
       chapters: [
         { ch: "1", title: "More Information", desc: "An introduction to different plant environments.", img: fallbackImg },
         { ch: "2", title: "Plant Glossary & Dictionary", desc: "Important terms and concepts in plant morphology.", img: fallbackImg },
@@ -1079,7 +1121,7 @@
       ]
     },
     ar: {
-      dir: "rtl", arrow: "⬅️", tagStr: "الفصل ", readMore: "قراءة المزيد",
+      dir: "rtl", tagStr: "الفصل ", readMore: "قراءة المزيد",
       searchPlaceholder: "البحث عن الفصول...",
       eyebrow: "علم النبات المشرق",
       title: "NovaPlant",
@@ -1088,10 +1130,15 @@
       secSubtitle: "استکشف المجالات المختلفة لعلوم النبات والموارد العلمية من هنا.",
       btn: "ابدأ الآن",
       lightBtn: "فاتح", darkBtn: "مظلم",
-      footPlatform: "المنصة",
+      footCol1: "المنصة",
+      footCol2: "أقسام المنصة",
+      footCol3: "روابط منصات أخرى",
+      footCol4: "معلومات المنصة",
       footTitle: "منصة علم النبات المشرقة",
+      footDesc: "منصة علمية وأكاديمية متقدمة للطلاب والمعلمين والباحثين والمزارعين باستخدام أحدث المعلومات المعاصرة.",
       footViews: "إجمالي المشاهدات:", footRights: "جميع الحقوق محفوظة © 2026",
       footDev: "المنسق العلمي ومطور الموقع: ژیاو يوسف حسين",
+      footAcademic: "• القسم : علم الأحياء<br>• الكلية : العلوم<br>• الجامعة : جامعة رابرين<br>• المادة : النبات<br>• السنة : ٢٠٢٦ - ٢٠٢٧<br>• اللغة : الكردية - العربية - الإنجليزية",
       chapters: [
         { ch: "١", title: "مزيد من المعلومات", desc: "مقدمة عامة حول بيئات النباتات المختلفة وطبيعتها.", img: fallbackImg },
         { ch: "٢", title: "قاموس مصطلحات النبات", desc: "أهم المصطلحات والمفاهيم في مورفولوجيا النبات.", img: fallbackImg },
@@ -1128,11 +1175,19 @@
     document.getElementById("theme-dark-btn").innerText = data.darkBtn;
     document.getElementById("sec-title").innerText = data.secTitle;
     document.getElementById("sec-subtitle").innerText = data.secSubtitle;
-    document.getElementById("foot-links-title-yellow").innerText = data.footPlatform;
+    
+    // نوێکردنەوەی ناونیشانی چوار ستوونەکەی فووتەر
+    document.getElementById("foot-title-col1").innerText = data.footCol1;
+    document.getElementById("foot-title-col2").innerText = data.footCol2;
+    document.getElementById("foot-title-col3").innerText = data.footCol3;
+    document.getElementById("foot-title-col4").innerText = data.footCol4;
+    
     document.getElementById("foot-main-title-custom").innerText = data.footTitle;
+    document.getElementById("foot-desc-custom").innerText = data.footDesc;
     document.getElementById("foot-view-text").innerText = data.footViews;
     document.getElementById("foot-rights").innerText = data.footRights;
     document.getElementById("foot-developer").innerText = data.footDev;
+    document.getElementById("foot-info-academic").innerHTML = data.footAcademic;
  
     const titleContainer = document.getElementById("hero-title");
     titleContainer.innerHTML = "";
@@ -1150,7 +1205,7 @@
     });
 
     renderGrid(data.chapters, data);
-    renderFooterLinksRow(data.chapters, data);
+    renderFooterChaptersColumn(data.chapters);
   }
  
   function renderGrid(chaptersList, data) {
@@ -1159,7 +1214,7 @@
     chaptersList.forEach((item, index) => {
       const delay = (index % 3) * 0.3;
       container.innerHTML += `
-        <div class="chapter-card">
+        <div class="chapter-card" id="chapter-id-${index}">
           <div class="card-image-area">
             <span class="card-chapter-tag">${data.tagStr}${item.ch}</span>
             <img src="${item.img}" alt="${item.title}" loading="lazy">
@@ -1173,12 +1228,13 @@
     });
   }
 
-  function renderFooterLinksRow(chaptersList, data) {
-    const rowContainer = document.getElementById("footer-links-row");
-    rowContainer.innerHTML = "";
+  // دروستکردنی لیستی چاپتەرەکان لە ستوونی دووەمی فووتەر بە شێوازی دەستپێگەیشتنی خێرا
+  function renderFooterChaptersColumn(chaptersList) {
+    const columnContainer = document.getElementById("footer-chapters-list-col");
+    columnContainer.innerHTML = "";
     
-    chaptersList.forEach((item) => {
-      rowContainer.innerHTML += `<li><a href="javascript:void(0)">${data.arrow} ${item.title}</a></li>`;
+    chaptersList.forEach((item, index) => {
+      columnContainer.innerHTML += `<li><a href="javascript:void(0)" onclick="document.getElementById('chapter-id-${index}').scrollIntoView({behavior:'smooth'})">🌿 ${item.title}</a></li>`;
     });
   }
 
