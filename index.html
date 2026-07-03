@@ -647,7 +647,7 @@
   .main-footer {
     background-color: var(--bg-footer);
     color: #f8fafc;
-    padding: 60px 5%;
+    padding: 45px 5% 20px 5%; /* کەمکردنەوەی بۆشایی سەر و خوارووی فووتەر */
     border-top: var(--border-nav);
     position: relative;
     overflow: hidden;
@@ -684,7 +684,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
     position: relative;
     z-index: 2;
     text-align: start;
@@ -694,7 +694,7 @@
   .footer-row-top {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    gap: 25px;
     align-items: flex-start;
   }
 
@@ -710,36 +710,47 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  /* گەورەکردنی فۆنتی ناونیشانی سەرەکی ستوونەکان */
   .footer-col-title-yellow {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     color: #facc15; 
     text-decoration: none; 
     border-bottom: 2px solid rgba(250, 204, 21, 0.3);
-    padding-bottom: 4px;
-    margin-bottom: 6px;
+    padding-bottom: 6px;
+    margin-bottom: 8px;
     display: inline-block;
   }
  
-  .footer-project-name-custom { font-size: 21px; font-weight: 800; color: #ffffff; letter-spacing: 0.5px; }
+  /* گۆڕینی مۆوشنی NovaPlant Platform بۆ بریقەدار وەک NovaEntomo */
+  .footer-project-name-custom { 
+    font-size: 22px; 
+    font-weight: 800; 
+    background: linear-gradient(90deg, #ffffff, #facc15, #ffffff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shineTextLink 3s linear infinite;
+    letter-spacing: 0.5px; 
+  }
   
   .footer-title-custom { 
-    font-size: 14px; 
+    font-size: 15px; 
     font-weight: 600; 
     color: #e2e8f0; 
-    line-height: 1.7; 
+    line-height: 1.8; 
     transition: transform 0.3s ease;
   }
   .footer-title-custom:hover { transform: scale(1.02); }
 
   .footer-desc-custom { 
-    font-size: 12.5px; 
+    font-size: 13px; 
     color: #cbd5e1; 
     line-height: 1.8; 
     text-align: justify;
   }
  
-  /* ستوونی یەکەم: بۆکسی بینەری پلاتفۆرمی نوێ بە ڕەنگ و مۆوشنی پێشکەوتوو */
+  /* ستوونی یەکەم: بۆکسی بینەری پلاتفۆرم */
   .viewer-counter-box {
     background: linear-gradient(135deg, #15803d, #166534);
     border: 1.5px solid #22c55e;
@@ -754,16 +765,12 @@
     animation: pulseGlowBox 2.5s infinite ease-in-out;
     transition: all 0.3s ease;
   }
-  .viewer-counter-box:hover {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5);
-  }
   @keyframes pulseGlowBox {
     0%, 100% { box-shadow: 0 4px 15px rgba(22, 101, 52, 0.4); border-color: #22c55e; }
     50% { box-shadow: 0 4px 25px rgba(34, 197, 94, 0.6); border-color: #4ade80; }
   }
  
-  .viewer-text { font-size: 12.5px; font-weight: 600; color: #f0fdf4; }
+  .viewer-text { font-size: 13px; font-weight: 600; color: #f0fdf4; }
   .viewer-count {
     font-weight: 700; color: #ffffff;
     background: #14532d;
@@ -772,11 +779,11 @@
     border: 1px solid rgba(255,255,255,0.15);
   }
 
-  /* ستوونی دووەم: بەشەکانی ماڵپەڕ خاوێن و بێ بۆکس و بە بۆشایی کەم بۆ کورتکردنەوەی باڵا */
+  /* ستوونی دووەم: بەشەکانی پلاتفۆرم لەگەڵ کەمکردنەوەی بۆشایی دێڕەکان */
   .footer-links-column-container {
     display: flex;
     flex-direction: column;
-    gap: 4px; 
+    gap: 5px; /* بۆشایی خاوێن و چڕ لە نێوان دێڕەکاندا */
     list-style: none !important;
     padding: 0;
     margin: 0;
@@ -788,30 +795,38 @@
     margin: 0;
   }
 
+  /* هێما و ئایکۆنی ناو چاپتەرەکان */
   .footer-links-column-container li a {
     color: #cbd5e1; 
     text-decoration: none; 
-    font-size: 11.5px; 
-    font-weight: 400;
+    font-size: 13.5px; /* فۆنتی گەورەتر */
+    font-weight: 500;
     line-height: 1.4;
-    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.22s ease;
     display: inline-flex;
     align-items: center;
-    padding: 1px 0;
+    gap: 6px;
+    padding: 2px 0;
+  }
+
+  .footer-links-column-container li a::before {
+    content: "🍃"; /* دانانی ئایکۆنی سەرنجڕاکێش لە تەنیشت چاپتەرەکان */
+    font-size: 12px;
+    transition: transform 0.3s ease;
   }
 
   .footer-links-column-container li a:hover {
     color: #facc15; 
-    transform: translateX(-4px); 
+    transform: translateX(-5px); 
   }
   html[dir=\"ltr\"] .footer-links-column-container li a:hover {
-    transform: translateX(4px);
+    transform: translateX(5px);
   }
 
-  /* ستوونی سێیەم: فۆنتی گەورەتر و مۆوشنی بریقەداری NovaEntomo */
+  /* ستوونی سێیەم: فۆنتی زۆر گەورەتر و ڕووناکتر بۆ NovaEntomo */
   .nova-entomo-link {
-    font-size: 15px !important;
-    font-weight: 700 !important;
+    font-size: 20px !important; /* فۆنتی زۆر گەورە و جوان */
+    font-weight: 800 !important;
     background: linear-gradient(90deg, #cbd5e1, #facc15, #cbd5e1);
     background-size: 200% auto;
     -webkit-background-clip: text;
@@ -820,58 +835,77 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    transition: transform 0.3s ease;
   }
   .nova-entomo-link:hover {
-    transform: scale(1.05) !important;
+    transform: scale(1.08) !important;
   }
   @keyframes shineTextLink {
     to { background-position: 200% center; }
   }
 
-  /* ستوونی چوارەم: زانیاری پلاتفۆرم هێما زەردەکان و دێڕە دوورەکان */
+  /* ستوونی چوارەم: زانیاری پلاتفۆرم بۆشایی مامناوەند و فۆنتی گەورە */
   .academic-info-list {
     display: flex;
     flex-direction: column;
-    gap: 9px;
-    font-size: 13px;
+    gap: 10px; /* بۆشایی کەمێک دوور خراوەتەوە وەک داواکارییەکەت */
+    font-size: 14px; /* فۆنتی گەورەتر */
     color: #e2e8f0;
     line-height: 1.6;
   }
   .academic-info-list span.yellow-tag {
     color: #facc15;
-    font-weight: 600;
-    margin-inline-end: 2px;
+    font-weight: 700;
+    margin-inline-end: 4px;
   }
 
-  /* لۆگۆی شەفافی نوێی زانکۆ بێ باکگراوند */
+  /* لۆگۆی بازنەیی نوێ و پاکی زانکۆی ڕاپەڕین */
   .uor-logo-container {
-    margin-top: 14px;
+    margin-top: 10px;
     display: inline-block;
   }
   .uor-logo-container img {
-    height: 65px;
-    width: auto;
-    background: transparent !important;
-    mix-blend-mode: lighten;
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+    border-radius: 50%; /* پاراستنی لۆگۆکە بە شێوازی بازنەیی */
+    border: 2px solid rgba(250, 204, 21, 0.4);
+    background: #ffffff;
+    padding: 2px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
   .uor-logo-container img:hover {
-    transform: scale(1.1) rotate(3deg);
-    filter: drop-shadow(0 6px 15px rgba(250,204,21,0.4));
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 15px rgba(250,204,21,0.5);
   }
  
+  /* بەشی مافەکان: هێنانی مافەکان بۆ ڕاست و گەشەپێدەر بۆ چەپ */
   .footer-rights {
-    width: 100%; font-size: 13px; color: #64748b;
-    margin-top: 10px;
+    width: 100%;
+    margin-top: 5px;
     border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 20px;
-    display: flex; flex-direction: column;
-    align-items: center; gap: 8px;
-    text-align: center;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: row; /* ڕێکخستنی ئاسۆیی */
+    justify-content: space-between; /* مافەکان لای ڕاست، گەشەپێدەر لای چەپ */
+    align-items: center;
+    gap: 15px;
+  }
+  html[dir=\"ltr\"] .footer-rights {
+    flex-direction: row-reverse; /* بۆ زمانی ئینگلیزی شوێنەکان بە دروستی دەگۆڕێت */
   }
  
-  .footer-dev { color: #86efac; font-weight: 600; font-size: 13.5px; }
+  .foot-rights-text {
+    font-size: 13.5px;
+    color: #94a3b8;
+    font-weight: 500;
+  }
+
+  .footer-dev { 
+    color: #86efac; 
+    font-weight: 600; 
+    font-size: 14px; 
+  }
  
   /* ── KEYFRAMES ── */
   @keyframes fadeUp {
@@ -930,6 +964,7 @@
     .footer-col-custom { align-items: center; }
     .viewer-counter-box { align-self: center; }
     .footer-row-top { grid-template-columns: 1fr; gap: 35px; }
+    .footer-rights { flex-direction: column !important; text-align: center; gap: 8px; }
   }
   @media (max-width: 680px) {
     .chapters-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -1108,14 +1143,14 @@
           <div><span class="yellow-tag">• ساڵ :</span> ٢٠٢٦ - ٢٠٢٧</div>
           <div><span class="yellow-tag">• زمان :</span> کوردی - عربی - English</div>
         </div>
-        <a class="uor-logo-container" href="https://uor.edu.krd/en/quick-links/" target="_blank" aria-label="University of Raparin">
-          <img src="https://uor.edu.krd/images/UORLogo/uor-logo.png" alt="University of Raparin Logo">
+        <a class="uor-logo-container" href="https://uor.edu.krd" target="_blank" aria-label="University of Raparin">
+          <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=100064469478217" alt="University of Raparin Logo">
         </a>
       </div>
     </div>
     
     <div class="footer-rights">
-      <span id="foot-rights">سەرجەم مافەکانی پارێزراوە © 2026</span>
+      <div class="foot-rights-text" id="foot-rights">سەرجەم مافەکانی پارێزراوە © 2026</div>
       <div class="footer-dev" id="foot-developer">ڕێکخەری زانستی و گەشەپێدەری وێب: ژیاو یوسف حسین</div>
     </div>
   </div>
