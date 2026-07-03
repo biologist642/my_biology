@@ -25,7 +25,7 @@
     --primary:      #10B981;
     --card-bg:      #ffffff;
     --bg-chapters:  #f0f7ec;
-    --bg-footer:    #0f1f0a;
+    --bg-footer:    #0c1608;
     --text-main:    #1A1A1A;
     --shadow-sm:    0 4px 12px rgba(0,0,0,0.08);
     --shadow-md:    0 10px 30px rgba(0,0,0,0.10);
@@ -641,16 +641,16 @@
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
   }
  
-  /* ── FOOTER ── */
+  /* ── NEW PREMIUM FOOTER ── */
   .main-footer {
     background-color: var(--bg-footer);
-    color: #f8fafc;
-    padding: 60px 20px;
-    text-align: center;
-    border-top: var(--border-nav);
+    color: #e2e8f0;
+    padding: 70px 5% 30px;
+    border-top: 3px solid var(--green-cta);
     position: relative;
     overflow: hidden;
     z-index: 10;
+    font-size: 0.95rem;
   }
  
   .leaves-container {
@@ -661,66 +661,168 @@
  
   .leaf-element {
     position: absolute;
-    background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(5,150,105,0.05));
+    background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(5,150,105,0.03));
     border-radius: 0px 15px;
     animation: leafFallAnimation 9s infinite linear;
   }
  
   @keyframes leafFallAnimation {
     0%   { transform: translateY(-30px) rotate(0deg); opacity: 0; }
-    10%  { opacity: 0.6; }
-    90%  { opacity: 0.6; }
-    100% { transform: translateY(180px) rotate(360deg); opacity: 0; }
+    10%  { opacity: 0.4; }
+    90%  { opacity: 0.4; }
+    100% { transform: translateY(220px) rotate(360deg); opacity: 0; }
   }
  
-  .leaf-element:nth-child(1) { left: 12%; width: 14px; height: 22px; animation-duration: 8s; }
-  .leaf-element:nth-child(2) { left: 35%; width: 18px; height: 28px; animation-duration: 11s; animation-delay: 2s; }
-  .leaf-element:nth-child(3) { left: 65%; width: 12px; height: 20px; animation-duration: 7s; animation-delay: 4s; }
-  .leaf-element:nth-child(4) { left: 88%; width: 16px; height: 25px; animation-duration: 10s; animation-delay: 1s; }
+  .leaf-element:nth-child(1) { left: 8%; width: 14px; height: 22px; animation-duration: 8s; }
+  .leaf-element:nth-child(2) { left: 28%; width: 18px; height: 28px; animation-duration: 11s; animation-delay: 2s; }
+  .leaf-element:nth-child(3) { left: 70%; width: 12px; height: 20px; animation-duration: 7s; animation-delay: 4s; }
+  .leaf-element:nth-child(4) { left: 92%; width: 16px; height: 25px; animation-duration: 10s; animation-delay: 1s; }
  
-  .footer-container {
-    max-width: 900px; margin: 0 auto;
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center;
-    gap: 20px; position: relative; z-index: 2;
+  .footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: start;
   }
- 
-  .footer-info-side {
-    text-align: center; display: flex;
-    flex-direction: column; gap: 6px;
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
- 
-  .footer-project-name { font-size: 23px; font-weight: 800; color: var(--primary); }
-  .footer-title { font-size: 15px; font-weight: 600; color: #e2e8f0; }
-  .footer-dept { font-size: 13px; color: #94a3b8; }
- 
-  .viewer-counter-box {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(16,185,129,0.15);
-    padding: 6px 20px;
-    border-radius: 30px;
+
+  .footer-logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .footer-logo-area svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--primary);
+  }
+
+  .footer-brand-name {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  .footer-about-text {
+    color: #94a3b8;
+    line-height: 1.8;
+    font-size: 0.9rem;
+  }
+
+  .footer-col-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    position: relative;
+    padding-bottom: 8px;
+  }
+  .footer-col-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 35px;
+    height: 2.5px;
+    background: var(--primary);
+    border-radius: 2px;
+  }
+  html[dir="ltr"] .footer-col-title::after {
+    right: auto;
+    left: 0;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: all 0.25s ease;
     display: inline-flex;
-    align-items: center; gap: 8px;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+  }
+  .footer-links a:hover {
+    color: var(--primary);
+    transform: translateX(-4px);
+  }
+  html[dir="ltr"] .footer-links a:hover {
+    transform: translateX(4px);
+  }
+
+  .footer-univ-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 16px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .univ-title {
+    font-weight: 700;
+    color: #f8fafc;
+    font-size: 0.95rem;
+  }
+
+  .univ-dept {
+    color: #a3b299;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .viewer-counter-box {
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    padding: 10px 16px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
   }
  
-  .viewer-text { font-size: 12px; color: #cbd5e1; }
+  .viewer-text { font-size: 0.85rem; color: #cbd5e1; }
   .viewer-count {
     font-weight: 700; color: #ffffff;
     background: #064e3b;
-    padding: 2px 14px;
-    border-radius: 20px; font-size: 13px;
+    padding: 3px 12px;
+    border-radius: 6px; font-size: 0.9rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   }
  
-  .footer-rights {
-    width: 100%; font-size: 13px; color: #55657e;
-    margin-top: 10px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    padding-top: 15px;
-    display: flex; flex-direction: column;
-    align-items: center; gap: 8px;
+  .footer-bottom-row {
+    max-width: 1200px;
+    margin: 25px auto 0;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 0.85rem;
+    color: #64748b;
   }
  
-  .footer-dev { color: #86efac; font-weight: 600; font-size: 13.5px; }
+  .footer-dev { color: #86efac; font-weight: 600; }
  
   /* ── KEYFRAMES ── */
   @keyframes fadeUp {
@@ -750,6 +852,12 @@
     .chapters-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
+    }
+    .footer-grid {
+      grid-template-columns: 1.5fr 1fr;
+    }
+    .footer-col.univ-col {
+      grid-column: span 2;
     }
   }
   @media (max-width: 992px) {
@@ -800,6 +908,18 @@
       top: 0; right: 0; left: 0; bottom: 0;
       border-radius: 0; animation: none; opacity: 0.04;
     }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .footer-col.univ-col {
+      grid-column: span 1;
+    }
+    .footer-bottom-row {
+      flex-direction: column;
+      text-align: center;
+    }
   }
   @media (max-width: 680px) {
     .chapters-grid {
@@ -845,7 +965,7 @@
     <div class="lang-switcher-container">
       <button class="lang-btn" id="btn-ar" onclick="changeLanguage('ar')">عربي</button>
       <button class="lang-btn" id="btn-en" onclick="changeLanguage('en')">Eng</button>
-      <button class="lang-btn active" id="btn-ku" onclick="changeLanguage('ku')">Kurdî</button>
+      <button class="lang-btn active" id="btn-ku" onclick="changeLanguage('ku')">کوردی</button>
     </div>
   </div>
 </nav>
@@ -940,20 +1060,42 @@
     <div class="leaf-element"></div>
     <div class="leaf-element"></div>
   </div>
-  <div class="footer-container">
-    <div class="footer-info-side">
-      <div class="footer-project-name">NovaPlant Website</div>
-      <div class="footer-title" id="foot-main-title">ئەتڵەسی پێشکەوی زانستی ڕووەک</div>
-      <div class="footer-dept" id="foot-dept">بەشی بایۆلوجی - کۆلێژی زانست - زانکۆی ڕاپەڕین</div>
+  
+  <div class="footer-grid">
+    <div class="footer-col">
+      <a class="footer-logo-area" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22V12M12 12C12 7 7 4 2 6c0 5 3 9 10 6M12 12c0-5 5-8 10-6-1 5-4 9-10 6"/>
+        </svg>
+        <span class="footer-brand-name">NovaPlant</span>
+      </a>
+      <p class="footer-about-text" id="foot-about-desc">ئەتڵەسێکی پێشکەوتووی دیجیتاڵییە کە تایبەتە بە لێکۆڵینەوە و شیکردنەوەی تەواوی کایەکانی زانستی ڕووەک بە شێوازی ئەکادیمی نوێ.</p>
     </div>
-    <div class="viewer-counter-box">
-      <span class="viewer-text" id="foot-view-text">بینەری گشتی:</span>
-      <span class="viewer-count" id="view-count-num">0</span>
+
+    <div class="footer-col">
+      <h4 class="footer-col-title" id="foot-links-title">بەستەرە خێراکان</h4>
+      <ul class="footer-links">
+        <li><a href="#" id="link-home">سەرەکی</a></li>
+        <li><a href="javascript:void(0)" onclick="document.getElementById('chapters-area').scrollIntoView({behavior:'smooth'})" id="link-chaps">بەشەکانی پلاتفۆرم</a></li>
+      </ul>
     </div>
-    <div class="footer-rights">
-      <span id="foot-rights">سەرجەم مافەکانی پارێزراوە © 2026</span>
-      <div class="footer-dev" id="foot-developer">ڕێکخەری زانستی و گەشەپێدەری وێب: ژیاو یوسف حسین</div>
+
+    <div class="footer-col univ-col">
+      <h4 class="footer-col-title" id="foot-acad-title">سەرچاوەی ئەکادیمی</h4>
+      <div class="footer-univ-box">
+        <div class="univ-title" id="foot-main-title">ئەتڵەسی پێشکەوی زانستی ڕووەک</div>
+        <div class="univ-dept" id="foot-dept">بەشی بایۆلوجی - کۆلێژی زانست - زانکۆی ڕاپەڕین</div>
+      </div>
+      <div class="viewer-counter-box">
+        <span class="viewer-text" id="foot-view-text">بینەری گشتی:</span>
+        <span class="viewer-count" id="view-count-num">0</span>
+      </div>
     </div>
+  </div>
+
+  <div class="footer-bottom-row">
+    <span id="foot-rights">سەرجەم مافەکانی پارێزراوە © 2026</span>
+    <div class="footer-dev" id="foot-developer">ڕێکخەری زانستی و گەشەپێدەری وێب: ژیاو یوسف حسین</div>
   </div>
 </footer>
  
@@ -971,6 +1113,10 @@
       secSubtitle: "لێرەوە بڕوانە ناو کایە جیاوازەکانی زانستی ڕووەک و سەرچاوەکان",
       btn: "دەست پێبکە",
       lightBtn: "ڕووناک", darkBtn: "تاریک",
+      footAbout: "ئەتڵەسێکی پێشکەوتووی دیجیتاڵییە کە تایبەتە بە لێکۆڵینەوە و شیکردنەوەی تەواوی کایەکانی زانستی ڕووەک بە شێوازی ئەکادیمی نوێ.",
+      footLinks: "بەستەرە خێراکان",
+      footAcad: "سەرچاوەی ئەکادیمی",
+      lHome: "سەرەکی", lChaps: "بەشەکانی پلاتفۆرم",
       footTitle: "ئەتڵەسی پێشکەوتووی زانستی ڕووەک",
       footDept: "بەشی بایۆلوجی - کۆلێژی زانست - زانکۆی ڕاپەڕین",
       footViews: "بینەری گشتی:", footRights: "سەرجەم مافەکانی پارێزراوە © 2026",
@@ -1000,6 +1146,10 @@
       secSubtitle: "Explore various domains of plant science and research resources from here.",
       btn: "Get Started",
       lightBtn: "Light", darkBtn: "Dark",
+      footAbout: "Advanced digital botanical atlas specialized in comprehensive analysis, research, and documentation of plant ecosystems.",
+      footLinks: "Quick Links",
+      footAcad: "Academic Source",
+      lHome: "Home", lChaps: "Platform Chapters",
       footTitle: "Advanced Botanical Science Atlas",
       footDept: "Department of Biology - College of Science - University of Raparin",
       footViews: "Total Views:", footRights: "All Rights Reserved © 2026",
@@ -1029,6 +1179,10 @@
       secSubtitle: "استکشف المجالات المختلفة لعلوم النبات والموارد العلمية من هنا.",
       btn: "ابدأ الآن",
       lightBtn: "فاتح", darkBtn: "مظلم",
+      footAbout: "أطلس رقمي متقدم متخصص في دراسة وتوثيق كافة مجالات علوم النبات المختلفة بطرق أكاديمية حديثة.",
+      footLinks: "روابط سريعة",
+      footAcad: "المصدر الأكاديمي",
+      lHome: "الرئيسية", lChaps: "أقسام المنصة",
       footTitle: "أطلس علوم النبات المتقدم",
       footDept: "قسم الأحياء - كلية العلوم - جامعة رابرين",
       footViews: "إجمالي المشاهدات:", footRights: "جميع الحقوق محفوظة © 2026",
@@ -1069,6 +1223,13 @@
     document.getElementById("theme-dark-btn").innerText = data.darkBtn;
     document.getElementById("sec-title").innerText = data.secTitle;
     document.getElementById("sec-subtitle").innerText = data.secSubtitle;
+
+    // Footer dynamics
+    document.getElementById("foot-about-desc").innerText = data.footAbout;
+    document.getElementById("foot-links-title").innerText = data.footLinks;
+    document.getElementById("foot-acad-title").innerText = data.footAcad;
+    document.getElementById("link-home").innerText = data.lHome;
+    document.getElementById("link-chaps").innerText = data.lChaps;
     document.getElementById("foot-main-title").innerText = data.footTitle;
     document.getElementById("foot-dept").innerText = data.footDept;
     document.getElementById("foot-view-text").innerText = data.footViews;
