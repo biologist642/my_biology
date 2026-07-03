@@ -194,11 +194,11 @@
  
   /* ── HERO ── */
   .hero {
-    min-height: 70vh; /* بەرزی هیرۆکە کەمکرایەوە بۆ کورتکردنەوەی */
+    min-height: 70vh;
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     align-items: center;
-    padding: 5rem 8% 0rem; /* پادینگی خوارەوە کرا بە 0 بۆ نەهێشتنی بۆشایی */
+    padding: 5rem 8% 0rem;
     position: relative;
     overflow: hidden;
     gap: 3rem;
@@ -212,16 +212,15 @@
     overflow: hidden;
     z-index: 15;
     line-height: 0;
-    margin-top: -5px; /* بۆشاییە سپییە لادەبات و خەتەکە کەمێک دەباتە سەرەوە */
+    margin-top: -5px;
     background: transparent;
   }
-  nav.navbar + .hero + .hero-divider svg, /* یان ڕاستەوخۆ سێلێکتەری خوارەوە */
-.hero-divider svg {
-  display: block;
-  width: 100%; /* لەجیاتی 200% کرا بە 100% بۆ ئەوەی لەرەز لێ نەدات */
-  height: 100%;
-  animation: waveDrift 4s ease-in-out infinite alternate; /* جووڵەی سەر و خوار پێچەوانە */
-}
+  .hero-divider svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    animation: waveDrift 4s ease-in-out infinite alternate;
+  }
   html[dir="ltr"] .hero-divider svg { animation-direction: reverse; }
   .hero-divider .wave-back {
     fill: var(--green-light);
@@ -231,9 +230,9 @@
     fill: var(--green-cta);
   }
   @keyframes waveDrift {
-  from { transform: translateY(0); }
-  to   { transform: translateY(8px); } /* تەنها بە نەرمی دێتە خوارەوە و دەچێتە سەرەوە */
-}
+    from { transform: translateY(0); }
+    to   { transform: translateY(8px); }
+  }
  
   .hero::before {
     content: '';
@@ -260,11 +259,12 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.95rem; font-weight: 700;
+    font-size: 1.15rem; /* گەورەکردنی فۆنتی باجی سەرەوە بۆ بینینی ڕوونتر */
+    font-weight: 700;
     color: var(--green-dark);
     background: linear-gradient(120deg, rgba(16,185,129,0.12), rgba(74,124,47,0.18), rgba(16,185,129,0.12));
     background-size: 220% 100%;
-    padding: 7px 20px 7px 16px;
+    padding: 8px 22px;
     border-radius: 50px;
     margin-bottom: 1.2rem;
     letter-spacing: 0.3px;
@@ -276,11 +276,11 @@
   body.dark-mode .eyebrow { color: #86efac; }
   .eyebrow .eyebrow-icon {
     display: inline-flex;
-    width: 16px; height: 16px;
+    width: 20px; height: 20px;
     flex-shrink: 0;
     animation: eyebrowIconPulse 2.4s ease-in-out infinite;
   }
-  .eyebrow .eyebrow-icon svg { width: 100%; height: 100%; stroke: currentColor; }
+  .eyebrow .eyebrow-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; }
   @keyframes eyebrowSheen {
     0%   { background-position: 0% 50%; }
     100% { background-position: 220% 50%; }
@@ -856,9 +856,8 @@
   <div class="hero-text">
     <span class="eyebrow">
       <span class="eyebrow-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 3 2 8l10 5 10-5-10-5Z"/>
-          <path d="M6 10.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-5.5"/>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22V12M12 12C12 7 7 4 2 6c0 5 3 9 10 6M12 12c0-5 5-8 10-6-1 5-4 9-10 6"/>
         </svg>
       </span>
       <span id="hero-eyebrow">زانستی درەوشاوەی ڕووەک</span>
@@ -918,6 +917,12 @@
   </div>
 </section>
 
+<div class="hero-divider">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+    <path class="wave-back" d="M0,30 Q360,50 720,30 T1440,30 L1440,60 L0,60 Z"></path>
+    <path class="wave-front" d="M0,40 Q360,20 720,40 T1440,40 L1440,60 L0,60 Z"></path>
+  </svg>
+</div>
 
 <section class="chapters-section" id="chapters-area">
   <div class="section-header-wrapper">
@@ -1049,7 +1054,7 @@
     document.getElementById(`btn-${lang}`).classList.add('active');
  
     document.getElementById("search-bar").placeholder = data.searchPlaceholder;
-    document.getElementById("search-bar").value = ""; // Clear values to prevent visual filter bugs
+    document.getElementById("search-bar").value = "";
     
     document.getElementById("hero-eyebrow").innerText = data.eyebrow;
     document.getElementById("btn-txt").innerText = data.btn;
