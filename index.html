@@ -30,7 +30,7 @@
     --shadow-sm:    0 4px 12px rgba(0,0,0,0.08);
     --shadow-md:    0 10px 30px rgba(0,0,0,0.10);
     --border-nav:   1px solid rgba(16,185,129,0.15);
-    --arrow-hover-transform: translateX(-5px);
+    --arrow-hover-transform: translateY(5px);
   }
  
   body.dark-mode {
@@ -47,10 +47,6 @@
     --shadow-md:    0 10px 30px rgba(0,0,0,0.35);
   }
 
-  html[dir="ltr"] {
-    --arrow-hover-transform: translateX(5px);
-  }
- 
   html { scroll-behavior: smooth; }
  
   body {
@@ -78,13 +74,19 @@
   }
  
   .logo {
-    display: flex; align-items: center; gap: .35rem;
-    font-size: 1.15rem; font-weight: 700;
+    display: flex; align-items: center; gap: .5rem;
+    font-size: 1.4rem; font-weight: 700;
     color: var(--green-dark); text-decoration: none;
     flex-shrink: 0;
+    animation: logoFloat 4s ease-in-out infinite;
   }
-  body.dark-mode .logo { color: var(--white); }
-  .logo svg { width: 20px; height: 20px; stroke: var(--green-cta); }
+  body.dark-mode .logo { color: #ffffff; }
+  .logo svg { width: 26px; height: 26px; stroke: var(--green-cta); }
+  
+  @keyframes logoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
  
   .search-container {
     flex-grow: 1;
@@ -100,7 +102,7 @@
     width: 100%;
     padding: 0.6rem 2.8rem 0.6rem 1.2rem;
     border: 1.5px solid rgba(74, 124, 47, 0.2);
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 50px;
     font-family: inherit;
     font-size: 0.85rem;
@@ -112,8 +114,9 @@
     padding: 0.6rem 1.2rem 0.6rem 2.8rem;
   }
   body.dark-mode .search-input {
-    background: rgba(30, 45, 24, 0.6);
-    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(30, 45, 24, 0.8);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
   }
   .search-input:focus {
     border-color: var(--green-cta);
@@ -132,6 +135,9 @@
   }
   html[dir="ltr"] .search-icon {
     right: auto; left: 1rem;
+  }
+  body.dark-mode .search-icon {
+    stroke: var(--text-muted);
   }
   .search-input:focus + .search-icon {
     stroke: var(--green-cta);
@@ -169,6 +175,7 @@
   body.dark-mode .theme-switcher-container,
   body.dark-mode .lang-switcher-container {
     border-color: rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.05);
   }
  
   .theme-switcher-container button,
@@ -184,11 +191,15 @@
     transition: color 0.3s ease, background 0.3s ease;
     font-family: inherit;
   }
+  body.dark-mode .theme-switcher-container button,
+  body.dark-mode .lang-switcher-container button {
+    color: #a3b299;
+  }
  
   .theme-btn.active,
   .lang-btn.active {
     background: var(--toggle-active);
-    color: #ffffff;
+    color: #ffffff !important;
     box-shadow: 0 2px 6px rgba(0,200,150,0.3);
   }
  
@@ -204,7 +215,6 @@
     gap: 3rem;
   }
 
-  /* ── HERO DIVIDER (animated wave) ── */
   .hero-divider {
     position: relative;
     width: 100%;
@@ -314,10 +324,6 @@
     -webkit-text-fill-color: transparent;
     animation: letterFloat 3.2s ease-in-out infinite, gradientShift 5s ease-in-out infinite;
   }
-  .hero-text h1 span:nth-child(1) { animation-delay: 0s, 0s; }
-  .hero-text h1 span:nth-child(2) { animation-delay: .15s, .3s; }
-  .hero-text h1 span:nth-child(3) { animation-delay: .3s, .6s; }
-  .hero-text h1 span:nth-child(4) { animation-delay: .45s, .9s; }
   body.dark-mode .hero-text h1 span {
     background: linear-gradient(135deg, #ffffff, #86efac);
     background-size: 200% 200%;
@@ -375,8 +381,8 @@
   .btn-primary::before {
     content: '';
     position: absolute;
-    top: 0; left: -100%; width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    top: -100%; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(180deg, transparent, rgba(255,255,255,0.25), transparent);
     transition: all 0.6s;
   }
   .btn-primary::after {
@@ -389,16 +395,16 @@
     animation: ctaRing 2.6s ease-out infinite;
     pointer-events: none;
   }
-  .btn-primary:hover::before { left: 100%; }
+  .btn-primary:hover::before { top: 100%; }
   .btn-primary:hover {
     background: var(--green-mid);
-    transform: translateY(-4px) scale(1.03);
+    transform: translateY(4px) scale(1.03);
     box-shadow: 0 12px 28px rgba(61,154,62,.45);
     animation-play-state: paused;
   }
   .btn-primary svg { transition: transform 0.3s ease; }
   .btn-primary:hover svg { transform: var(--arrow-hover-transform); }
-  html[dir="ltr"] .btn-primary svg { transform: scaleX(-1); }
+  
   @keyframes ctaPulseGlow {
     0%, 100% { box-shadow: 0 6px 22px rgba(61,154,62,.35); }
     50%      { box-shadow: 0 6px 30px rgba(61,154,62,.6); }
@@ -443,7 +449,7 @@
   }
   html[dir="ltr"] .plant-secondary { left: auto; right: -20px; }
  
-  /* ── CHAPTERS GRID & CARDS ── */
+  /* ── CHAPTERS GRID ── */
   .chapters-section {
     padding: 80px 5%;
     background-color: var(--bg-chapters);
@@ -510,10 +516,7 @@
     border: 1px solid rgba(0, 0, 0, 0.03);
     position: relative;
   }
-
-  body.dark-mode .chapter-card {
-    border-color: rgba(255, 255, 255, 0.05);
-  }
+  body.dark-mode .chapter-card { border-color: rgba(255, 255, 255, 0.05); }
 
   .chapter-card:hover {
     transform: translateY(-8px);
@@ -543,9 +546,7 @@
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
-  .chapter-card:hover .card-image-area img {
-    transform: scale(1.08);
-  }
+  .chapter-card:hover .card-image-area img { transform: scale(1.08); }
 
   .card-chapter-tag {
     position: absolute;
@@ -560,10 +561,7 @@
     font-weight: 700;
     z-index: 5;
   }
-  html[dir="ltr"] .card-chapter-tag {
-    right: auto;
-    left: 15px;
-  }
+  html[dir="ltr"] .card-chapter-tag { right: auto; left: 15px; }
 
   .card-chapter-tag::before {
     content: '';
@@ -590,7 +588,6 @@
     transition: background 0.3s;
   }
 
-  /* ئەنیمەیشنی نوێ بۆ ناونیشانی سەرەکی کارتەکان */
   .card-title {
     font-size: 1.2rem;
     font-weight: 700;
@@ -606,11 +603,8 @@
     animation: titleFloat 3.5s ease-in-out infinite alternate;
   }
 
-  .chapter-card:hover .card-title {
-    background-position: 100% 50%;
-  }
+  .chapter-card:hover .card-title { background-position: 100% 50%; }
 
-  /* مۆشنی سەرەوخواری هێمن بۆ ناونیشانی دەقی کارتەکان */
   @keyframes titleFloat {
     0% { transform: translateY(0); }
     100% { transform: translateY(-4px); }
@@ -751,7 +745,7 @@
     }
   }
  
-  /* ── MOBILE & TABLET RESPONSIVE ── */
+  /* ── RESPONSIVE ── */
   @media (max-width: 1024px) {
     .chapters-grid {
       grid-template-columns: repeat(2, 1fr);
@@ -781,7 +775,7 @@
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .mobile-search-btn { display: flex; }
-    .logo span { font-size: .92rem; }
+    .logo span { font-size: 1.1rem; }
     .nav-actions { gap: .35rem; }
     .theme-switcher-container button,
     .lang-switcher-container button { padding: .3rem .5rem; font-size: .68rem; }
@@ -812,9 +806,7 @@
       grid-template-columns: 1fr;
       gap: 20px;
     }
-    .chapters-section {
-      padding: 50px 16px;
-    }
+    .chapters-section { padding: 50px 16px; }
   }
 </style>
 </head>
@@ -862,9 +854,10 @@
   <div class="hero-text">
     <span class="eyebrow">
       <span class="eyebrow-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 3 2 8l10 5 10-5-10-5Z"/>
-          <path d="M6 10.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-5.5"/>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0 1 12 2z"/>
+          <path d="M12 6a6 6 0 0 1 6 6c0 3.314-2.686 6-6 6s-6-2.686-6-6a6 6 0 0 1 6-6z"/>
+          <path d="M12 8v8M8 12h8"/>
         </svg>
       </span>
       <span id="hero-eyebrow">زانستی درەوشاوەی ڕووەک</span>
@@ -876,7 +869,7 @@
     <div class="cta-group">
       <button class="btn-primary" onclick="document.getElementById('chapters-area').scrollIntoView({behavior:'smooth'})">
         <span id="btn-txt">دەست پێبکە</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
       </button>
     </div>
   </div>
@@ -973,9 +966,11 @@
       searchPlaceholder: "گەڕان بەدوای بەشەکاندا...",
       eyebrow: "زانستی درەوشاوەی ڕووەک",
       title: "NovaPlant",
+      heroDesc: "پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران، مامۆستایان, توێژەران و جووتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.",
       secTitle: "بەشەکانی پلاتفۆرم",
       secSubtitle: "لێرەوە بڕوانە ناو کایە جیاوازەکانی زانستی ڕووەک و سەرچاوەکان",
       btn: "دەست پێبکە",
+      lightBtn: "ڕووناک", darkBtn: "تاریک",
       footTitle: "ئەتڵەسی پێشکەوتووی زانستی ڕووەک",
       footDept: "بەشی بایۆلوجی - کۆلێژی زانست - زانکۆی ڕاپەڕین",
       footViews: "بینەری گشتی:", footRights: "سەرجەم مافەکانی پارێزراوە © 2026",
@@ -1000,9 +995,11 @@
       searchPlaceholder: "Search chapters...",
       eyebrow: "Brilliant Botanical Science",
       title: "NovaPlant",
+      heroDesc: "Advanced scientific and academic platform for students, teachers, researchers, and farmers using modern information.",
       secTitle: "Platform Chapters",
       secSubtitle: "Explore various domains of plant science and research resources from here.",
       btn: "Get Started",
+      lightBtn: "Light", darkBtn: "Dark",
       footTitle: "Advanced Botanical Science Atlas",
       footDept: "Department of Biology - College of Science - University of Raparin",
       footViews: "Total Views:", footRights: "All Rights Reserved © 2026",
@@ -1027,9 +1024,11 @@
       searchPlaceholder: "البحث عن الفصول...",
       eyebrow: "علم النبات المشرق",
       title: "NovaPlant",
+      heroDesc: "منصة علمية وأكاديمية متقدمة للطلاب والمعلمين والباحثين والمزارعين باستخدام أحدث المعلومات المعاصرة.",
       secTitle: "أقسام المنصة",
-      secSubtitle: "استكشف المجالات المختلفة لعلوم النبات والموارد العلمية من هنا.",
+      secSubtitle: "استکشف المجالات المختلفة لعلوم النبات والموارد العلمية من هنا.",
       btn: "ابدأ الآن",
+      lightBtn: "فاتح", darkBtn: "مظلم",
       footTitle: "أطلس علوم النبات المتقدم",
       footDept: "قسم الأحياء - كلية العلوم - جامعة رابرين",
       footViews: "إجمالي المشاهدات:", footRights: "جميع الحقوق محفوظة © 2026",
@@ -1064,7 +1063,10 @@
     document.getElementById("search-bar").value = "";
     
     document.getElementById("hero-eyebrow").innerText = data.eyebrow;
+    document.getElementById("hero-desc-txt").innerText = data.heroDesc;
     document.getElementById("btn-txt").innerText = data.btn;
+    document.getElementById("theme-light-btn").innerText = data.lightBtn;
+    document.getElementById("theme-dark-btn").innerText = data.darkBtn;
     document.getElementById("sec-title").innerText = data.secTitle;
     document.getElementById("sec-subtitle").innerText = data.secSubtitle;
     document.getElementById("foot-main-title").innerText = data.footTitle;
@@ -1095,7 +1097,6 @@
     const container = document.getElementById("grid-container");
     container.innerHTML = "";
     chaptersList.forEach((item, index) => {
-      // لایەنی مۆشنەکە بە لادانی تایم-دیڵەی (animation-delay) کەمێک جیاواز بۆ ئەوەی هەموو کارتەکان پێکەوە بە یەک ئاست دانەبەزن.
       const delay = (index % 3) * 0.3;
       container.innerHTML += `
         <div class="chapter-card">
