@@ -57,7 +57,6 @@
     transition: background 0.3s, color 0.3s;
   }
  
-  /* ── NAV (گەڕێندراوەوە بۆ دۆخی ڕەسەنی پێشوو) ── */
   nav.navbar {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -99,9 +98,16 @@
     position: relative;
     width: 100%;
   }
+
+  /* Fixed layout alignment for RTL and LTR modes */
+  html[dir="rtl"] .search-input {
+    padding: 0.6rem 2.8rem 0.6rem 1.2rem;
+  }
+  html[dir="ltr"] .search-input {
+    padding: 0.6rem 1.2rem 0.6rem 2.8rem;
+  }
   .search-input {
     width: 100%;
-    padding: 0.6rem 2.8rem 0.6rem 1.2rem;
     border: 1.5px solid rgba(74, 124, 47, 0.2);
     background: rgba(255, 255, 255, 0.8);
     border-radius: 50px;
@@ -110,9 +116,6 @@
     color: var(--text-dark);
     outline: none;
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  html[dir="ltr"] .search-input {
-    padding: 0.6rem 1.2rem 0.6rem 2.8rem;
   }
   body.dark-mode .search-input {
     background: rgba(30, 45, 24, 0.8);
@@ -128,12 +131,15 @@
   }
   .search-icon {
     position: absolute;
-    top: 50%; right: 1rem;
+    top: 50%;
     transform: translateY(-50%);
     width: 18px; height: 18px;
     stroke: var(--text-muted);
     pointer-events: none;
     transition: stroke 0.3s;
+  }
+  html[dir="rtl"] .search-icon {
+    right: 1rem; left: auto;
   }
   html[dir="ltr"] .search-icon {
     right: auto; left: 1rem;
@@ -249,13 +255,14 @@
   .hero::before {
     content: '';
     position: absolute;
-    top: -18%; right: -12%;
+    top: -18%;
     width: 65%; height: 138%;
     background: var(--mint-bg);
     border-radius: var(--radius-blob);
     animation: morphBlob 16s ease-in-out infinite alternate;
     z-index: 1;
   }
+  html[dir="rtl"] .hero::before { right: -12%; left: auto; }
   html[dir="ltr"] .hero::before { right: auto; left: -12%; }
  
   .hero-text { 
@@ -432,23 +439,25 @@
   }
  
   .plant-main {
-    position: absolute; top: 0; right: 0;
+    position: absolute; top: 0;
     width: 100%; height: 100%;
     object-fit: cover;
     border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
     filter: drop-shadow(0 15px 30px rgba(45,80,22,.2));
     animation: float 6s ease-in-out infinite;
   }
+  html[dir="rtl"] .plant-main { right: 0; left: auto; }
   html[dir="ltr"] .plant-main { right: auto; left: 0; }
  
   .plant-secondary {
-    position: absolute; bottom: 45px; left: -20px;
+    position: absolute; bottom: 45px;
     width: 45%;
     object-fit: cover;
     border-radius: 50%;
     filter: drop-shadow(0 10px 20px rgba(45,80,22,.15));
     animation: float 7s 1s ease-in-out infinite;
   }
+  html[dir="rtl"] .plant-secondary { left: -20px; right: auto; }
   html[dir="ltr"] .plant-secondary { left: auto; right: -20px; }
  
   /* ── CHAPTERS GRID ── */
@@ -553,7 +562,6 @@
   .card-chapter-tag {
     position: absolute;
     top: 15px;
-    right: 15px;
     background: rgba(15, 23, 42, 0.8);
     backdrop-filter: blur(4px);
     color: #34d399;
@@ -563,6 +571,7 @@
     font-weight: 700;
     z-index: 5;
   }
+  html[dir="rtl"] .card-chapter-tag { right: 15px; left: auto; }
   html[dir="ltr"] .card-chapter-tag { right: auto; left: 15px; }
 
   .card-chapter-tag::before {
@@ -687,9 +696,9 @@
     gap: 40px;
     position: relative;
     z-index: 2;
-    text-align: start;
   }
   html[dir="rtl"] .footer-grid-layout { text-align: right; }
+  html[dir="ltr"] .footer-grid-layout { text-align: left; }
  
   .footer-row-top {
     display: grid;
@@ -704,7 +713,6 @@
     gap: 10px;
   }
 
-  /* پلاتفۆرم بە ڕەنگی زەرد و خەتێکی لەژێر */
   .footer-col-title-yellow {
     font-size: 18px;
     font-weight: 700;
@@ -737,7 +745,6 @@
     border-radius: 8px; font-size: 14px;
   }
 
-  /* ڕێکخستنی تەواوی چاپتەرەکان لە یەک ڕیزی ئاسۆسیدا */
   .footer-col-links-full {
     display: flex;
     flex-direction: column;
@@ -757,7 +764,6 @@
     display: inline-block;
   }
 
-  /* شێوازی بەستەرە زەردەکان لەگەڵ خەت لەژێر و مۆشن کاتی کلیک */
   .footer-links-row-container li a {
     color: #facc15; 
     text-decoration: underline; 
@@ -771,7 +777,6 @@
     white-space: nowrap;
   }
 
-  /* مۆشنی جوان و گۆڕینی ڕەنگ بۆ زەردی گەش کاتی کلیک و هۆڤەر */
   .footer-links-row-container li a:hover,
   .footer-links-row-container li a:active {
     color: #fef08a; 
@@ -1016,7 +1021,7 @@
  
   const translations = {
     ku: {
-      dir: "rtl", tagStr: "بەشی ", readMore: "خوێندنەوەی زیاتر",
+      dir: "rtl", arrow: "⬅️", tagStr: "بەشی ", readMore: "خوێندنەوەی زیاتر",
       searchPlaceholder: "گەڕان بەدوای بەشەکاندا...",
       eyebrow: "زانستی درەوشاوەی ڕووەک",
       title: "NovaPlant",
@@ -1045,7 +1050,7 @@
       ]
     },
     en: {
-      dir: "ltr", tagStr: "Chapter ", readMore: "Read More",
+      dir: "ltr", arrow: "➡️", tagStr: "Chapter ", readMore: "Read More",
       searchPlaceholder: "Search chapters...",
       eyebrow: "Brilliant Botanical Science",
       title: "NovaPlant",
@@ -1074,7 +1079,7 @@
       ]
     },
     ar: {
-      dir: "rtl", tagStr: "الفصل ", readMore: "قراءة المزيد",
+      dir: "rtl", arrow: "⬅️", tagStr: "الفصل ", readMore: "قراءة المزيد",
       searchPlaceholder: "البحث عن الفصول...",
       eyebrow: "علم النبات المشرق",
       title: "NovaPlant",
@@ -1145,7 +1150,7 @@
     });
 
     renderGrid(data.chapters, data);
-    renderFooterLinksRow(data.chapters);
+    renderFooterLinksRow(data.chapters, data);
   }
  
   function renderGrid(chaptersList, data) {
@@ -1168,12 +1173,12 @@
     });
   }
 
-  function renderFooterLinksRow(chaptersList) {
+  function renderFooterLinksRow(chaptersList, data) {
     const rowContainer = document.getElementById("footer-links-row");
     rowContainer.innerHTML = "";
     
     chaptersList.forEach((item) => {
-      rowContainer.innerHTML += `<li><a href="javascript:void(0)">⬅️ ${item.title}</a></li>`;
+      rowContainer.innerHTML += `<li><a href="javascript:void(0)">${data.arrow} ${item.title}</a></li>`;
     });
   }
 
