@@ -257,17 +257,37 @@
   }
  
   .eyebrow {
-    display: inline-block;
-    font-size: 1.05rem; font-weight: 700;
-    color: #10B981;
-    background: rgba(16, 185, 129, 0.1);
-    padding: 6px 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem; font-weight: 700;
+    color: var(--green-dark);
+    background: linear-gradient(120deg, rgba(16,185,129,0.12), rgba(74,124,47,0.18), rgba(16,185,129,0.12));
+    background-size: 220% 100%;
+    padding: 7px 20px 7px 16px;
     border-radius: 50px;
     margin-bottom: 1.2rem;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 10px rgba(16, 185, 129, 0.05);
+    letter-spacing: 0.3px;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    box-shadow: 0 2px 10px rgba(16, 185, 129, 0.08);
     opacity: 0;
-    animation: fadeUp .7s .3s ease forwards;
+    animation: fadeUp .7s .3s ease forwards, eyebrowSheen 5s linear infinite 1s;
+  }
+  body.dark-mode .eyebrow { color: #86efac; }
+  .eyebrow .eyebrow-icon {
+    display: inline-flex;
+    width: 16px; height: 16px;
+    flex-shrink: 0;
+    animation: eyebrowIconPulse 2.4s ease-in-out infinite;
+  }
+  .eyebrow .eyebrow-icon svg { width: 100%; height: 100%; stroke: currentColor; }
+  @keyframes eyebrowSheen {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 220% 50%; }
+  }
+  @keyframes eyebrowIconPulse {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.18) rotate(-8deg); }
   }
  
   .hero-text h1 {
@@ -351,23 +371,44 @@
     font-family: inherit;
     position: relative;
     overflow: hidden;
+    animation: ctaPulseGlow 2.6s ease-in-out infinite;
   }
   .btn-primary::before {
     content: '';
     position: absolute;
     top: 0; left: -100%; width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
     transition: all 0.6s;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 100px;
+    border: 1.5px solid rgba(61,154,62,.5);
+    opacity: 0;
+    animation: ctaRing 2.6s ease-out infinite;
+    pointer-events: none;
   }
   .btn-primary:hover::before { left: 100%; }
   .btn-primary:hover {
     background: var(--green-mid);
     transform: translateY(-4px) scale(1.03);
     box-shadow: 0 12px 28px rgba(61,154,62,.45);
+    animation-play-state: paused;
   }
   .btn-primary svg { transition: transform 0.3s ease; }
   .btn-primary:hover svg { transform: var(--arrow-hover-transform); }
   html[dir="ltr"] .btn-primary svg { transform: scaleX(-1); }
+  @keyframes ctaPulseGlow {
+    0%, 100% { box-shadow: 0 6px 22px rgba(61,154,62,.35); }
+    50%      { box-shadow: 0 6px 30px rgba(61,154,62,.6); }
+  }
+  @keyframes ctaRing {
+    0%   { opacity: .55; transform: scale(0.94); }
+    70%  { opacity: 0;   transform: scale(1.12); }
+    100% { opacity: 0;   transform: scale(1.12); }
+  }
  
   .hero-visual {
     position: relative; 
@@ -394,7 +435,7 @@
   html[dir="ltr"] .plant-main { right: auto; left: 0; }
  
   .plant-secondary {
-    position: absolute; bottom: -10px; left: -20px;
+    position: absolute; bottom: 45px; left: -20px;
     width: 45%;
     object-fit: cover;
     border-radius: 50%;
@@ -416,14 +457,39 @@
     font-size: clamp(1.8rem, 3vw, 2.4rem);
     margin-bottom: 12px;
     font-weight: 700;
-    color: var(--text-dark);
+    position: relative;
+    background: linear-gradient(100deg, var(--green-dark), var(--green-cta), var(--green-mid));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0;
+    animation: fadeUp .7s ease forwards, titleShine 4s linear infinite 1s;
+  }
+  .section-main-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px; left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    width: 70px; height: 3px;
+    border-radius: 4px;
+    background: var(--green-cta);
+    animation: titleUnderline .6s .4s ease forwards;
+  }
+  @keyframes titleShine {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+  @keyframes titleUnderline {
+    to { transform: translateX(-50%) scaleX(1); }
   }
 
   .section-main-subtitle {
     text-align: center;
     color: var(--text-muted);
     margin-bottom: 60px;
-    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
   }
 
   .chapters-grid {
@@ -527,14 +593,21 @@
 
   .card-title {
     font-size: 1.2rem;
-    color: var(--text-dark);
     font-weight: 700;
     margin-bottom: 12px;
-    transition: color 0.3s ease;
+    background: linear-gradient(100deg, #B8860B, #E6A817, #B8860B);
+    background-size: 200% auto;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: background-position 0.6s ease, transform 0.3s ease;
+    display: inline-block;
   }
 
   .chapter-card:hover .card-title {
-    color: var(--green-cta);
+    background-position: 100% 50%;
+    transform: translateY(-2px) scale(1.03);
   }
 
   .card-desc {
@@ -781,7 +854,15 @@
  
 <section class="hero">
   <div class="hero-text">
-    <span class="eyebrow" id="hero-eyebrow">زانستی درەوشاوەی ڕووەک</span>
+    <span class="eyebrow">
+      <span class="eyebrow-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3 2 8l10 5 10-5-10-5Z"/>
+          <path d="M6 10.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-5.5"/>
+        </svg>
+      </span>
+      <span id="hero-eyebrow">زانستی درەوشاوەی ڕووەک</span>
+    </span>
     <h1 id="hero-title">NovaPlant</h1>
     <div class="hero-desc">
       <p id="hero-desc-txt">پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران، مامۆستایان، توێژەران و جووتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.</p>
@@ -837,13 +918,7 @@
   </div>
 </section>
 
-<div class="hero-divider">
-  <svg viewBox="0 0 2880 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path class="wave-back" d="M0,55 C120,85 240,25 360,55 C480,85 600,25 720,55 C840,85 960,25 1080,55 C1200,85 1320,25 1440,55 L1440,100 L0,100 Z M1440,55 C1560,85 1680,25 1800,55 C1920,85 2040,25 2160,55 C2280,85 2400,25 2520,55 C2640,85 2760,25 2880,55 L2880,100 L1440,100 Z"></path>
-    <path class="wave-front" d="M0,70 C150,40 300,95 450,70 C600,45 750,95 900,70 C1050,45 1200,95 1350,70 L1440,65 L1440,100 L0,100 Z M1440,70 C1590,40 1740,95 1890,70 C2040,45 2190,95 2340,70 C2490,45 2640,95 2790,70 L2880,65 L2880,100 L1440,100 Z"></path>
-  </svg>
-</div>
- 
+
 <section class="chapters-section" id="chapters-area">
   <div class="section-header-wrapper">
     <h2 class="section-main-title" id="sec-title">بەشەکانی پلاتفۆرم</h2>
