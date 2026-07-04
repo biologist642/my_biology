@@ -764,11 +764,11 @@
     border-radius: 6px; font-size: 11.5px;
   }
 
-  /* ستوونی دووەم: ناوی دوازدە چاپتەرەکە لەگەڵ فۆنتی بچوک و خاڵی تەنیشت */
-  .footer-links-column-container {
+/* ستوونی دووەم: ناوی دوازدە چاپتەرەکە لەگەڵ فۆنتی بچوک و خاڵی تەنیشت */
+.footer-links-column-container {
     display: flex;
     flex-direction: column;
-    gap: 4px; /* بۆشایی زۆر کەم و خاوێن */
+    gap: 10px; /* لێرەدا کرا بە 10px بۆ ئەوەی بۆشایی نێوان چاپتەرەکان ڕێک وەک ستوونی زانیاری لێبێت */
     list-style: none !important;
     padding: 0;
     margin: 0;
@@ -778,14 +778,15 @@
     list-style-type: none !important;
     padding: 0;
     margin: 0;
+    display: flex; /* بۆ ڕێکخستنی باشتر */
   }
 
   .footer-links-column-container li a {
     color: #cbd5e1; 
     text-decoration: none; 
-    font-size: 11.5px; /* فۆنتی بچووککراوە و زۆر ناسک وەک داواکارییەکەت */
+    font-size: 12px; /* کرا بە 12 وەک ستوونی زانیاری بۆ ئەوەی قەبارە و بۆشاییەکانیان یەک بگرنەوە */
     font-weight: 500;
-    line-height: 1.5;
+    line-height: 1.5; /* هاوتا کرا لەگەڵ ستوونی زانیاری پلاتفۆرم */
     transition: all 0.22s ease;
     display: inline-flex;
     align-items: center;
@@ -795,58 +796,20 @@
   /* جێگیرکردنی خاڵی زەرد لە بری چوارگۆشە یان هێماکانی تر */
   .footer-links-column-container li a::before {
     content: "•";
-    color: #facc15; /* هەمان ڕەنگی خاڵی تەنیشت بەش و کۆلێژ */
+    color: #facc15; 
     font-size: 14px;
     font-weight: bold;
     display: inline-block;
     transition: transform 0.2s;
+    margin-inline-end: 4px; /* هاوشێوەی زانیاری پلاتفۆرم */
   }
 
   .footer-links-column-container li a:hover {
     color: #facc15; 
     transform: translateX(-3px); 
   }
-  html[dir=\"ltr\"] .footer-links-column-container li a:hover {
+  html[dir="ltr"] .footer-links-column-container li a:hover {
     transform: translateX(3px);
-  }
-
-  /* ستوونی سێیەم: بە تەنیا گەورەکردنی فۆنتی NovaEntomo و پاراستنی بریقەکەی */
-  .nova-entomo-link {
-    font-size: 19px !important; /* فۆنتی گەورە و جیاواز لەوانی تر */
-    font-weight: 800 !important;
-    background: linear-gradient(90deg, #cbd5e1, #facc15, #cbd5e1);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shineTextLink 3s linear infinite;
-    display: inline-flex;
-    align-items: center;
-    transition: transform 0.3s ease;
-  }
-  /* لادانی خاڵ تەنها بۆ بەستەری سەرەکی NovaEntomo بۆ ئەوەی جوانتر بێت */
-  .nova-entomo-link::before {
-    display: none !important;
-  }
-  .nova-entomo-link:hover {
-    transform: scale(1.06) !important;
-  }
-  @keyframes shineTextLink {
-    to { background-position: 200% center; }
-  }
-
-  /* ستوونی چوارەم: زانیاری پلاتفۆرم خاڵە زەردەکان */
-  .academic-info-list {
-    display: flex;
-    flex-direction: column;
-    gap: 4px; 
-    font-size: 12px;
-    color: #e2e8f0;
-    line-height: 1.5;
-  }
-  .academic-info-list span.yellow-tag {
-    color: #facc15;
-    font-weight: 700;
-    margin-inline-end: 4px;
   }
 
   /* لۆگۆی بازنەیی زانکۆی ڕاپەڕین */
