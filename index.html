@@ -24,7 +24,7 @@
             --card-border: rgba(93, 64, 55, 0.08);
             --hero-bg-curve: #e2ded5;
             --circle-big: #d5cfc1;
-            --circle-small: #c2b9a7;
+            --circle-small: #8B4513; /* گۆڕینی ڕەنگی باکگراوندی بازنە بچووکەکە بۆ قاوەیی */
         }
 
         :root[data-theme="dark"] {
@@ -40,7 +40,7 @@
             --card-border: rgba(255, 255, 255, 0.05);
             --hero-bg-curve: #251812;
             --circle-big: #38251c;
-            --circle-small: #4a3225;
+            --circle-small: #d27d2d;
         }
 
         * {
@@ -124,13 +124,12 @@
         }
 
         /* ==========================================================================
-           3. نێوۆک و دیزاینی هێرۆ سەکشن (چاککراو بۆ کوردی/عەرەبی لە لای ڕاست)
+           3. نێوۆک و دیزاینی هێرۆ سەکشن
            ========================================================================== */
         .hero-section-wrapper {
             position: relative; width: 100%; min-height: 85vh; display: flex; align-items: center; padding: 120px 40px 60px 40px; overflow: hidden; background-color: var(--bg-main);
         }
 
-        /* شەیپی چەماوە خراوەتە لای چەپ تا تێکەڵی دەقی کوردی/عەرەبی نەبێت لە لای ڕاست */
         .hero-bg-shape-curve {
             position: absolute; top: 0; bottom: 0; left: 0; width: 50%; background: var(--hero-bg-curve); border-top-right-radius: 400px; border-bottom-right-radius: 400px; z-index: 1; transition: all 0.4s ease;
         }
@@ -145,7 +144,6 @@
             grid-template-columns: 1fr 1.2fr;
         }
 
-        /* دەقەکە بۆ کوردی و عەرەبی لای ڕاستە */
         .hero-text-side {
             display: flex; flex-direction: column; align-items: flex-start; text-align: right; order: 1;
         }
@@ -176,7 +174,6 @@
         }
         .hero-cta-btn i { font-size: 16px; }
 
-        /* وێنە و شەیپەکان کەوتوونەتە لای چەپ بۆ کوردی */
         .hero-graphics-side {
             display: flex; justify-content: center; align-items: center; position: relative; order: 2;
         }
@@ -188,24 +185,25 @@
             width: 420px; height: 420px; background-color: var(--circle-big); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 40px rgba(0,0,0,0.05); position: relative;
         }
         
-        /* نوێکردنەوەی ئایکۆنی مێروو (پەپوولە) لە ناو بازنەکە */
+        /* شەیپی ڤێکتۆری نوێی پەپوولە بە ڕەنگی قاوەیی */
         .art-circle-large .main-insect-svg {
-            width: 65%; height: 65%; fill: var(--accent-color); opacity: 0.95; animation: softFloat 6s ease-in-out infinite;
+            width: 60%; height: 60%; fill: var(--accent-color); opacity: 0.95; animation: softFloat 6s ease-in-out infinite;
         }
 
+        /* چاککردنی بازنە بچووکەکە و گۆڕینی بۆ ئایکۆنی ڕوونی مێروو */
         .art-circle-small {
-            position: absolute; bottom: 5px; right: 25px; width: 130px; height: 130px; background-color: var(--circle-small); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.08); border: 4px solid var(--bg-main);
+            position: absolute; bottom: 15px; right: 25px; width: 120px; height: 120px; background-color: var(--circle-small); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 4px solid var(--bg-main);
         }
         html[dir="ltr"] .art-circle-small {
             right: auto; left: 25px;
         }
-        .art-circle-small .small-insect-icon {
-            font-size: 40px; color: #ffffff; animation: softFloat 5s ease-in-out infinite alternate;
+        .art-circle-small i {
+            font-size: 45px; color: #ffffff !important; animation: softFloat 5s ease-in-out infinite alternate;
         }
 
         @keyframes softFloat {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(4deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
         }
 
         /* ==========================================================================
@@ -233,7 +231,7 @@
         .sidebar-overlay.show { display: block; }
 
         /* ==========================================================================
-           5. فۆرمی داینامیکی کارتەکان (Chapters Section) - وەک خۆی پارێزراوە
+           5. فۆرمی کارتەکان (Chapters Section)
            ========================================================================== */
         .chapters-section { padding: 80px 40px; max-width: 1400px; margin: 0 auto; }
         .section-title { font-size: 38px; font-weight: 800; text-align: center; margin-bottom: 50px; display: block; width: 100%; }
@@ -274,7 +272,7 @@
         @keyframes titleUpDown { 0% { transform: translateY(0); } 100% { transform: translateY(-4px); } }
 
         /* ==========================================================================
-           6. فووتەری ڕیسپۆنسڤ لەگەڵ مۆشنی پەپوولەکان - وەک خۆی پارێزراوە
+           6. فووتەری ڕیسپۆنسڤ
            ========================================================================== */
         .footer-section { 
             position: relative; background: #2c1a11; padding-top: 100px; padding-bottom: 40px; text-align: center; color: #ffffff; margin-top: 100px; overflow: hidden;
@@ -324,7 +322,7 @@
             transition: all 0.3s ease; animation: pulseGlow 2.5s infinite alternate;
         }
         .footer-visitor-box:hover { border-color: #00bcd4; box-shadow: 0 4px 20px rgba(0, 188, 212, 0.4); transform: scale(1.03); }
-        .footer-visitor-box i { color: #00bcd4; animation: eyeBlink 4s infinite; }
+        .footer-visitor-box i { color: #00bcd4; }
         
         .copyright { font-size: 13.5px; opacity: 0.5; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); }
         .footer-link-animate { display: block; animation: floatUpDown 3s ease-in-out infinite; animation-delay: 0.5s; }
@@ -340,7 +338,8 @@
             .hero-graphics-side { order: 2; }
             html[dir="ltr"] .hero-graphics-side { order: 2; }
             .art-circle-large { width: 320px; height: 320px; }
-            .art-circle-small { width: 110px; height: 110px; right: 10px; }
+            .art-circle-small { width: 100px; height: 100px; right: 10px; bottom: 5px; }
+            .art-circle-small i { font-size: 35px; }
             .chapters-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
@@ -362,9 +361,7 @@
 
     <div class="sidebar-overlay" id="overlay"></div>
 
-    <!-- ==========================================
-         ناڤباری سەرەکی پەیج
-         ========================================== -->
+    <!-- ناڤباری سەرەکی پەیج -->
     <header class="navbar">
         <div class="insect-bg-layer">
             <i class="ph ph-butterfly moving-insect ins-1"></i>
@@ -402,29 +399,27 @@
         </div>
     </header>
 
-    <!-- ==========================================
-         دیزاینی نوێی هێرۆ سەکشن (چاککراو)
-         ========================================== -->
+    <!-- دیزاینی نوێی هێرۆ سەکشن بە ئایکۆنی ڕاستەقینەی پەپوولە -->
     <section class="hero-section-wrapper">
         <div class="hero-bg-shape-curve"></div>
         
         <div class="hero-layout-container">
-            <!-- لای چەپ: شەیپ و ئایکۆنی ڕاستەقینەی مێرووناسی (پەپوولەی هونەری) -->
+            <!-- لای چەپ: بازنە و ئایکۆنی گرافیکی مێرووناسی -->
             <div class="hero-graphics-side">
                 <div class="art-circle-large">
-                    <!-- لێرەدا وێنەی مێروو (پەپوولەی فرێشمەن) بە تەواوی جێگیرکراوە -->
+                    <!-- لێرەدا گرافیکی ڕوونی پەپوولە (Butterfly) بە تەواوی جێگیرکراوە -->
                     <svg viewBox="0 0 24 24" class="main-insect-svg">
-                        <path d="M12 2a4 4 0 0 1 4 4v2.5a5.5 5.5 0 0 1 5.5 5.5c0 3.04-2.46 5.5-5.5 5.5h-1v-2h1a3.5 3.5 0 0 0 3.5-3.5 3.5 3.5 0 0 0-3.5-3.5H15v-1a3 3 0 0 0-3-3 3 3 0 0 0-3 3v1H7.5A3.5 3.5 0 0 0 4 16.5 3.5 3.5 0 0 0 7.5 20h1v2h-1A5.5 5.5 0 0 1 2 14.5 5.5 5.5 0 0 1 7.5 9V6a4 4 0 0 1 4-4zm0 7a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/>
+                        <path d="M12,7.5c0-1.93-1.57-3.5-3.5-3.5S5,5.57,5,7.5c0,1.38,0.8,2.57,1.96,3.14C5.16,11.83,4,13.78,4,16c0,2.21,1.79,4,4,4c0.55,0,1-0.45,1-1s-0.45-1-1-1c-1.1,0-2-0.9-2-2c0-2.21,1.79-4,4-4h2c2.21,0,4,1.79,4,4c0,1.1-0.9,2-2,2c-0.55,0-1,0.45-1,1s0.45,1,1,1c2.21,0,4-1.79,4-4c0-2.22-1.16-4.17-2.96-5.36C18.2,10.07,19,8.88,19,7.5c0-1.93-1.57-3.5-3.5-3.5S12,5.57,12,7.5v3h0V7.5z M7,7.5C7,6.67,7.67,6,8.5,6S10,6.67,10,7.5s-0.67,1.5-1.5,1.5S7,8.33,7,7.5z M15.5,6c0.83,0,1.5,0.67,1.5,1.5S16.33,9,15.5,9S14,8.33,14,7.5S14.67,6,15.5,6z"/>
                     </svg>
                     
-                    <!-- بازنە بچووکە ڕازاوەکە -->
+                    <!-- بازنە بچووکەکە بە ئایکۆنی فەرمی مێروو (Bug) -->
                     <div class="art-circle-small">
-                        <span class="small-insect-icon">🐝</span>
+                        <i class="ph-bold ph-bug"></i>
                     </div>
                 </div>
             </div>
 
-            <!-- لای ڕاست: دەقەکان بە ئاراستەی ڕاست و دابڕاو لە شەیپەکە -->
+            <!-- لای ڕاست: دەقەکان بە ڕێکی لای ڕاست -->
             <div class="hero-text-side">
                 <div class="hero-badge-pill" id="hero-badge-label">
                     <span>زانستی مێرووناسی</span>
@@ -433,7 +428,7 @@
                     NovaEntomo<br><span id="hero-title-sub">زانستی درەوشاوەی مێرووناسی</span>
                 </h1>
                 <p class="hero-paragraph" id="hero-desc">
-                    پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران، مامۆستایان، توێژەران و جوتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.
+                    پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران، مامۆستایان, توێژەران و جوتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.
                 </p>
                 <a href="#chapters" class="hero-cta-btn" id="hero-btn-text">
                     دەستپێکردنی گەشتەکە <i class="ph ph-arrow-left"></i>
@@ -442,9 +437,7 @@
         </div>
     </section>
 
-    <!-- ==========================================
-         سایدباری پێڕستەکەت
-         ========================================== -->
+    <!-- سایدباری پێڕستەکەت -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <h3>Nova<span>Menu</span></h3>
@@ -470,17 +463,13 @@
         </ul>
     </aside>
 
-    <!-- ==========================================
-         کۆنتێنەری کارتەکان (وەک خۆی پارێزراوە)
-         ========================================== -->
+    <!-- کۆنتێنەری کارتەکان -->
     <section class="chapters-section" id="chapters">
         <h2 class="section-title" id="section-platform-title">بەشەکانی <span>پلاتفۆرم</span></h2>
         <div class="chapters-grid" id="chapters-container"></div>
     </section>
 
-    <!-- ==========================================
-         فووتەری ڕیسپۆنسڤ (وەک خۆی پارێزراوە)
-         ========================================== -->
+    <!-- فووتەر -->
     <footer class="footer-section">
         <div class="footer-insect-layer">
             <i class="ph ph-butterfly footer-moving-bug f-ins-1"></i>
@@ -528,9 +517,7 @@
         </div>
     </footer>
 
-    <!-- ==========================================
-         جاڤاسکڕێپتی داینامیکی و لۆژیکە کۆنەکە
-         ========================================== -->
+    <!-- جاڤاسکڕێپت -->
     <script>
         const translations = {
             ku: {
@@ -557,7 +544,7 @@
                     { title: "فەرهەنگی مێرووناسی", desc: "فەرهەنگۆک و زاراوە زانستییەکانی تایبەت بە مێرووناسی." },
                     { title: "دەستپێکێک بۆ مێرووناسی", desc: "تێڕوانینێکی گشتی لەسەر جیهانی مێرووەکان و پێکهاتە بایۆلۆجییەکانیان." },
                     { title: "پۆلینکردن و ناسینەوەی مێرووەکان", desc: "چۆنیەتی جیاکردنەوە، ناسینەوە و پۆلێنکردنی خێزانە جیاوازەکانی مێرووەکان." },
-                    { title: "Mێرووە بەسوودەکان", desc: "ڕۆڵی مێرووەکان لە پرۆسەی گەردەپشکنینی ڕووەک و هاوسەنگی سروشت." },
+                    { title: "مێرووە بەسوودەکان", desc: "ڕۆڵی مێرووەکان لە پرۆسەی گەردەپشکنینی ڕووەک و هاوسەنگی سروشت." },
                     { title: "مێرووە زیانبەخشەکان", desc: "ناسینی ئەو ئافاتانەی زیان بە بەرهەمە کشتوکاڵییەکان دەگەیەنن." },
                     { title: "ستراتیژیەکانی کۆنتڕۆڵکردن", desc: "شێوازە مۆدێرنەکان بۆ قڕکردن و کۆنتڕۆڵی ئافاتە زیانبەخشەکان." },
                     { title: "مێرووناسی پزیشکی", desc: "خوێندنەوەی مێرووە گواستەرەوەکانی نەخۆشی بۆ مرۆڤ و زیندەوەران." },
