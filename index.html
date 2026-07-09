@@ -16,12 +16,15 @@
             --bg-card: #ffffff;
             --text-primary: #2c1a11;
             --text-secondary: #5e473c;
-            --accent-color: #8B4513; /* گۆڕینی ڕەنگی سەوز بۆ قاوەیی */
-            --navbar-bg: #ffffff; /* گۆڕینی ڕەنگی نەڤبار بۆ سپی */
+            --accent-color: #8B4513; 
+            --navbar-bg: #ffffff; 
             --navbar-text: #2c1a11;
             --sidebar-bg: #110805;
             --sidebar-text: #e2e8f0;
             --card-border: rgba(93, 64, 55, 0.08);
+            --hero-bg-curve: #e2ded5;
+            --circle-big: #d5cfc1;
+            --circle-small: #c2b9a7;
         }
 
         :root[data-theme="dark"] {
@@ -30,11 +33,14 @@
             --text-primary: #e5d8d2;
             --text-secondary: #b59e95;
             --accent-color: #d27d2d;
-            --navbar-bg: #ffffff; /* گۆڕینی ڕەنگی نەڤبار بۆ سپی لە مۆدی تاریکیشدا */
+            --navbar-bg: #ffffff; 
             --navbar-text: #2c1a11;
             --sidebar-bg: #050201;
             --sidebar-text: #cbd5e1;
             --card-border: rgba(255, 255, 255, 0.05);
+            --hero-bg-curve: #251812;
+            --circle-big: #38251c;
+            --circle-small: #4a3225;
         }
 
         * {
@@ -62,7 +68,6 @@
             overflow: hidden;
         }
 
-        /* ئەنیمێیشنی مێروو و پەپوولە لە باکگراونددا */
         .insect-bg-layer {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none; z-index: 1; opacity: 0.4;
@@ -109,206 +114,91 @@
         input:checked + .slider { background-color: var(--accent-color); }
         input:checked + .slider:before { transform: translateX(20px); }
 
-        /* ==========================================================================
-           ✨ ستایلی نیۆن، مۆشنی گشتگیر، و دوگمەی سێرچ لە نەڤبار
-           ========================================================================== */
         .neon-glow-text {
             color: var(--accent-color) !important;
             text-shadow: 0 0 8px rgba(139, 69, 19, 0.3);
         }
 
-        @keyframes fadeInUpHero {
-            0% { opacity: 0; transform: translateY(25px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes softUpDownEffect {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .hero-section-wrapper {
-            position: relative;
-            padding: 0 !important;
-            margin: 0 !important;
-            max-width: 100% !important;
-            width: 100% !important;
-            overflow: hidden;
-            background: linear-gradient(135deg, #5c3a21 0%, #2c1a11 100%); /* ڕەنگی پاشبنەمای قاوەیی بۆ هێدەر */
-        }
-
-        .hero-slideshow {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1;
-        }
-
-        .hero-slideshow .slide {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .hero-slideshow .slide.active {
-            opacity: 1;
-        }
-
-        .hero-curved-container {
-            position: relative;
-            width: 100%;
-            min-height: 85vh; 
-            z-index: 5;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 140px 20px 100px 20px;
-            background: transparent;
-        }
-
-        .hero-content {
-            position: relative;
-            max-width: 850px;
-            z-index: 20; 
-            color: #ffffff;
-            text-align: center;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.85);
-            animation: softUpDownEffect 6s ease-in-out infinite;
-        }
-
-        .hero-bold-impact {
-            font-family: 'Montserrat', 'Arial Black', sans-serif;
-            font-size: 72px !important;
-            font-weight: 900 !important;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            line-height: 1.1;
-            margin-bottom: 15px !important;
-            animation: fadeInUpHero 0.8s ease-out forwards;
-        }
-
-        .hero-bold-impact span {
-            display: block;
-            font-family: inherit;
-            font-size: 34px !important;
-            letter-spacing: 0px;
-            font-weight: 700;
-            color: #d27d2d;
-            margin-top: 12px;
-        }
-
-        .hero-desc {
-            font-size: 16px !important;
-            line-height: 1.7 !important;
-            max-width: 680px;
-            margin: 0 auto 35px auto !important;
-            color: #e0e0e0;
-            animation: fadeInUpHero 1s ease-out 0.2s forwards;
-            opacity: 0;
-        }
-
-        .hero-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 32px !important;
-            font-size: 15px !important;
-            font-weight: 600;
-            color: #ffffff !important;
-            background: linear-gradient(135deg, #8B4513, #5c3a21);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 50px !important;
-            text-decoration: none;
-            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-            animation: fadeInUpHero 1s ease-out 0.4s forwards;
-            opacity: 0;
-            cursor: pointer;
-        }
-
-        .hero-btn:hover {
-            transform: translateY(-4px) scale(1.03) !important;
-            background: linear-gradient(135deg, #a0522d, #8B4513);
-            box-shadow: 0 10px 25px rgba(160, 82, 45, 0.6);
-        }
-
-        .section-title {
-            font-size: 38px !important; 
-            font-weight: 800 !important;
-            text-align: center !important; 
-            width: 100% !important;        
-            display: block !important;     
-            margin-top: 40px !important; 
-            margin-bottom: 50px !important;
-            animation: softUpDownEffect 4s ease-in-out infinite; 
-        }
-
         .nav-search-btn {
-            background: transparent;
-            border: none;
-            color: var(--navbar-text);
-            font-size: 18px;
-            cursor: pointer;
-            padding: 6px;
-            margin: 0 10px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: color 0.3s ease, transform 0.2s ease;
+            background: transparent; border: none; color: var(--navbar-text); font-size: 18px; cursor: pointer; padding: 6px; margin: 0 10px; display: inline-flex; align-items: center; justify-content: center;
         }
 
-        .nav-search-btn:hover {
-            color: var(--accent-color);
-            transform: scale(1.15);
+        /* ==========================================================================
+           3. نێوۆک و دیزاینی نوێی هێرۆ وەک شێوازی NovaPlant
+           ========================================================================== */
+        .hero-section-wrapper {
+            position: relative; width: 100%; min-height: 85vh; display: flex; align-items: center; padding: 120px 40px 60px 40px; overflow: hidden; background-color: var(--bg-main);
         }
 
-        .hero-3d-insects-container {
-            position: absolute;
-            bottom: 45px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 65px; 
-            z-index: 25;
-            perspective: 1000px;
+        .hero-bg-shape-curve {
+            position: absolute; top: 0; bottom: 0; right: 0; width: 55%; bg-color: var(--hero-bg-curve); background: var(--hero-bg-curve); border-top-left-radius: 400px; border-bottom-left-radius: 400px; z-index: 1; transition: all 0.4s ease;
+        }
+        html[dir="ltr"] .hero-bg-shape-curve {
+            left: 0; right: auto; border-top-left-radius: 0px; border-bottom-left-radius: 0px; border-top-right-radius: 400px; border-bottom-right-radius: 400px;
         }
 
-        .insect-3d-box {
-            font-size: 52px; 
-            filter: drop-shadow(0 12px 20px rgba(0,0,0,0.6));
-            display: inline-block;
+        .hero-layout-container {
+            width: 100%; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; position: relative; z-index: 5;
         }
 
-        .butterfly-3d { animation: rotate3DInsect 7s linear infinite; }
-        .ant-3d { animation: rotate3DInsect 7s linear infinite; animation-delay: -3.5s; }
-
-        @keyframes rotate3DInsect {
-            0% { transform: rotateY(0deg) rotateX(12deg) translateY(0px); }
-            50% { transform: rotateY(180deg) rotateX(-12deg) translateY(-10px); }
-            100% { transform: rotateY(360deg) rotateX(12deg) translateY(0px); }
+        /* بەشی دەق و دوگمەکان */
+        .hero-text-side {
+            display: flex; flex-direction: column; align-items: flex-start; text-align: right;
+        }
+        html[dir="ltr"] .hero-text-side {
+            align-items: flex-end; text-align: left;
         }
 
-        /* 📱 ڕێکخستنی مۆبایل */
-        @media (max-width: 768px) {
-            .hero-curved-container {
-                min-height: 72vh !important;
-                padding-top: 130px !important;
-                padding-bottom: 70px !important;
-            }
-            .hero-bold-impact { font-size: 44px !important; }
-            .hero-bold-impact span { font-size: 22px !important; }
-            .hero-desc { font-size: 14px !important; margin-bottom: 30px !important; }
-            .section-title {
-                font-size: 40px !important;   
-                margin-top: 50px !important;   
-                margin-bottom: 25px !important;
-            }
-            .hero-3d-insects-container { bottom: 25px !important; gap: 50px !important; }
-            .insect-3d-box { font-size: 40px !important; }
+        .hero-badge-pill {
+            display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; background: rgba(139, 69, 19, 0.1); border: 1px solid rgba(139, 69, 19, 0.2); border-radius: 30px; font-size: 14px; font-weight: 600; color: var(--accent-color); margin-bottom: 20px;
+        }
+
+        .hero-bold-title {
+            font-size: 56px; font-weight: 800; line-height: 1.2; color: var(--text-primary); margin-bottom: 15px;
+        }
+        .hero-bold-title span {
+            display: block; font-size: 28px; font-weight: 600; color: var(--accent-color); margin-top: 10px;
+        }
+
+        .hero-paragraph {
+            font-size: 16px; line-height: 1.8; color: var(--text-secondary); max-width: 580px; margin-bottom: 35px;
+        }
+
+        .hero-cta-btn {
+            display: inline-flex; align-items: center; gap: 10px; padding: 14px 36px; font-size: 15px; font-weight: 700; color: #ffffff !important; background: var(--accent-color); border-radius: 50px; text-decoration: none; box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3); cursor: pointer; border: none;
+        }
+        .hero-cta-btn:hover {
+            transform: translateY(-4px); box-shadow: 0 12px 30px rgba(139, 69, 19, 0.45);
+        }
+
+        /* بەشی شەیپ و بازنەی هونەری لای چەپ */
+        .hero-graphics-side {
+            display: flex; justify-content: center; align-items: center; position: relative;
+        }
+
+        .art-circle-large {
+            width: 420px; height: 420px; background-color: var(--circle-big); rounded-radius: 50%; border-radius: 50%; display: flex; align-items: center; justify-content: center; shadow: 0 20px 40px rgba(0,0,0,0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.05); relative: position; position: relative;
+        }
+        .art-circle-large .main-insect-svg {
+            width: 68%; height: 68%; color: var(--accent-color); opacity: 0.95; animation: softFloat 6s ease-in-out infinite;
+        }
+
+        .art-circle-small {
+            position: absolute; bottom: -10px; left: 30px; width: 140px; height: 140px; background-color: var(--circle-small); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.08); border: 4px solid var(--bg-main);
+        }
+        html[dir="ltr"] .art-circle-small {
+            left: auto; right: 30px;
+        }
+        .art-circle-small .small-insect-icon {
+            font-size: 45px; color: #ffffff; animation: rotateSlow 12s linear infinite;
+        }
+
+        @keyframes softFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
+        }
+        @keyframes rotateSlow {
+            100% { transform: rotate(360deg); }
         }
 
         /* ==========================================================================
@@ -325,6 +215,7 @@
         html[dir="ltr"] .sidebar.open { left: 0; right: auto; }
         
         .sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .sidebar-header h3 span { color: var(--accent-color); }
         .close-sidebar-btn { background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
         .sidebar-links { list-style: none; }
         .sidebar-links li { margin-bottom: 5px; }
@@ -337,8 +228,8 @@
         /* ==========================================================================
            5. فۆرمی داینامیکی کارتەکان (Chapters Section) - وەک خۆی پارێزراوە
            ========================================================================== */
-        .chapters-section { padding: 60px 40px; max-width: 1400px; margin: 0 auto; }
-        .section-title { font-size: 32px; font-weight: 700; text-align: center; margin-bottom: 50px; }
+        .chapters-section { padding: 80px 40px; max-width: 1400px; margin: 0 auto; }
+        .section-title { font-size: 38px; font-weight: 800; text-align: center; margin-bottom: 50px; display: block; width: 100%; }
         .section-title span { color: var(--accent-color); }
         .chapters-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
 
@@ -353,122 +244,41 @@
         .chapter-card:hover .card-img-bg { transform: scale(1.05); }
 
         .chapter-badge {
-            position: absolute; 
-            top: 20px; 
-            right: 20px; 
-            left: auto;   
-            background: rgba(15, 23, 42, 0.85); 
-            color: #d27d2d; 
-            padding: 6px 14px; 
-            font-size: 13px;
-            font-weight: 700;
-            border-radius: 20px;
-            z-index: 3;
+            position: absolute; top: 20px; right: 20px; left: auto; background: rgba(15, 23, 42, 0.85); color: #d27d2d; padding: 6px 14px; font-size: 13px; font-weight: 700; border-radius: 20px; z-index: 3; animation: badgeUpDown 3s ease-in-out infinite alternate;
         }
-
-        html[dir="ltr"] .chapter-badge {
-            left: 20px;  
-            right: auto; 
-        }
+        html[dir="ltr"] .chapter-badge { left: 20px; right: auto; }
 
         .chapter-info-box {
-            position: relative; 
-            background: var(--bg-card); 
-            border-radius: 22px; 
-            padding: 24px 20px; 
-            margin: 0 16px 16px 16px; 
-            z-index: 2;
-            box-shadow: 0 -5px 25px rgba(0,0,0,0.03); 
-            text-align: center; 
-            border: 1px solid var(--card-border);
-            transform: translateY(10px); 
-            transition: transform 0.4s ease;
+            position: relative; background: var(--bg-card); border-radius: 22px; padding: 24px 20px; margin: 0 16px 16px 16px; z-index: 2; box-shadow: 0 -5px 25px rgba(0,0,0,0.03); text-align: center; border: 1px solid var(--card-border); transform: translateY(10px); transition: transform 0.4s ease;
         }
-
-        .chapter-card:hover .chapter-info-box { 
-            transform: translateY(0px); 
-        }
-
-        .chapter-info-box h3 { 
-            font-size: 18px; 
-            font-weight: 700; 
-            margin-bottom: 12px; 
-            color: var(--text-primary); 
-        }
-
-        .chapter-info-box p { 
-            font-size: 13.5px; 
-            color: var(--text-secondary); 
-            line-height: 1.6; 
-            margin-bottom: 18px; 
-        }
-
-        .chapter-btn { 
-            display: inline-flex; 
-            align-items: center; 
-            background: none; 
-            border: 1px solid var(--card-border); 
-            padding: 7px 22px; 
-            border-radius: 30px; 
-            color: var(--accent-color); 
-            font-weight: 700; 
-            font-size: 13px; 
-            text-decoration: none; 
-        }
-
-        .chapter-btn:hover { 
-            background: var(--accent-color); 
-            color: white; 
-        }
-
-        @keyframes cardScrollIn { 
-            to { opacity: 1; transform: translateY(0); } 
-        }
-
+        .chapter-card:hover .chapter-info-box { transform: translateY(0px); }
+        .chapter-info-box h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: var(--text-primary); }
+        
         .chapter-info-box .chapter-card-title {
-            color: var(--accent-color) !important; 
-            text-shadow: 0 0 5px rgba(139, 69, 19, 0.2);
-            display: inline-block; 
-            will-change: transform; 
-            animation: titleUpDown 3.5s ease-in-out infinite alternate;
+            color: var(--accent-color) !important; text-shadow: 0 0 5px rgba(139, 69, 19, 0.2); display: inline-block; animation: titleUpDown 3.5s ease-in-out infinite alternate;
         }
 
-        .chapter-badge {
-            display: inline-block;
-            will-change: transform;
-            animation: badgeUpDown 3s ease-in-out infinite alternate;
-        }
+        .chapter-info-box p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 18px; }
+        .chapter-btn { display: inline-flex; align-items: center; background: none; border: 1px solid var(--card-border); padding: 7px 22px; border-radius: 30px; color: var(--accent-color); font-weight: 700; font-size: 13px; text-decoration: none; }
+        .chapter-btn:hover { background: var(--accent-color); color: white; }
 
-        @keyframes badgeUpDown {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-6px); }
-        }
-
-        @keyframes titleUpDown {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-4px); }
-        }
+        @keyframes cardScrollIn { to { opacity: 1; transform: translateY(0); } }
+        @keyframes badgeUpDown { 0% { transform: translateY(0); } 100% { transform: translateY(-6px); } }
+        @keyframes titleUpDown { 0% { transform: translateY(0); } 100% { transform: translateY(-4px); } }
 
         /* ==========================================================================
            6. فووتەری ڕیسپۆنسڤ لەگەڵ مۆشنی پەپوولەکان - وەک خۆی پارێزراوە
            ========================================================================== */
         .footer-section { 
-            position: relative; background: #2c1a11; padding-top: 100px; padding-bottom: 40px; 
-            text-align: center; color: #ffffff; margin-top: 100px; overflow: hidden;
+            position: relative; background: #2c1a11; padding-top: 100px; padding-bottom: 40px; text-align: center; color: #ffffff; margin-top: 100px; overflow: hidden;
         }
 
         .footer-insect-layer {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 2;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2;
         }
-
         .footer-moving-bug {
-            position: absolute; 
-            color: rgba(255, 255, 255, 0.45); 
-            font-size: 22px;
-            animation: verticalBugFly 14s linear infinite;
+            position: absolute; color: rgba(255, 255, 255, 0.45); font-size: 22px; animation: verticalBugFly 14s linear infinite;
         }
-
         .f-ins-1 { bottom: 15%; left: 15%; animation-delay: 0.5s; }
         .f-ins-2 { top: 25%; right: 20%; animation-duration: 19s; animation-direction: reverse; }
         .f-ins-3 { bottom: 40%; right: 45%; animation-duration: 16s; animation-delay: 2s; }
@@ -487,51 +297,16 @@
         .parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; fill: var(--bg-main); opacity: 0.3; }
         .parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; fill: var(--bg-main); }
 
+        @keyframes move-forever {
+            0% { transform: translate3d(-90px,0,0); }
+            100% { transform: translate3d(85px,0,0); }
+        }
+
         .footer-content { max-width: 1200px; margin: 0 auto; position: relative; z-index: 10; padding: 0 20px; }
         .footer-info-block { line-height: 1.8; margin-bottom: 25px; }
-        .footer-info-block h3 { font-size: 26px; font-weight: 700; color: #d27d2d; margin-bottom: 5px; }
-        .footer-info-block p { font-size: 15px; opacity: 0.9; }
+        .footer-info-block h3 { font-size: 26px; font-weight: 700; color: #d27d2d; margin-bottom: 5px; display: inline-block; animation: floatUpDown 3s ease-in-out infinite; }
+        .footer-info-block p { font-size: 15px; opacity: 0.9; animation: textFadeUp 0.6s ease-out forwards; }
         .bionova-mention { font-size: 14px; color: #c2b5ad; font-weight: 600; margin-top: 8px; }
-
-        .footer-visitor-box { display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.06); padding: 8px 24px; border-radius: 30px; margin-bottom: 25px; font-size: 14px; border: 1px solid rgba(255, 255, 255, 0.1); }
-        .footer-visitor-box i { color: #d27d2d; }
-        .copyright { font-size: 13.5px; opacity: 0.5; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); }
-
-        @keyframes textFadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes floatUpDown {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-            100% { transform: translateY(0); }
-        }
-
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 4px 12px rgba(210, 125, 45, 0.1); border-color: rgba(210, 125, 45, 0.2); }
-            100% { box-shadow: 0 4px 20px rgba(0, 188, 212, 0.25); border-color: rgba(0, 188, 212, 0.5); }
-        }
-
-        @keyframes eyeBlink {
-            0%, 90%, 100% { transform: scaleY(1); }
-            95% { transform: scaleY(0.1); }
-        }
-
-        #section-main-title { animation: textFadeUp 0.8s ease-out forwards; }
-        .footer-info-block p, .copyright { opacity: 0; animation: textFadeUp 0.6s ease-out forwards; }
-        .footer-info-block p:nth-child(2) { animation-delay: 0.2s; }
-        .footer-info-block p:nth-child(3) { animation-delay: 0.3s; }
-        .bionova-mention { animation-delay: 0.4s; }
-        .copyright { animation-delay: 0.7s; }
-        .footer-info-block h3 { display: inline-block; animation: floatUpDown 3s ease-in-out infinite; }
-        .footer-link-animate { display: block; animation: floatUpDown 3s ease-in-out infinite; animation-delay: 0.5s; }
-        .hero-curved-container { animation: smoothWave 6s ease-in-out infinite alternate; will-change: transform; }
-
-        @keyframes smoothWave {
-            0% { clip-path: ellipse(120% 100% at 50% 0%); }
-            100% { clip-path: ellipse(115% 98% at 50% 2%); }
-        }
 
         .footer-visitor-box {
             display: inline-flex; align-items: center; gap: 10px;
@@ -541,41 +316,41 @@
             border: 1px solid rgba(210, 125, 45, 0.25); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease; animation: pulseGlow 2.5s infinite alternate;
         }
-
         .footer-visitor-box:hover { border-color: #00bcd4; box-shadow: 0 4px 20px rgba(0, 188, 212, 0.4); transform: scale(1.03); }
         .footer-visitor-box i { color: #00bcd4; animation: eyeBlink 4s infinite; }
+        
+        .copyright { font-size: 13.5px; opacity: 0.5; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); }
+        .footer-link-animate { display: block; animation: floatUpDown 3s ease-in-out infinite; animation-delay: 0.5s; }
 
-        @media (max-width: 768px) {
-            .navbar { padding: 0 12px !important; height: 48px !important; min-height: 48px !important; display: flex !important; align-items: center !important; }
-            .nav-container { display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: center !important; height: 100% !important; width: 100% !important; }
-            .nav-logo, .logo h2 { font-size: 15px !important; white-space: nowrap !important; }
-            .nav-actions, .controls { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 4px !important; justify-content: flex-end !important; }
-            .lang-links-wrapper { gap: 2px !important; margin: 0 !important; padding: 0 !important; }
-            .lang-btn { padding: 2px 4px !important; font-size: 10px !important; }
-            .theme-controller-wrapper { font-size: 10px; gap: 2px; }
-            .theme-switch { width: 32px; height: 16px; }
-            .slider:before { height: 10px; width: 10px; bottom: 3px; left: 3px; }
-            input:checked + .slider:before { transform: translateX(16px); }
-            .menu-toggle-btn { font-size: 20px !important; padding: 4px !important; }
-            .hero-section-wrapper { padding: 65px 12px 20px 12px; }
-            .hero-curved-container { padding: 25px 15px; min-height: 50vh; border-radius: 20px; }
-            h1.neon-glow-text { font-size: 38px !important; }
-            .hero-desc { font-size: 14px !important; margin-bottom: 12px !important; padding: 0 10px; }
-            .hero-btn, .hero-btn-modern { padding: 11px 24px; font-size: 13px; }
-            .chapters-section { padding: 80px 20px 40px 20px; }
-            .chapters-grid { grid-template-columns: 1fr !important; gap: 20px; }
+        @keyframes textFadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes floatUpDown { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+        @keyframes pulseGlow { 0% { border-color: rgba(210, 125, 45, 0.25); } 100% { border-color: rgba(0, 188, 212, 0.5); } }
+        @keyframes eyeBlink { 0%, 90%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
+
+        /* ==========================================================================
+           7. مۆبایل و شاشە بچووکەکان (Responsive Layout)
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .hero-layout-container { grid-template-columns: 1fr; gap: 50px; }
+            .hero-bg-shape-curve { width: 100%; height: 50%; top: auto; bottom: 0; border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-left-radius: 0; }
+            .hero-text-side { align-items: center; text-align: center; }
+            html[dir="ltr"] .hero-text-side { align-items: center; text-align: center; }
+            .art-circle-large { width: 320px; height: 320px; }
+            .art-circle-small { width: 110px; height: 110px; left: 10px; }
+            .chapters-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
-        .section-title { font-size: 32px; font-weight: 700; text-align: center; margin-top: 0; margin-bottom: 50px; width: 100%; }
-
         @media (max-width: 768px) {
+            .navbar { padding: 0 12px; height: 56px; }
+            .logo h2 { font-size: 17px; }
+            .lang-links-wrapper { padding: 2px; }
+            .lang-btn { padding: 4px 8px; font-size: 11px; }
+            .hero-bold-title { font-size: 38px; }
+            .hero-bold-title span { font-size: 20px; }
             .chapters-grid { grid-template-columns: 1fr; gap: 25px; }
-            .chapter-card { height: 400px; border-radius: 20px; }
-            .chapter-info-box { margin: 0 12px 12px 12px; padding: 18px 12px; }
+            .chapter-card { height: 400px; }
             .waves-container { height: 60px; }
-            .footer-section { padding-top: 50px; padding-bottom: 25px; }
-            .footer-info-block h3 { font-size: 20px; }
-            .footer-info-block p { font-size: 13px; }
+            .footer-section { padding-top: 50px; }
         }
     </style>
 </head>
@@ -621,30 +396,36 @@
     </header>
 
     <section class="hero-section-wrapper">
-        <div class="hero-slideshow">
-            <div class="slide active" style="background-image: linear-gradient(rgba(44, 26, 17, 0.88), rgba(27, 16, 10, 0.82)), url('https://i.pinimg.com/736x/29/74/22/2974222dd9c66210d695e5670ebcf9a4.jpg');"></div>
-            <div class="slide" style="background-image: linear-gradient(rgba(44, 26, 17, 0.88), rgba(27, 16, 10, 0.82)), url('https://i.pinimg.com/736x/f0/9c/0b/f09c0b37b624aeaa8b208d38b313db24.jpg');"></div>
-        </div>
-    
-        <main class="hero-curved-container">
-            <div class="hero-content">
-                <h1 class="hero-main-title hero-bold-impact neon-glow-text" id="hero-title">
-                    NovaEntomo<br><span>زانستی درەوشاوەی مێرووناسی</span>
+        <div class="hero-bg-shape-curve"></div>
+        
+        <div class="hero-layout-container">
+            <div class="hero-graphics-side">
+                <div class="art-circle-large">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="main-insect-svg">
+                        <path d="M12 2a4 4 0 0 1 4 4v2.5a5.5 5.5 0 0 1 5.5 5.5c0 3.04-2.46 5.5-5.5 5.5h-1v-2h1a3.5 3.5 0 0 0 3.5-3.5 3.5 3.5 0 0 0-3.5-3.5H15v-1a3 3 0 0 0-3-3 3 3 0 0 0-3 3v1H7.5A3.5 3.5 0 0 0 4 16.5 3.5 3.5 0 0 0 7.5 20h1v2h-1A5.5 5.5 0 0 1 2 14.5 5.5 5.5 0 0 1 7.5 9V6a4 4 0 0 1 4-4zm0 7a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/>
+                    </svg>
+                    
+                    <div class="art-circle-small">
+                        <span class="small-insect-icon">🦋</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-text-side">
+                <div class="hero-badge-pill" id="hero-badge-label">
+                    <span>زانستی مێرووناسی</span>
+                </div>
+                <h1 class="hero-bold-title" id="hero-title">
+                    NovaEntomo<br><span id="hero-title-sub">زانستی درەوشاوەی مێرووناسی</span>
                 </h1>
-                
-                <p class="hero-desc" id="hero-desc">
+                <p class="hero-paragraph" id="hero-desc">
                     پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران، مامۆستایان، توێژەران و جوتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.
                 </p>
-                <a href="#chapters" class="hero-btn" id="hero-btn-text">
+                <a href="#chapters" class="hero-cta-btn" id="hero-btn-text">
                     دەستپێکردنی گەشتەکە <i class="ph ph-arrow-down"></i>
                 </a>
             </div>
-    
-            <div class="hero-3d-insects-container">
-                <div class="insect-3d-box butterfly-3d">🦋</div>
-                <div class="insect-3d-box ant-3d">🐜</div>
-            </div>
-        </main>
+        </div>
     </section>
 
     <aside class="sidebar" id="sidebar">
@@ -672,17 +453,11 @@
         </ul>
     </aside>
 
-    <!-- ==========================================================================
-         کۆنتێنەری کارتەکان (وەک خۆی پارێزراوە)
-         ========================================================================== -->
     <section class="chapters-section" id="chapters">
         <h2 class="section-title" id="section-platform-title">بەشەکانی <span>پلاتفۆرم</span></h2>
         <div class="chapters-grid" id="chapters-container"></div>
     </section>
 
-    <!-- ==========================================================================
-         فووتەر (وەک خۆی پارێزراوە)
-         ========================================================================== -->
     <footer class="footer-section">
         <div class="footer-insect-layer">
             <i class="ph ph-butterfly footer-moving-bug f-ins-1"></i>
@@ -731,19 +506,19 @@
     </footer>
 
     <script>
-        // لۆژیک و وەرگێڕانی داینامیکی چاپتەرەکان بۆ هەر سێ زمانەکە بەپێی داواکاریت
         const translations = {
             ku: {
-                title: "NovaEntomo<br><span>زانستی مێرووناسی</span>",
+                title: "NovaEntomo<br><span id='hero-title-sub'>زانستی درەوشاوەی مێرووناسی</span>",
+                badge: "زانستی مێرووناسی",
                 desc: "پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران، مامۆستایان، توێژەران و جوتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.",
-                btnText: "دەستپێکردنی گەڕانەکە",
+                btnText: "دەستپێکردنی گەشتەکە",
                 sbHome: "سەرەکی",
                 sbTitleCh: "چاپتەرەکان",
                 secTitle: "بەشەکانی <span>پلاتفۆرم</span>",
                 fP1: "پلاتفۆڕمی زانستی مێرووناسی",
                 fP2: "بەشی بایۆلۆجی - کۆلێژی زانست - زانکۆی ڕاپەڕین",
                 fBio: "ئەم پلاتفۆرمە گەشەی پێدراوە لە لایەن تیمی BioNova",
-                fVtext: "بینەری پلاتفۆرم :",
+                fVtext: "بینەری گشتی :",
                 fCopy: "سەرجەم مافەکانی پارێزراوە 2026 &copy; NovaEntomo",
                 readMore: "زیاتر بخوێنەوە...",
                 viewBtn: "بینین",
@@ -768,6 +543,7 @@
             },
             en: {
                 title: "NovaEntomo<br><span>Entomology Science</span>",
+                badge: "Entomological Science",
                 desc: "An advanced scientific and academic platform for students, teachers, researchers, and farmers utilizing the latest modern knowledge.",
                 btnText: "Start Exploring",
                 sbHome: "Home",
@@ -801,6 +577,7 @@
             },
             ar: {
                 title: "NovaEntomo<br><span>علم الحشرات</span>",
+                badge: "علم الحشرات العام",
                 desc: "منصة علمية وأكاديمية متقدمة للطلاب، المعلمين، الباحثين، والمزارعين باستخدام أحدث المعلومات المعاصرة.",
                 btnText: "ابدأ الاستكشاف",
                 sbHome: "الرئيسية",
@@ -862,9 +639,7 @@
         function convertToKurdishNumbers(str, currentLang) {
             if (currentLang === 'en') return str;
             const kurdishNumbers = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
-            return str.replace(/[0-9]/g, function(w) {
-                return kurdishNumbers[+w];
-            });
+            return str.replace(/[0-9]/g, function(w) { return kurdishNumbers[+w]; });
         }
 
         function applyLanguage(lang) {
@@ -873,6 +648,9 @@
 
             updateElement('hero-title', 'innerHTML', data.title);
             updateElement('hero-desc', 'innerText', data.desc);
+            
+            const badgeLabel = document.getElementById('hero-badge-label');
+            if (badgeLabel) badgeLabel.innerHTML = `<span>${data.badge}</span>`;
             
             const heroBtn = document.getElementById('hero-btn-text');
             if (heroBtn) {
@@ -909,9 +687,8 @@
                     let formattedNumber = convertToKurdishNumbers(chapterNumber, lang);
 
                     let currentBadgeText = data.badgeText || '';
-                    if (lang === 'ku') {
-                        currentBadgeText = 'بەشی';
-                    }
+                    if (lang === 'ku') { currentBadgeText = 'بەشی'; }
+                    
                     const cardHtml = `
                         <div class="chapter-card" id="ch${index+1}" style="animation-delay: ${0.1 + (index*0.05)}s;">
                             <span class="chapter-badge">${currentBadgeText} ${formattedNumber}</span>
@@ -928,7 +705,6 @@
             }
         }
 
-        // لۆژیکی سێرچ لە نەڤباردا
         const searchBtn = document.getElementById('nav-search-trigger');
         if (searchBtn) {
             searchBtn.addEventListener('click', function() {
@@ -936,7 +712,6 @@
             });
         }
 
-        // سیستمی زمان
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
@@ -950,7 +725,6 @@
             });
         });
 
-        // بینەری گشتی
         let sessionView = sessionStorage.getItem('nova_session_active');
         let totalViews = localStorage.getItem('nova_total_views') || 0;
         if (!sessionView) {
@@ -961,7 +735,6 @@
         const visitorCountEl = document.getElementById('visitor-count');
         if(visitorCountEl) visitorCountEl.innerText = totalViews;
 
-        // گۆڕینی مۆد
         if(toggleSwitch) {
             toggleSwitch.addEventListener('change', function(e) {
                 const activeLang = htmlTag.getAttribute('lang') || 'ku';
@@ -983,7 +756,6 @@
         });
         applyLanguage(initialLang);
 
-        // سایدبار
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('overlay');
         const openSidebarBtn = document.getElementById('open-sidebar');
@@ -998,20 +770,6 @@
         }
         if(closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeSidebar);
         if(overlay) overlay.addEventListener('click', closeSidebar);
-
-        // سلایدشۆی هێرۆ سەکشن
-        document.addEventListener("DOMContentLoaded", function () {
-            const slides = document.querySelectorAll(".hero-slideshow .slide");
-            let currentSlideIndex = 0;
-
-            function changeSlide() {
-                if (slides.length === 0) return;
-                slides[currentSlideIndex].classList.remove("active");
-                currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-                slides[currentSlideIndex].classList.add("active");
-            }
-            setInterval(changeSlide, 3000);
-        });
     </script>
 </body>
 </html>
