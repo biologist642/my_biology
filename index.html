@@ -25,7 +25,7 @@
             --hero-bg-curve: #e2ded5;
             --circle-big: #eaddd3;
             --circle-small: #8B4513;
-            --hero-border-line: #8B4513; /* گۆڕدرا بۆ ڕەنگی ئەسڵی قاوەیی */
+            --hero-border-line: #8B4513;
         }
 
         :root[data-theme="dark"] {
@@ -42,7 +42,7 @@
             --hero-bg-curve: #251812;
             --circle-big: #2d1b13;
             --circle-small: #d27d2d;
-            --hero-border-line: #d27d2d; /* قاوەیی گەش لە مۆدی تاریکدا */
+            --hero-border-line: #d27d2d;
         }
 
         * {
@@ -110,7 +110,7 @@
         .nav-search-btn { background: transparent; border: none; color: var(--navbar-text); font-size: 18px; cursor: pointer; padding: 6px; margin: 0 10px; display: inline-flex; align-items: center; justify-content: center; }
 
         /* ==========================================================================
-           3. نێوۆک و دیزاینی هێرۆ سەکشن
+           3. نێوۆک و دیزاینی هێرۆ سەکشن (فۆنتەکان گەورەکراون 🚀)
            ========================================================================== */
         .hero-section-wrapper {
             position: relative; 
@@ -121,12 +121,10 @@
             padding: 130px 40px 80px 40px; 
             overflow: hidden; 
             background-color: var(--bg-main);
-            /* هێڵی قاوەیی لەگەڵ ئەنیمەیشنی لێدانی نەرم */
             border-bottom: 3px solid var(--hero-border-line);
             animation: linePulse 3s ease-in-out infinite alternate;
         }
 
-        /* ئەنیمەیشنی درەوشانەوە و نەرمی بۆ هێڵە قاوەییەکەی خوارەوە */
         @keyframes linePulse {
             0% { box-shadow: 0 4px 10px rgba(139, 69, 19, 0.1); border-bottom-width: 3px; }
             100% { box-shadow: 0 4px 20px rgba(139, 69, 19, 0.25); border-bottom-width: 4.5px; }
@@ -146,9 +144,7 @@
             z-index: 1; 
             transition: all 0.4s ease;
         }
-        html[dir="ltr"] .hero-bg-shape-curve {
-            left: auto; right: -100px;
-        }
+        html[dir="ltr"] .hero-bg-shape-curve { left: auto; right: -100px; }
 
         .hero-layout-container {
             width: 100%; 
@@ -167,12 +163,13 @@
         .hero-text-side { display: flex; flex-direction: column; align-items: flex-start; text-align: right; order: 1; }
         html[dir="ltr"] .hero-text-side { align-items: flex-start; text-align: left; order: 2; }
         
+        /* قەبارەی فۆنتی ناونیشانی سەرەکی گەورەکرا */
         .hero-bold-title { 
-            font-size: 52px; 
+            font-size: 64px; 
             font-weight: 800; 
             line-height: 1.2; 
             color: var(--accent-color); 
-            margin-bottom: 20px; 
+            margin-bottom: 25px; 
             letter-spacing: -1px;
             display: flex;
             flex-wrap: wrap;
@@ -180,8 +177,10 @@
             align-items: center;
             animation: pulseMotion 4s ease-in-out infinite alternate;
         }
+        
+        /* قەبارەی فۆنتی ناونیشانی لاوەکی (ژێرناونیشان) گەورەکرا */
         .hero-bold-title span { 
-            font-size: 26px; 
+            font-size: 32px; 
             font-weight: 600; 
             color: var(--accent-color); 
             letter-spacing: 0px; 
@@ -192,7 +191,14 @@
             100% { transform: scale(1.02); }
         }
 
-        .hero-paragraph { font-size: 16.5px; line-height: 1.8; color: var(--text-secondary); max-width: 600px; margin-bottom: 35px; }
+        /* قەبارەی فۆنتی پەرەگراف و وەسفەکە گەورەکرا */
+        .hero-paragraph { 
+            font-size: 19.5px; 
+            line-height: 1.9; 
+            color: var(--text-secondary); 
+            max-width: 650px; 
+            margin-bottom: 35px; 
+        }
 
         .hero-cta-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 36px; font-size: 15px; font-weight: 700; color: #ffffff !important; background: var(--accent-color); border-radius: 50px; text-decoration: none; box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3); cursor: pointer; border: none; }
         .hero-cta-btn:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(139, 69, 19, 0.45); }
@@ -204,7 +210,6 @@
             width: 380px; height: 380px; background-color: var(--bg-card); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 45px rgba(0,0,0,0.06); position: relative; border: 1px solid var(--card-border);
         }
         
-        /* گەورەکردنی ئایکۆن و پێدانی مۆشنی باڵ لێدان */
         .art-circle-large .hero-butterfly-icon {
             font-size: 190px;
             color: var(--accent-color);
@@ -214,7 +219,6 @@
             animation: butterflyFlap 1.2s ease-in-out infinite alternate;
         }
 
-        /* مۆشنی فڕین و لێدانی باڵی ڕاستەقینە لە تەوەرەی Y */
         @keyframes butterflyFlap {
             0% { transform: rotateY(0deg) translateY(0px) rotate(0deg); }
             50% { transform: rotateY(60deg) translateY(-12px) rotate(2deg); }
@@ -348,18 +352,19 @@
             .art-circle-small { width: 95px; height: 95px; right: 5px; bottom: 0; }
             .art-circle-small .hero-ant-icon { font-size: 38px; }
             .chapters-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero-bold-title { font-size: 38px; justify-content: center; }
-            .hero-bold-title span { font-size: 20px; }
+            .hero-bold-title { font-size: 44px; justify-content: center; }
+            .hero-bold-title span { font-size: 24px; }
+            .hero-paragraph { font-size: 17px; }
         }
 
         @media (max-width: 768px) {
             .navbar { padding: 0 12px; height: 56px; }
             .logo h2 { font-size: 17px; }
-            .hero-bold-title { font-size: 34px; }
+            .hero-bold-title { font-size: 38px; }
             .chapters-grid { grid-template-columns: 1fr; gap: 25px; }
         }
         @media (max-width: 480px) {
-            .hero-bold-title { font-size: 28px; }
+            .hero-bold-title { font-size: 30px; }
             .hero-bold-title span { font-size: 18px; }
         }
     </style>
