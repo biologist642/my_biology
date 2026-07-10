@@ -404,51 +404,65 @@
         .copyright { font-size: 13.5px; opacity: 0.5; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); }
 
         /* ==========================================================================
-           7. ڕیسپۆنسڤ و ڕێکخستنی شاشەی مۆبایل (چاککراو)
+           7. ڕیسپۆنسڤ و ڕێکخستنی شاشەی مۆبایل (چاککراوی کۆتایی)
            ========================================================================== */
         @media (max-width: 992px) {
             .hero-layout-container { 
                 grid-template-columns: 1fr; 
-                gap: 40px; 
+                gap: 20px; /* کەمکردنەوەی مەودای نێوان ناوەڕۆکەکان */
                 display: flex;
                 flex-direction: column;
                 align-items: center;
             }
-            .hero-bg-shape-curve { width: 100%; height: 500px; top: 20%; left: 50%; transform: translateX(-50%); }
+            .hero-section-wrapper {
+                padding: 90px 20px 40px 20px; /* کەمکردنەوەی بۆشایی سەرەوە و خوارەوەی هێرۆ */
+                min-height: auto;
+            }
+            .hero-bg-shape-curve { width: 100%; height: 400px; top: 20%; left: 50%; transform: translateX(-50%); }
             
             .hero-text-side { align-items: center; text-align: center; order: 1; }
             html[dir="ltr"] .hero-text-side { align-items: center; text-align: center; order: 1; }
             
-            .hero-graphics-side { order: 2; }
+            .hero-graphics-side { order: 2; margin-bottom: 15px; }
             
-            /* شاردنەوەی بەتەنی ناو دەق و پیشاندانی بەتەن لە خوار شەیپەکان */
             .hero-text-side .hero-cta-btn { display: none; }
-            .hero-cta-btn.mobile-only { display: inline-flex; order: 3; margin-top: 10px; }
+            .hero-cta-btn.mobile-only { 
+                display: inline-flex; 
+                order: 3; 
+                margin-top: 5px; 
+                padding: 12px 30px;
+                font-size: 14px;
+            }
 
-            .art-circle-large { width: 310px; height: 310px; }
-            .art-circle-large .hero-butterfly-icon { font-size: 140px; }
-            .art-circle-small { width: 95px; height: 95px; right: 5px; bottom: 0; }
-            .art-circle-small .hero-ant-icon { font-size: 38px; }
+            /* بچووککردنەوەی گونجاوی بازنەی پەپوولە و مێرووەکە بۆ جێگۆڕکێی باشتر */
+            .art-circle-large { width: 250px; height: 250px; }
+            .art-circle-large .hero-butterfly-icon { font-size: 110px; }
+            .art-circle-small { width: 75px; height: 75px; right: 0; bottom: 0; border-width: 3px; }
+            .art-circle-small .hero-ant-icon { font-size: 30px; }
+            
             .chapters-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero-bold-title { font-size: 44px; justify-content: center; }
-            .hero-bold-title span { font-size: 24px; }
-            .hero-paragraph { font-size: 17px; }
+            .hero-bold-title { font-size: 36px; justify-content: center; margin-bottom: 15px; }
+            .hero-bold-title span { font-size: 20px; }
+            .hero-paragraph { font-size: 15.5px; margin-bottom: 20px; line-height: 1.7; }
         }
 
         @media (max-width: 768px) {
-            .navbar { padding: 0 10px; height: 60px; }
-            .logo h2 { font-size: 14px; }
-            .logo-icon { font-size: 20px; }
+            .navbar { padding: 0 10px; height: 65px; display: flex; justify-content: space-between; }
+            
+            /* هێشتنەوەی لۆگۆ بە دیاری بە کەمکردنەوەی مەوداکان */
+            .logo h2 { font-size: 15px; display: block !important; }
+            .logo-icon { font-size: 22px; }
+            .nav-right-group { gap: 8px; }
+            
             .chapters-grid { grid-template-columns: 1fr; gap: 25px; }
             
-            /* بچووککردنەوەی تەواوی کۆنتڕۆڵەکان بۆ دروستبوونی جێگە */
             .controls { gap: 6px; }
             .lang-links-wrapper { padding: 2px; gap: 2px; }
             .lang-btn { padding: 4px 8px; font-size: 11px; }
             
             .menu-toggle-btn, .nav-search-btn {
-                width: 35px;
-                height: 35px;
+                width: 36px;
+                height: 36px;
                 font-size: 18px;
             }
             
@@ -459,22 +473,23 @@
             
             .search-container-inline { position: static; }
             .search-container-inline.active .search-input-inline {
-                width: calc(100vw - 30px);
-                left: 15px;
-                right: 15px;
-                top: 65px;
+                width: calc(100vw - 20px);
+                left: 10px;
+                right: 10px;
+                top: 70px;
                 height: 45px;
                 box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             }
         }
         
         @media (max-width: 430px) {
-            /* گۆڕانکاری تایبەت بۆ شاشە زۆر بچووکەکان تا ناڤبار تێکنەچێت */
-            .logo h2 { display: none; } /* شاردنەوەی تێکستی لۆگۆ تەنها ئایکۆنەکە دەمێنێتەوە */
-            .controls { gap: 4px; }
-            .lang-btn { padding: 4px 6px; font-size: 10px; }
-            .hero-bold-title { font-size: 28px; }
-            .hero-bold-title span { font-size: 16px; }
+            /* پاراستنی لۆگۆ لە شاشە زۆر بچووکەکانیشدا لە ڕێگەی کەمکردنەوەی فۆنت */
+            .logo h2 { font-size: 13px; }
+            .logo-icon { font-size: 18px; }
+            .controls { gap: 3px; }
+            .lang-btn { padding: 4px 5px; font-size: 10px; }
+            .hero-bold-title { font-size: 26px; }
+            .hero-bold-title span { font-size: 15px; }
         }
     </style>
 </head>
@@ -527,7 +542,6 @@
                 <p class="hero-paragraph" id="hero-desc">
                     پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران, مامۆستایان, توێژەران و جوتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.
                 </p>
-                <!-- ئەم بەتەنە تەنها لە دێسکتۆپ پیشان دەدرێت -->
                 <a href="#chapters" class="hero-cta-btn" id="hero-btn-text">
                     دەستپێکردنی گەشتەکە <i class="ph ph-arrow-down"></i>
                 </a>
@@ -543,13 +557,13 @@
                 </div>
             </div>
             
-            <!-- ئەم بەتەنە تەنها لە مۆبایل لە خوارەوەی شەیپەکان پیشان دەدرێت -->
             <a href="#chapters" class="hero-cta-btn mobile-only" id="hero-btn-text-mobile">
                 دەستپێکردنی گەشتەکە <i class="ph ph-arrow-down"></i>
             </a>
         </div>
     </section>
 
+    <!-- لێرەوە کۆدی بەشەکانی تر و سکریپتەکە وەک خۆی کار دەکات بەبێ گۆڕانکاری -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <h3>Nova<span>Menu</span></h3>
@@ -605,6 +619,7 @@
     </footer>
 
     <script>
+        // هەمان سکریپتی وەرگێڕان و کارکردنی لۆجیکەکەیە بەبێ گۆڕانکاری
         const translations = {
             ku: {
                 title: "NovaEntomo <span id='hero-title-sub'>زانستی درەوشاوەی مێرووناسی</span>",
@@ -705,7 +720,7 @@
                     { title: "التكنولوجيا وعلم الحشرات", desc: "تطبيقات الذكاء الاصطناعي والتكنولوجيا في علم الحشرات." },
                     { title: "التقنيات المختبرية", desc: "التحليل المختبري التفصيلي وطرق حفظ الحشرات." },
                     { title: "الشروحات المرئية", desc: "الفحص المجهري الرقمي والاختبارات المختبرية العملية عبر الفيديو." },
-                    { title: "الاختبارات والمسابقات", desc: "قيّم معلوماتك من خلال الأسئلة والأجوبة العلمية لعلم الحشرات." }
+                    { title: "الاخبار والمسابقات", desc: "قيّم معلوماتك من خلال الأسئلة والأجوبة العلمية لعلم الحشرات." }
                 ]
             }
         };
@@ -739,7 +754,6 @@
             const descEl = document.getElementById('hero-desc');
             if (descEl) descEl.innerText = data.desc;
             
-            // وەرگێڕانی هەردوو لایەنی بەتەنەکە (مۆبایل و دێسکتۆپ)
             const heroBtn = document.getElementById('hero-btn-text');
             if (heroBtn) heroBtn.innerHTML = `${data.btnText} <i class="ph ph-arrow-down"></i>`;
             const heroBtnMobile = document.getElementById('hero-btn-text-mobile');
