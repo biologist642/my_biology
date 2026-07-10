@@ -144,7 +144,7 @@
 
         .hero-layout-container {
             width: 100%; 
-            max-width: 1200px; /* کەمکرایەوە بۆ ئەوەی زیاتر لە ناوەڕاست کۆبێتەوە */
+            max-width: 1200px; 
             margin: 0 auto; 
             display: grid; 
             grid-template-columns: 1fr 1.2fr; 
@@ -159,13 +159,13 @@
         .hero-text-side { display: flex; flex-direction: column; align-items: flex-start; text-align: right; order: 1; }
         html[dir="ltr"] .hero-text-side { align-items: flex-start; text-align: left; order: 2; }
         
-        /* شێوازی نوێی ناونیشان بۆ ئەوەی لە یەک دێڕ بن و مۆشنی سادەیان هەبێت */
+        /* قەبارەی فۆنتەکان لێرەدا گەورەتر کراون بۆ شاشەی گەورە */
         .hero-bold-title { 
-            font-size: 52px; 
+            font-size: 64px; /* پێشتر 52px بوو */
             font-weight: 800; 
-            line-height: 1.2; 
+            line-height: 1.25; 
             color: var(--accent-color); 
-            margin-bottom: 20px; 
+            margin-bottom: 24px; 
             letter-spacing: -1px;
             display: flex;
             flex-wrap: wrap;
@@ -174,10 +174,13 @@
             animation: pulseMotion 4s ease-in-out infinite alternate;
         }
         .hero-bold-title span { 
-            font-size: 26px; 
+            font-size: 32px; /* پێشتر 26px بوو */
             font-weight: 600; 
             color: var(--accent-color); 
             letter-spacing: 0px; 
+            width: 100%;
+            display: block;
+            margin-top: 5px;
         }
         
         @keyframes pulseMotion {
@@ -185,7 +188,13 @@
             100% { transform: scale(1.02); }
         }
 
-        .hero-paragraph { font-size: 16.5px; line-height: 1.8; color: var(--text-secondary); max-width: 600px; margin-bottom: 35px; }
+        .hero-paragraph { 
+            font-size: 19.5px; /* پێشتر 16.5px بوو */
+            line-height: 1.8; 
+            color: var(--text-secondary); 
+            max-width: 650px; 
+            margin-bottom: 40px; 
+        }
 
         .hero-cta-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 36px; font-size: 15px; font-weight: 700; color: #ffffff !important; background: var(--accent-color); border-radius: 50px; text-decoration: none; box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3); cursor: pointer; border: none; }
         .hero-cta-btn:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(139, 69, 19, 0.45); }
@@ -197,7 +206,6 @@
             width: 380px; height: 380px; background-color: var(--bg-card); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 45px rgba(0,0,0,0.06); position: relative; border: 1px solid var(--card-border);
         }
         
-        /* لێرەدا چاکسازی بۆ ئایکۆنەکان کراوە بۆ لادانی چوارگۆشەکان */
         .art-circle-large .hero-butterfly-icon {
             font-size: 140px;
             color: var(--accent-color);
@@ -332,19 +340,21 @@
             .art-circle-small { width: 95px; height: 95px; right: 5px; bottom: 0; }
             .art-circle-small .hero-ant-icon { font-size: 38px; }
             .chapters-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero-bold-title { font-size: 38px; justify-content: center; }
-            .hero-bold-title span { font-size: 20px; }
+            .hero-bold-title { font-size: 42px; justify-content: center; }
+            .hero-bold-title span { font-size: 24px; }
+            .hero-paragraph { font-size: 17px; }
         }
 
         @media (max-width: 768px) {
             .navbar { padding: 0 12px; height: 56px; }
             .logo h2 { font-size: 17px; }
-            .hero-bold-title { font-size: 34px; }
+            .hero-bold-title { font-size: 36px; }
             .chapters-grid { grid-template-columns: 1fr; gap: 25px; }
         }
         @media (max-width: 480px) {
-            .hero-bold-title { font-size: 28px; }
-            .hero-bold-title span { font-size: 18px; }
+            .hero-bold-title { font-size: 30px; }
+            .hero-bold-title span { font-size: 20px; }
+            .hero-paragraph { font-size: 15.5px; }
         }
     </style>
 </head>
