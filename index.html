@@ -26,7 +26,6 @@
             --circle-big: #eaddd3;
             --circle-small: #8B4513;
             --hero-border-line: #8B4513;
-            --nav-shadow: rgba(44, 26, 17, 0.08);
         }
 
         :root[data-theme="dark"] {
@@ -44,7 +43,6 @@
             --circle-big: #2d1b13;
             --circle-small: #d27d2d;
             --hero-border-line: #d27d2d;
-            --nav-shadow: rgba(0, 0, 0, 0.5);
         }
 
         * {
@@ -68,9 +66,7 @@
             position: fixed; top: 0; left: 0; width: 100%; height: 80px;
             display: flex; justify-content: space-between; align-items: center;
             padding: 0 40px; background-color: var(--navbar-bg);
-            border-bottom: 2px solid var(--accent-color); 
-            box-shadow: 0 4px 20px var(--nav-shadow);
-            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08); z-index: 1000;
         }
 
         .insect-bg-layer {
@@ -126,12 +122,21 @@
         input:checked + .slider { background-color: var(--accent-color); }
         input:checked + .slider:before { transform: translateX(20px); }
 
+        /* ==========================================================================
+           سیستمی نوێی سێرچ بار لە تەنیشت خۆی
+           ========================================================================== */
+        .search-container-inline {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
         .nav-search-btn { 
             background: rgba(139, 69, 19, 0.05); border: 1px solid rgba(139, 69, 19, 0.1); 
             color: var(--navbar-text); font-size: 20px; cursor: pointer; 
             width: 42px; height: 42px; border-radius: 50%;
             display: inline-flex; align-items: center; justify-content: center; 
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2;
         }
         .nav-search-btn:hover {
             background-color: var(--accent-color);
@@ -139,25 +144,39 @@
             transform: scale(1.15);
             box-shadow: 0 4px 12px rgba(139, 69, 19, 0.25);
         }
-
-        /* ==========================================================================
-           بۆکسی نوێی سێرچ هاوشێوەی نۆڤا پلانت
-           ========================================================================== */
-        .search-overlay-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 9, 7, 0.95); z-index: 3000;
-            display: flex; justify-content: center; align-items: center;
-            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        .search-input-inline {
+            width: 0;
+            opacity: 0;
+            pointer-events: none;
+            padding: 0;
+            border: 1px solid transparent;
+            border-radius: 30px;
+            height: 40px;
+            font-size: 14px;
+            font-family: inherit;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            outline: none;
+            position: absolute;
+            right: 50px; /* بەپێی ئاڕاستەی ڕاست بۆ چەپ */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
         }
-        .search-overlay-container.active { opacity: 1; pointer-events: auto; }
-        .search-box-wrap { width: 90%; max-width: 600px; text-align: center; position: relative; transform: translateY(-30px); transition: transform 0.4s ease; }
-        .search-overlay-container.active .search-box-wrap { transform: translateY(0); }
-        .search-inner-field { width: 100%; padding: 16px 25px; border-radius: 50px; border: 2px solid var(--accent-color); background: #fff; font-size: 18px; font-family: inherit; color: #2c1a11; outline: none; box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2); }
-        .search-close-btn { position: absolute; top: -70px; left: 50%; transform: translateX(-50%); background: none; border: none; color: #fff; font-size: 32px; cursor: pointer; transition: 0.3s; }
-        .search-close-btn:hover { color: var(--accent-color); transform: translateX(-50%) scale(1.1); }
+        html[dir="ltr"] .search-input-inline {
+            right: auto;
+            left: 50px;
+        }
+        .search-container-inline.active .search-input-inline {
+            width: 220px;
+            opacity: 1;
+            pointer-events: auto;
+            padding: 0 15px;
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 10px rgba(139, 69, 19, 0.1);
+        }
 
         /* ==========================================================================
-           3. نێوۆک و دیزاینی هێرۆ سەکشن
+           3. نێوۆک و دیزاینی هێرۆ سەکشن (خەتە قاوەییەکە وەک خۆی لێرەیە)
            ========================================================================== */
         .hero-section-wrapper {
             position: relative; 
@@ -168,6 +187,13 @@
             padding: 130px 40px 80px 40px; 
             overflow: hidden; 
             background-color: var(--bg-main);
+            border-bottom: 3px solid var(--hero-border-line);
+            animation: linePulse 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes linePulse {
+            0% { box-shadow: 0 4px 10px rgba(139, 69, 19, 0.1); border-bottom-width: 3px; }
+            100% { box-shadow: 0 4px 20px rgba(139, 69, 19, 0.25); border-bottom-width: 4.5px; }
         }
 
         .hero-bg-shape-curve {
@@ -303,7 +329,6 @@
         .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); z-index: 1999; display: none; }
         .sidebar-overlay.show { display: block; }
 
-        /* جێگیرکردنی زمان و مۆد لەناو سایدبار تەنها بۆ مۆبایل */
         .sidebar-mobile-controls { display: none; flex-direction: column; gap: 15px; margin-top: 25px; padding: 15px 10px; border-top: 1px solid rgba(255,255,255,0.1); }
         .sidebar-mobile-controls .lang-links-wrapper { background: rgba(255,255,255,0.05); }
         .sidebar-mobile-controls .lang-btn { color: #fff; }
@@ -406,13 +431,15 @@
             .hero-bold-title { font-size: 38px; }
             .chapters-grid { grid-template-columns: 1fr; gap: 25px; }
             
-            /* شاردنەوەی بەشە زایۆکان لە مۆبایل و گواستنەوەیان بۆ سایدبار */
             .navbar .controls .lang-links-wrapper, 
             .navbar .controls .theme-controller-wrapper {
                 display: none;
             }
             .sidebar-mobile-controls {
                 display: flex;
+            }
+            .search-container-inline.active .search-input-inline {
+                width: 140px;
             }
         }
         @media (max-width: 480px) {
@@ -424,14 +451,6 @@
 <body>
 
     <div class="sidebar-overlay" id="overlay"></div>
-
-    <!-- بۆکسی نوێی سێرچ -->
-    <div class="search-overlay-container" id="search-overlay">
-        <div class="search-box-wrap">
-            <button class="search-close-btn" id="search-close" aria-label="Close Search"><i class="ph ph-x"></i></button>
-            <input type="text" class="search-inner-field" placeholder="بۆچی دەگەڕێیت؟ بنووسە..." id="search-input">
-        </div>
-    </div>
 
     <header class="navbar">
         <div class="insect-bg-layer">
@@ -447,9 +466,12 @@
         </div>
     
         <div class="controls">
-            <button class="nav-search-btn" id="nav-search-trigger" aria-label="Search"><i class="ph ph-magnifying-glass"></i></button>
+            <!-- بۆکسی گەڕانی ئینلاین (لەتەنیشت خۆی دەبێتەوە) -->
+            <div class="search-container-inline" id="search-container">
+                <input type="text" class="search-input-inline" placeholder="گەڕان..." id="search-input">
+                <button class="nav-search-btn" id="nav-search-trigger" aria-label="Search"><i class="ph ph-magnifying-glass"></i></button>
+            </div>
             
-            <!-- ئەمانە لە مۆبایلدا دەشاردرێنەوە -->
             <div class="lang-links-wrapper">
                 <button class="lang-btn active" data-lang="ku">کوردی</button>
                 <button class="lang-btn" data-lang="en">English</button>
@@ -515,7 +537,6 @@
             <li><a href="#ch12"><i class="ph ph-book-open"></i><span id="sb-ch12">١٢. کویز و تاقیکردنەوە</span></a></li>
         </ul>
 
-        <!-- بەشەکانی کۆنتڕۆڵ بۆ مۆبایل لە ناو مێنوو -->
         <div class="sidebar-mobile-controls">
             <div class="lang-links-wrapper">
                 <button class="lang-btn active" data-lang="ku">کوردی</button>
@@ -583,7 +604,7 @@
                 light: "ڕووناک",
                 dark: "تاریک",
                 badgeText: "بەشی",
-                searchPlaceholder: "بۆچی دەگەڕێیت؟ بنووسە...",
+                searchPlaceholder: "گەڕان...",
                 chapters: [
                     { title: "زانیاری زیاتر", desc: "پێشەکی و ئامانب و دەربارەی تیم و زانیاری زیاتر." },
                     { title: "فەرهەنگی مێرووناسی", desc: "فەرهەنگۆک و زاراوە زانستییەکانی تایبەت بە مێرووناسی." },
@@ -617,7 +638,7 @@
                 light: "Light",
                 dark: "Dark",
                 badgeText: "Chapter",
-                searchPlaceholder: "What are you looking for? Type here...",
+                searchPlaceholder: "Search...",
                 chapters: [
                     { title: "Extra Information", desc: "Introduction, objectives, about the team and more information." },
                     { title: "Entomology Dictionary", desc: "Scientific dictionary and terminologies for entomology." },
@@ -651,7 +672,7 @@
                 light: "فاتح",
                 dark: "مظلم",
                 badgeText: "الفصل",
-                searchPlaceholder: "عن ماذا تبحث؟ اكتب هنا...",
+                searchPlaceholder: "بحث...",
                 chapters: [
                     { title: "معلومات إضافية", desc: "مقدمة وأهداف وعن الفريق ومزيد من المعلومات الإضافية." },
                     { title: "قاموس علم الحشرات", desc: "المصطلحات والقاموس العلمي الخاص بعلم الحشرات." },
@@ -680,7 +701,7 @@
         
         const htmlTag = document.getElementById('html-tag');
         const chaptersContainer = document.getElementById('chapters-container');
-        const searchOverlay = document.getElementById('search-overlay');
+        const searchContainer = document.getElementById('search-container');
         const searchInput = document.getElementById('search-input');
 
         function convertToKurdishNumbers(str, currentLang) {
@@ -707,13 +728,11 @@
             
             if (searchInput) searchInput.placeholder = data.searchPlaceholder;
 
-            // نوێکردنەوەی دەقی مۆد لە هەموو شوێنەکان
             document.querySelectorAll('.theme-status-text').forEach(el => {
                 const isDark = htmlTag.getAttribute('data-theme') === 'dark';
                 el.innerText = isDark ? data.dark : data.light;
             });
 
-            // هاوکارکردنی دوگمەکانی سەر زمان لە نێوان سەرەکی و مۆبایل
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 if(btn.getAttribute('data-lang') === lang) {
                     btn.classList.add('active');
@@ -756,7 +775,6 @@
             }
         }
 
-        // کارپێکردنی دوگمەکانی گۆڕینی زمان
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const selectedLang = this.getAttribute('data-lang');
@@ -766,13 +784,10 @@
             });
         });
 
-        // کارپێکردنی دوگمەکانی گۆڕینی مۆدی تاریک/ڕووناک
         document.querySelectorAll('.theme-checkbox').forEach(chk => {
             chk.addEventListener('change', function(e) {
                 const theme = e.target.checked ? 'dark' : 'light';
                 htmlTag.setAttribute('data-theme', theme);
-                
-                // هاوکارکردنی هەردوو چێکبۆکسەکە (سەرەکی و مۆبایل)
                 document.querySelectorAll('.theme-checkbox').forEach(c => c.checked = e.target.checked);
                 
                 const currentLang = htmlTag.getAttribute('lang') || 'ku';
@@ -782,16 +797,20 @@
             });
         });
 
-        // کارپێکردنی بۆکسی سێرچ هاوشێوەی نۆڤا پلانت
-        document.getElementById('nav-search-trigger').addEventListener('click', () => {
-            searchOverlay.classList.add('active');
-            setTimeout(() => searchInput.focus(), 100);
+        // کلیک لەسەر سێرچ بۆکسەکە بۆ نیشاندان لە تەنیشت خۆی
+        document.getElementById('nav-search-trigger').addEventListener('click', (e) => {
+            e.stopPropagation();
+            searchContainer.classList.toggle('active');
+            if(searchContainer.classList.contains('active')) {
+                searchInput.focus();
+            }
         });
-        document.getElementById('search-close').addEventListener('click', () => {
-            searchOverlay.classList.remove('active');
-        });
-        searchOverlay.addEventListener('click', (e) => {
-            if(e.target === searchOverlay) searchOverlay.classList.remove('active');
+
+        // کاتێک لە دەرەوەی سێرچ بۆکسەکە کلیک دەکەن دابخرێتەوە
+        document.addEventListener('click', (e) => {
+            if (!searchContainer.contains(e.target)) {
+                searchContainer.classList.remove('active');
+            }
         });
 
         const sidebar = document.getElementById('sidebar');
