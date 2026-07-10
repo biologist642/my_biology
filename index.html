@@ -123,7 +123,7 @@
         input:checked + .slider:before { transform: translateX(20px); }
 
         /* ==========================================================================
-           سیستمی نوێی سێرچ بار لە تەنیشت خۆی
+           سیستمی نوێی سێرچ بار (چاککراو بۆ ئەوەی بە لای پێچەوانە بکرێتەوە)
            ========================================================================== */
         .search-container-inline {
             display: flex;
@@ -158,13 +158,13 @@
             color: var(--text-primary);
             outline: none;
             position: absolute;
-            right: 50px; /* بەپێی ئاڕاستەی ڕاست بۆ چەپ */
+            left: 50px; /* گۆڕدرا بۆ چەپ لە RTL دا بۆ ئەوەی نەچێتە سەر بەتەنی زمانەکان */
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1;
         }
         html[dir="ltr"] .search-input-inline {
-            right: auto;
-            left: 50px;
+            left: auto;
+            right: 50px; /* لە LTR دا بە لای ڕاستدا دەکرێتەوە */
         }
         .search-container-inline.active .search-input-inline {
             width: 220px;
@@ -176,7 +176,7 @@
         }
 
         /* ==========================================================================
-           3. نێوۆک و دیزاینی هێرۆ سەکشن (خەتە قاوەییەکە وەک خۆی لێرەیە)
+           3. نێوۆک و دیزاینی هێرۆ سەکشن
            ========================================================================== */
         .hero-section-wrapper {
             position: relative; 
@@ -329,11 +329,6 @@
         .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); z-index: 1999; display: none; }
         .sidebar-overlay.show { display: block; }
 
-        .sidebar-mobile-controls { display: none; flex-direction: column; gap: 15px; margin-top: 25px; padding: 15px 10px; border-top: 1px solid rgba(255,255,255,0.1); }
-        .sidebar-mobile-controls .lang-links-wrapper { background: rgba(255,255,255,0.05); }
-        .sidebar-mobile-controls .lang-btn { color: #fff; }
-        .sidebar-mobile-controls .theme-controller-wrapper { color: #fff; justify-content: space-between; }
-
         /* ==========================================================================
            5. کارتەکان و بەشەکان
            ========================================================================== */
@@ -407,7 +402,7 @@
         .copyright { font-size: 13.5px; opacity: 0.5; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); }
 
         /* ==========================================================================
-           7. ڕیسپۆنسڤ (شاشە بچووکەکان)
+           7. ڕیسپۆنسڤ (شاشە بچووکەکان) - چاککاری مۆبایل لەم بەشەدایە
            ========================================================================== */
         @media (max-width: 992px) {
             .hero-layout-container { grid-template-columns: 1fr; gap: 50px; }
@@ -427,24 +422,52 @@
 
         @media (max-width: 768px) {
             .navbar { padding: 0 15px; height: 65px; }
-            .logo h2 { font-size: 18px; }
+            .logo h2 { font-size: 16px; }
             .hero-bold-title { font-size: 38px; }
             .chapters-grid { grid-template-columns: 1fr; gap: 25px; }
             
-            .navbar .controls .lang-links-wrapper, 
-            .navbar .controls .theme-controller-wrapper {
-                display: none;
+            /* زمان و ڕووناک/تاریک لە مۆبایلدا لە نەڤبار دەمێننەوە بە قەبارەیەکی گونجاو */
+            .navbar .controls .lang-links-wrapper {
+                padding: 2px;
+                gap: 2px;
             }
-            .sidebar-mobile-controls {
-                display: flex;
+            .navbar .controls .lang-btn {
+                padding: 4px 8px;
+                font-size: 11px;
+            }
+            .navbar .controls .theme-controller-wrapper {
+                gap: 4px;
+                font-size: 11px;
+            }
+            .navbar .controls .theme-status-text {
+                display: none; /* تەنها دەقەکە دەشارینەوە بۆ چڕ نەبوونی نەڤبار */
+            }
+            .theme-switch {
+                width: 38px;
+                height: 20px;
+            }
+            .slider:before {
+                height: 14px;
+                width: 14px;
+                left: 3px;
+                bottom: 3px;
+            }
+            input:checked + .slider:before {
+                transform: translateX(18px);
             }
             .search-container-inline.active .search-input-inline {
-                width: 140px;
+                width: 130px;
+                left: 45px;
+            }
+            html[dir="ltr"] .search-container-inline.active .search-input-inline {
+                right: 45px;
+                left: auto;
             }
         }
         @media (max-width: 480px) {
             .hero-bold-title { font-size: 30px; }
             .hero-bold-title span { font-size: 18px; }
+            .controls { gap: 8px; } /* کەمکردنەوەی مەودای نێوان بەتەنەکان بۆ شاشەی زۆر بچووک */
         }
     </style>
 </head>
@@ -466,7 +489,7 @@
         </div>
     
         <div class="controls">
-            <!-- بۆکسی گەڕانی ئینلاین (لەتەنیشت خۆی دەبێتەوە) -->
+            <!-- بۆکسی گەڕانی ئینلاین (ئێستا بە پێچەوانەی زمانەکان دەبێتەوە) -->
             <div class="search-container-inline" id="search-container">
                 <input type="text" class="search-input-inline" placeholder="گەڕان..." id="search-input">
                 <button class="nav-search-btn" id="nav-search-trigger" aria-label="Search"><i class="ph ph-magnifying-glass"></i></button>
@@ -536,21 +559,6 @@
             <li><a href="#ch11"><i class="ph ph-book-open"></i><span id="sb-ch11">١١. ڕوونکردنەوەی ڤیدیۆی</span></a></li>
             <li><a href="#ch12"><i class="ph ph-book-open"></i><span id="sb-ch12">١٢. کویز و تاقیکردنەوە</span></a></li>
         </ul>
-
-        <div class="sidebar-mobile-controls">
-            <div class="lang-links-wrapper">
-                <button class="lang-btn active" data-lang="ku">کوردی</button>
-                <button class="lang-btn" data-lang="en">English</button>
-                <button class="lang-btn" data-lang="ar">العربية</button>
-            </div>
-            <div class="theme-controller-wrapper">
-                <span class="theme-status-text">ڕووناک</span>
-                <label class="theme-switch">
-                    <input type="checkbox" class="theme-checkbox" />
-                    <div class="slider"></div>
-                </label>
-            </div>
-        </div>
     </aside>
 
     <section class="chapters-section" id="chapters">
@@ -797,7 +805,7 @@
             });
         });
 
-        // کلیک لەسەر سێرچ بۆکسەکە بۆ نیشاندان لە تەنیشت خۆی
+        // کلیک لەسەر سێرچ بۆکسەکە بۆ نیشاندان
         document.getElementById('nav-search-trigger').addEventListener('click', (e) => {
             e.stopPropagation();
             searchContainer.classList.toggle('active');
