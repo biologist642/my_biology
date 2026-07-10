@@ -143,17 +143,48 @@
         }
 
         .hero-layout-container {
-            width: 100%; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; position: relative; z-index: 5;
+            width: 100%; 
+            max-width: 1200px; /* کەمکرایەوە بۆ ئەوەی زیاتر لە ناوەڕاست کۆبێتەوە */
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: 1fr 1.2fr; 
+            gap: 60px; 
+            align-items: center; 
+            position: relative; 
+            z-index: 5;
+            padding: 0 20px;
         }
-        html[dir="ltr"] .hero-layout-container { grid-template-columns: 1fr 1.2fr; }
+        html[dir="ltr"] .hero-layout-container { grid-template-columns: 1.2fr 1fr; }
 
         .hero-text-side { display: flex; flex-direction: column; align-items: flex-start; text-align: right; order: 1; }
         html[dir="ltr"] .hero-text-side { align-items: flex-start; text-align: left; order: 2; }
-
-        .hero-badge-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; background: rgba(139, 69, 19, 0.1); border: 1px solid rgba(139, 69, 19, 0.2); border-radius: 30px; font-size: 14px; font-weight: 600; color: var(--accent-color); margin-bottom: 15px; }
         
-        .hero-bold-title { font-size: 78px; font-weight: 800; line-height: 1.05; color: var(--text-primary); margin-bottom: 15px; letter-spacing: -1px; }
-        .hero-bold-title span { display: block; font-size: 28px; font-weight: 600; color: var(--accent-color); margin-top: 12px; letter-spacing: 0px; }
+        /* شێوازی نوێی ناونیشان بۆ ئەوەی لە یەک دێڕ بن و مۆشنی سادەیان هەبێت */
+        .hero-bold-title { 
+            font-size: 52px; 
+            font-weight: 800; 
+            line-height: 1.2; 
+            color: var(--accent-color); 
+            margin-bottom: 20px; 
+            letter-spacing: -1px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            animation: pulseMotion 4s ease-in-out infinite alternate;
+        }
+        .hero-bold-title span { 
+            font-size: 26px; 
+            font-weight: 600; 
+            color: var(--accent-color); 
+            letter-spacing: 0px; 
+        }
+        
+        @keyframes pulseMotion {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.02); }
+        }
+
         .hero-paragraph { font-size: 16.5px; line-height: 1.8; color: var(--text-secondary); max-width: 600px; margin-bottom: 35px; }
 
         .hero-cta-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 36px; font-size: 15px; font-weight: 700; color: #ffffff !important; background: var(--accent-color); border-radius: 50px; text-decoration: none; box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3); cursor: pointer; border: none; }
@@ -166,21 +197,22 @@
             width: 380px; height: 380px; background-color: var(--bg-card); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 45px rgba(0,0,0,0.06); position: relative; border: 1px solid var(--card-border);
         }
         
-        /* شێوازی فۆنت و جووڵەی ئیمۆجی پەپوولەی ناو بازنە گەورەکە */
-        .art-circle-large .hero-butterfly-emoji {
-            font-size: 170px;
+        /* لێرەدا چاکسازی بۆ ئایکۆنەکان کراوە بۆ لادانی چوارگۆشەکان */
+        .art-circle-large .hero-butterfly-icon {
+            font-size: 140px;
+            color: var(--accent-color);
             user-select: none;
             animation: softFloat 6s ease-in-out infinite;
         }
 
-        /* شێوازی فۆنت و جووڵەی مێرولەی ناو بازنە بچووکەکە */
         .art-circle-small {
             position: absolute; bottom: 5px; right: 15px; width: 110px; height: 110px; background-color: var(--circle-small); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(139, 69, 19, 0.25); border: 4px solid var(--bg-main);
         }
         html[dir="ltr"] .art-circle-small { right: auto; left: 15px; }
         
-        .art-circle-small .hero-ant-emoji {
-            font-size: 52px;
+        .art-circle-small .hero-ant-icon {
+            font-size: 48px;
+            color: #ffffff;
             user-select: none;
             animation: softFloat 5s ease-in-out infinite alternate;
         }
@@ -296,22 +328,23 @@
             html[dir="ltr"] .hero-text-side { align-items: center; text-align: center; order: 1; }
             .hero-graphics-side { order: 2; }
             .art-circle-large { width: 310px; height: 310px; }
-            .art-circle-large .hero-butterfly-emoji { font-size: 130px; }
+            .art-circle-large .hero-butterfly-icon { font-size: 110px; }
             .art-circle-small { width: 95px; height: 95px; right: 5px; bottom: 0; }
-            .art-circle-small .hero-ant-emoji { font-size: 42px; }
+            .art-circle-small .hero-ant-icon { font-size: 38px; }
             .chapters-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero-bold-title { font-size: 58px; }
+            .hero-bold-title { font-size: 38px; justify-content: center; }
+            .hero-bold-title span { font-size: 20px; }
         }
 
         @media (max-width: 768px) {
             .navbar { padding: 0 12px; height: 56px; }
             .logo h2 { font-size: 17px; }
-            .hero-bold-title { font-size: 44px; }
+            .hero-bold-title { font-size: 34px; }
             .chapters-grid { grid-template-columns: 1fr; gap: 25px; }
         }
         @media (max-width: 480px) {
-            .hero-bold-title { font-size: 38px; }
-            .hero-bold-title span { font-size: 22px; }
+            .hero-bold-title { font-size: 28px; }
+            .hero-bold-title span { font-size: 18px; }
         }
     </style>
 </head>
@@ -355,26 +388,23 @@
         <div class="hero-layout-container">
             <div class="hero-graphics-side">
                 <div class="art-circle-large">
-                    <div class="hero-butterfly-emoji">🦋</div>
+                    <div class="hero-butterfly-icon"><i class="ph ph-butterfly"></i></div>
                     
                     <div class="art-circle-small">
-                        <div class="hero-ant-emoji">🐜</div>
+                        <div class="hero-ant-icon"><i class="ph ph-bug"></i></div>
                     </div>
                 </div>
             </div>
 
             <div class="hero-text-side">
-                <div class="hero-badge-pill" id="hero-badge-label">
-                    <span>زانستی مێرووناسی</span>
-                </div>
                 <h1 class="hero-bold-title" id="hero-title">
-                    NovaEntomo<br><span id="hero-title-sub">زانستی درەوشاوەی مێرووناسی</span>
+                    NovaEntomo <span id="hero-title-sub">زانستی درەوشاوەی مێرووناسی</span>
                 </h1>
                 <p class="hero-paragraph" id="hero-desc">
                     پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران, مامۆستایان, توێژەران و جوتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.
                 </p>
                 <a href="#chapters" class="hero-cta-btn" id="hero-btn-text">
-                    دەستپێکردنی گەشتەکە <i class="ph ph-arrow-left"></i>
+                    دەستپێکردنی گەشتەکە <i class="ph ph-arrow-down"></i>
                 </a>
             </div>
         </div>
@@ -437,8 +467,7 @@
     <script>
         const translations = {
             ku: {
-                title: "NovaEntomo<br><span id='hero-title-sub'>زانستی درەوشاوەی مێرووناسی</span>",
-                badge: "زانستی مێرووناسی",
+                title: "NovaEntomo <span id='hero-title-sub'>زانستی درەوشاوەی مێرووناسی</span>",
                 desc: "پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران, مامۆستایان, توێژەران و جوتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.",
                 btnText: "دەستپێکردنی گەشتەکە",
                 sbHome: "سەرەکی",
@@ -471,8 +500,7 @@
                 ]
             },
             en: {
-                title: "NovaEntomo<br><span>Entomology Science</span>",
-                badge: "Entomological Science",
+                title: "NovaEntomo <span>Entomology Science</span>",
                 desc: "An advanced scientific and academic platform for students, teachers, researchers, and farmers utilizing the latest modern knowledge.",
                 btnText: "Start Exploring",
                 sbHome: "Home",
@@ -534,12 +562,9 @@
             
             const descEl = document.getElementById('hero-desc');
             if (descEl) descEl.innerText = data.desc;
-
-            const badgeLabel = document.getElementById('hero-badge-label');
-            if (badgeLabel) badgeLabel.innerHTML = `<span>${data.badge}</span>`;
             
             const heroBtn = document.getElementById('hero-btn-text');
-            if (heroBtn) heroBtn.innerHTML = `${data.btnText} <i class="ph ${lang === 'en' ? 'ph-arrow-right' : 'ph-arrow-left'}"></i>`;
+            if (heroBtn) heroBtn.innerHTML = `${data.btnText} <i class="ph ph-arrow-down"></i>`;
             
             document.getElementById('sb-home').innerText = data.sbHome;
             document.getElementById('sb-title-ch').innerText = data.sbTitleCh;
