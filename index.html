@@ -459,7 +459,7 @@
         .sidebar-overlay.show { display: block; }
 
         /* ==========================================================================
-           5. کارتەکان و بەشەکان (ستایلی ڕەسەن + مۆشنی بەشی پلاتفۆرم)
+           5. کارتەکان و بەشەکان (ستایلی چاککراو بۆ مۆشنی سندوقە سپییەکان)
            ========================================================================== */
         .chapters-section { 
             padding: 80px 40px; 
@@ -473,7 +473,6 @@
             width: 100%;
         }
 
-        /* مۆشنی نوێ و تایبەت بۆ ناونیشانی بەشەکانی پلاتفۆرم */
         .section-title { 
             font-size: 38px; 
             font-weight: 800; 
@@ -553,7 +552,6 @@
             border-radius: 22px;
         }
 
-        /* گەڕانەوە بۆ مۆشنی جێگیر بەبێ بەرزبوونەوە یان گۆڕانی قەبارە */
         .chapter-card:hover {
             box-shadow: 0 15px 35px rgba(139, 69, 19, 0.18);
             border-color: rgba(139, 69, 19, 0.3); 
@@ -599,6 +597,7 @@
             right: auto; 
         }
 
+        /* گەڕانەوەی مۆشنی سندوقە سپییەکان (بەرزبوونەوە کاتێک ماوسیان دەچێتەسەر) */
         .chapter-info-box {
             position: relative; 
             background: var(--bg-card); 
@@ -610,11 +609,12 @@
             text-align: center; 
             border: 1px solid var(--card-border); 
             opacity: 0.95;
-            transition: opacity 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s ease;
         }
 
         .chapter-card:hover .chapter-info-box { 
             opacity: 1;
+            transform: translateY(-10px); /* مۆشنی بەرزبوونەوەی سندوقە سپییەکە */
         }
 
         .chapter-info-box h3 { 
