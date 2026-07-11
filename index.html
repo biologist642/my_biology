@@ -454,7 +454,7 @@
         .sidebar-overlay.show { display: block; }
 
         /* ==========================================================================
-           5. کارتەکان و بەشەکان (نوێکراوەتەوە بەپێی ویستی بەکارهێنەر)
+           5. کارتەکان و بەشەکان
            ========================================================================== */
         .chapters-section { 
             padding: 80px 40px; 
@@ -518,7 +518,6 @@
             transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
         }
 
-        /* بەشی هێڵی چواردەوری کارتەکە کە دەسوڕێتەوە */
         .chapter-card::before {
             content: '';
             position: absolute;
@@ -553,7 +552,6 @@
             border-color: rgba(139, 69, 19, 0.3); 
         }
 
-        /* کاراکردنی سوڕانەوەی هێڵە قاوەییەکەی دەوری کارتەکە لە کاتی هاوەردا */
         .chapter-card:hover::before {
             opacity: 1;
             animation: rotateBorder 3s linear infinite;
@@ -575,7 +573,6 @@
             transform: scale(1.05);
         }
 
-        /* مۆشنی هێواشی بەردەوامی Up/Down بۆ باجەکە (بەشی ۱، ۲، ٣...) */
         .chapter-badge {
             position: absolute; 
             top: 20px; 
@@ -627,7 +624,6 @@
             color: var(--text-primary); 
         }
 
-        /* مۆشنی هێواشی بەردەوامی Up/Down بۆ ناونیشانی ناو سندوقە سپییەکە */
         .chapter-info-box .chapter-card-title { 
             color: var(--accent-color) !important; 
             text-shadow: 0 0 5px rgba(139, 69, 19, 0.2); 
@@ -670,23 +666,30 @@
         }
 
         /* ==========================================================================
-           6. فووتەر
+           6. فووتەری چوار ستوونی (نوێکراوە بەپێی وێنەکە)
            ========================================================================== */
-        .footer-section { position: relative; background: #2c1a11; padding-top: 100px; padding-bottom: 40px; text-align: center; color: #ffffff; margin-top: 100px; overflow: hidden; }
-        .footer-insect-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
-        .footer-moving-bug { position: absolute; color: rgba(255, 255, 255, 0.45); font-size: 22px; animation: verticalBugFly 14s linear infinite; }
-        .f-ins-1 { bottom: 15%; left: 15%; }
-        .f-ins-2 { top: 25%; right: 20%; animation-duration: 19s; animation-direction: reverse; }
-
-        @keyframes verticalBugFly {
-            0% { transform: translateY(20px) scale(1); opacity: 0.1; }
-            50% { transform: translateY(-40px) scale(1.2); opacity: 0.6; }
-            100% { transform: translateY(-90px) scale(1); opacity: 0; }
+        .footer-section { 
+            position: relative; 
+            background: #1b331e; /* ڕەنگی سەوزی کێوی نێو وێنەکە */
+            padding-top: 120px; 
+            padding-bottom: 20px; 
+            color: #ffffff; 
+            margin-top: 100px; 
+            overflow: hidden; 
+            text-align: right; 
         }
-
-        .waves-container { position: absolute; top: -1px; left: 0; width: 100%; height: 110px; margin-bottom: -7px; transform: rotate(180deg); }
+        
+        .waves-container { 
+            position: absolute; 
+            top: -1px; 
+            left: 0; 
+            width: 100%; 
+            height: 110px; 
+            transform: rotate(180deg); 
+            z-index: 1;
+        }
         .parallax > use { animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite; }
-        .parallax > use:nth-child(1) { animation-delay: -2s; fill: var(--bg-main); opacity: 0.7; }
+        .parallax > use:nth-child(1) { fill: var(--bg-main); opacity: 0.7; }
         .parallax > use:nth-child(4) { fill: var(--bg-main); }
 
         @keyframes move-forever {
@@ -694,15 +697,149 @@
             100% { transform: translate3d(85px,0,0); }
         }
 
-        .footer-content { max-width: 1200px; margin: 0 auto; position: relative; z-index: 10; padding: 0 20px; }
-        .footer-info-block h3 { font-size: 26px; font-weight: 700; color: #d27d2d; margin-bottom: 5px; }
-        .bionova-mention { font-size: 14px; color: #c2b5ad; font-weight: 600; margin-top: 8px; }
+        .footer-content { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            position: relative; 
+            z-index: 10; 
+            padding: 0 40px; 
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr 1fr; 
+            gap: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 40px;
+        }
+
+        html[dir="rtl"] .footer-grid {
+            direction: rtl;
+        }
+        html[dir="ltr"] .footer-grid {
+            grid-template-columns: 1fr 1fr 1fr 1.2fr;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .col-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #d89b34; /* ڕەنگی نووسینە زەردەکان */
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .col-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #d89b34;
+        }
+        html[dir="ltr"] .col-title::after {
+            right: auto;
+            left: 0;
+        }
+
+        .col-sub-brand {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+        .col-desc {
+            font-size: 14px;
+            color: #d89b34;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .col-text-p {
+            font-size: 13.5px;
+            line-height: 1.8;
+            opacity: 0.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
 
         .footer-visitor-box {
-            display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, rgba(210, 125, 45, 0.1), rgba(0, 188, 212, 0.1)); padding: 10px 28px; border-radius: 50px; margin-top: 15px; margin-bottom: 25px; font-size: 14.5px; font-weight: 500; color: #ffffff; border: 1px solid rgba(210, 125, 45, 0.25);
+            display: inline-flex; 
+            align-items: center; 
+            gap: 10px; 
+            background: #112413; 
+            padding: 10px 20px; 
+            border-radius: 8px; 
+            font-size: 14px; 
+            color: #ffffff; 
+            border: 1px solid #1e4622;
+            align-self: flex-start;
         }
-        
-        .copyright { font-size: 13.5px; opacity: 0.5; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); }
+        .footer-visitor-box b {
+            background: #1a7431;
+            padding: 2px 10px;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+
+        .footer-links-list {
+            list-style: none;
+        }
+        .footer-links-list li {
+            margin-bottom: 10px;
+        }
+        .footer-links-list a {
+            color: #ffffff;
+            opacity: 0.8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .footer-links-list a:hover {
+            opacity: 1;
+            color: #d89b34;
+            transform: translateX(-5px);
+        }
+        html[dir="ltr"] .footer-links-list a:hover {
+            transform: translateX(5px);
+        }
+
+        .footer-info-details {
+            list-style: none;
+        }
+        .footer-info-details li {
+            font-size: 14px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        .footer-info-details li span {
+            color: #d89b34;
+            font-weight: 600;
+            margin-left: 5px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            font-size: 13.5px;
+        }
+        .copyright {
+            border: none;
+            padding: 0;
+            opacity: 0.6;
+        }
+        .developer-credit {
+            opacity: 0.6;
+        }
 
         /* ==========================================================================
            7. ڕیسپۆنسڤ و ڕێکخستنی شاشەی مۆبایل
@@ -744,6 +881,16 @@
             .hero-bold-title { font-size: 36px; justify-content: center; margin-bottom: 15px; }
             .hero-bold-title span { font-size: 20px; }
             .hero-paragraph { font-size: 15.5px; margin-bottom: 20px; line-height: 1.7; }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
         }
 
         @media (max-width: 768px) {
@@ -792,6 +939,15 @@
             }
         }
         
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                padding: 0 20px;
+            }
+        }
+
         @media (max-width: 430px) {
             .logo h2 { font-size: 13px; }
             .logo-icon { font-size: 18px; }
@@ -911,10 +1067,11 @@
         <div class="chapters-grid" id="chapters-container"></div>
     </section>
 
+    <!-- لێرەوە بەشی فووتەری چوار ستوونی نوێ دەستپێدەکات -->
     <footer class="footer-section">
         <div class="waves-container">
             <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+                <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18s58 18 88 18 v44h-352z" /></defs>
                 <g class="parallax">
                     <use xlink:href="#gentle-wave" x="48" y="0" />
                     <use xlink:href="#gentle-wave" x="48" y="7" />
@@ -923,17 +1080,71 @@
         </div>
 
         <div class="footer-content">
-            <div class="footer-info-block">
-                <h3>NovaEntomo</h3>
-                <p id="f-p1">پلاتفۆڕمی زانستی مێرووناسی</p>
-                <p id="f-p2">بەشی بایۆلۆجی - کۆلێژی زانست - زانکۆی ڕاپەڕین</p>
-                <p id="f-bionova" class="bionova-mention">ئەم پلاتفۆرمە گەشەی پێدراوە لە لایەن تیمی BioNova</p>
+            <div class="footer-grid">
+                
+                <!-- ستوونی یەکەم: زانیاری پلاتفۆرم -->
+                <div class="footer-col">
+                    <h3 class="col-title" id="f-title-main">پلاتفۆڕم</h3>
+                    <h4 class="col-sub-brand">NovaEntomo Platform</h4>
+                    <p class="col-desc" id="f-p1">پلاتفۆڕمی زانستی مێرووناسی</p>
+                    <p class="col-text-p" id="f-p-desc">پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران, مامۆستایان, توێژەران و جوتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.</p>
+                    <div class="footer-visitor-box">
+                        <i class="ph ph-eye"></i>
+                        <span><span id="f-vtext">بینەری پلاتفۆڕم:</span> <b id="visitor-count">0</b></span>
+                    </div>
+                </div>
+
+                <!-- ستوونی دووەم: بەشەکانی پلاتفۆرم -->
+                <div class="footer-col">
+                    <h3 class="col-title" id="f-title-sections">بەشەکانی پلاتفۆڕم</h3>
+                    <ul class="footer-links-list">
+                        <li><a href="#ch1">زانیاری زیاتر</a></li>
+                        <li><a href="#ch2">فەرهەنگی زاراوەکانی مێرووناسی</a></li>
+                        <li><a href="#ch3">دەستپێکێک بۆ مێرووناسی</a></li>
+                        <li><a href="#ch4">پۆلێنکردن و ناسینەوەی مێرووەکان</a></li>
+                        <li><a href="#ch5">مێرووە بەسوودەکان</a></li>
+                        <li><a href="#ch6">مێرووە زیانبەخشەکان</a></li>
+                        <li><a href="#ch7">ستراتیژیەکانی کۆنتڕۆڵکردن</a></li>
+                        <li><a href="#ch8">مێرووناسی پزیشکی</a></li>
+                        <li><a href="#ch9">تەکنەلۆجیا و مێرووناسی</a></li>
+                        <li><a href="#ch10">تەکنیکە تاقیگەییەکان</a></li>
+                        <li><a href="#ch11">ڕوونکردنه وەی ڤیدیۆیی</a></li>
+                        <li><a href="#ch12">کویز و تاقیکردنەوە</a></li>
+                    </ul>
+                </div>
+
+                <!-- ستوونی سێیەم: لینکەکانی تر -->
+                <div class="footer-col">
+                    <h3 class="col-title" id="f-title-links">لینکەکانی تری پلاتفۆڕم</h3>
+                    <ul class="footer-links-list">
+                        <li><a href="#" style="color: #d89b34; font-weight: bold; font-size: 16px;">NovaEntomo</a></li>
+                    </ul>
+                </div>
+
+                <!-- ستوونی چوارەم: زانیاری پلاتفۆڕم و لۆگۆ -->
+                <div class="footer-col">
+                    <h3 class="col-title" id="f-title-info">زانیاری پلاتفۆڕم</h3>
+                    <ul class="footer-info-details">
+                        <li><span>بەش :</span> بایۆلۆجی</li>
+                        <li><span>کۆلێژ :</span> زانست</li>
+                        <li><span>زانکۆ :</span> زانکۆی ڕاپەڕین</li>
+                        <li><span>بابەت :</span> مێرووناسی</li>
+                        <li><span>ساڵ :</span> ٢٠٢٦ - ٢٠٢٧</li>
+                        <li><span>زمان :</span> کوردی - عربی - English</li>
+                    </ul>
+                    <div style="margin-top: 15px; border: 1px dashed rgba(255,255,255,0.2); padding: 15px; text-align: center; border-radius: 6px;">
+                        <span style="font-size: 12px; opacity: 0.6; display:block;" id="f-bionova">ئەم پلاتفۆرمە گەشەی پێدراوە لە لایەن تیمی BioNova</span>
+                        <span style="font-size: 11px; opacity: 0.4; display:block; margin-top: 5px;">University of Raparin Logo</span>
+                    </div>
+                </div>
+
             </div>
-            <div class="footer-visitor-box">
-                <i class="ph ph-eye"></i>
-                <span><span id="f-vtext">بینەری گشتی:</span> <b id="visitor-count">0</b></span>
+
+            <!-- بەشی مافەکانی ژێرەوە -->
+            <div class="footer-bottom">
+                <p class="copyright" id="f-copy">سەرجەم مافەکانی پارێزراوە 2026 &copy; NovaEntomo</p>
+                <p class="developer-credit" style="opacity: 0.6; font-size: 13px;">ڕێکخەری زانستی و گەشەپێدەری وێب: ژیاو یوسف حسین</p>
             </div>
-            <p class="copyright" id="f-copy">سەرجەم مافەکانی پارێزراوە 2026 &copy; NovaEntomo</p>
         </div>
     </footer>
 
@@ -951,7 +1162,7 @@
                 fP1: "پلاتفۆڕمی زانستی مێرووناسی",
                 fP2: "بەشی بایۆلۆجی - کۆلێژی زانست - زانکۆی ڕاپەڕین",
                 fBio: "ئەم پلاتفۆرمە گەشەی پێدراوە لە لایەن تیمی BioNova",
-                fVtext: "بینەری گشتی :",
+                fVtext: "بینەری پلاتفۆڕم :",
                 fCopy: "سەرجەم مافەکانی پارێزراوە 2026 &copy; NovaEntomo",
                 readMore: "زیاتر بخوێنەوە...",
                 viewBtn: "بینین",
@@ -987,7 +1198,7 @@
                 fP1: "Scientific Platform for Entomology",
                 fP2: "Department of Biology - College of Science - University of Raparin",
                 fBio: "This platform was developed by BioNova Team",
-                fVtext: "Total Views:",
+                fVtext: "Platform Views:",
                 fCopy: "All Rights Reserved 2026 &copy; NovaEntomo",
                 readMore: "Read more...",
                 viewBtn: "View",
@@ -1023,7 +1234,7 @@
                 fP1: "المنصة العلمية لعلم الحشرات",
                 fP2: "قسم الأحياء - كلية العلوم - جامعة رابرين",
                 fBio: "تم تطوير هذه المنصة بواسطة فريق BioNova",
-                fVtext: "إجمالي المشاهدات:",
+                fVtext: "مشاهدات المنصة:",
                 fCopy: "جميع الحقوق محفوظة 2026 &copy; NovaEntomo",
                 readMore: "اقرأ المزيد...",
                 viewBtn: "عرض",
@@ -1112,10 +1323,30 @@
             }
 
             document.getElementById('f-p1').innerText = data.fP1;
-            document.getElementById('f-p2').innerText = data.fP2;
             document.getElementById('f-bionova').innerText = data.fBio;
             document.getElementById('f-vtext').innerText = data.fVtext;
             document.getElementById('f-copy').innerHTML = data.fCopy;
+
+            // وەرگێڕانی تایتڵەکانی ناو فووتەر
+            if(lang === 'en') {
+                document.getElementById('f-title-main').innerText = "Platform";
+                document.getElementById('f-title-sections').innerText = "Platform Chapters";
+                document.getElementById('f-title-links').innerText = "Other Links";
+                document.getElementById('f-title-info').innerText = "Platform Info";
+                document.getElementById('f-p-desc').innerText = data.desc;
+            } else if(lang === 'ar') {
+                document.getElementById('f-title-main').innerText = "المنصة";
+                document.getElementById('f-title-sections').innerText = "أقسام المنصة";
+                document.getElementById('f-title-links').innerText = "روابط أخرى";
+                document.getElementById('f-title-info').innerText = "معلومات المنصة";
+                document.getElementById('f-p-desc').innerText = data.desc;
+            } else {
+                document.getElementById('f-title-main').innerText = "پلاتفۆڕم";
+                document.getElementById('f-title-sections').innerText = "بەشەکانی پلاتفۆڕم";
+                document.getElementById('f-title-links').innerText = "لینکەکانی تری پلاتفۆڕم";
+                document.getElementById('f-title-info').innerText = "زانیاری پلاتفۆڕم";
+                document.getElementById('f-p-desc').innerText = data.desc;
+            }
 
             if (chaptersContainer) {
                 chaptersContainer.innerHTML = '';
