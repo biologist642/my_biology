@@ -60,6 +60,74 @@
         }
 
         /* ==========================================================================
+           ستایلی شەیپی نوێی پێشەکی (Banner Section)
+           ========================================================================== */
+        .intro-banner-section {
+            width: 100%;
+            max-width: 1400px;
+            margin: 40px auto 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .intro-banner-card {
+            position: relative;
+            width: 100%;
+            background: linear-gradient(135deg, var(--bg-card), rgba(139, 69, 19, 0.03));
+            border: 1px solid var(--card-border);
+            border-right: 5px solid var(--accent-color); /* هێڵێکی جوانی ڕەنگی سەرەکی لای ڕاست */
+            border-radius: 18px;
+            padding: 25px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+        }
+
+        /* گونجاندنی ئۆتۆماتیکی لای هێڵەکە بۆ زمانی ئینگلیزی (چەپ) */
+        html[dir="ltr"] .intro-banner-card {
+            border-right: 1px solid var(--card-border);
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .banner-decor-circle {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 80px;
+            height: 80px;
+            background: var(--accent-color);
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+
+        .banner-text-highlight {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            text-align: justify;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* گونجاندن بۆ مۆبایل */
+        @media (max-width: 768px) {
+            .intro-banner-section {
+                padding: 0 20px;
+                margin: 25px auto 0 auto;
+            }
+            .intro-banner-card {
+                padding: 20px;
+                border-radius: 14px;
+            }
+            .banner-text-highlight {
+                font-size: 14px;
+                line-height: 1.7;
+                text-align: center; /* بۆ مۆبایل ناوەڕاست بێت جوانترە */
+            }
+        }
+
+        /* ==========================================================================
            2. ناڤبار و مۆشنی پەپوولەکان
            ========================================================================== */
         .navbar {
@@ -409,13 +477,13 @@
         @media (max-width: 992px) {
             .hero-layout-container { 
                 grid-template-columns: 1fr; 
-                gap: 20px; /* کەمکردنەوەی مەودای نێوان ناوەڕۆکەکان */
+                gap: 20px; 
                 display: flex;
                 flex-direction: column;
                 align-items: center;
             }
             .hero-section-wrapper {
-                padding: 90px 20px 40px 20px; /* کەمکردنەوەی بۆشایی سەرەوە و خوارەوەی هێرۆ */
+                padding: 90px 20px 40px 20px; 
                 min-height: auto;
             }
             .hero-bg-shape-curve { width: 100%; height: 400px; top: 20%; left: 50%; transform: translateX(-50%); }
@@ -434,7 +502,6 @@
                 font-size: 14px;
             }
 
-            /* بچووککردنەوەی گونجاوی بازنەی پەپوولە و مێرووەکە بۆ جێگۆڕکێی باشتر */
             .art-circle-large { width: 250px; height: 250px; }
             .art-circle-large .hero-butterfly-icon { font-size: 110px; }
             .art-circle-small { width: 75px; height: 75px; right: 0; bottom: 0; border-width: 3px; }
@@ -449,7 +516,6 @@
         @media (max-width: 768px) {
             .navbar { padding: 0 10px; height: 65px; display: flex; justify-content: space-between; }
             
-            /* هێشتنەوەی لۆگۆ بە دیاری بە کەمکردنەوەی مەوداکان */
             .logo h2 { font-size: 15px; display: block !important; }
             .logo-icon { font-size: 22px; }
             .nav-right-group { gap: 8px; }
@@ -471,13 +537,12 @@
             .slider:before { height: 14px; width: 14px; left: 3px; bottom: 3px; }
             input:checked + .slider:before { transform: translateX(18px); }
             
-            /* سیستەمی نوێی سێرچ بار بۆ مۆبایل */
             .search-container-inline { position: static; }
             .search-container-inline.active .search-input-inline {
                 width: 100%;
                 left: 0;
                 right: 0;
-                top: 65px; /* ڕێک لە ژێر ناڤبارەکە دەبێتەوە */
+                top: 65px; 
                 height: 48px;
                 position: fixed;
                 border-radius: 0; 
@@ -495,7 +560,6 @@
         }
         
         @media (max-width: 430px) {
-            /* پاراستنی لۆگۆ لە شاشە زۆر بچووکەکانیشدا لە ڕێگەی کەمکردنەوەی فۆنت */
             .logo h2 { font-size: 13px; }
             .logo-icon { font-size: 18px; }
             .controls { gap: 3px; }
@@ -543,6 +607,7 @@
         </div>
     </header>
 
+    <!-- 1. سەکشنی هێرۆ -->
     <section class="hero-section-wrapper">
         <div class="hero-bg-shape-curve"></div>
         
@@ -575,7 +640,19 @@
         </div>
     </section>
 
-    <!-- لێرەوە کۆدی بەشەکانی تر و سکریپتەکە وەک خۆی کار دەکات بەبێ گۆڕانکاری -->
+    <!-- 2. لێرەدا سەکشنی نوێی پێشەکی (Banner Section)مان دانا لە نێوان هێرۆ و چاپتەرەکاندا -->
+    <section class="intro-banner-section">
+        <div class="intro-banner-card">
+            <div class="banner-decor-circle"></div>
+            <p class="banner-text-highlight">
+                لێرەوە گەشتە زانستییەکەت لە جیهانی سەرنجڕاکێش و فرەچەشنی مێرووناسیدا دەست پێبکە. 
+                ئێمە دەروازەیەکت بۆ دەکەینەوە بۆ ناسینی قۆناغەکانی گەشە, پۆلێنکردنی زانستی, و نهێنییەکانی ژیانی ئەم زیندەوەرە وردانە. 
+                لە ڕێگەی ئەم بەشانەوە, دەتوانیت بە شێوازێکی مۆدێرن و ئاسان دەستت بگات بە فەرهەنگێکی دەوڵەمەند و زانیاریی سەردەمیانە. 
+                ئامانجی ئەم پلاتفۆرمە قووڵترکردنەوەی تێگەیشتنی تۆیە لە زانستی بایۆلۆجی و پێشاندانی جوانی و گرنگیی ژینگەی دەوروبەرمان.
+            </p>
+        </div>
+    </section>
+
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <h3>Nova<span>Menu</span></h3>
@@ -599,6 +676,7 @@
         </ul>
     </aside>
 
+    <!-- 3. سەکشنی چاپتەرەکان -->
     <section class="chapters-section" id="chapters">
         <h2 class="section-title" id="section-platform-title">بەشەکانی <span>پلاتفۆرم</span></h2>
         <div class="chapters-grid" id="chapters-container"></div>
@@ -631,7 +709,6 @@
     </footer>
 
     <script>
-        // هەمان سکریپتی وەرگێڕان و کارکردنی لۆجیکەکەیە بەبێ گۆڕانکاری
         const translations = {
             ku: {
                 title: "NovaEntomo <span id='hero-title-sub'>زانستی درەوشاوەی مێرووناسی</span>",
@@ -786,7 +863,7 @@
                 if(btn.getAttribute('data-lang') === lang) {
                     btn.classList.add('active');
                 } else {
-                    btn.classList.remove('active');
+                    btn.classList.remove('remove');
                 }
             });
 
