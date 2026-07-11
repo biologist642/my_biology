@@ -666,35 +666,18 @@
         }
 
         /* ==========================================================================
-           6. فووتەری چوار ستوونی (نوێکراوە بەپێی وێنەکە)
+           6. فووتەری چوار ستوونی (نوێکراوە بەپێی داواکارییەکان)
            ========================================================================== */
         .footer-section { 
             position: relative; 
-            background: #1b331e; /* ڕەنگی سەوزی کێوی نێو وێنەکە */
-            padding-top: 120px; 
+            background: #251812; /* ڕەنگی قاوەیی تۆخ */
+            padding-top: 40px;  /* کەمکردنەوەی بۆشایی سەرەوە */
             padding-bottom: 20px; 
             color: #ffffff; 
-            margin-top: 100px; 
+            margin-top: 60px; 
             overflow: hidden; 
             text-align: right; 
-        }
-        
-        .waves-container { 
-            position: absolute; 
-            top: -1px; 
-            left: 0; 
-            width: 100%; 
-            height: 110px; 
-            transform: rotate(180deg); 
-            z-index: 1;
-        }
-        .parallax > use { animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite; }
-        .parallax > use:nth-child(1) { fill: var(--bg-main); opacity: 0.7; }
-        .parallax > use:nth-child(4) { fill: var(--bg-main); }
-
-        @keyframes move-forever {
-            0% { transform: translate3d(-90px,0,0); }
-            100% { transform: translate3d(85px,0,0); }
+            border-top: 3px solid #d27d2d; /* خەتی ڕێکی برۆنزی سەرەوە */
         }
 
         .footer-content { 
@@ -708,9 +691,9 @@
         .footer-grid {
             display: grid;
             grid-template-columns: 1.2fr 1fr 1fr 1fr; 
-            gap: 40px;
+            gap: 30px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 40px;
+            padding-bottom: 30px; /* کەمکردنەوەی بۆشایی ژێرەوە */
         }
 
         html[dir="rtl"] .footer-grid {
@@ -728,12 +711,12 @@
         }
 
         .col-title {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 700;
-            color: #d89b34; /* ڕەنگی نووسینە زەردەکان */
-            margin-bottom: 20px;
+            color: #d27d2d; /* ڕەنگی برۆنزی ئاڵتونی نوێ بۆ نووسینەکان */
+            margin-bottom: 15px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
         .col-title::after {
             content: '';
@@ -742,7 +725,7 @@
             right: 0;
             width: 40px;
             height: 2px;
-            background-color: #d89b34;
+            background-color: #d27d2d;
         }
         html[dir="ltr"] .col-title::after {
             right: auto;
@@ -750,77 +733,99 @@
         }
 
         .col-sub-brand {
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 700;
             margin-bottom: 5px;
             color: #ffffff;
         }
         .col-desc {
-            font-size: 14px;
-            color: #d89b34;
-            margin-bottom: 15px;
+            font-size: 13px;
+            color: #d27d2d;
+            margin-bottom: 12px;
             font-weight: 600;
         }
         .col-text-p {
-            font-size: 13.5px;
-            line-height: 1.8;
+            font-size: 13px;
+            line-height: 1.7;
             opacity: 0.8;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: justify;
         }
 
         .footer-visitor-box {
             display: inline-flex; 
             align-items: center; 
-            gap: 10px; 
-            background: #112413; 
-            padding: 10px 20px; 
+            gap: 8px; 
+            background: #140d0a; 
+            padding: 8px 16px; 
             border-radius: 8px; 
-            font-size: 14px; 
+            font-size: 13px; 
             color: #ffffff; 
-            border: 1px solid #1e4622;
+            border: 1px solid #332018;
             align-self: flex-start;
         }
         .footer-visitor-box b {
-            background: #1a7431;
-            padding: 2px 10px;
+            background: #8B4513;
+            padding: 2px 8px;
             border-radius: 4px;
             margin-right: 5px;
         }
 
+        /* بەشی ستوونی دووەم: کەمکردنەوەی بۆشایی نێوان دێڕەکان */
         .footer-links-list {
             list-style: none;
         }
         .footer-links-list li {
-            margin-bottom: 10px;
+            margin-bottom: 5px; /* بۆشایی تەسکتری نێوان دێڕەکان */
         }
         .footer-links-list a {
             color: #ffffff;
             opacity: 0.8;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13.5px;
             transition: all 0.3s ease;
             display: inline-block;
+            line-height: 1.4;
         }
         .footer-links-list a:hover {
             opacity: 1;
-            color: #d89b34;
-            transform: translateX(-5px);
+            color: #d27d2d;
+            transform: translateX(-4px);
         }
         html[dir="ltr"] .footer-links-list a:hover {
-            transform: translateX(5px);
+            transform: translateX(4px);
         }
 
+        /* مۆشن و ستایلی تایبەتی لینکەکەی NovaPlant */
+        .novaplant-link {
+            color: #d27d2d !important;
+            font-weight: bold;
+            font-size: 17px;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            text-shadow: 0 0 10px rgba(210, 125, 45, 0.2);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        }
+        .novaplant-link:hover {
+            color: #ffffff !important;
+            transform: scale(1.1) translateY(-2px) !important;
+            text-shadow: 0 0 15px rgba(210, 125, 45, 0.6);
+        }
+
+        /* بەشی ستوونی چوارەم: کەمکردنەوەی بۆشایی نێوان دێڕەکان */
         .footer-info-details {
             list-style: none;
         }
         .footer-info-details li {
-            font-size: 14px;
-            margin-bottom: 10px;
+            font-size: 13.5px;
+            margin-bottom: 6px; /* بۆشایی تەسکتری نێوان دێڕەکان */
             opacity: 0.9;
+            line-height: 1.4;
         }
         .footer-info-details li span {
-            color: #d89b34;
+            color: #d27d2d;
             font-weight: 600;
             margin-left: 5px;
         }
@@ -829,8 +834,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 20px;
-            font-size: 13.5px;
+            padding-top: 15px;
+            font-size: 13px;
         }
         .copyright {
             border: none;
@@ -884,7 +889,7 @@
 
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
+                gap: 25px;
             }
             .footer-bottom {
                 flex-direction: column;
@@ -1054,7 +1059,7 @@
             <li><a href="#ch8"><i class="ph ph-book-open"></i><span id="sb-ch8">٨. مێرووناسی پزیشکی</span></a></li>
             <li><a href="#ch9"><i class="ph ph-book-open"></i><span id="sb-ch9">٩. تەکنەلۆجیا و مێرووناسی</span></a></li>
             <li><a href="#ch10"><i class="ph ph-book-open"></i><span id="sb-ch10">١٠. تەکنیکە تاقیگەییەکان</span></a></li>
-            <li><a href="#ch11"><i class="ph ph-book-open"></i><span id="sb-ch11">١١. ڕوونکردنەوەی ڤیدیۆی</span></a></li>
+            <li><a href="#ch11"><i class="ph ph-book-open"></i><span id="sb-ch11">١١. ڕوونکردنه وەی ڤیدیۆی</span></a></li>
             <li><a href="#ch12"><i class="ph ph-book-open"></i><span id="sb-ch12">١٢. کویز و تاقیکردنەوە</span></a></li>
         </ul>
     </aside>
@@ -1067,18 +1072,8 @@
         <div class="chapters-grid" id="chapters-container"></div>
     </section>
 
-    <!-- لێرەوە بەشی فووتەری چوار ستوونی نوێ دەستپێدەکات -->
+    <!-- لێرەوە بەشی فووتەری چوار ستوونی قاوەیی و مۆدێرن دەستپێدەکات -->
     <footer class="footer-section">
-        <div class="waves-container">
-            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18s58 18 88 18 v44h-352z" /></defs>
-                <g class="parallax">
-                    <use xlink:href="#gentle-wave" x="48" y="0" />
-                    <use xlink:href="#gentle-wave" x="48" y="7" />
-                </g>
-            </svg>
-        </div>
-
         <div class="footer-content">
             <div class="footer-grid">
                 
@@ -1094,7 +1089,7 @@
                     </div>
                 </div>
 
-                <!-- ستوونی دووەم: بەشەکانی پلاتفۆرم -->
+                <!-- ستوونی دووەم: بەشەکانی پلاتفۆرم (بۆشایی تەسکتراوە) -->
                 <div class="footer-col">
                     <h3 class="col-title" id="f-title-sections">بەشەکانی پلاتفۆڕم</h3>
                     <ul class="footer-links-list">
@@ -1113,15 +1108,19 @@
                     </ul>
                 </div>
 
-                <!-- ستوونی سێیەم: لینکەکانی تر -->
+                <!-- ستوونی سێیەم: NovaPlant بە دیزاین و مۆشنەوە -->
                 <div class="footer-col">
                     <h3 class="col-title" id="f-title-links">لینکەکانی تری پلاتفۆڕم</h3>
                     <ul class="footer-links-list">
-                        <li><a href="#" style="color: #d89b34; font-weight: bold; font-size: 16px;">NovaEntomo</a></li>
+                        <li>
+                            <a href="https://biologist642.github.io/nova-plant/" target="_blank" class="novaplant-link">
+                                <i class="ph ph-plant" style="font-size: 18px;"></i> NovaPlant
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
-                <!-- ستوونی چوارەم: زانیاری پلاتفۆڕم و لۆگۆ -->
+                <!-- ستوونی چوارەم: زانیاری پلاتفۆڕم و لۆگۆ (بۆشایی تەسکتراوە) -->
                 <div class="footer-col">
                     <h3 class="col-title" id="f-title-info">زانیاری پلاتفۆڕم</h3>
                     <ul class="footer-info-details">
@@ -1132,9 +1131,9 @@
                         <li><span>ساڵ :</span> ٢٠٢٦ - ٢٠٢٧</li>
                         <li><span>زمان :</span> کوردی - عربی - English</li>
                     </ul>
-                    <div style="margin-top: 15px; border: 1px dashed rgba(255,255,255,0.2); padding: 15px; text-align: center; border-radius: 6px;">
-                        <span style="font-size: 12px; opacity: 0.6; display:block;" id="f-bionova">ئەم پلاتفۆرمە گەشەی پێدراوە لە لایەن تیمی BioNova</span>
-                        <span style="font-size: 11px; opacity: 0.4; display:block; margin-top: 5px;">University of Raparin Logo</span>
+                    <div style="margin-top: 10px; border: 1px dashed rgba(255,255,255,0.15); padding: 10px; text-align: center; border-radius: 6px;">
+                        <span style="font-size: 11px; opacity: 0.6; display:block;" id="f-bionova">ئەم پلاتفۆرمە گەشەی پێدراوە لە لایەن تیمی BioNova</span>
+                        <span style="font-size: 10px; opacity: 0.4; display:block; margin-top: 4px;">University of Raparin Logo</span>
                     </div>
                 </div>
 
@@ -1143,7 +1142,7 @@
             <!-- بەشی مافەکانی ژێرەوە -->
             <div class="footer-bottom">
                 <p class="copyright" id="f-copy">سەرجەم مافەکانی پارێزراوە 2026 &copy; NovaEntomo</p>
-                <p class="developer-credit" style="opacity: 0.6; font-size: 13px;">ڕێکخەری زانستی و گەشەپێدەری وێب: ژیاو یوسف حسین</p>
+                <p class="developer-credit" style="opacity: 0.6; font-size: 12px;">ڕێکخەری زانستی و گەشەپێدەری وێب: ژیاو یوسف حسین</p>
             </div>
         </div>
     </footer>
@@ -1154,13 +1153,12 @@
                 title: "NovaEntomo <span id='hero-title-sub'>زانستی درەوشاوەی مێرووناسی</span>",
                 desc: "پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران, مامۆستایان, توێژەران و جوتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.",
                 btnText: "دەستپێکردنی گەشتەکە",
-                bannerText: "لێرەوە گەشتە زانستییەکەت لە جیهانی سەرنجڕاکێش و فرەچەشنی مێرووناسیدا دەست پێبکە. ئێمە دەروازەیەکت بۆ دەکەینەوە بۆ ناسینی قۆناغەکانی گەشە, پۆلێنکردنی زانستی, و نهێنییەکانی ژیانی ئەم زیندەوەرە وردانە. لە ڕێگەی ئەم بەشانەوە, دەتوانیت بە شێوازێکی مۆدێرن و ئاسان دەستت بگات بە فەرهەنگێکی دەوڵەمەند و زانیاریی سەردەمیانە. ئامانجی ئەم پلاتفۆرمە قووڵترکردنەوەی تێگەیشتنی تۆیە لە زانستی بایۆلۆجی و پێشاندانی جوانی و گرنگیی ژینگەی دەوروبەرمان.",
+                bannerText: "لێرەوە گەشتە زانستییەکەت لە جیهانی سەرنجڕاکێش و فرەچەشنی مێرووناسیدا دەست پێبکە. ئێمە دەروازەیەکت بۆ دەکەینەوە بۆ ناسینی قۆناغەکانی گەش, پۆلێنکردنی زانستی, و نهێنییەکانی ژیانی ئەم زیندەوەرە وردانە. لە ڕێگەی ئەم بەشانەوە, دەتوانیت بە شێوازێکی مۆدێرن و ئاسان دەستت بگات بە فەرهەنگێکی دەوڵەمەند و زانیاریی سەردەمیانە. ئامانجی ئەم پلاتفۆرمە قووڵترکردنەوەی تێگەیشتنی تۆیە لە زانستی بایۆلۆجی و پێشاندانی جوانی و گرنگیی ژینگەی دەوروبەرمان.",
                 sbHome: "سەرەکی",
                 sbTitleCh: "چاپتەرەکان",
                 secTitle: "بەشەکانی <span>پلاتفۆرم</span>",
                 secSubtitle: "لێرەوە بڕوانە ناو کایە جیاوازەکانی زانستی مێرووناسی و بەشەکان",
                 fP1: "پلاتفۆڕمی زانستی مێرووناسی",
-                fP2: "بەشی بایۆلۆجی - کۆلێژی زانست - زانکۆی ڕاپەڕین",
                 fBio: "ئەم پلاتفۆرمە گەشەی پێدراوە لە لایەن تیمی BioNova",
                 fVtext: "بینەری پلاتفۆڕم :",
                 fCopy: "سەرجەم مافەکانی پارێزراوە 2026 &copy; NovaEntomo",
@@ -1182,7 +1180,7 @@
                     { title: "مێرووناسی پزیشکی", desc: "خوێندنەوەی مێرووە گواستەرەوەکانی نەخۆشی بۆ مرۆڤ و زیندەوەران." },
                     { title: "تەکنەلۆجیا و مێرووناسی", desc: "بەکارهێنانی زیرەکی دەستکرد و تەکنەلۆجیا لە مێرووناسیدا." },
                     { title: "تەکنیکە تاقیگەییەکان", desc: "شیکردنەوەی تاقیگەیی ورد بۆ ناسینەوەی مێرووە جیاوازەکان." },
-                    { title: "ڕوونکردنەوەی ڤیدیۆی", desc: "مایکرۆسکۆپی دیجیتاڵی و پشکنینی پراکتیکی لەناو تاقیگە بە ڤیدیۆ." },
+                    { title: "ڕوونکردنه وەی ڤیدیۆی", desc: "مایکرۆسکۆپی دیجیتاڵی و پشکنینی پراکتیکی لەناو تاقیگە بە ڤیدیۆ." },
                     { title: "کویز و تاقیکردنەوە", desc: "خۆت هەڵسەنگێنە لە ڕێگەی پرسیار و وەڵامی زانستی مێرووناسی." }
                 ]
             },
@@ -1196,7 +1194,6 @@
                 secTitle: "Platform <span>Chapters</span>",
                 secSubtitle: "Look into the different fields and chapters of Entomology science from here",
                 fP1: "Scientific Platform for Entomology",
-                fP2: "Department of Biology - College of Science - University of Raparin",
                 fBio: "This platform was developed by BioNova Team",
                 fVtext: "Platform Views:",
                 fCopy: "All Rights Reserved 2026 &copy; NovaEntomo",
@@ -1232,7 +1229,6 @@
                 secTitle: "أقسام <span>المنصة</span>",
                 secSubtitle: "انظر إلى الحقول والأقسام المختلفة لعلم الحشرات من هنا",
                 fP1: "المنصة العلمية لعلم الحشرات",
-                fP2: "قسم الأحياء - كلية العلوم - جامعة رابرين",
                 fBio: "تم تطوير هذه المنصة بواسطة فريق BioNova",
                 fVtext: "مشاهدات المنصة:",
                 fCopy: "جميع الحقوق محفوظة 2026 &copy; NovaEntomo",
@@ -1327,7 +1323,6 @@
             document.getElementById('f-vtext').innerText = data.fVtext;
             document.getElementById('f-copy').innerHTML = data.fCopy;
 
-            // وەرگێڕانی تایتڵەکانی ناو فووتەر
             if(lang === 'en') {
                 document.getElementById('f-title-main').innerText = "Platform";
                 document.getElementById('f-title-sections').innerText = "Platform Chapters";
