@@ -70,7 +70,7 @@
         }
 
 /* ==========================================================================
-   ستایلی بۆکسی پێشەکی لەگەڵ چوارچێوەی ئەستوورتر و مۆشنی خولانەوە لەسەر هۆڤەر
+   ستایلی چاککراو: خەتەکە ون نابێت و بە جوانی دەقڵیشێت/دەسوڕێتەوە
    ========================================================================== */
    .intro-banner-section {
     width: 100%;
@@ -100,12 +100,13 @@
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     z-index: 1;
-    /* هێڵەکەت لێرەدا پانتر کراوە بۆ 3.5 ئۆتۆماتیکی */
-    border: 3.5px solid var(--banner-border); 
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    
+    /* لێرەدا چوارچێوەکە هەمیشە جێگیرە و پاناییەکەی 4px و ون نابێت */
+    border: 4px solid var(--banner-border); 
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
-/* دروستکردنی کارتێک لە پشتەوە بۆ هێز پێدانی مۆشنی خولانەوەکە */
+/* دروستکردنی چینێکی جوڵاو لە پشت هێڵەکە کە کاتی هۆڤەر دەسوڕێتەوە */
 .intro-banner-card::before {
     content: '';
     position: absolute;
@@ -113,46 +114,53 @@
     left: -150%;
     width: 400%;
     height: 400%;
-    /* ڕەنگی ئەو لایت و هێڵەی کە دەخولێتەوە */
-    background: conic-gradient(from 0deg, var(--banner-border), var(--accent-color), var(--banner-border));
+    /* تێکەڵاوکردنی ڕەنگی قاوەیی بنەڕەتی لەگەڵ تۆنێکی گەش بۆ دروستکردنی جووڵە */
+    background: conic-gradient(
+        from 0deg, 
+        var(--banner-border) 0%, 
+        var(--accent-color) 25%, 
+        var(--banner-border) 50%, 
+        #d27d2d 75%, 
+        var(--banner-border) 100%
+    );
     z-index: -2;
     opacity: 0;
     transition: opacity 0.4s ease;
 }
 
-/* ماسکێک بۆ پاراستنی ڕەنگی ناوەوەی بۆکسەکە لە کاتی خولانەوەدا */
+/* پاراستنی ڕەنگی ناوەوەی بۆکسەکە */
 .intro-banner-card::after {
     content: '';
     position: absolute;
-    inset: 0;
+    /* بەکار‌هێنانی -4px بۆ ئەوەی ڕێک بچێتە سەر لێواری ناوەوەی چوارچێوەکە */
+    inset: -1px; 
     background: var(--banner-bg);
     z-index: -1;
     border-radius: 14px;
-    transition: background-color 0.4s ease;
 }
 
 /* کاتێک ماوس دەچێتە سەر بۆکسەکە */
 .intro-banner-card:hover {
-    border-color: transparent; /* لادانی هێڵە نەگۆڕەکە بۆ دەرکەوتنی هێڵە جوڵاوەکە */
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(139, 69, 19, 0.15);
+    box-shadow: 0 15px 35px rgba(139, 69, 19, 0.18);
+    /* گۆڕینی ڕەنگی چوارچێوە ئەسڵییەکە بۆ ڕووناکی تا مۆشنی پشتەوەی بە ڕوونی لێوە دیار بێت */
+    border-color: rgba(139, 69, 19, 0.3); 
 }
 
 .intro-banner-card:hover::before {
     opacity: 1;
-    animation: rotateBorder 3s linear infinite; /* چالاککردنی مۆشنی خولانەوەکە */
+    animation: rotateBorder 2.5s linear infinite; /* خولانەوەی ڕەنگەکان لە ناو خودی هێڵەکەدا */
 }
 
-/* ئەنیمەیشنی خولانەوەی چوارچێوەکە بە ٣٦٠ پلە */
 @keyframes rotateBorder {
     100% {
         transform: rotate(360deg);
     }
 }
 
-/* لابرادنی کۆدەکانی پێشوو کە کێشەی زمان دروست دەکەن */
+/* پاککردنەوەی کارتەکە بۆ زمانەکانی تر */
 html[dir="ltr"] .intro-banner-card {
-    border: 3.5px solid var(--banner-border);
+    border: 4px solid var(--banner-border);
 }
 
         .banner-decor-circle {
