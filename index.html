@@ -474,10 +474,10 @@ html[dir="ltr"] .intro-banner-card {
         .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); z-index: 1999; display: none; }
         .sidebar-overlay.show { display: block; }
 
- /* ==========================================================================
-   5. کارتەکان و بەشەکان (یەکخراو لەگەڵ مۆشنی خولانەوەی چوارچێوە)
+/* ==========================================================================
+   5. کارتەکان و بەشەکان (چاککراو: مۆشنی خولانەوەی ڕاستەقینەی خەتەکە لەسەر هۆڤەر)
    ========================================================================== */
-.chapters-section { 
+   .chapters-section { 
     padding: 80px 40px; 
     max-width: 1400px; 
     margin: 0 auto; 
@@ -518,12 +518,12 @@ html[dir="ltr"] .intro-banner-card {
     animation: cardScrollIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     z-index: 1;
 
-    /* چوارچێوەی جێگیری 4px هاوشێوەی بۆکسی پێشەکی */
+    /* چوارچێوەی جێگیری 4px */
     border: 4px solid var(--banner-border); 
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
-/* چینی پشتەوە بۆ دروستکردنی مۆشنی خولانەوە لە کاتی هۆڤەر */
+/* چینی پشتەوە بۆ دروستکردنی ئەنیمەیشنی خولانەوەی ڕەنگەکە */
 .chapter-card::before {
     content: '';
     position: absolute;
@@ -541,14 +541,14 @@ html[dir="ltr"] .intro-banner-card {
     );
     z-index: -2;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.3s ease;
 }
 
-/* پاراستنی پێکهاتەی ناوەوەی کارتەکە */
+/* دروستکردنی لێواری ناوەوە بۆ ئەوەی خەتەکە بە جوانی ڕووناکییەکەی تێدا بسوڕێتەوە */
 .chapter-card::after {
     content: '';
     position: absolute;
-    inset: -1px; 
+    inset: 0; 
     background: transparent; 
     z-index: -1;
     border-radius: 22px;
@@ -558,9 +558,11 @@ html[dir="ltr"] .intro-banner-card {
 .chapter-card:hover {
     transform: translateY(-10px) scale(1.02); 
     box-shadow: 0 25px 50px rgba(139, 69, 19, 0.2); 
-    border-color: rgba(139, 69, 19, 0.3); /* کەمێک ڕوونی خەتەکە دەگۆڕێت بۆ دەرکەوتنی مۆشنەکە */
+    /* لێوارەکە کەمێک ڕوون دەبێتەوە بۆ ئەوەی مۆشنی خولانەوەی پشتەوەی بە تەواوی لێوە دیار بێت */
+    border-color: rgba(139, 69, 19, 0.25); 
 }
 
+/* چالاککردنی ئەنیمەیشنی خولانەوەکە تەنها لە کاتی هۆڤەردا */
 .chapter-card:hover::before {
     opacity: 1;
     animation: rotateBorder 2.5s linear infinite;
@@ -575,7 +577,7 @@ html[dir="ltr"] .intro-banner-card {
     height: 85%; 
     background-size: cover; 
     background-position: center; 
-    z-index: -1; 
+    z-index: -1; /* خراوەتە پشت بۆ ئەوەی ڕێگری لە بینینی مۆشنەکە نەکات */
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
 }
 
@@ -583,7 +585,7 @@ html[dir="ltr"] .intro-banner-card {
     transform: scale(1.05); 
 }
 
-/* باج یان نیشانەی سەر کارتەکە (بۆ نموونە: بەشی ١) */
+/* باج یان نیشانەی سەر کارتەکە */
 .chapter-badge {
     position: absolute; 
     top: 20px; 
@@ -604,7 +606,7 @@ html[dir="ltr"] .chapter-badge {
     right: auto; 
 }
 
-/* بۆکسی زانیاری سپی/تاریکی ناو کارتەکە */
+/* بۆکسی زانیاری خوارەوەی کارتەکە */
 .chapter-info-box {
     position: relative; 
     background: var(--bg-card); 
@@ -672,6 +674,7 @@ html[dir="ltr"] .chapter-badge {
     100% { transform: translateY(-6px); } 
 }
 
+/* ئەنیمەیشنی خولانەوەی ڕووناکی سەر لێوارەکە */
 @keyframes rotateBorder {
     100% { transform: rotate(360deg); }
 }
