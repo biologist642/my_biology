@@ -429,11 +429,6 @@
             animation: softFloat 5s ease-in-out infinite alternate;
         }
 
-        @keyframes softFloat {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(2deg); }
-        }
-
         /* ==========================================================================
            4. سایدبار (Sidebar Navigation)
            ========================================================================== */
@@ -459,7 +454,7 @@
         .sidebar-overlay.show { display: block; }
 
         /* ==========================================================================
-           5. کارتەکان و بەشەکان (ستایلی چاککراو بۆ مۆشنی سندوقە سپییەکان)
+           5. کارتەکان و بەشەکان (نوێکراوەتەوە بەپێی ویستی بەکارهێنەر)
            ========================================================================== */
         .chapters-section { 
             padding: 80px 40px; 
@@ -523,6 +518,7 @@
             transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
         }
 
+        /* بەشی هێڵی چواردەوری کارتەکە کە دەسوڕێتەوە */
         .chapter-card::before {
             content: '';
             position: absolute;
@@ -557,9 +553,10 @@
             border-color: rgba(139, 69, 19, 0.3); 
         }
 
+        /* کاراکردنی سوڕانەوەی هێڵە قاوەییەکەی دەوری کارتەکە لە کاتی هاوەردا */
         .chapter-card:hover::before {
             opacity: 1;
-            animation: rotateBorder 2.5s linear infinite;
+            animation: rotateBorder 3s linear infinite;
         }
 
         .card-img-bg { 
@@ -578,6 +575,7 @@
             transform: scale(1.05);
         }
 
+        /* مۆشنی هێواشی بەردەوامی Up/Down بۆ باجەکە (بەشی ۱، ۲، ٣...) */
         .chapter-badge {
             position: absolute; 
             top: 20px; 
@@ -590,6 +588,7 @@
             font-weight: 700; 
             border-radius: 20px; 
             z-index: 3; 
+            animation: floatUpDownBadge 3s ease-in-out infinite alternate;
         }
 
         html[dir="ltr"] .chapter-badge { 
@@ -597,7 +596,11 @@
             right: auto; 
         }
 
-        /* گەڕانەوەی مۆشنی سندوقە سپییەکان (بەرزبوونەوە کاتێک ماوسیان دەچێتەسەر) */
+        @keyframes floatUpDownBadge {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-6px); }
+        }
+
         .chapter-info-box {
             position: relative; 
             background: var(--bg-card); 
@@ -614,7 +617,7 @@
 
         .chapter-card:hover .chapter-info-box { 
             opacity: 1;
-            transform: translateY(-10px); /* مۆشنی بەرزبوونەوەی سندوقە سپییەکە */
+            transform: translateY(-10px); 
         }
 
         .chapter-info-box h3 { 
@@ -624,10 +627,17 @@
             color: var(--text-primary); 
         }
 
+        /* مۆشنی هێواشی بەردەوامی Up/Down بۆ ناونیشانی ناو سندوقە سپییەکە */
         .chapter-info-box .chapter-card-title { 
             color: var(--accent-color) !important; 
             text-shadow: 0 0 5px rgba(139, 69, 19, 0.2); 
             display: inline-block; 
+            animation: floatUpDownTitle 2.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatUpDownTitle {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-4px); }
         }
 
         .chapter-info-box p { 
