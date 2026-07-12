@@ -665,7 +665,7 @@
         }
 
         /* ==========================================================================
-           6. فووتەری چوار ستوونی (نوێکراوە بەپێی داواکارییەکان)
+           6. فووتەری چوار ستوونی 
            ========================================================================== */
         .footer-section { 
             position: relative; 
@@ -749,7 +749,6 @@
             text-align: justify;
         }
 
-        /* 👁️ مۆشن و دیزاینی پێشکەوتووی بۆکسی بینەری پلاتفۆرم */
         .footer-visitor-box {
             display: inline-flex; 
             align-items: center; 
@@ -793,7 +792,6 @@
             50% { transform: scale(1.15); opacity: 1; text-shadow: 0 0 8px #d27d2d; }
         }
 
-        /* بەشی ستوونی دووەم: کەمکردنەوەی بۆشایی و زیادکردنی بازنە */
         .footer-links-list {
             list-style: none;
         }
@@ -804,7 +802,6 @@
             gap: 10px;
         }
         
-        /* 🔵 دیزاینی بازنە بچووکەکە بۆ بەشەکانی ستوونی دووەم */
         .footer-links-list li::before {
             content: '';
             width: 6px;
@@ -844,14 +841,13 @@
             display: flex;
             align-items: center;
         }
-        /* لادانی بازنە تەنها بۆ ستوونی سێیەم */
         .footer-col:nth-child(3) .footer-links-list li::before {
             display: none;
         }
         .novaplant-link {
             color: #d27d2d !important;
             font-weight: 700;
-            font-size: 22px; /* فۆنتی گەورەکراو */
+            font-size: 28px; /* فۆنتی گەورەکراو زیاتر */
             position: relative;
             display: inline-flex;
             align-items: center;
@@ -861,7 +857,7 @@
             padding: 5px 0;
         }
         .novaplant-link i {
-            font-size: 26px;
+            font-size: 32px;
             transition: transform 0.4s ease;
         }
         .novaplant-link:hover {
@@ -871,10 +867,9 @@
         }
         .novaplant-link:hover i {
             transform: rotate(15deg) scale(1.1);
-            color: #22c55e; /* گۆڕانی ڕەنگی گەڵاکە بۆ سەوز لە کاتی هۆڤەردا */
+            color: #22c55e; 
         }
 
-        /* بەشی ستوونی چوارەم */
         .footer-info-details {
             list-style: none;
         }
@@ -894,25 +889,31 @@
             margin-right: 6px;
         }
 
+        /* بەشی خوارەوەی فووتەر - هاوڕەنگکردن و لادانی بۆشایی زیادە */
         .footer-bottom {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding-top: 25px;
+            margin-top: 0;
             font-size: 13.5px;
         }
         .copyright {
             border: none;
             padding: 0;
-            opacity: 0.7;
+            color: #e5d8d2 !important; /* هەمان ڕەنگ */
+            opacity: 0.8;
         }
         .developer-credit-bionova {
             opacity: 0.8;
             font-weight: 600;
-            color: #d27d2d;
+            color: #e5d8d2 !important; /* ڕەنگی هاوبەش */
             display: flex;
             align-items: center;
             gap: 6px;
+        }
+        .developer-credit-bionova span {
+            color: #e5d8d2 !important;
         }
 
         /* ==========================================================================
@@ -1146,7 +1147,7 @@
     </section>
 
     <!-- ==========================================================================
-       6. فووتەری چوار ستوونی قاوەیی و پڕۆفیشناڵ (نوێکراوە)
+       6. فووتەری چوار ستوونی قاوەیی و پڕۆفیشناڵ 
        ========================================================================== -->
     <footer class="footer-section">
         <div class="footer-content">
@@ -1164,26 +1165,15 @@
                     </div>
                 </div>
 
-                <!-- ستوونی دووەم: بەشەکانی پلاتفۆرم (زیادکردنی بازنەی بچووک) -->
+                <!-- ستوونی دووەم: بەشەکانی پلاتفۆرم -->
                 <div class="footer-col">
                     <h3 class="col-title" id="f-title-sections">بەشەکانی پلاتفۆڕم</h3>
-                    <ul class="footer-links-list">
-                        <li><a href="#ch1">زانیاری زیاتر</a></li>
-                        <li><a href="#ch2">فەرهەنگی زاراوەکانی مێرووناسی</a></li>
-                        <li><a href="#ch3">دەستپێکێک بۆ مێرووناسی</a></li>
-                        <li><a href="#ch4">پۆلێنکردن و ناسینەوەی مێرووەکان</a></li>
-                        <li><a href="#ch5">مێرووە بەسوودەکان</a></li>
-                        <li><a href="#ch6">مێرووە زیانبەخشەکان</a></li>
-                        <li><a href="#ch7">ستراتیژیەکانی کۆنتڕۆڵکردن</a></li>
-                        <li><a href="#ch8">مێرووناسی پزیشکی</a></li>
-                        <li><a href="#ch9">تەکنەلۆجیا و مێرووناسی</a></li>
-                        <li><a href="#ch10">تەکنیکە تاقیگەییەکان</a></li>
-                        <li><a href="#ch11">ڕوونکردنه وەی ڤیدیۆیی</a></li>
-                        <li><a href="#ch12">کویز و تاقیکردنەوە</a></li>
+                    <ul class="footer-links-list" id="footer-dynamic-links">
+                        <!-- ئەمانەش داینامیکی دەبن بەپێی زمان لە خوارەوە -->
                     </ul>
                 </div>
 
-                <!-- ستوونی سێیەم: NovaPlant بە فۆنتی گەورە و مۆشنی نایاب -->
+                <!-- ستوونی سێیەم: NovaPlant بە فۆنتی گەورە -->
                 <div class="footer-col">
                     <h3 class="col-title" id="f-title-links">لینکەکانی تری پلاتفۆڕم</h3>
                     <ul class="footer-links-list">
@@ -1195,22 +1185,17 @@
                     </ul>
                 </div>
 
-                <!-- ستوونی چوارەم: زانیاری پلاتفۆڕم (بەشی چوارگۆشە زیادەکە بە تەواوی لابراوە) -->
+                <!-- ستوونی چوارەم: زانیاری پلاتفۆڕم (وەرگێڕدراو) -->
                 <div class="footer-col">
                     <h3 class="col-title" id="f-title-info">زانیاری پلاتفۆڕم</h3>
-                    <ul class="footer-info-details">
-                        <li><span>بەش :</span> بایۆلۆجی</li>
-                        <li><span>کۆلێژ :</span> زانست</li>
-                        <li><span>زانکۆ :</span> زانکۆی ڕاپەڕین</li>
-                        <li><span>بابەت :</span> مێرووناسی</li>
-                        <li><span>ساڵ :</span> ٢٠٢٦ - ٢٠٢٧</li>
-                        <li><span>زمان :</span> کوردی - عربی - English</li>
+                    <ul class="footer-info-details" id="footer-info-list">
+                        <!-- لێرە بەپێی زمان بەکری دێت -->
                     </ul>
                 </div>
 
             </div>
 
-            <!-- بەشی خوارەوەی فووتەر: مافەکان و ناوی BioNova -->
+            <!-- بەشی خوارەوەی فووتەر: هاوڕەنگکراو و بێ بۆشایی زیادە -->
             <div class="footer-bottom">
                 <p class="copyright" id="f-copy">سەرجەم مافەکانی پارێزراوە 2026 &copy; NovaEntomo</p>
                 <div class="developer-credit-bionova" id="f-bionova-credit">
@@ -1243,6 +1228,8 @@
                 dark: "تاریک",
                 badgeText: "بەشی",
                 searchPlaceholder: "گەڕان...",
+                infoLabels: ["بەش :", "کۆلێژ :", "زانکۆ :", "بابەت :", "ساڵ :", "زمان :"],
+                infoValues: ["بایۆلۆجی", "زانست", "زانکۆی ڕاپەڕین", "مێرووناسی", "٢٠٢٦ - ٢٠٢٧", "کوردی - عربی - English"],
                 chapters: [
                     { title: "زانیاری زیاتر", desc: "پێشەکی و ئامانب و دەربارەی تیم و زانیاری زیاتر." },
                     { title: "فەرهەنگی مێرووناسی", desc: "فەرهەنگۆک و زاراوە زانستییەکانی تایبەت بە مێرووناسی." },
@@ -1278,6 +1265,8 @@
                 dark: "Dark",
                 badgeText: "Chapter",
                 searchPlaceholder: "Search...",
+                infoLabels: ["Department:", "College:", "University:", "Subject:", "Year:", "Language:"],
+                infoValues: ["Biology", "Science", "University of Raparin", "Entomology", "2026 - 2027", "Kurdish - Arabic - English"],
                 chapters: [
                     { title: "Extra Information", desc: "Introduction, objectives, about the team and more information." },
                     { title: "Entomology Dictionary", desc: "Scientific dictionary and terminologies for entomology." },
@@ -1313,8 +1302,10 @@
                 dark: "مظلم",
                 badgeText: "الفصل",
                 searchPlaceholder: "بحث...",
+                infoLabels: ["القسم:", "الكلية:", "الجامعة:", "المادة:", "السنة:", "اللغة:"],
+                infoValues: ["علم الأحياء", "العلوم", "جامعة رابرين", "علم الحشرات", "2026 - 2027", "الكردية - العربية - الإنجليزية"],
                 chapters: [
-                    { title: "معلومات إضافية", desc: "مقدمة وأهداف وعن الفريق ومزيد من المعلومات الإضافية." },
+                    { title: "معلومات إضافية", desc: "مقدمة وأأهداف وعن الفريق ومزيد من المعلومات الإضافية." },
                     { title: "قاموس علم الحشرات", desc: "المصطلحات والقاموس العلمي الخاص بعلم الحشرات." },
                     { title: "مقدمة في علم الحشرات", desc: "نظرة عامة على عالم الحشرات وهياكلها البيولوجية الأساسية." },
                     { title: "التصنيف والتعرف على الحشرات", desc: "كيفية التمييز والتعرف وتصنيف العائلات المختلفة للحشرات." },
@@ -1397,6 +1388,7 @@
             document.getElementById('f-vtext').innerText = data.fVtext;
             document.getElementById('f-copy').innerHTML = data.fCopy;
 
+            // وەرگێڕانی سەر دێڕی ستوونەکانی فووتەر
             if(lang === 'en') {
                 document.getElementById('f-title-main').innerText = "Platform";
                 document.getElementById('f-title-sections').innerText = "Platform Chapters";
@@ -1415,6 +1407,24 @@
                 document.getElementById('f-title-links').innerText = "لینکەکانی تری پلاتفۆڕم";
                 document.getElementById('f-title-info').innerText = "زانیاری پلاتفۆڕم";
                 document.getElementById('f-p-desc').innerText = data.desc;
+            }
+
+            // ستوونی دووەم لە فووتەر (بەپێی زمان)
+            const footerLinksContainer = document.getElementById('footer-dynamic-links');
+            if(footerLinksContainer) {
+                footerLinksContainer.innerHTML = '';
+                data.chapters.forEach((ch, index) => {
+                    footerLinksContainer.insertAdjacentHTML('beforeend', `<li><a href="#ch${index+1}">${ch.title}</a></li>`);
+                });
+            }
+
+            // ستوونی چوارەم لە فووتەر (بەپێی زمان)
+            const footerInfoList = document.getElementById('footer-info-list');
+            if(footerInfoList) {
+                footerInfoList.innerHTML = '';
+                data.infoLabels.forEach((label, idx) => {
+                    footerInfoList.insertAdjacentHTML('beforeend', `<li><span>${label}</span> ${data.infoValues[idx]}</li>`);
+                });
             }
 
             if (chaptersContainer) {
