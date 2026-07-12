@@ -836,7 +836,7 @@
             transform: translateX(4px);
         }
 
-        /* 🚀 گەورەکردنی فۆنت و بەهێزکردنی مۆشنی NovaPlant */
+        /* 🚀 گەورەکردنی فۆنت و بەهێزکردنی مۆشنی NovaPlant لەگەڵ بردنە سەرەوەی زیاتر */
         .novaplant-link-wrapper {
             display: flex;
             align-items: center;
@@ -845,25 +845,26 @@
             display: none;
         }
         .novaplant-link {
-    color: #d27d2d !important;
-    font-weight: 700;
-    font-size: 60px; /* فۆنتەکە لێرە زۆر گەورە کراوە */
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    text-shadow: 0 0 15px rgba(210, 125, 45, 0.4);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-    padding: 10px 0;
-}
-.novaplant-link i {
-    font-size: 40px; /* ئایکۆنی ڕووەکەکەش گەورە کراوە */
-    transition: transform 0.4s ease;
-}
+            color: #d27d2d !important;
+            font-weight: 700;
+            font-size: 70px; /* فۆنتەکەی بە تەواوی گەورە کراوە */
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-shadow: 0 0 15px rgba(210, 125, 45, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+            margin-top: -15px; /* بۆ سەرەوەتر بەرزکراوەتەوە */
+            padding: 5px 0;
+        }
+        .novaplant-link i {
+            font-size: 48px; /* ئایکۆنی ڕووەکەکەش گەورەتر کراوە */
+            transition: transform 0.4s ease;
+        }
 
         .novaplant-link:hover {
             color: #ffffff !important;
-            transform: scale(1.12) translateY(-3px) !important;
+            transform: scale(1.1) translateY(-3px) !important;
             text-shadow: 0 0 20px rgba(210, 125, 45, 0.7);
         }
         .novaplant-link:hover i {
@@ -890,6 +891,21 @@
             margin-right: 6px;
         }
 
+        /* 🏛️ ڕێکخستنی شێواز و سێبەری لۆگۆی زانکۆ لە ستوونی چوارەم */
+        .university-logo-footer {
+            max-width: 130px;
+            height: auto;
+            margin-top: 15px;
+            border-radius: 8px;
+            display: block;
+            filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.45)); /* زیادکردنی شەدۆ */
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .university-logo-footer:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0px 12px 20px rgba(210, 125, 45, 0.35));
+        }
+
         /* بەشی خوارەوەی فووتەر - هاوڕەنگکردن و لادانی بۆشایی زیادە */
         .footer-bottom {
             display: flex;
@@ -902,13 +918,13 @@
         .copyright {
             border: none;
             padding: 0;
-            color: #e5d8d2 !important; /* هەمان ڕەنگ */
+            color: #e5d8d2 !important; 
             opacity: 0.8;
         }
         .developer-credit-bionova {
             opacity: 0.8;
             font-weight: 600;
-            color: #e5d8d2 !important; /* ڕەنگی هاوبەش */
+            color: #e5d8d2 !important; 
             display: flex;
             align-items: center;
             gap: 6px;
@@ -1149,7 +1165,7 @@
 
     <!-- ==========================================================================
        6. فووتەری چوار ستوونی قاوەیی و پڕۆفیشناڵ 
-       ========================================================================== -->
+       ========================================================================== */ -->
     <footer class="footer-section">
         <div class="footer-content">
             <div class="footer-grid">
@@ -1174,7 +1190,7 @@
                     </ul>
                 </div>
 
-                <!-- ستوونی سێیەم: NovaPlant بە فۆنتی گەورە -->
+                <!-- ستوونی سێیەم: NovaPlant بە فۆنتی گەورەتر و جێگەی بەرزتر -->
                 <div class="footer-col">
                     <h3 class="col-title" id="f-title-links">لینکەکانی تری پلاتفۆڕم</h3>
                     <ul class="footer-links-list">
@@ -1186,12 +1202,14 @@
                     </ul>
                 </div>
 
-                <!-- ستوونی چوارەم: زانیاری پلاتفۆڕم (وەرگێڕدراو) -->
+                <!-- ستوونی چوارەم: زانیاری پلاتفۆڕم و لۆگۆی زانکۆ بە سێبەر (Shadow) -->
                 <div class="footer-col">
                     <h3 class="col-title" id="f-title-info">زانیاری پلاتفۆڕم</h3>
                     <ul class="footer-info-details" id="footer-info-list">
-                        <!-- لێرە بەپێی زمان بەکری دێت -->
+                        <!-- لێرە بەپێی زمان دادەنرێت -->
                     </ul>
+                    <!-- لۆگۆی زانکۆ بەپێی فایلەکە پێشاندەدرێت -->
+                    <img src="uni.logo" alt="University Logo" class="university-logo-footer">
                 </div>
 
             </div>
@@ -1389,7 +1407,6 @@
             document.getElementById('f-vtext').innerText = data.fVtext;
             document.getElementById('f-copy').innerHTML = data.fCopy;
 
-            // وەرگێڕانی سەر دێڕی ستوونەکانی فووتەر
             if(lang === 'en') {
                 document.getElementById('f-title-main').innerText = "Platform";
                 document.getElementById('f-title-sections').innerText = "Platform Chapters";
@@ -1410,7 +1427,6 @@
                 document.getElementById('f-p-desc').innerText = data.desc;
             }
 
-            // ستوونی دووەم لە فووتەر (بەپێی زمان)
             const footerLinksContainer = document.getElementById('footer-dynamic-links');
             if(footerLinksContainer) {
                 footerLinksContainer.innerHTML = '';
@@ -1419,7 +1435,6 @@
                 });
             }
 
-            // ستوونی چوارەم لە فووتەر (بەپێی زمان)
             const footerInfoList = document.getElementById('footer-info-list');
             if(footerInfoList) {
                 footerInfoList.innerHTML = '';
@@ -1494,9 +1509,8 @@
         overlay.addEventListener('click', () => { sidebar.classList.remove('open'); overlay.classList.remove('show'); });
 
         applyLanguage('ku');
-// ژمارەی بینەر بە جێگیری دەمێنێتەوە و لەگەڵ ڕیفرێش زیاد ناکات
-let totalViews = 1; 
-document.getElementById('visitor-count').innerText = totalViews;
+        let totalViews = 1; 
+        document.getElementById('visitor-count').innerText = totalViews;
     </script>
 </body>
 </html>
