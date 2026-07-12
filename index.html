@@ -837,28 +837,24 @@
         }
 
         /* 🚀 گەورەکردنی فۆنت و بەهێزکردنی مۆشنی NovaPlant لەگەڵ بردنە سەرەوەی زیاتر */
-        .novaplant-link-wrapper {
-            display: flex;
-            align-items: center;
-        }
         .footer-col:nth-child(3) .footer-links-list li::before {
             display: none;
         }
         .novaplant-link {
             color: #d27d2d !important;
             font-weight: 700;
-            font-size: 70px; /* فۆنتەکەی بە تەواوی گەورە کراوە */
+            font-size: 70px; 
             position: relative;
             display: inline-flex;
             align-items: center;
             gap: 12px;
             text-shadow: 0 0 15px rgba(210, 125, 45, 0.4);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-            margin-top: -15px; /* بۆ سەرەوەتر بەرزکراوەتەوە */
+            margin-top: -15px; 
             padding: 5px 0;
         }
         .novaplant-link i {
-            font-size: 48px; /* ئایکۆنی ڕووەکەکەش گەورەتر کراوە */
+            font-size: 48px; 
             transition: transform 0.4s ease;
         }
 
@@ -898,7 +894,7 @@
             margin-top: 15px;
             border-radius: 8px;
             display: block;
-            filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.45)); /* زیادکردنی شەدۆ */
+            filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.5)); 
             transition: transform 0.3s ease, filter 0.3s ease;
         }
         .university-logo-footer:hover {
@@ -1202,14 +1198,12 @@
                     </ul>
                 </div>
 
-                <!-- ستوونی چوارەم: زانیاری پلاتفۆڕم و لۆگۆی زانکۆ بە سێبەر (Shadow) -->
-                <div class="footer-col">
+                <!-- ستوونی چوارەم: زانیاری پلاتفۆڕم و لۆگۆی زانکۆ بە شێوازی جێگیر لە جاڤاسکڕێپت -->
+                <div class="footer-col" id="footer-four-col-container">
                     <h3 class="col-title" id="f-title-info">زانیاری پلاتفۆڕم</h3>
                     <ul class="footer-info-details" id="footer-info-list">
                         <!-- لێرە بەپێی زمان دادەنرێت -->
                     </ul>
-                    <!-- لۆگۆی زانکۆ بەپێی فایلەکە پێشاندەدرێت -->
-                    <img src="https://example.com/your-actual-university-logo.png" alt="University Logo" class="university-logo-footer">
                 </div>
 
             </div>
@@ -1435,12 +1429,22 @@
                 });
             }
 
-            const footerInfoList = document.getElementById('footer-info-list');
-            if(footerInfoList) {
-                footerInfoList.innerHTML = '';
+            // 🛠️ لێرە کێشەکەت چارەسەر کراوە: دروستکردنەوەی لیستەکە و جێگیرکردنی لۆگۆکە لە ژێریدا بە داینامیکی
+            const footerColFour = document.getElementById('footer-four-col-container');
+            if(footerColFour) {
+                let infoItemsHtml = '';
                 data.infoLabels.forEach((label, idx) => {
-                    footerInfoList.insertAdjacentHTML('beforeend', `<li><span>${label}</span> ${data.infoValues[idx]}</li>`);
+                    infoItemsHtml += `<li><span>${label}</span> ${data.infoValues[idx]}</li>`;
                 });
+                
+                footerColFour.innerHTML = `
+                    <h3 class="col-title" id="f-title-info">${lang === 'en' ? 'Platform Info' : (lang === 'ar' ? 'معلومات المنصة' : 'زانیاری پلاتفۆڕم')}</h3>
+                    <ul class="footer-info-details" id="footer-info-list">
+                        ${infoItemsHtml}
+                    </ul>
+                    <!-- 🚀 لۆگۆکە لێرە بە سەلامەتی دانراوە و لەگەڵ گۆڕینی زمان تێکناچێت -->
+                    <img src="uni.jpg" alt="University Logo" class="university-logo-footer">
+                `;
             }
 
             if (chaptersContainer) {
