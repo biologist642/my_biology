@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NovaEntomo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght=300;400;600;700&family=Poppins:wght=300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     
     <style>
@@ -707,12 +707,6 @@
             flex-direction: column;
         }
 
-        /* بردنە سەرەوەی تەواوی ستوونی سێیەم */
-        .footer-col:nth-child(3) {
-            justify-content: flex-start;
-            margin-top: -10px;
-        }
-
         .col-title {
             font-size: 18px;
             font-weight: 700;
@@ -842,7 +836,7 @@
             transform: translateX(4px);
         }
 
-        /* گەورەکردنی فۆنت و بەرزکردنەوەی NovaPlant بەپێی داواکاری */
+        /* 🚀 گەورەکردنی فۆنت و بەهێزکردنی مۆشنی NovaPlant */
         .novaplant-link-wrapper {
             display: flex;
             align-items: center;
@@ -851,24 +845,25 @@
             display: none;
         }
         .novaplant-link {
-            color: #d27d2d !important;
-            font-weight: 700;
-            font-size: 34px; 
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-shadow: 0 0 12px rgba(210, 125, 45, 0.25);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-            margin-top: -5px; 
-        }
-        .novaplant-link i {
-            font-size: 38px;
-            transition: transform 0.4s ease;
-        }
+    color: #d27d2d !important;
+    font-weight: 700;
+    font-size: 60px; /* فۆنتەکە لێرە زۆر گەورە کراوە */
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-shadow: 0 0 15px rgba(210, 125, 45, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    padding: 10px 0;
+}
+.novaplant-link i {
+    font-size: 40px; /* ئایکۆنی ڕووەکەکەش گەورە کراوە */
+    transition: transform 0.4s ease;
+}
+
         .novaplant-link:hover {
             color: #ffffff !important;
-            transform: scale(1.08) translateY(-2px) !important;
+            transform: scale(1.12) translateY(-3px) !important;
             text-shadow: 0 0 20px rgba(210, 125, 45, 0.7);
         }
         .novaplant-link:hover i {
@@ -895,23 +890,6 @@
             margin-right: 6px;
         }
 
-        /* ستایل بۆ لۆگۆی زانکۆ لە ستوونی چوارەم بە شەدۆوەوە */
-        .university-logo-container {
-            margin-top: 20px;
-            display: flex;
-            justify-content: flex-start;
-        }
-        html[dir="ltr"] .university-logo-container {
-            justify-content: flex-end;
-        }
-        .uni-logo-img {
-            width: 100px;
-            height: auto;
-            object-fit: contain;
-            border-radius: 8px;
-            filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.5)) drop-shadow(0px 0px 8px rgba(210, 125, 45, 0.2));
-        }
-
         /* بەشی خوارەوەی فووتەر - هاوڕەنگکردن و لادانی بۆشایی زیادە */
         .footer-bottom {
             display: flex;
@@ -924,13 +902,13 @@
         .copyright {
             border: none;
             padding: 0;
-            color: #e5d8d2 !important; 
+            color: #e5d8d2 !important; /* هەمان ڕەنگ */
             opacity: 0.8;
         }
         .developer-credit-bionova {
             opacity: 0.8;
             font-weight: 600;
-            color: #e5d8d2 !important; 
+            color: #e5d8d2 !important; /* ڕەنگی هاوبەش */
             display: flex;
             align-items: center;
             gap: 6px;
@@ -1184,7 +1162,7 @@
                     <p class="col-text-p" id="f-p-desc">پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران, مامۆستایان, توێژەران و جوتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.</p>
                     <div class="footer-visitor-box">
                         <i class="ph ph-eye"></i>
-                        <span><span id="f-vtext">بینەری پلاتفۆڕم:</span> <b id="visitor-count">272</b></span>
+                        <span><span id="f-vtext">بینەری پلاتفۆڕم:</span> <b id="visitor-count">0</b></span>
                     </div>
                 </div>
 
@@ -1192,12 +1170,13 @@
                 <div class="footer-col">
                     <h3 class="col-title" id="f-title-sections">بەشەکانی پلاتفۆڕم</h3>
                     <ul class="footer-links-list" id="footer-dynamic-links">
+                        <!-- ئەمانەش داینامیکی دەبن بەپێی زمان لە خوارەوە -->
                     </ul>
                 </div>
 
-                <!-- ستوونی سێیەم: لینکەکانی تری پلاتفۆڕم و NovaPlant -->
+                <!-- ستوونی سێیەم: NovaPlant بە فۆنتی گەورە -->
                 <div class="footer-col">
-                    <h3 class="col-title" id="f-title-links">لینکی پلاتفۆڕمی تر</h3>
+                    <h3 class="col-title" id="f-title-links">لینکەکانی تری پلاتفۆڕم</h3>
                     <ul class="footer-links-list">
                         <li>
                             <a href="https://biologist642.github.io/nova-plant/" target="_blank" class="novaplant-link">
@@ -1207,14 +1186,12 @@
                     </ul>
                 </div>
 
-                <!-- ستوونی چوارەم: زانیاری پلاتفۆڕم و لۆگۆی زانکۆ -->
+                <!-- ستوونی چوارەم: زانیاری پلاتفۆڕم (وەرگێڕدراو) -->
                 <div class="footer-col">
                     <h3 class="col-title" id="f-title-info">زانیاری پلاتفۆڕم</h3>
                     <ul class="footer-info-details" id="footer-info-list">
+                        <!-- لێرە بەپێی زمان بەکری دێت -->
                     </ul>
-                    <div class="university-logo-container">
-                        <img src="uni.logo" alt="University Logo" class="uni-logo-img" onerror="this.style.opacity='0.3';">
-                    </div>
                 </div>
 
             </div>
@@ -1346,7 +1323,7 @@
         };
 
         const images = [
-            'https://i.pinimg.com/736x/29/74/22/2974222dd9c66210d695e5670ebcf9a4.jpg', 'https://i.pinimg.com/736x/f0/9c/0b/f09c0b37b624aeaa8b208d38b313db24.jpg',
+            'https://png.pngtree.com/png-vector/20220627/ourmid/pngtree-information-or-info-speech-icon-livechat-faq-live-vector-png-image_47211542.jpg   ', 'https://i.pinimg.com/736x/f0/9c/0b/f09c0b37b624aeaa8b208d38b313db24.jpg',
             'https://i.pinimg.com/736x/e5/ea/78/e5ea781636a5a72f9df08dd59f919013.jpg', 'https://i.pinimg.com/736x/9d/35/d7/9d35d76d9932f5f3ca2028552fba9441.jpg',
             'https://i.pinimg.com/736x/78/8f/d9/788fd931fd228943226754a21f4fa047.jpg', 'https://i.pinimg.com/736x/7d/23/3f/7d233f4fd331538c9c88a02eef5857e9.jpg',
             'https://i.pinimg.com/736x/42/49/db/4249db9a5aadf772ba537d304537f9bc.jpg', 'https://i.pinimg.com/736x/3f/b4/e6/3fb4e67806fa52cfe51cabe807100a43.jpg',
@@ -1412,28 +1389,28 @@
             document.getElementById('f-vtext').innerText = data.fVtext;
             document.getElementById('f-copy').innerHTML = data.fCopy;
 
-            // وەرگێڕانی داینامیکی سەر دێڕی ستوونی سێیەم بەپێی زمان
+            // وەرگێڕانی سەر دێڕی ستوونەکانی فووتەر
             if(lang === 'en') {
                 document.getElementById('f-title-main').innerText = "Platform";
                 document.getElementById('f-title-sections').innerText = "Platform Chapters";
-                document.getElementById('f-title-links').innerText = "Other Platform Link";
+                document.getElementById('f-title-links').innerText = "Other Links";
                 document.getElementById('f-title-info').innerText = "Platform Info";
                 document.getElementById('f-p-desc').innerText = data.desc;
             } else if(lang === 'ar') {
                 document.getElementById('f-title-main').innerText = "المنصة";
                 document.getElementById('f-title-sections').innerText = "أقسام المنصة";
-                document.getElementById('f-title-links').innerText = "رابط منصة أخرى";
+                document.getElementById('f-title-links').innerText = "روابط أخرى";
                 document.getElementById('f-title-info').innerText = "معلومات المنصة";
                 document.getElementById('f-p-desc').innerText = data.desc;
             } else {
                 document.getElementById('f-title-main').innerText = "پلاتفۆڕم";
                 document.getElementById('f-title-sections').innerText = "بەشەکانی پلاتفۆڕم";
-                document.getElementById('f-title-links').innerText = "لینکی پلاتفۆڕمی تر";
+                document.getElementById('f-title-links').innerText = "لینکەکانی تری پلاتفۆڕم";
                 document.getElementById('f-title-info').innerText = "زانیاری پلاتفۆڕم";
                 document.getElementById('f-p-desc').innerText = data.desc;
             }
 
-            // ستوونی دووەم لە فووتەر
+            // ستوونی دووەم لە فووتەر (بەپێی زمان)
             const footerLinksContainer = document.getElementById('footer-dynamic-links');
             if(footerLinksContainer) {
                 footerLinksContainer.innerHTML = '';
@@ -1442,7 +1419,7 @@
                 });
             }
 
-            // ستوونی چوارەم لە فووتەر
+            // ستوونی چوارەم لە فووتەر (بەپێی زمان)
             const footerInfoList = document.getElementById('footer-info-list');
             if(footerInfoList) {
                 footerInfoList.innerHTML = '';
@@ -1516,11 +1493,10 @@
         document.getElementById('close-sidebar').addEventListener('click', () => { sidebar.classList.remove('open'); overlay.classList.remove('show'); });
         overlay.addEventListener('click', () => { sidebar.classList.remove('open'); overlay.classList.remove('show'); });
 
-        // جێبەجێکردنی زمان
         applyLanguage('ku');
-
-        // جێگیرکردنی بەهای بینەر لەسەر ٢٧٢ بۆ ئەوەی لەگەڵ ڕیفرێش زیاد نەکات
-        document.getElementById('visitor-count').innerText = 272;
+// ژمارەی بینەر بە جێگیری دەمێنێتەوە و لەگەڵ ڕیفرێش زیاد ناکات
+let totalViews = 1; 
+document.getElementById('visitor-count').innerText = totalViews;
     </script>
 </body>
 </html>
