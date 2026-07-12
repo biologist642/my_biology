@@ -845,21 +845,22 @@
             display: none;
         }
         .novaplant-link {
-            color: #d27d2d !important;
-            font-weight: 700;
-            font-size: 28px; /* فۆنتی گەورەکراو زیاتر */
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-shadow: 0 0 12px rgba(210, 125, 45, 0.25);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-            padding: 5px 0;
-        }
-        .novaplant-link i {
-            font-size: 32px;
-            transition: transform 0.4s ease;
-        }
+    color: #d27d2d !important;
+    font-weight: 700;
+    font-size: 45px; /* فۆنتەکە لێرە زۆر گەورە کراوە */
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-shadow: 0 0 15px rgba(210, 125, 45, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    padding: 10px 0;
+}
+.novaplant-link i {
+    font-size: 50px; /* ئایکۆنی ڕووەکەکەش گەورە کراوە */
+    transition: transform 0.4s ease;
+}
+
         .novaplant-link:hover {
             color: #ffffff !important;
             transform: scale(1.12) translateY(-3px) !important;
@@ -1493,9 +1494,9 @@
         overlay.addEventListener('click', () => { sidebar.classList.remove('open'); overlay.classList.remove('show'); });
 
         applyLanguage('ku');
-        let totalViews = localStorage.getItem('nova_total_views') || Math.floor(Math.random() * 200) + 50;
-        localStorage.setItem('nova_total_views', parseInt(totalViews) + 1);
-        document.getElementById('visitor-count').innerText = parseInt(totalViews) + 1;
+// ژمارەی بینەر بە جێگیری دەمێنێتەوە و لەگەڵ ڕیفرێش زیاد ناکات
+let totalViews = 0; 
+document.getElementById('visitor-count').innerText = totalViews;
     </script>
 </body>
 </html>
