@@ -389,7 +389,7 @@
             margin-bottom: 25px; 
         }
 
-        /* 👑 دیزاینی نوێی بەشی گەشەپێدەر لەگەڵ لۆگۆی BioNova */
+        /* دیزاینی بەشی گەشەپێدەر لەگەڵ لۆگۆی BioNova */
         .hero-bionova-badge {
             display: flex;
             align-items: center;
@@ -951,16 +951,69 @@
             color: #e5d8d2 !important; 
             opacity: 0.8;
         }
+
+        /* 👑 دیزاینی نوێی بەشی سۆشیال میدیای BioNova لە خوارەوەی فووتەر */
         .developer-credit-bionova {
-            opacity: 0.8;
-            font-weight: 600;
-            color: #e5d8d2 !important; 
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 6px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(210, 125, 45, 0.15);
         }
+        
         .developer-credit-bionova span {
+            font-size: 13.5px;
+            font-weight: 600;
             color: #e5d8d2 !important;
+        }
+
+        .bionova-social-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bionova-social-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e5d8d2 !important;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .bionova-social-btn:hover {
+            transform: translateY(-4px) scale(1.15);
+            color: #ffffff !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ڕەنگەکانی سەر هۆڤەر بۆ سۆشیالەکان */
+        .bionova-social-btn.facebook:hover {
+            background: #1877F2;
+            border-color: #1877F2;
+            text-shadow: 0 0 8px rgba(24, 119, 242, 0.6);
+        }
+
+        .bionova-social-btn.instagram:hover {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            border-color: #dc2743;
+            text-shadow: 0 0 8px rgba(220, 39, 67, 0.6);
+        }
+
+        .bionova-social-btn.tiktok:hover {
+            background: #010101;
+            border-color: #ff0050;
+            color: #ffffff !important;
+            box-shadow: 0 0 10px rgba(255, 0, 80, 0.5), 0 0 15px rgba(0, 242, 234, 0.3);
         }
 
         /* ==========================================================================
@@ -1072,6 +1125,12 @@
             .footer-visitor-box {
                 align-self: center;
             }
+            .developer-credit-bionova {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px 20px;
+                border-radius: 20px;
+            }
         }
 
         @media (max-width: 430px) {
@@ -1134,7 +1193,6 @@
                     پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران, مامۆستایان, توێژەران و جوتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.
                 </p>
                 
-                <!-- 🎯 جێگەی دیاریکراوی نوێ بۆ زیادکردنی لۆگۆ و دەقی داینامیکی تیمی BioNova -->
                 <div class="hero-bionova-badge">
                     <img src="bionova.png" alt="BioNova Group">
                     <span id="hero-bionova-text">ئەم پلاتفۆرمە گەشەی پێدراوە لە لایەن گرووپی BioNova</span>
@@ -1242,9 +1300,21 @@
 
             <div class="footer-bottom">
                 <p class="copyright" id="f-copy">سەرجەم مافەکانی پارێزراوە 2026 &copy; NovaEntomo</p>
+                
+                <!-- 👑 لێرەدا دەقی کۆن و جێگەی پێشوو نوێکرایەوە بۆ سۆشیال میدیا مۆدێرنەکان -->
                 <div class="developer-credit-bionova" id="f-bionova-credit">
-                    <i class="ph ph-users-three"></i>
-                    <span id="f-bionova">ئەم پلاتفۆرمە گەشەی پێدراوە لە لایەن تیمی BioNova</span>
+                    <span id="f-bionova">تیمی BioNova:</span>
+                    <div class="bionova-social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61591499576796" target="_blank" class="bionova-social-btn facebook" aria-label="Facebook">
+                            <i class="ph ph-facebook-logo"></i>
+                        </a>
+                        <a href="https://www.instagram.com/bionova.group?igsh=bDlqc2lsNzU2Ymd5" target="_blank" class="bionova-social-btn instagram" aria-label="Instagram">
+                            <i class="ph ph-instagram-logo"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@bionova.group?_r=1&_t=ZS-97XScYSqhXA" target="_blank" class="bionova-social-btn tiktok" aria-label="TikTok">
+                            <i class="ph ph-tiktok-logo"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1263,7 +1333,7 @@
                 secTitle: "بەشەکانی <span>پلاتفۆرم</span>",
                 secSubtitle: "لێرەوە بڕوانە ناو کایە جیاوازەکانی زانستی مێرووناسی و بەشەکان",
                 fP1: "پلاتفۆڕمی زانستی مێرووناسی",
-                fBio: "ئەم پلاتفۆرمە گەشەی پێدراوە لە لایەن تیمی BioNova",
+                fBio: "تیمی BioNova:",
                 fVtext: "بینەری پلاتفۆڕم :",
                 fCopy: "سەرجەم مافەکانی پارێزراوە 2026 &copy; NovaEntomo",
                 readMore: "زیاتر بخوێنەوە...",
@@ -1301,7 +1371,7 @@
                 secTitle: "Platform <span>Chapters</span>",
                 secSubtitle: "Look into the different fields and chapters of Entomology science from here",
                 fP1: "Scientific Platform for Entomology",
-                fBio: "This platform was developed by BioNova Team",
+                fBio: "BioNova Team:",
                 fVtext: "Platform Views:",
                 fCopy: "All Rights Reserved 2026 &copy; NovaEntomo",
                 readMore: "Read more...",
@@ -1339,7 +1409,7 @@
                 secTitle: "أقسام <span>المنصة</span>",
                 secSubtitle: "انظر إلى الحقول والأقسام المختلفة لعلم الحشرات من هنا",
                 fP1: "المنصة العلمية لعلم الحشرات",
-                fBio: "تم تطوير هذه المنصة بواسطة فريق BioNova",
+                fBio: "فريق BioNova:",
                 fVtext: "مشاهدات المنصة:",
                 fCopy: "جميع الحقوق محفوظة 2026 &copy; NovaEntomo",
                 readMore: "اقرأ المزيد...",
@@ -1369,12 +1439,12 @@
         };
 
         const images = [
-            'https://png.pngtree.com/png-vector/20220627/ourmid/pngtree-information-or-info-speech-icon-livechat-faq-live-vector-png-image_47211542.jpg   ', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9tjO72C6E1P5vVa8Wh-YpxzYBu9t-SIotGd_ox7Jh_w&s=10',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp7vgxCWbVoqyWg36dmiz_SEiQRyKDxVNOwqt_slHvig&s=10', 'https://i.pinimg.com/736x/9d/35/d7/9d35d76d9932f5f3ca2028552fba9441.jpg',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNXraA3kpmsyfr-Ib0zlSKklb5PWOv3n8YyEvabDNUCQ&s=10', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPYwsJ2fX1MKokOVvg8Dgsyg3KO0saufdqmwzVOdct9Q&s=10',
-            'https://www.pngkey.com/png/detail/356-3567932_contact-us-logo-pest-control-icons.png', 'https://onlineentomology.ifas.ufl.edu/wp-content/uploads/2025/09/medical-entomologist-scaled.png',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSU50RVA7naTNeBGgNksTflSL4SPNdNU_nMRTzvz2alqtIYwgowd_aWQVm&s=10', 'https://media.istockphoto.com/id/157509916/photo/bugs-under-a-microscope.jpg?s=612x612&w=0&k=20&c=qdgDBAVRES8u_3SOwtMrdNNsYJdJWAs6H5vJ50T5dqU=',
-            'https://img.magnific.com/premium-photo/folders-with-play-3d-icon-video-folder-3d-icon_645658-5370.jpg?semt=ais_hybrid&w=740&q=80', 'https://img.magnific.com/free-vector/modern-stylish-problem-solving-faq-symbol-background-design_1017-58258.jpg?semt=ais_hybrid&w=740&q=80'
+            'https://png.pngtree.com/png-vector/20220627/ourmid/pngtree-information-or-info-speech-icon-livechat-faq-live-vector-png-image_47211542.jpg   ', 'https://i.pinimg.com/736x/f0/9c/0b/f09c0b37b624aeaa8b208d38b313db24.jpg',
+            'https://i.pinimg.com/736x/e5/ea/78/e5ea781636a5a72f9df08dd59f919013.jpg', 'https://i.pinimg.com/736x/9d/35/d7/9d35d76d9932f5f3ca2028552fba9441.jpg',
+            'https://i.pinimg.com/736x/78/8f/d9/788fd931fd228943226754a21f4fa047.jpg', 'https://i.pinimg.com/736x/7d/23/3f/7d233f4fd331538c9c88a02eef5857e9.jpg',
+            'https://i.pinimg.com/736x/42/49/db/4249db9a5aadf772ba537d304537f9bc.jpg', 'https://i.pinimg.com/736x/3f/b4/e6/3fb4e67806fa52cfe51cabe807100a43.jpg',
+            'https://i.pinimg.com/736x/97/be/87/97be876d4e0e521f89dd5440eab12520.jpg', 'https://i.pinimg.com/736x/e5/ea/78/e5ea781636a5a72f9df08dd59f919013.jpg',
+            'https://i.pinimg.com/736x/9d/35/d7/9d35d76d9932f5f3ca2028552fba9441.jpg', 'https://i.pinimg.com/736x/78/8f/d9/788fd931fd228943226754a21f4fa047.jpg'
         ];
         
         const htmlTag = document.getElementById('html-tag');
@@ -1397,7 +1467,6 @@
             const descEl = document.getElementById('hero-desc');
             if (descEl) descEl.innerText = data.desc;
 
-            // 🚀 لێرە دەقی نوێی سەر لۆگۆکە بەپێی زمان نوێ دەبێتەوە
             const heroBioEl = document.getElementById('hero-bionova-text');
             if (heroBioEl) heroBioEl.innerText = data.heroBioText;
 
