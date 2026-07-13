@@ -386,7 +386,36 @@
             line-height: 1.9; 
             color: var(--text-secondary); 
             max-width: 650px; 
-            margin-bottom: 35px; 
+            margin-bottom: 25px; 
+        }
+
+        /* 👑 دیزاینی نوێی بەشی گەشەپێدەر لەگەڵ لۆگۆی BioNova */
+        .hero-bionova-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(139, 69, 19, 0.06);
+            border: 1px solid rgba(139, 69, 19, 0.15);
+            padding: 8px 16px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        :root[data-theme="dark"] .hero-bionova-badge {
+            background: rgba(210, 125, 45, 0.08);
+            border-color: rgba(210, 125, 45, 0.2);
+        }
+        .hero-bionova-badge img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            animation: softFloat 4s ease-in-out infinite alternate;
+        }
+        .hero-bionova-badge span {
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--text-primary);
         }
 
         .hero-cta-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 36px; font-size: 15px; font-weight: 700; color: #ffffff !important; background: var(--accent-color); border-radius: 50px; text-decoration: none; box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3); cursor: pointer; border: none; }
@@ -421,6 +450,11 @@
         }
         html[dir="ltr"] .art-circle-small { right: auto; left: 15px; }
         
+        @keyframes softFloat {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-6px); }
+        }
+
         .art-circle-small .hero-ant-icon {
             font-size: 48px;
             color: #ffffff;
@@ -836,7 +870,7 @@
             transform: translateX(4px);
         }
 
-        /* 🚀 گەورەکردنی فۆنت و بەهێزکردنی مۆشنی NovaPlant لەگەڵ بردنە سەرەوەی زیاتر */
+        /* NovaPlant فۆنت */
         .footer-col:nth-child(3) .footer-links-list li::before {
             display: none;
         }
@@ -887,7 +921,7 @@
             margin-right: 6px;
         }
 
-        /* 🏛️ ڕێکخستنی شێواز و سێبەری لۆگۆی زانکۆ لە ستوونی چوارەم */
+        /* لۆگۆی زانکۆ */
         .university-logo-footer {
             max-width: 130px;
             height: auto;
@@ -902,7 +936,7 @@
             filter: drop-shadow(0px 12px 20px rgba(210, 125, 45, 0.35));
         }
 
-        /* بەشی خوارەوەی فووتەر - هاوڕەنگکردن و لادانی بۆشایی زیادە */
+        /* بەشی خوارەوەی فووتەر */
         .footer-bottom {
             display: flex;
             justify-content: space-between;
@@ -1099,6 +1133,13 @@
                 <p class="hero-paragraph" id="hero-desc">
                     پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران, مامۆستایان, توێژەران و جوتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.
                 </p>
+                
+                <!-- 🎯 جێگەی دیاریکراوی نوێ بۆ زیادکردنی لۆگۆ و دەقی داینامیکی تیمی BioNova -->
+                <div class="hero-bionova-badge">
+                    <img src="bionova.png" alt="BioNova Group">
+                    <span id="hero-bionova-text">ئەم پلاتفۆرمە گەشەی پێدراوە لە لایەن گرووپی BioNova</span>
+                </div>
+
                 <a href="#chapters" class="hero-cta-btn" id="hero-btn-text">
                     دەستپێکردنی گەشتەکە <i class="ph ph-arrow-down"></i>
                 </a>
@@ -1159,14 +1200,10 @@
         <div class="chapters-grid" id="chapters-container"></div>
     </section>
 
-    <!-- ==========================================================================
-       6. فووتەری چوار ستوونی قاوەیی و پڕۆفیشناڵ 
-       ========================================================================== */ -->
     <footer class="footer-section">
         <div class="footer-content">
             <div class="footer-grid">
                 
-                <!-- ستوونی یەکەم: زانیاری پلاتفۆرم و بینەر -->
                 <div class="footer-col">
                     <h3 class="col-title" id="f-title-main">پلاتفۆڕم</h3>
                     <h4 class="col-sub-brand">NovaEntomo Platform</h4>
@@ -1178,15 +1215,12 @@
                     </div>
                 </div>
 
-                <!-- ستوونی دووەم: بەشەکانی پلاتفۆرم -->
                 <div class="footer-col">
                     <h3 class="col-title" id="f-title-sections">بەشەکانی پلاتفۆڕم</h3>
                     <ul class="footer-links-list" id="footer-dynamic-links">
-                        <!-- ئەمانەش داینامیکی دەبن بەپێی زمان لە خوارەوە -->
                     </ul>
                 </div>
 
-                <!-- ستوونی سێیەم: NovaPlant بە فۆنتی گەورەتر و جێگەی بەرزتر -->
                 <div class="footer-col">
                     <h3 class="col-title" id="f-title-links">لینکەکانی تری پلاتفۆڕم</h3>
                     <ul class="footer-links-list">
@@ -1198,17 +1232,14 @@
                     </ul>
                 </div>
 
-                <!-- ستوونی چوارەم: زانیاری پلاتفۆڕم و لۆگۆی زانکۆ بە شێوازی جێگیر لە جاڤاسکڕێپت -->
                 <div class="footer-col" id="footer-four-col-container">
                     <h3 class="col-title" id="f-title-info">زانیاری پلاتفۆڕم</h3>
                     <ul class="footer-info-details" id="footer-info-list">
-                        <!-- لێرە بەپێی زمان دادەنرێت -->
                     </ul>
                 </div>
 
             </div>
 
-            <!-- بەشی خوارەوەی فووتەر: هاوڕەنگکراو و بێ بۆشایی زیادە -->
             <div class="footer-bottom">
                 <p class="copyright" id="f-copy">سەرجەم مافەکانی پارێزراوە 2026 &copy; NovaEntomo</p>
                 <div class="developer-credit-bionova" id="f-bionova-credit">
@@ -1224,6 +1255,7 @@
             ku: {
                 title: "NovaEntomo <span id='hero-title-sub'>زانستی درەوشاوەی مێرووناسی</span>",
                 desc: "پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران, مامۆستایان, توێژەران و جوتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.",
+                heroBioText: "ئەم پلاتفۆرمە گەشەی پێدراوە لە لایەن گرووپی BioNova",
                 btnText: "دەستپێکردنی گەشتەکە",
                 bannerText: "لێرەوە گەشتە زانستییەکەت لە جیهانی سەرنجڕاکێش و فرەچەشنی مێرووناسیدا دەست پێبکە. ئێمە دەروازەیەکت بۆ دەکەینەوە بۆ ناسینی قۆناغەکانی گەش, پۆلێنکردنی زانستی, و نهێنییەکانی ژیانی ئەم زیندەوەرە وردانە. لە ڕێگەی ئەم بەشانەوە, دەتوانیت بە شێوازێکی مۆدێرن و ئاسان دەستت بگات بە فەرهەنگێکی دەوڵەمەند و زانیاریی سەردەمیانە. ئامانجی ئەم پلاتفۆرمە قووڵترکردنەوەی تێگەیشتنی تۆیە لە زانستی بایۆلۆجی و پێشاندانی جوانی و گرنگیی ژینگەی دەوروبەرمان.",
                 sbHome: "سەرەکی",
@@ -1246,7 +1278,7 @@
                 chapters: [
                     { title: "زانیاری زیاتر", desc: "پێشەکی و ئامانب و دەربارەی تیم و زانیاری زیاتر." },
                     { title: "فەرهەنگی مێرووناسی", desc: "فەرهەنگۆک و زاراوە زانستییەکانی تایبەت بە مێرووناسی." },
-                    { title: "دەستپێکێک بۆ مێرووناسی", desc: "تێڕوانینێکی گشتی لەسەر جیهانی مێرووەکان و پێکهاتە بایۆلۆجییەکانیان." },
+                    { title: "دەستپێکێک بۆ مێرووناسی", desc: "تێڕوانینێکی گشتی لەسەر جیهانی مێرووهکان و پێکهاتە بایۆلۆجییەکانیان." },
                     { title: "پۆلینکردن و ناسینەوەی مێرووەکان", desc: "چۆنیەتی جیاکردنەوە, ناسینەوە و پۆلێنکردنی خێزانە جیاوازەکانی مێرووەکان." },
                     { title: "مێرووە بەسوودەکان", desc: "ڕۆڵی مێرووەکان لە پرۆسەی گەردەپشکنینی ڕووەک و هاوسەنگی سروشت." },
                     { title: "مێرووە زیانبەخشەکان", desc: "ناسینی ئەو ئافاتانەی زیان بە بەرهەمە کشتوکاڵییەکان دەگەیەنن." },
@@ -1261,6 +1293,7 @@
             en: {
                 title: "NovaEntomo <span>Entomology Science</span>",
                 desc: "An advanced scientific and academic platform for students, teachers, researchers, and farmers utilizing the latest modern knowledge.",
+                heroBioText: "This platform was developed by BioNova Group",
                 btnText: "Start Exploring",
                 bannerText: "Start your scientific journey into the fascinating and diverse world of entomology from here. We open a gateway for you to explore stages of growth, scientific classification, and the life secrets of these tiny creatures. Through these sections, you can easily access a rich dictionary and up-to-date modern information. The goal of this platform is to deepen your understanding of biological science and showcase the beauty and importance of our environment.",
                 sbHome: "Home",
@@ -1298,6 +1331,7 @@
             ar: {
                 title: "NovaEntomo <span>علم الحشرات المشرق</span>",
                 desc: "منصة علمية وأكاديمية متقدمة للطلاب والمعلمين والباحثين والمزارعين باستخدام أحدث المعارف المعاصرة.",
+                heroBioText: "تم تطوير هذه المنصة بواسطة مجموعة BioNova",
                 btnText: "ابدأ الرحلة",
                 bannerText: "ابدأ رحلتك العلمية في عالم علم الحشرات الرائع والمتنوع من هنا. نحن نفتح لك بوابة للتعرف على مراحل النمو والتصنيف العلمي وأسرار حياة هذه الكائنات الصغيرة. من خلال هذه الأقسام، يمكنك الوصول بسهولة إلى قاموس غني ومعلومات حديثة ومعاصرة. الهدف من هذه المنصة هو تعميق فهمك للعلوم البيولوجية وإظهار جمال وأهمية البيئة المحيطة بنا.",
                 sbHome: "الرئيسية",
@@ -1362,6 +1396,10 @@
             
             const descEl = document.getElementById('hero-desc');
             if (descEl) descEl.innerText = data.desc;
+
+            // 🚀 لێرە دەقی نوێی سەر لۆگۆکە بەپێی زمان نوێ دەبێتەوە
+            const heroBioEl = document.getElementById('hero-bionova-text');
+            if (heroBioEl) heroBioEl.innerText = data.heroBioText;
 
             const bannerTextEl = document.getElementById('banner-text');
             if (bannerTextEl) bannerTextEl.innerText = data.bannerText;
@@ -1429,7 +1467,6 @@
                 });
             }
 
-            // 🛠️ لێرە کێشەکەت چارەسەر کراوە: دروستکردنەوەی لیستەکە و جێگیرکردنی لۆگۆکە لە ژێریدا بە داینامیکی
             const footerColFour = document.getElementById('footer-four-col-container');
             if(footerColFour) {
                 let infoItemsHtml = '';
@@ -1442,7 +1479,6 @@
                     <ul class="footer-info-details" id="footer-info-list">
                         ${infoItemsHtml}
                     </ul>
-                    <!-- 🚀 لۆگۆکە لێرە بە سەلامەتی دانراوە و لەگەڵ گۆڕینی زمان تێکناچێت -->
                     <img src="uni-logo.png" alt="University Logo" class="university-logo-footer">
                 `;
             }
