@@ -1,107 +1,616 @@
 <!DOCTYPE html>
-<html lang="ku" dir="rtl">
+<html lang="ku" dir="rtl" id="html-tag" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NovaEntomo</title>
-    <!-- فۆنتی Vazirmatn بۆ نووسینی کوردی -->
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
     <style>
-        body {
-            font-family: 'Vazirmatn', sans-serif;
+        /* ==========================================================================
+           1. ڕەنگەکان و سیستەمی مۆد (تاریک / ڕووناک)
+           ========================================================================== */
+        :root[data-theme="light"] {
+            --bg-main: #f8f6f2;
+            --bg-card: #ffffff;
+            --text-primary: #2c1a11;
+            --text-secondary: #5e473c;
+            --accent-color: #8B4513; 
+            --navbar-bg: #ffffff; 
+            --navbar-text: #2c1a11;
+            --sidebar-bg: #110805;
+            --sidebar-text: #e2e8f0;
+            --card-border: rgba(93, 64, 55, 0.08);
+            --hero-bg-curve: #e2ded5;
+            --circle-big: #eaddd3;
+            --circle-small: #8B4513;
+            --hero-border-line: #8B4513;
         }
-        /* باکگراوندی گرادیانتی سەوز بۆ بەشی هیرۆ */
-        .hero-gradient {
-            background: radial-gradient(circle, #14431b 0%, #081e0e 100%);
+
+        :root[data-theme="dark"] {
+            --bg-main: #0f0907;
+            --bg-card: #1c100b;
+            --text-primary: #e5d8d2;
+            --text-secondary: #b59e95;
+            --accent-color: #d27d2d;
+            --navbar-bg: #1c100b; 
+            --navbar-text: #e5d8d2;
+            --sidebar-bg: #050201;
+            --sidebar-text: #cbd5e1;
+            --card-border: rgba(255, 255, 255, 0.05);
+            --hero-bg-curve: #251812;
+            --circle-big: #2d1b13;
+            --circle-small: #d27d2d;
+            --hero-border-line: #d27d2d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Kufi Arabic', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* ==========================================================================
+           2. ناڤبار و مۆشنی دوکمەی زمانەکان
+           ========================================================================== */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%; height: 80px;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 40px; background-color: var(--navbar-bg);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08); z-index: 1000;
+        }
+
+        .insect-bg-layer {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 1; opacity: 0.4;
+        }
+        .moving-insect {
+            position: absolute; color: var(--accent-color); font-size: 20px;
+            animation: driftInsect 16s linear infinite;
+        }
+        .ins-1 { top: 15%; left: -10%; animation-delay: 0s; }
+        .ins-2 { top: 55%; left: -10%; animation-duration: 22s; animation-delay: 3s; }
+
+        @keyframes driftInsect {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(50vw, 20px) rotate(20deg) scale(1.2); }
+            100% { transform: translate(115vw, -10px) rotate(-10deg) scale(1); }
+        }
+
+        .nav-right-group, .controls { position: relative; z-index: 5; }
+        .nav-right-group { display: flex; align-items: center; gap: 15px; }
+        
+        .menu-toggle-btn { 
+            background: rgba(139, 69, 19, 0.05); border: 1px solid rgba(139, 69, 19, 0.1); 
+            font-size: 24px; color: var(--navbar-text); cursor: pointer;
+            width: 45px; height: 45px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .menu-toggle-btn:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+        
+        .logo { display: flex; align-items: center; gap: 8px; }
+        .logo-icon { font-size: 26px; color: var(--accent-color); animation: softFloat 4s ease-in-out infinite alternate; }
+        .logo h2 { font-size: 22px; font-weight: 700; color: var(--navbar-text); text-shadow: 0 0 10px rgba(139, 69, 19, 0.35) !important; }
+        .logo h2 span { color: var(--accent-color); text-shadow: 0 0 12px rgba(139, 69, 19, 0.4) !important; }
+
+        .controls { display: flex; align-items: center; gap: 20px; }
+        
+        .lang-links-wrapper { display: flex; gap: 4px; background: rgba(0, 0, 0, 0.05); padding: 4px; border-radius: 30px; }
+        .lang-btn { background: none; border: none; padding: 6px 14px; font-size: 13px; font-weight: 600; border-radius: 20px; cursor: pointer; color: var(--navbar-text); opacity: 0.6; font-family: inherit; transition: all 0.3s ease; }
+        .lang-btn.active { background: var(--accent-color); color: white !important; opacity: 1; }
+
+        .theme-controller-wrapper { display: flex; align-items: center; gap: 8px; color: var(--navbar-text); font-size: 13px; font-weight: 600; }
+        .theme-switch { display: inline-block; height: 24px; position: relative; width: 46px; }
+        .theme-switch input { display: none; }
+        .slider { background-color: rgba(0,0,0,0.1); bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s; border-radius: 34px; }
+        .slider:before { background-color: #fff; bottom: 3px; content: ""; height: 18px; left: 4px; position: absolute; width: 18px; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--accent-color); }
+        input:checked + .slider:before { transform: translateX(20px); }
+
+        /* ==========================================================================
+           سێرچ بار
+           ========================================================================== */
+        .search-container-inline {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .nav-search-btn { 
+            background: rgba(139, 69, 19, 0.05); border: 1px solid rgba(139, 69, 19, 0.1); 
+            color: var(--navbar-text); font-size: 20px; cursor: pointer; 
+            width: 42px; height: 42px; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2;
+        }
+        .nav-search-btn:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            transform: scale(1.15);
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.25);
+        }
+        .search-input-inline {
+            width: 0;
+            opacity: 0;
+            pointer-events: none;
+            padding: 0;
+            border: 1px solid transparent;
+            border-radius: 30px;
+            height: 40px;
+            font-size: 14px;
+            font-family: inherit;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            outline: none;
+            position: absolute;
+            left: 50px; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+        html[dir="ltr"] .search-input-inline {
+            left: auto;
+            right: 50px; 
+        }
+        .search-container-inline.active .search-input-inline {
+            width: 220px;
+            opacity: 1;
+            pointer-events: auto;
+            padding: 0 15px;
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 10px rgba(139, 69, 19, 0.1);
+        }
+
+        /* ==========================================================================
+           3. نێوۆک و دیزاینی هێرۆ سەکشن
+           ========================================================================== */
+        .hero-section-wrapper {
+            position: relative; 
+            width: 100%; 
+            min-height: 88vh; 
+            display: flex; 
+            align-items: center; 
+            padding: 130px 40px 80px 40px; 
+            overflow: hidden; 
+            background-color: var(--bg-main);
+            border-bottom: 3px solid var(--hero-border-line);
+            animation: linePulse 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes linePulse {
+            0% { box-shadow: 0 4px 10px rgba(139, 69, 19, 0.1); border-bottom-width: 3px; }
+            100% { box-shadow: 0 4px 20px rgba(139, 69, 19, 0.25); border-bottom-width: 4.5px; }
+        }
+
+        .hero-bg-shape-curve {
+            position: absolute; 
+            top: 50%; 
+            left: -100px; 
+            transform: translateY(-50%);
+            width: 700px; 
+            height: 700px; 
+            background: var(--circle-big); 
+            border-radius: 50%; 
+            filter: blur(40px);
+            opacity: 0.7;
+            z-index: 1; 
+            transition: all 0.4s ease;
+        }
+        html[dir="ltr"] .hero-bg-shape-curve { left: auto; right: -100px; }
+
+        .hero-layout-container {
+            width: 100%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: 1fr 1.2fr; 
+            gap: 60px; 
+            align-items: center; 
+            position: relative; 
+            z-index: 5;
+            padding: 0 20px;
+        }
+        html[dir="ltr"] .hero-layout-container { grid-template-columns: 1.2fr 1fr; }
+
+        .hero-text-side { display: flex; flex-direction: column; align-items: flex-start; text-align: right; order: 1; }
+        html[dir="ltr"] .hero-text-side { align-items: flex-start; text-align: left; order: 2; }
+        
+        .hero-bold-title { 
+            font-size: 64px; 
+            font-weight: 800; 
+            line-height: 1.2; 
+            color: var(--accent-color); 
+            margin-bottom: 25px; 
+            letter-spacing: -1px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            animation: pulseMotion 4s ease-in-out infinite alternate;
+        }
+        
+        .hero-bold-title span { 
+            font-size: 32px; 
+            font-weight: 600; 
+            color: var(--accent-color); 
+            letter-spacing: 0px; 
+        }
+        
+        @keyframes pulseMotion {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.02); }
+        }
+
+        .hero-paragraph { 
+            font-size: 19.5px; 
+            line-height: 1.9; 
+            color: var(--text-secondary); 
+            max-width: 650px; 
+            margin-bottom: 25px; 
+        }
+
+        .hero-bionova-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(139, 69, 19, 0.06);
+            border: 1px solid rgba(139, 69, 19, 0.15);
+            padding: 8px 16px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        :root[data-theme="dark"] .hero-bionova-badge {
+            background: rgba(210, 125, 45, 0.08);
+            border-color: rgba(210, 125, 45, 0.2);
+        }
+        .hero-bionova-badge img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            animation: softFloat 4s ease-in-out infinite alternate;
+        }
+        .hero-bionova-badge span {
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .hero-cta-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 36px; font-size: 15px; font-weight: 700; color: #ffffff !important; background: var(--accent-color); border-radius: 50px; text-decoration: none; box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3); cursor: pointer; border: none; }
+        .hero-cta-btn:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(139, 69, 19, 0.45); }
+        
+        .hero-cta-btn.mobile-only { display: none; }
+
+        .hero-graphics-side { display: flex; justify-content: center; align-items: center; position: relative; order: 2; perspective: 1000px; }
+        html[dir="ltr"] .hero-graphics-side { order: 1; }
+
+        .art-circle-large {
+            width: 380px; height: 380px; background-color: var(--bg-card); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 45px rgba(0,0,0,0.06); position: relative; border: 1px solid var(--card-border);
+        }
+        
+        .art-circle-large .hero-butterfly-icon {
+            font-size: 190px;
+            color: var(--accent-color);
+            user-select: none;
+            display: inline-block;
+            transform-origin: center;
+            animation: butterflyFlap 1.2s ease-in-out infinite alternate;
+        }
+
+        @keyframes butterflyFlap {
+            0% { transform: rotateY(0deg) translateY(0px) rotate(0deg); }
+            50% { transform: rotateY(60deg) translateY(-12px) rotate(2deg); }
+            100% { transform: rotateY(0deg) translateY(-4px) rotate(-1deg); }
+        }
+
+        .art-circle-small {
+            position: absolute; bottom: 5px; right: 15px; width: 110px; height: 110px; background-color: var(--circle-small); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(139, 69, 19, 0.25); border: 4px solid var(--bg-main);
+        }
+        html[dir="ltr"] .art-circle-small { right: auto; left: 15px; }
+        
+        @keyframes softFloat {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-6px); }
+        }
+
+        .art-circle-small .hero-ant-icon {
+            font-size: 48px;
+            color: #ffffff;
+            user-select: none;
+            animation: softFloat 5s ease-in-out infinite alternate;
+        }
+
+        /* ==========================================================================
+           4. ڕیسپۆنسڤ و ڕێکخستنی شاشەی مۆبایل
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .hero-layout-container { 
+                grid-template-columns: 1fr; 
+                gap: 20px; 
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-section-wrapper {
+                padding: 90px 20px 40px 20px; 
+                min-height: auto;
+            }
+            .hero-bg-shape-curve { width: 100%; height: 400px; top: 20%; left: 50%; transform: translateX(-50%); }
+            
+            .hero-text-side { align-items: center; text-align: center; order: 1; }
+            html[dir="ltr"] .hero-text-side { align-items: center; text-align: center; order: 1; }
+            
+            .hero-graphics-side { order: 2; margin-bottom: 15px; }
+            
+            .hero-text-side .hero-cta-btn { display: none; }
+            .hero-cta-btn.mobile-only { 
+                display: inline-flex; 
+                order: 3; 
+                margin-top: 5px; 
+                padding: 12px 30px;
+                font-size: 14px;
+            }
+
+            .art-circle-large { width: 250px; height: 250px; }
+            .art-circle-large .hero-butterfly-icon { font-size: 110px; }
+            .art-circle-small { width: 75px; height: 75px; right: 0; bottom: 0; border-width: 3px; }
+            .art-circle-small .hero-ant-icon { font-size: 30px; }
+            
+            .hero-bold-title { font-size: 36px; justify-content: center; margin-bottom: 15px; }
+            .hero-bold-title span { font-size: 20px; }
+            .hero-paragraph { font-size: 15.5px; margin-bottom: 20px; line-height: 1.7; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 0 10px; height: 65px; display: flex; justify-content: space-between; }
+            
+            .logo h2 { font-size: 15px; display: block !important; }
+            .logo-icon { font-size: 22px; }
+            .nav-right-group { gap: 8px; }
+            
+            .controls { gap: 6px; }
+            .lang-links-wrapper { padding: 2px; gap: 2px; }
+            .lang-btn { padding: 4px 8px; font-size: 11px; }
+            
+            .menu-toggle-btn, .nav-search-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 18px;
+            }
+            
+            .theme-controller-wrapper .theme-status-text { display: none; }
+            .theme-switch { width: 38px; height: 20px; }
+            .slider:before { height: 14px; width: 14px; left: 3px; bottom: 3px; }
+            input:checked + .slider:before { transform: translateX(18px); }
+            
+            .search-container-inline { position: static; }
+            .search-container-inline.active .search-input-inline {
+                width: 100%;
+                left: 0;
+                right: 0;
+                top: 65px; 
+                height: 48px;
+                position: fixed;
+                border-radius: 0; 
+                border-left: none;
+                border-right: none;
+                border-top: 1px solid var(--card-border);
+                border-bottom: 2px solid var(--accent-color);
+                background: var(--bg-card);
+                padding: 0 20px;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+                z-index: 999;
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+        
+        @media (max-width: 430px) {
+            .logo h2 { font-size: 13px; }
+            .logo-icon { font-size: 18px; }
+            .controls { gap: 3px; }
+            .lang-btn { padding: 4px 5px; font-size: 10px; }
+            .hero-bold-title { font-size: 26px; }
+            .hero-bold-title span { font-size: 15px; }
         }
     </style>
 </head>
-<body class="bg-[#fcfaf6] text-gray-900">
+<body>
 
-    <!-- ================= NAVBAR (ڕێک وەک وێنە سەرەکییەکە) ================= -->
-    <nav class="bg-[#fcfaf6] px-6 py-4 flex items-center justify-between border-b border-gray-100/50">
-        
-        <!-- لای چەپ: دوگمەی ڕووناک، گۆڕینی زمان، و گەڕان -->
-        <div class="flex items-center gap-4">
-            <!-- دوگمەی سوتچ (ڕووناک) -->
-            <div class="flex items-center gap-2">
-                <label class="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" checked class="sr-only peer">
-                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-700"></div>
+    <!-- ================= NAVBAR (وەک خۆی) ================= -->
+    <header class="navbar">
+        <div class="insect-bg-layer">
+            <i class="ph ph-butterfly moving-insect ins-1"></i>
+            <i class="ph ph-bug moving-insect ins-2"></i>
+        </div>
+    
+        <div class="nav-right-group">
+            <button class="menu-toggle-btn" id="open-sidebar" aria-label="Open Menu"><i class="ph ph-list"></i></button>
+            <div class="logo">
+                <i class="ph ph-bug logo-icon"></i> <h2>Nova<span>Entomo</span></h2>
+            </div>
+        </div>
+    
+        <div class="controls">
+            <div class="search-container-inline" id="search-container">
+                <input type="text" class="search-input-inline" placeholder="گەڕان..." id="search-input">
+                <button class="nav-search-btn" id="nav-search-trigger" aria-label="Search"><i class="ph ph-magnifying-glass"></i></button>
+            </div>
+            
+            <div class="lang-links-wrapper">
+                <button class="lang-btn active" data-lang="ku">کو</button>
+                <button class="lang-btn" data-lang="en">En</button>
+                <button class="lang-btn" data-lang="ar">عر</button>
+            </div>
+            <div class="theme-controller-wrapper">
+                <span class="theme-status-text">ڕووناک</span>
+                <label class="theme-switch">
+                    <input type="checkbox" class="theme-checkbox" />
+                    <div class="slider"></div>
                 </label>
-                <span class="text-xs text-gray-700 font-bold">رووناک</span>
             </div>
-
-            <!-- بەشی زمانەکان (شێوازی خڕی هاوشێوەی وێنەکە) -->
-            <div class="bg-gray-100/80 p-1 rounded-full flex items-center text-xs font-bold gap-1">
-                <span class="bg-[#8b4513] text-white px-3 py-1 rounded-full cursor-pointer">کو</span>
-                <span class="text-gray-500 px-2 cursor-pointer hover:text-gray-800">En</span>
-                <span class="text-gray-500 px-2 cursor-pointer hover:text-gray-800">عر</span>
-            </div>
-
-            <!-- ئایکۆنی گەڕان -->
-            <button class="w-9 h-9 rounded-full bg-gray-100/60 hover:bg-gray-200/60 flex items-center justify-center text-gray-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.602 10.602Z" />
-                </svg>
-            </button>
-        </div>
-
-        <!-- ناوەڕاست: ئایکۆنی پەپوولە بە کاڵی وەک وێنەکە -->
-        <div class="hidden md:flex items-center justify-center">
-            <svg class="w-6 h-6 text-amber-800/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21V9m0 0a3 3 0 0 1 3-3h3.75a3 3 0 0 0 3-3V1.5M12 9a3 3 0 0 0-3-3H5.25a3 3 0 0 1-3-3V1.5" />
-            </svg>
-        </div>
-
-        <!-- لای ڕاست: لۆگۆ و هەمبەرگەر مینیو -->
-        <div class="flex items-center gap-4">
-            <!-- لۆگۆ و ئایکۆنی مێروو -->
-            <div class="flex items-center gap-1.5">
-                <span class="text-xl font-black text-[#4a2c11] tracking-tight">NovaEntomo</span>
-                <!-- ئایکۆنی مێروو تەنیشت لۆگۆکە -->
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[#8b4513]">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a10.5 10.5 0 0 1-10.5-10.5m10.5 10.5a10.5 10.5 0 0 0 10.5-10.5M12 3a10.5 10.5 0 0 0-10.5 10.5M12 3a10.5 10.5 0 0 1 10.5 10.5" />
-                </svg>
-            </div>
-
-            <!-- مینیو (Menu Button) -->
-            <button class="w-10 h-10 rounded-full bg-gray-100/40 border border-gray-200/60 flex items-center justify-center hover:bg-gray-100">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-700">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-            </button>
-        </div>
-    </nav>
-
-    <!-- ================= HERO SECTION (وەک وێنەی دووەم) ================= -->
-    <header class="hero-gradient text-white py-32 px-6 text-center relative overflow-hidden">
-        <div class="max-w-3xl mx-auto flex flex-col items-center justify-center">
-            
-            <!-- دەقی بچووک -->
-            <span class="text-xs text-amber-400/80 tracking-widest font-bold mb-6">چاپدێری دووەم</span>
-            
-            <!-- چوارگۆشە هێڵکارییەکە -->
-            <div class="w-12 h-12 border-2 border-emerald-700/60 rotate-45 flex items-center justify-center mb-8">
-                <div class="w-4 h-4 border border-emerald-600/40"></div>
-            </div>
-
-            <!-- ناونیشان -->
-            <h1 class="text-4xl md:text-6xl font-black text-white mb-4 leading-tight">
-                دەستپێکی ئینتۆمۆلۆجی
-            </h1>
-
-            <!-- ناونیشانی لاوەکی -->
-            <p class="text-sm md:text-base text-gray-300 font-light tracking-wide flex items-center gap-2">
-                <span>Introduction to Entomology</span>
-                <span class="text-emerald-500">•</span>
-                <span>ئینتۆمۆلۆجی</span>
-            </p>
-            
         </div>
     </header>
 
+    <!-- ================= HERO SECTION (وەک خۆی) ================= -->
+    <section class="hero-section-wrapper">
+        <div class="hero-bg-shape-curve"></div>
+        
+        <div class="hero-layout-container">
+            <div class="hero-text-side">
+                <h1 class="hero-bold-title" id="hero-title">
+                    NovaEntomo <span id="hero-title-sub">زانستی درەوشاوەی مێرووناسی</span>
+                </h1>
+                <p class="hero-paragraph" id="hero-desc">
+                    پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران, مامۆستایان, توێژەران و جوتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.
+                </p>
+                
+                <div class="hero-bionova-badge">
+                    <img src="bionova.png" alt="BioNova Group">
+                    <span id="hero-bionova-text">ئەم پلاتفۆرمە گەشەی پێدراوە لە لایەن گرووپی BioNova</span>
+                </div>
+
+                <a href="#chapters" class="hero-cta-btn" id="hero-btn-text">
+                    دەستپێکردنی گەشتەکە <i class="ph ph-arrow-down"></i>
+                </a>
+            </div>
+
+            <div class="hero-graphics-side">
+                <div class="art-circle-large">
+                    <div class="hero-butterfly-icon"><i class="ph ph-butterfly"></i></div>
+                    
+                    <div class="art-circle-small">
+                        <div class="hero-ant-icon"><i class="ph ph-bug"></i></div>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#chapters" class="hero-cta-btn mobile-only" id="hero-btn-text-mobile">
+                دەستپێکردنی گەشتەکە <i class="ph ph-arrow-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        const translations = {
+            ku: {
+                title: "NovaEntomo <span id='hero-title-sub'>زانستی درەوشاوەی مێرووناسی</span>",
+                desc: "پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران, مامۆستایان, توێژەران و جوتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.",
+                heroBioText: "ئەم پلاتفۆرمە گەشەی پێدراوە لە لایەن گرووپی BioNova",
+                btnText: "دەستپێکردنی گەشتەکە",
+                light: "ڕووناک",
+                dark: "تاریک",
+                searchPlaceholder: "گەڕان..."
+            },
+            en: {
+                title: "NovaEntomo <span>Entomology Science</span>",
+                desc: "An advanced scientific and academic platform for students, teachers, researchers, and farmers utilizing the latest modern knowledge.",
+                heroBioText: "This platform was developed by BioNova Group",
+                btnText: "Start Exploring",
+                light: "Light",
+                dark: "Dark",
+                searchPlaceholder: "Search..."
+            },
+            ar: {
+                title: "NovaEntomo <span>علم الحشرات المشرق</span>",
+                desc: "منصة علمية وأكاديمية متقدمة للطلاب والمعلمين والباحثين والمزارعين باستخدام أحدث المعارف المعاصرة.",
+                heroBioText: "تم تطوير هذه المنصة بواسطة مجموعة BioNova",
+                btnText: "ابدأ الرحلة",
+                light: "فاتح",
+                dark: "مظلم",
+                searchPlaceholder: "بحث..."
+            }
+        };
+
+        const htmlTag = document.getElementById('html-tag');
+        const searchContainer = document.getElementById('search-container');
+        const searchInput = document.getElementById('search-input');
+
+        function applyLanguage(lang) {
+            const data = translations[lang] || translations['ku'];
+            
+            const titleEl = document.getElementById('hero-title');
+            if (titleEl) titleEl.innerHTML = data.title;
+            
+            const descEl = document.getElementById('hero-desc');
+            if (descEl) descEl.innerText = data.desc;
+
+            const heroBioEl = document.getElementById('hero-bionova-text');
+            if (heroBioEl) heroBioEl.innerText = data.heroBioText;
+            
+            const heroBtn = document.getElementById('hero-btn-text');
+            if (heroBtn) heroBtn.innerHTML = `${data.btnText} <i class="ph ph-arrow-down"></i>`;
+            const heroBtnMobile = document.getElementById('hero-btn-text-mobile');
+            if (heroBtnMobile) heroBtnMobile.innerHTML = `${data.btnText} <i class="ph ph-arrow-down"></i>`;
+            
+            if (searchInput) searchInput.placeholder = data.searchPlaceholder;
+
+            document.querySelectorAll('.theme-status-text').forEach(el => {
+                const isDark = htmlTag.getAttribute('data-theme') === 'dark';
+                el.innerText = isDark ? data.dark : data.light;
+            });
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if(btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const selectedLang = this.getAttribute('data-lang');
+                htmlTag.setAttribute('dir', selectedLang === 'en' ? 'ltr' : 'rtl');
+                htmlTag.setAttribute('lang', selectedLang);
+                applyLanguage(selectedLang);
+            });
+        });
+
+        document.querySelectorAll('.theme-checkbox').forEach(chk => {
+            chk.addEventListener('change', function(e) {
+                const theme = e.target.checked ? 'dark' : 'light';
+                htmlTag.setAttribute('data-theme', theme);
+                document.querySelectorAll('.theme-checkbox').forEach(c => c.checked = e.target.checked);
+                
+                const currentLang = htmlTag.getAttribute('lang') || 'ku';
+                document.querySelectorAll('.theme-status-text').forEach(el => {
+                    el.innerText = theme === 'dark' ? translations[currentLang].dark : translations[currentLang].light;
+                });
+            });
+        });
+
+        document.getElementById('nav-search-trigger').addEventListener('click', (e) => {
+            e.stopPropagation();
+            searchContainer.classList.toggle('active');
+            if(searchContainer.classList.contains('active')) {
+                searchInput.focus();
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!searchContainer.contains(e.target)) {
+                searchContainer.classList.remove('active');
+            }
+        });
+
+        applyLanguage('ku');
+    </script>
 </body>
 </html>
