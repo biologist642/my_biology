@@ -63,7 +63,7 @@
         }
 
         /* ==========================================================================
-           2. ناڤبار و لۆگۆی نوێی پەپوولە و خاڵخاڵۆکە بە مۆوشنەوە
+           2. ناڤبار و لۆگۆی پەپوولە بە مۆشنی فڕینەوە
            ========================================================================== */
         .navbar {
             position: fixed; top: 0; left: 0; width: 100%; height: 80px;
@@ -104,47 +104,23 @@
             transform: scale(1.2) rotate(-10deg);
         }
         
-        /* لۆگۆ بە پەپوولە و خاڵخاڵۆکە */
-        .logo { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        /* لۆگۆی ڕەسەن لەگەڵ پەپوولە */
+        .logo { display: flex; align-items: center; gap: 8px; cursor: pointer; }
         
-        .logo-icons-container {
-            position: relative;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .logo-icon { 
+            font-size: 28px; 
+            color: var(--accent-color); 
+            transition: transform 0.3s ease;
         }
 
-        .logo-icon-butterfly {
-            font-size: 28px;
-            color: var(--accent-color);
-            position: absolute;
-            transition: all 0.5s ease;
-        }
-
-        .logo-icon-ladybug {
-            font-size: 18px;
-            color: #d32f2f;
-            position: absolute;
-            bottom: -2px;
-            right: -2px;
-            transition: all 0.5s ease;
-        }
-
-        /* مۆوشنی جوڵانی باڵ و فڕینی مێرووەکان لە کاتی هۆڤەردا */
-        .logo:hover .logo-icon-butterfly {
-            transform: scale(1.15) translateY(-3px) rotate(-10deg);
+        /* مۆشنی فڕینی باڵەکانی پەپوولەکە لە کاتی هۆڤەردا */
+        .logo:hover .logo-icon {
             animation: wingFlutter 0.15s ease-in-out infinite alternate;
-        }
-        
-        .logo:hover .logo-icon-ladybug {
-            transform: scale(1.2) translate(-2px, -3px) rotate(15deg);
         }
 
         @keyframes wingFlutter {
-            0% { transform: scaleX(0.8) scaleY(1.1) translateY(-3px) rotate(-10deg); }
-            100% { transform: scaleX(1.2) scaleY(0.9) translateY(-3px) rotate(-10deg); }
+            0% { transform: scaleX(0.8) scaleY(1.1) translateY(-2px) rotate(-5deg); }
+            100% { transform: scaleX(1.2) scaleY(0.9) translateY(-2px) rotate(5deg); }
         }
 
         .logo h2 { font-size: 22px; font-weight: 700; color: var(--navbar-text); }
@@ -188,7 +164,7 @@
         }
 
         /* ==========================================================================
-           3. نێوۆک و ئەنیمەیشنی نوێی پۆڵس (Pulse) بۆ نووسینی سەرەکی
+           3. نێوۆک و ئەنیمەیشنی پۆڵس (Pulse) بۆ نووسینە سەرەکییەکە
            ========================================================================== */
         .hero-section-wrapper {
             position: relative; 
@@ -224,7 +200,7 @@
             padding: 0;
         }
         
-        /* نووسینی سەرەکی نێو بازنە سورەکە (ئەنیمەیشنی Pulse بۆ کراوە) */
+        /* ئەنیمەیشنی لێدانی بەردەوام (Pulse) لەسەر دەقە دیاریکراوەکە */
         .hero-bold-title { 
             font-size: 48px; 
             font-weight: 800; 
@@ -238,11 +214,10 @@
             align-items: center;
             text-shadow: var(--text-shadow);
             
-            /* جێبەجێکردنی ئەنیمەیشنی لێدان (Pulse) */
+            /* ئەنیمەیشنی Pulse */
             animation: textPulse 3s ease-in-out infinite;
         }
 
-        /* ئەنیمەیشنی Pulse بۆ پاراستنی خوێندنەوە و زەقکردنەوەی نووسینەکە */
         @keyframes textPulse {
             0% {
                 transform: scale(1);
@@ -310,9 +285,7 @@
         @media (max-width: 768px) {
             .navbar { padding: 0 15px; height: 65px; }
             .logo h2 { font-size: 14px; }
-            .logo-icons-container { width: 28px; height: 28px; }
-            .logo-icon-butterfly { font-size: 24px; }
-            .logo-icon-ladybug { font-size: 15px; }
+            .logo-icon { font-size: 24px; }
             
             .back-home-btn { padding: 6px 12px; font-size: 12px; gap: 4px; }
             .back-home-btn i { font-size: 15px; }
@@ -347,11 +320,8 @@
                 <span id="back-home-text">گەڕانەوە بۆ سەرەکی</span>
             </a>
             <div class="logo">
-                <!-- لۆگۆی پەیوەست بە مۆوشنی پەپوولە و خاڵخاڵۆکە -->
-                <div class="logo-icons-container">
-                    <i class="ph ph-butterfly logo-icon-butterfly"></i>
-                    <i class="ph ph-ladybug logo-icon-ladybug"></i>
-                </div>
+                <!-- گەڕاندنەوەی ئایکۆنی مۆدێرنی پەپوولە وەک خۆی -->
+                <i class="ph ph-butterfly logo-icon"></i>
                 <h2>Nova<span>Entomo</span></h2>
             </div>
         </div>
@@ -461,7 +431,7 @@
             });
         }
 
-        // کلیک لەسەر دوگمەی گەڕانەوە بە ئەنیمەیشنی نەرم
+        // ئەنیمەیشنی گواستنەوەی نەرم
         document.getElementById('back-to-home').addEventListener('click', function(e) {
             e.preventDefault();
             const targetUrl = this.getAttribute('href');
