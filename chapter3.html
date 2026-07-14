@@ -22,10 +22,7 @@
             --card-border: rgba(93, 64, 55, 0.08);
             --hero-border-line: #8B4513;
             
-            /* تێکەڵکردنی وێنەکە لەگەڵ ئۆڤەرلایەکی زۆر کاڵ بۆ پاراستنی ڕوونی نووسینەکان */
             --hero-bg: linear-gradient(rgba(248, 246, 242, 0.4), rgba(248, 246, 242, 0.4)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp7vgxCWbVoqyWg36dmiz_SEiQRyKDxVNOwqt_slHvig&s=10');
-            
-            /* سێبەری نووسین بۆ دروستکردنی هۆڵۆگرامێکی سپی لە ژێر دەقەکان بۆ خوێندنەوەی ئاسان */
             --text-shadow: 0 0 15px #f8f6f2, 0 0 25px #f8f6f2, 0 0 35px rgba(248, 246, 242, 0.9);
         }
 
@@ -41,7 +38,6 @@
             --hero-border-line: #d27d2d;
             
             --hero-bg: linear-gradient(rgba(15, 9, 7, 0.65), rgba(15, 9, 7, 0.65)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp7vgxCWbVoqyWg36dmiz_SEiQRyKDxVNOwqt_slHvig&s=10');
-            
             --text-shadow: 0 0 15px #0f0907, 0 0 25px #0f0907, 0 0 35px rgba(15, 9, 7, 0.9);
         }
 
@@ -67,7 +63,7 @@
         }
 
         /* ==========================================================================
-           2. ناڤبار
+           2. ناڤبار و ئایکۆن بە مۆوشنی سەرەوە-خوارەوە (Up-Down)
            ========================================================================== */
         .navbar {
             position: fixed; top: 0; left: 0; width: 100%; height: 80px;
@@ -109,7 +105,23 @@
         }
         
         .logo { display: flex; align-items: center; gap: 8px; }
-        .logo-icon { font-size: 26px; color: var(--accent-color); }
+        
+        /* مۆوشنی Up-Down (سەرەوە و خوارەوە) بۆ ئایکۆنەکە */
+        .logo-icon { 
+            font-size: 26px; 
+            color: var(--accent-color); 
+            animation: floatUpDown 2s ease-in-out infinite;
+        }
+
+        @keyframes floatUpDown {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
         .logo h2 { font-size: 22px; font-weight: 700; color: var(--navbar-text); }
         .logo h2 span { color: var(--accent-color); }
 
@@ -151,18 +163,18 @@
         }
 
         /* ==========================================================================
-           3. نێوۆک و دیزاینی هێرۆ (نوێکراوەتەوە: بەبێ چوارگۆشەی سپی)
+           3. نێوۆک و دەقی سەرەکی بە ڕەنگی قاوەیی و مۆوشنی Pulse
            ========================================================================== */
         .hero-section-wrapper {
             position: relative; 
             width: 100%; 
-            min-height: 65vh; /* درێژی کورت کراوەتەوە */
+            min-height: 65vh; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             padding: 110px 20px 50px 20px; 
             overflow: hidden; 
-            background: var(--hero-bg) no-repeat center/cover; /* لێرەدا ئۆڤەرلای وێنەکە جێبەجێ دەبێت */
+            background: var(--hero-bg) no-repeat center/cover; 
             border-bottom: 3px solid var(--hero-border-line);
         }
 
@@ -177,42 +189,53 @@
             z-index: 5;
         }
 
-        /* لادانی تەواوی باکگراوند و بۆردەری سپی بۆ دەرکەوتنی جوانی مێرووەکان */
         .hero-text-side { 
             display: flex; 
             flex-direction: column; 
             align-items: center; 
             text-align: center; 
             width: 100%;
-            background: transparent; /* لادانی باکگراوند */
+            background: transparent; 
             padding: 0;
             border-radius: 0;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
             box-shadow: none;
             border: none;
         }
         
+        /* نووسینە قاوەییەکە بە مۆوشنی لێدان (Pulse) */
         .hero-bold-title { 
             font-size: 48px; 
             font-weight: 800; 
             line-height: 1.25; 
-            color: var(--accent-color); 
+            color: #8B4513 !important; /* ڕەنگی قاوەیی نەگۆڕ */
             margin-bottom: 15px; 
             letter-spacing: -0.5px;
             display: flex;
             flex-direction: column;
             gap: 6px;
             align-items: center;
-            text-shadow: var(--text-shadow); /* زیادکردنی سێبەری سپی هۆڵۆگرام */
+            text-shadow: var(--text-shadow);
+            
+            /* جێبەجێکردنی ئەنیمەیشنی Pulse */
+            animation: textPulse 2s ease-in-out infinite;
         }
         
         .hero-bold-title span { 
             font-size: 26px; 
             font-weight: 700; 
-            color: var(--text-primary); 
+            color: #8B4513 !important; /* هەروەها ئەم دەقە لاوەکییەش ڕەنگی قاوەیی بێت */
             letter-spacing: 0px; 
             text-shadow: var(--text-shadow);
+        }
+
+        /* ئەنیمەیشنی Pulse بۆ دەقەکە */
+        @keyframes textPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.04);
+            }
         }
 
         .hero-paragraph { 
@@ -222,7 +245,7 @@
             max-width: 680px; 
             margin-bottom: 25px; 
             text-shadow: var(--text-shadow);
-            font-weight: 700; /* تۆخکردنی دەقەکە بۆ دیاربوونی باشتر */
+            font-weight: 700; 
         }
 
         .hero-cta-btn { 
