@@ -1368,8 +1368,8 @@
                     { title: "دەستپێکێک بۆ مێرووناسی", desc: "تێڕوانینێکی گشتی لەسەر جیهانی مێرووەکان و پێکهاتەو شێوازی ژیانیان." },
                     { title: "ناسین و پۆلێنکردنی مێرووەکان", desc: "چۆنیەتی جیاکردنەوە، ناسینەوە و پۆلێنکردنی خێزانە جیاوازەکانی مێرووەکان." },
                     { title: "مێرووە سوودبەخشەکان", desc: "ڕۆڵی مێرووە سودبەخشەکان بۆ مرۆڤ، زیندەوەران و ژینگە." },
-                    { title: "مێرووە زیانبەخشەکان", desc: "کاریگەری مێرووە زیانبەخشەکان بۆ مرۆڤ، زیندوران و ژینگە." },
-                    { title: "ستراتیژیەکانی کۆنتڕۆڵکردن", desc: "ڕێگاکانی کۆنتڕۆڵکردنی مێرووەکان و کۆنتڕۆڵکردنیان." },
+                    { title: "مێرووە زیانبەخشەکان", desc: "کاریگەری مێرووە زیانبەخشەکان بۆ مرۆڤ، زیندەوران و ژینگە." },
+                    { title: "ستراتیژیەکانی کۆنتڕۆڵکردن", desc: "ڕێگاکانی کۆنتڕۆڵکردنی مێرووەکان." },
                     { title: "مێرووناسی پزیشکی", desc: "ناسین و ڕێگریکردن لە نەخۆشییە گواستراوەکان لە ڕێگەی مێرووەکان بۆ مرۆڤ و زیندەوەران." },
                     { title: "تەکنەلۆجیا و مێرووناسی", desc: "بەکارهێنانی زیرەکی دەستکرد و تەکنەلۆجیا لە مێرووناسیدا." },
                     { title: "تەکنیکە تاقیگەییەکان", desc: "شیکردنەوەی تاقیگەیی ورد بۆ ناسینی مێرووە جیاوازەکان." },
@@ -1450,7 +1450,7 @@
                     { title: "التكنولوجيا وعلم الحشرات", desc: "استخدام الذكاء الاصطناعي والتكنولوجيا في علم الحشرات." },
                     { title: "التقنيات المختبرية", desc: "التحليل المخبري الدقيق للتعرف على الحشرات المختلفة." },
                     { title: "الشروحات المرئية والصوتية", desc: "عرض معلومات عن الحشرات من خلال الفيديو والصوت." },
-                    { title: "الاختبارات والمسابقات", desc: "قيم نفسك من خلال أسئلة وأجوبة علمية عن الحشرات." }
+                    { title: "الاختبارات والمسابقة", desc: "قيم نفسك من خلال أسئلة وأجوبة علمية عن الحشرات." }
                 ]
             }
         };
@@ -1540,7 +1540,7 @@
             } else {
                 document.getElementById('f-title-main').innerText = "پلاتفۆڕم";
                 document.getElementById('f-title-sections').innerText = "بەشەکانی پلاتفۆڕم";
-                document.getElementById('f-title-links').innerText = "لینکەکانی تری پلاتفۆڕم";
+                document.getElementById('f-title-links').innerText = "لینکی پلاتفۆرمی تر";
                 document.getElementById('f-title-info').innerText = "زانیاری پلاتفۆڕم";
                 document.getElementById('f-p-desc').innerText = data.desc;
             }
@@ -1576,6 +1576,7 @@
                     if(index === 10) btnLabel = data.viewBtn;
                     if(index === 11) btnLabel = data.startBtn;
                     
+                    /* ئەم بەشەی خوارەوە نوێکراوەتەوە بۆ بەستنەوە بە فایلی دەرەکی (وەک chapter3.html) */
                     const cardHtml = `
                         <div class="chapter-card" id="ch${index+1}" style="animation-delay: ${0.1 + (index*0.05)}s;">
                             <span class="chapter-badge">${data.badgeText} ${convertToKurdishNumbers(String(index+1), lang)}</span>
@@ -1583,7 +1584,7 @@
                             <div class="chapter-info-box">
                                 <h3 class="chapter-card-title">${ch.title}</h3>
                                 <p>${ch.desc}</p>
-                                <a href="#" class="chapter-btn">${btnLabel}</a>
+                                <a href="chapter${index+1}.html" class="chapter-btn">${btnLabel}</a>
                             </div>
                         </div>
                     `;
