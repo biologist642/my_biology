@@ -3,207 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atlas of Entomology Header</title>
+    <title>NovaEntomo</title>
+    <!-- بەکارهێنانی فۆنتی Vazirmatn بۆ نووسینی کوردییەکی جوان -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <!-- هێنانی Tailwind CSS بۆ ستایلەکەت -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* هاوردەکردنی فۆنتی گونجاو بۆ کوردی و ئینگلیزی */
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&family=Poppins:wght@400;600&display=swap');
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Noto Sans Arabic', 'Poppins', sans-serif;
-        }
-
         body {
-            background-color: #0d1e0d; /* ڕەنگی پشت بەکگراوند بۆ تاقیکردنەوە */
+            font-family: 'Vazirmatn', sans-serif;
         }
-
-        /* هێدەری سەرەکی */
-        .main-header {
-            background-color: #1a4d1a; /* ڕەنگی سەوزی تۆخی هاوشێوەی وێنەکە */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 24px;
-            height: 64px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* بەشی لای چەپ (دوگمەی سەرەکی + لۆگۆ) */
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        /* دوگمەی سەرەکی */
-        .btn-home {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #ffffff;
-            padding: 6px 14px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-home:hover {
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        /* لۆگۆ و دەقەکە */
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        /* ئایکۆنی چوارگۆشەی تەنیشت لۆگۆکە */
-        .logo-icon {
-            width: 14px;
-            height: 14px;
-            border: 2px solid rgba(255, 255, 255, 0.7);
-            border-radius: 2px;
-        }
-
-        .logo-text-white {
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        .logo-text-orange {
-            color: #e27d18; /* ڕەنگی پرتەقاڵی لۆگۆکە */
-            font-weight: 700;
-            margin-left: 4px;
-        }
-
-        /* بەشی لای ڕاست (زمانەکان + دوگمەی دۆخی تاریک) */
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        /* لیستی زمانەکان */
-        .lang-selector {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            list-style: none;
-        }
-
-        .lang-selector li a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        .lang-selector li a:hover {
-            color: #ffffff;
-        }
-
-        /* زمانی کوردی (دیاریکراو) */
-        .lang-active a {
-            background-color: #e27d18 !important;
-            color: #ffffff !important;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-        }
-
-        /* دوگمەی گۆڕینی مۆد (گەش/تاریک) */
-        .theme-toggle {
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: #ffffff;
-            transition: background 0.3s;
-        }
-
-        .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* گونجاندن بۆ مۆبایل */
-        @media (max-width: 768px) {
-            .main-header {
-                padding: 10px 15px;
-            }
-            .logo-area {
-                font-size: 14px;
-            }
-            .btn-home {
-                padding: 4px 10px;
-                font-size: 11px;
-            }
-            .lang-selector {
-                gap: 8px;
-            }
-            .lang-selector li a {
-                font-size: 12px;
-            }
+        /* دروستکردنی باکگراوندی گرادیانتی سەوز وەک وێنەی دووەم */
+        .hero-gradient {
+            background: radial-gradient(circle, #14431b 0%, #081e0e 100%);
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-900">
 
-    <header class="main-header">
-        <!-- بەشی لای چەپ -->
-        <div class="header-left">
-            <!-- دوگمەی گەڕانەوە بۆ سەرەکی -->
-            <a href="#" class="btn-home">
-                <span>سەرەکی</span>
-                <span style="font-size: 10px;">←</span>
-            </a>
-            
-            <!-- لۆگۆ -->
-            <a href="#" class="logo-area">
-                <div class="logo-icon"></div>
-                <span class="logo-text-white">Atlas of</span>
-                <span class="logo-text-orange">Entomology</span>
-            </a>
-        </div>
+    <!-- ================= NAVBAR (وەک وێنەی یەکەم) ================= -->
+    <nav class="bg-white border-b border-gray-100 px-6 py-3 flex items-center justify-between">
+        
+        <!-- لای چەپ: دوگمەی گۆڕینی زمان، گەڕان، و لایت مۆد -->
+        <div class="flex items-center gap-4">
+            <!-- لایت مۆد (رووناک) -->
+            <div class="flex items-center gap-2">
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" checked class="sr-only peer">
+                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-700"></div>
+                </label>
+                <span class="text-xs text-gray-600 font-bold">رووناک</span>
+                <!-- ئایکۆنی مێروو بە بچووکی -->
+                <span class="text-sm">🐞</span>
+            </div>
 
-        <!-- بەشی لای ڕاست -->
-        <div class="header-right">
-            <!-- لیستی زمانەکان -->
-            <ul class="lang-selector">
-                <li class="lang-active"><a href="#">کوردی</a></li>
-                <li><a href="#">عربى</a></li>
-                <li><a href="#">English</a></li>
-            </ul>
+            <!-- زمانەکان -->
+            <div class="bg-gray-100 p-1 rounded-full flex items-center text-xs font-bold gap-1">
+                <span class="bg-[#8b4513] text-white px-3 py-1 rounded-full cursor-pointer">کو</span>
+                <span class="text-gray-500 px-2 cursor-pointer hover:text-gray-800">En</span>
+                <span class="text-gray-500 px-2 cursor-pointer hover:text-gray-800">عر</span>
+            </div>
 
-            <!-- ئایکۆنی مۆد (ئەستێرە یان خۆر) -->
-            <button class="theme-toggle" aria-label="Toggle Theme">
-                <!-- ئایکۆنی هاوشێوەی وێنەکە بە بەکارهێنانی SVG -->
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    <circle cx="12" cy="12" r="4"></circle>
+            <!-- ئایکۆنی گەڕان -->
+            <button class="w-9 h-9 rounded-full bg-gray-50 hover:bg-gray-100 flex items-center justify-center text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.602 10.602Z" />
                 </svg>
             </button>
+        </div>
+
+        <!-- ناوەڕاست: ئایکۆنی پەپوولە -->
+        <div class="hidden md:flex items-center justify-center">
+            <svg class="w-6 h-6 text-amber-800/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <!-- دەتوانی لێرەدا SVGی پەپوولەکەت دابنێیت -->
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21V9m0 0a3 3 0 0 1 3-3h3.75a3 3 0 0 0 3-3V1.5M12 9a3 3 0 0 0-3-3H5.25a3 3 0 0 1-3-3V1.5" />
+            </svg>
+        </div>
+
+        <!-- لای ڕاست: لۆگۆ و هەمبەرگەر مینیو -->
+        <div class="flex items-center gap-4">
+            <!-- ناو و لۆگۆ -->
+            <div class="flex items-center gap-1.5">
+                <span class="text-xl font-black text-gray-800 tracking-tight">Nova<span class="text-amber-800">Entomo</span></span>
+                <!-- ئایکۆنی گۆی زەوی -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-amber-800">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a10.5 10.5 0 0 1-10.5-10.5m10.5 10.5a10.5 10.5 0 0 0 10.5-10.5M12 3a10.5 10.5 0 0 0-10.5 10.5M12 3a10.5 10.5 0 0 1 10.5 10.5" />
+                </svg>
+            </div>
+
+            <!-- مینیو (Hamburger Menu) -->
+            <button class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-700">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ================= HERO SECTION (وەک وێنەی دووەم) ================= -->
+    <header class="hero-gradient text-white py-32 px-6 text-center relative overflow-hidden">
+        <div class="max-w-3xl mx-auto flex flex-col items-center justify-center">
+            
+            <!-- دەقی بچووکی سەرەوە -->
+            <span class="text-xs text-amber-400/80 tracking-widest font-bold mb-6">چاپدێری دووەم</span>
+            
+            <!-- ئایکۆنی چوارگۆشە هێڵکارییەکە -->
+            <div class="w-12 h-12 border-2 border-emerald-700/60 rotate-45 flex items-center justify-center mb-8">
+                <div class="w-4 h-4 border border-emerald-600/40"></div>
+            </div>
+
+            <!-- ناونیشانی سەرەکی -->
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-4 leading-tight">
+                دەستپێکی ئینتۆمۆلۆجی
+            </h1>
+
+            <!-- ناونیشانی لاوەکی -->
+            <p class="text-sm md:text-base text-gray-300 font-light tracking-wide flex items-center gap-2">
+                <span>Introduction to Entomology</span>
+                <span class="text-emerald-500">•</span>
+                <span>ئینتۆمۆلۆجی</span>
+            </p>
+            
         </div>
     </header>
 
