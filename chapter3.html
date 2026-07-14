@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas of Entomology Header</title>
+    <style>
+        /* هاوردەکردنی فۆنتی گونجاو بۆ کوردی و ئینگلیزی */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans Arabic', 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #0d1e0d; /* ڕەنگی پشت بەکگراوند بۆ تاقیکردنەوە */
+        }
+
+        /* هێدەری سەرەکی */
+        .main-header {
+            background-color: #1a4d1a; /* ڕەنگی سەوزی تۆخی هاوشێوەی وێنەکە */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            height: 64px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* بەشی لای چەپ (دوگمەی سەرەکی + لۆگۆ) */
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* دوگمەی سەرەکی */
+        .btn-home {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-home:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* لۆگۆ و دەقەکە */
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        /* ئایکۆنی چوارگۆشەی تەنیشت لۆگۆکە */
+        .logo-icon {
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 2px;
+        }
+
+        .logo-text-white {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .logo-text-orange {
+            color: #e27d18; /* ڕەنگی پرتەقاڵی لۆگۆکە */
+            font-weight: 700;
+            margin-left: 4px;
+        }
+
+        /* بەشی لای ڕاست (زمانەکان + دوگمەی دۆخی تاریک) */
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* لیستی زمانەکان */
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            list-style: none;
+        }
+
+        .lang-selector li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .lang-selector li a:hover {
+            color: #ffffff;
+        }
+
+        /* زمانی کوردی (دیاریکراو) */
+        .lang-active a {
+            background-color: #e27d18 !important;
+            color: #ffffff !important;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        /* دوگمەی گۆڕینی مۆد (گەش/تاریک) */
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #ffffff;
+            transition: background 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* گونجاندن بۆ مۆبایل */
+        @media (max-width: 768px) {
+            .main-header {
+                padding: 10px 15px;
+            }
+            .logo-area {
+                font-size: 14px;
+            }
+            .btn-home {
+                padding: 4px 10px;
+                font-size: 11px;
+            }
+            .lang-selector {
+                gap: 8px;
+            }
+            .lang-selector li a {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <!-- بەشی لای چەپ -->
+        <div class="header-left">
+            <!-- دوگمەی گەڕانەوە بۆ سەرەکی -->
+            <a href="#" class="btn-home">
+                <span>سەرەکی</span>
+                <span style="font-size: 10px;">←</span>
+            </a>
+            
+            <!-- لۆگۆ -->
+            <a href="#" class="logo-area">
+                <div class="logo-icon"></div>
+                <span class="logo-text-white">Atlas of</span>
+                <span class="logo-text-orange">Entomology</span>
+            </a>
+        </div>
+
+        <!-- بەشی لای ڕاست -->
+        <div class="header-right">
+            <!-- لیستی زمانەکان -->
+            <ul class="lang-selector">
+                <li class="lang-active"><a href="#">کوردی</a></li>
+                <li><a href="#">عربى</a></li>
+                <li><a href="#">English</a></li>
+            </ul>
+
+            <!-- ئایکۆنی مۆد (ئەستێرە یان خۆر) -->
+            <button class="theme-toggle" aria-label="Toggle Theme">
+                <!-- ئایکۆنی هاوشێوەی وێنەکە بە بەکارهێنانی SVG -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    <circle cx="12" cy="12" r="4"></circle>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+</body>
+</html>
