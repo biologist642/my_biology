@@ -19,13 +19,13 @@
             --accent-color: #8B4513; 
             --navbar-bg: #ffffff; 
             --navbar-text: #2c1a11;
-            --sidebar-bg: #110805;
-            --sidebar-text: #e2e8f0;
             --card-border: rgba(93, 64, 55, 0.08);
             --hero-bg-curve: #e2ded5;
             --circle-big: #eaddd3;
             --circle-small: #8B4513;
             --hero-border-line: #8B4513;
+            /* باکگراوندی هێرۆ بۆ مۆدی ڕووناک */
+            --hero-bg-img: linear-gradient(rgba(248, 246, 242, 0.88), rgba(248, 246, 242, 0.88)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp7vgxCWbVoqyWg36dmiz_SEiQRyKDxVNOwqt_slHvig&s=10');
         }
 
         :root[data-theme="dark"] {
@@ -36,13 +36,13 @@
             --accent-color: #d27d2d;
             --navbar-bg: #1c100b; 
             --navbar-text: #e5d8d2;
-            --sidebar-bg: #050201;
-            --sidebar-text: #cbd5e1;
             --card-border: rgba(255, 255, 255, 0.05);
             --hero-bg-curve: #251812;
             --circle-big: #2d1b13;
             --circle-small: #d27d2d;
             --hero-border-line: #d27d2d;
+            /* باکگراوندی هێرۆ بۆ مۆدی تاریک */
+            --hero-bg-img: linear-gradient(rgba(15, 9, 7, 0.92), rgba(15, 9, 7, 0.92)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp7vgxCWbVoqyWg36dmiz_SEiQRyKDxVNOwqt_slHvig&s=10');
         }
 
         * {
@@ -57,6 +57,14 @@
             background-color: var(--bg-main);
             color: var(--text-primary);
             overflow-x: hidden;
+            opacity: 1;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        /* ستایل بۆ ئەنیمەیشنی گواستنەوەی لاپەڕەکە لە کاتی کلیک لە دوگمەی گەڕانەوە */
+        body.page-transition {
+            opacity: 0;
+            transform: scale(0.97);
         }
 
         /* ==========================================================================
@@ -89,18 +97,37 @@
         .nav-right-group, .controls { position: relative; z-index: 5; }
         .nav-right-group { display: flex; align-items: center; gap: 15px; }
         
-        .menu-toggle-btn { 
-            background: rgba(139, 69, 19, 0.05); border: 1px solid rgba(139, 69, 19, 0.1); 
-            font-size: 24px; color: var(--navbar-text); cursor: pointer;
-            width: 45px; height: 45px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
+        /* دوگمەی گەڕانەوە بۆ سەرەکی نوێ */
+        .back-home-btn { 
+            background: rgba(139, 69, 19, 0.06); 
+            border: 1px solid rgba(139, 69, 19, 0.15); 
+            font-size: 14px; 
+            font-weight: 600;
+            color: var(--navbar-text); 
+            cursor: pointer;
+            padding: 10px 18px;
+            border-radius: 30px;
+            display: flex; 
+            align-items: center; 
+            gap: 8px;
+            text-decoration: none;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .menu-toggle-btn:hover {
+        .back-home-btn i {
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+        .back-home-btn:hover {
             background-color: var(--accent-color);
-            color: #ffffff;
-            transform: rotate(90deg) scale(1.1);
+            color: #ffffff !important;
+            transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+        .back-home-btn:hover i {
+            transform: scale(1.2) rotate(-10deg);
+        }
+        .back-home-btn:active {
+            transform: scale(0.95);
         }
         
         .logo { display: flex; align-items: center; gap: 8px; }
@@ -186,7 +213,7 @@
             align-items: center; 
             padding: 130px 40px 80px 40px; 
             overflow: hidden; 
-            background-color: var(--bg-main);
+            background: var(--hero-bg-img) no-repeat center/cover; /* بەستنەوە بە وێنەی نوێوە */
             border-bottom: 3px solid var(--hero-border-line);
             animation: linePulse 3s ease-in-out infinite alternate;
         }
@@ -206,7 +233,7 @@
             background: var(--circle-big); 
             border-radius: 50%; 
             filter: blur(40px);
-            opacity: 0.7;
+            opacity: 0.55; /* کەمکردنەوەی زۆڵاڵییەکە بۆ گونجاندنی لەگەڵ وێنەی باکگراوند */
             z-index: 1; 
             transition: all 0.4s ease;
         }
@@ -230,23 +257,23 @@
         html[dir="ltr"] .hero-text-side { align-items: flex-start; text-align: left; order: 2; }
         
         .hero-bold-title { 
-            font-size: 64px; 
+            font-size: 52px; /* کەمێک قەبارەکەی بچووک کراوەتەوە بۆ گونجاندنی لەگەڵ ڕستە درێژەکان */
             font-weight: 800; 
-            line-height: 1.2; 
+            line-height: 1.3; 
             color: var(--accent-color); 
             margin-bottom: 25px; 
             letter-spacing: -1px;
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            align-items: center;
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-start;
             animation: pulseMotion 4s ease-in-out infinite alternate;
         }
         
         .hero-bold-title span { 
-            font-size: 32px; 
+            font-size: 28px; 
             font-weight: 600; 
-            color: var(--accent-color); 
+            color: var(--text-primary); 
             letter-spacing: 0px; 
         }
         
@@ -256,7 +283,7 @@
         }
 
         .hero-paragraph { 
-            font-size: 19.5px; 
+            font-size: 20px; 
             line-height: 1.9; 
             color: var(--text-secondary); 
             max-width: 650px; 
@@ -371,23 +398,27 @@
             .art-circle-small { width: 75px; height: 75px; right: 0; bottom: 0; border-width: 3px; }
             .art-circle-small .hero-ant-icon { font-size: 30px; }
             
-            .hero-bold-title { font-size: 36px; justify-content: center; margin-bottom: 15px; }
+            .hero-bold-title { font-size: 36px; justify-content: center; margin-bottom: 15px; align-items: center; }
             .hero-bold-title span { font-size: 20px; }
-            .hero-paragraph { font-size: 15.5px; margin-bottom: 20px; line-height: 1.7; }
+            .hero-paragraph { font-size: 16px; margin-bottom: 20px; line-height: 1.7; }
         }
 
         @media (max-width: 768px) {
             .navbar { padding: 0 10px; height: 65px; display: flex; justify-content: space-between; }
             
-            .logo h2 { font-size: 15px; display: block !important; }
+            .logo h2 { font-size: 14px; display: block !important; }
             .logo-icon { font-size: 22px; }
             .nav-right-group { gap: 8px; }
+            
+            /* ڕێکخستنی دوگمەی سەرەکی لە مۆبایلدا */
+            .back-home-btn { padding: 6px 12px; font-size: 12px; gap: 4px; }
+            .back-home-btn i { font-size: 15px; }
             
             .controls { gap: 6px; }
             .lang-links-wrapper { padding: 2px; gap: 2px; }
             .lang-btn { padding: 4px 8px; font-size: 11px; }
             
-            .menu-toggle-btn, .nav-search-btn {
+            .nav-search-btn {
                 width: 36px;
                 height: 36px;
                 font-size: 18px;
@@ -421,8 +452,10 @@
         }
         
         @media (max-width: 430px) {
-            .logo h2 { font-size: 13px; }
+            .logo h2 { font-size: 11px; }
             .logo-icon { font-size: 18px; }
+            .back-home-btn span { display: none; } /* تەنها ئایکۆن لە مۆبایلە زۆر بچووکەکاندا پیشان دەدات */
+            .back-home-btn { padding: 8px; border-radius: 50%; }
             .controls { gap: 3px; }
             .lang-btn { padding: 4px 5px; font-size: 10px; }
             .hero-bold-title { font-size: 26px; }
@@ -432,7 +465,7 @@
 </head>
 <body>
 
-    <!-- ================= NAVBAR (وەک خۆی) ================= -->
+    <!-- ================= NAVBAR (وەک خۆی لەگەڵ دوگمەی نوێ) ================= -->
     <header class="navbar">
         <div class="insect-bg-layer">
             <i class="ph ph-butterfly moving-insect ins-1"></i>
@@ -440,7 +473,11 @@
         </div>
     
         <div class="nav-right-group">
-            <button class="menu-toggle-btn" id="open-sidebar" aria-label="Open Menu"><i class="ph ph-list"></i></button>
+            <!-- دوگمەی گەڕانەوەی سەرەکی لە بری مینیۆکە -->
+            <a href="index.html" class="back-home-btn" id="back-to-home">
+                <i class="ph ph-house"></i>
+                <span id="back-home-text">گەڕانەوە بۆ سەرەکی</span>
+            </a>
             <div class="logo">
                 <i class="ph ph-bug logo-icon"></i> <h2>Nova<span>Entomo</span></h2>
             </div>
@@ -467,17 +504,17 @@
         </div>
     </header>
 
-    <!-- ================= HERO SECTION (وەک خۆی) ================= -->
+    <!-- ================= HERO SECTION (دەقی نوێ و باکگراوند) ================= -->
     <section class="hero-section-wrapper">
         <div class="hero-bg-shape-curve"></div>
         
         <div class="hero-layout-container">
             <div class="hero-text-side">
                 <h1 class="hero-bold-title" id="hero-title">
-                    NovaEntomo <span id="hero-title-sub">زانستی درەوشاوەی مێرووناسی</span>
+                    بەشی یەکەم <span id="hero-title-sub">دەستپێکێک بۆ مێرووناسی</span>
                 </h1>
                 <p class="hero-paragraph" id="hero-desc">
-                    پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران, مامۆستایان, توێژەران و جوتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.
+                    مێرووناسی؛ گەشتێکە بۆ ناو جیهانی بوونەوەرە هەرە بچووکەکان، کە گەورەترین کاریگەرییان لەسەر گۆی زەوی هەیە.
                 </p>
                 
                 <div class="hero-bionova-badge">
@@ -509,31 +546,34 @@
     <script>
         const translations = {
             ku: {
-                title: "NovaEntomo <span id='hero-title-sub'>زانستی درەوشاوەی مێرووناسی</span>",
-                desc: "پلاتفۆرمی زانستی و ئەکادیمی پێشکەوتوو بۆ خوێندکاران, مامۆستایان, توێژەران و جوتیاران بە بەکارهێنانی تازەترین زانیاری سەردەم.",
+                title: "بەشی یەکەم <span id='hero-title-sub'>دەستپێکێک بۆ مێرووناسی</span>",
+                desc: "مێرووناسی؛ گەشتێکە بۆ ناو جیهانی بوونەوەرە هەرە بچووکەکان، کە گەورەترین کاریگەرییان لەسەر گۆی زەوی هەیە.",
                 heroBioText: "ئەم پلاتفۆرمە گەشەی پێدراوە لە لایەن گرووپی BioNova",
                 btnText: "دەستپێکردنی گەشتەکە",
                 light: "ڕووناک",
                 dark: "تاریک",
-                searchPlaceholder: "گەڕان..."
+                searchPlaceholder: "گەڕان...",
+                backHome: "گەڕانەوە بۆ سەرەکی"
             },
             en: {
-                title: "NovaEntomo <span>Entomology Science</span>",
-                desc: "An advanced scientific and academic platform for students, teachers, researchers, and farmers utilizing the latest modern knowledge.",
+                title: "Chapter One <span>Introduction to Entomology</span>",
+                desc: "Entomology; a journey into the world of the tiniest creatures, which have the greatest impact on Earth.",
                 heroBioText: "This platform was developed by BioNova Group",
                 btnText: "Start Exploring",
                 light: "Light",
                 dark: "Dark",
-                searchPlaceholder: "Search..."
+                searchPlaceholder: "Search...",
+                backHome: "Back to Home"
             },
             ar: {
-                title: "NovaEntomo <span>علم الحشرات المشرق</span>",
-                desc: "منصة علمية وأكاديمية متقدمة للطلاب والمعلمين والباحثين والمزارعين باستخدام أحدث المعارف المعاصرة.",
+                title: "الفصل الأول <span>مقدمة في علم الحشرات</span>",
+                desc: "علم الحشرات؛ رحلة إلى عالم أصغر الكائنات الحية التي تمتلك التأثير الأكبر على كوكب الأرض.",
                 heroBioText: "تم تطوير هذه المنصة بواسطة مجموعة BioNova",
                 btnText: "ابدأ الرحلة",
                 light: "فاتح",
                 dark: "مظلم",
-                searchPlaceholder: "بحث..."
+                searchPlaceholder: "بحث...",
+                backHome: "العودة للرئيسية"
             }
         };
 
@@ -558,6 +598,9 @@
             const heroBtnMobile = document.getElementById('hero-btn-text-mobile');
             if (heroBtnMobile) heroBtnMobile.innerHTML = `${data.btnText} <i class="ph ph-arrow-down"></i>`;
             
+            const backHomeText = document.getElementById('back-home-text');
+            if (backHomeText) backHomeText.innerText = data.backHome;
+
             if (searchInput) searchInput.placeholder = data.searchPlaceholder;
 
             document.querySelectorAll('.theme-status-text').forEach(el => {
@@ -573,6 +616,16 @@
                 }
             });
         }
+
+        // کلیلک لەسەر گەڕانەوە بۆ سەرەکی بە ئەنیمەیشنی تایبەتەوە
+        document.getElementById('back-to-home').addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetUrl = this.getAttribute('href');
+            document.body.classList.add('page-transition');
+            setTimeout(() => {
+                window.location.href = targetUrl;
+            }, 450); // کاتی ئەنیمەیشن پێش گواستنەوە بۆ سەرەکی
+        });
 
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', function() {
