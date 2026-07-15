@@ -428,7 +428,7 @@
         }
 
         /* ==========================================================================
-           6. ستایلی کارتی دووەم، چوارەم، و پێنجەم (تایبەت بە مێروو و وێنەکان)
+           6. ستایلی کارتی دووەم، چوارەم، پێنجەم، و شەشەم (تایبەت بە مێروو و وێنەکان)
            ========================================================================== */
         .insect-grid-layout {
             display: grid;
@@ -699,7 +699,7 @@
             </div>
             
             <p class="info-text" id="info-card-p1">
-                مێرووناسی (Entomology) لقێکی گرنگی زانستی ژیانە کە تایبەتە بە لێکۆڵینەوە لەسەر مێرووەکان. ئەم زانستە شێوازی ژیان، پێکهاتە، ڕەفتار، گەشە، پۆلێنکردن, ژینگە، و کاریگەریی مێرووەکان لەسەر مرۆڤ، ئاژەڵ و ڕووەک دەکۆڵێتەوە.
+                مێرووناسی (Entomology) لقێکی گرنگی زانستی ژیانە کە تایبەتە بە لێکۆڵینەوە لەسەر مێرووەکان. ئەم زانستە شێوازی ژیان، پێکهاتە، ڕەفتار، گەشە، پۆلێنکردن، ژینگە، و کاریگەریی مێرووەکان لەسەر مرۆڤ، ئاژەڵ و ڕووەک دەکۆڵێتەوە.
             </p>
 
             <p class="info-text" id="info-card-p2">
@@ -952,11 +952,72 @@
                 
                 <div style="display: flex; flex-direction: column; gap: 20px;">
                     <div class="insect-image-wrapper">
-                        <img src="torax1.png" alt="Thorax Exterior" class="insect-img-file">
+                        <img src="thorax1.png" alt="Thorax Exterior" class="insect-img-file">
                     </div>
                     <div class="insect-image-wrapper">
                         <img src="thorax2.png" alt="Thorax Structure" class="insect-img-file">
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- کارتی شەشەم: سک (Abdomen) -->
+        <div class="info-card" style="animation-delay: 1.2s;">
+            <div class="info-header">
+                <i class="ph ph-heartbeat"></i>
+                <h2 class="info-title" id="abdomen-card-title">سک (Abdomen)</h2>
+            </div>
+            
+            <p class="info-text" id="abdomen-card-desc">
+                سک (Abdomen) دوا بەشی جەستەی مێرووە و لە دوای سنگ هەڵکەوتووە. گەورەترین بەشی جەستەی مێرووە و زۆربەی ئەندامە ناوەکییە گرنگەکان لە ناوی هەڵدەگرێت.
+            </p>
+
+            <div class="insect-grid-layout">
+                <div class="insect-features-side">
+                    <h3 class="features-title" id="abdomen-struct-title">پێکهاتەی سک (Structure):</h3>
+                    <p class="info-text" style="font-size: 14.5px; margin-bottom: 15px;" id="abdomen-struct-p">
+                        زۆربەی مێرووەکان سکێکی پێکدێت لە ١١ پارچە (Segments)، بەڵام لە هەندێک جۆردا ژمارەکە کەمترە. لەنێوان پارچەکان پەردەیەکی نەرم (Intersegmental membrane) هەیە، کە یارمەتی جوڵە و فراوانبوونی سک دەدات. هەر پارچەیەک لە دوو بەش پێکدێت:
+                    </p>
+
+                    <div class="grid-item feature-box" style="margin-bottom: 12px;">
+                        <i class="ph ph-caret-double-up"></i>
+                        <div>
+                            <div class="grid-title" id="tergum-t">Tergum (Tergite)</div>
+                            <div class="grid-desc" id="tergum-d">بەشی سەرەوەی پارچەکە (دواوەی سک).</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item feature-box" style="margin-bottom: 20px;">
+                        <i class="ph ph-caret-double-down"></i>
+                        <div>
+                            <div class="grid-title" id="sternum-t">Sternum (Sternite)</div>
+                            <div class="grid-desc" id="sternum-d">بەشی خوارەوەی پارچەکە (سک لای دەرەوە).</div>
+                        </div>
+                    </div>
+
+                    <h3 class="features-title" id="abdomen-funcs-title">ئەرکەکانی سک (Functions):</h3>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px;" id="abdomen-funcs-list">
+                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
+                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                            <span id="a-func-1">هەرسکردنی خواردن.</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
+                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                            <span id="a-func-2">هەناسەدان.</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
+                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                            <span id="a-func-3">زیادبوون و دانانی هێلکە.</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
+                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                            <span id="a-func-4">هەڵگرتنی زۆربەی ئەندامە ناوەکییەکان.</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="insect-image-wrapper">
+                    <img src="abdomen.jpg" alt="Abdomen Structure" class="insect-img-file">
                 </div>
             </div>
         </div>
@@ -1009,7 +1070,7 @@
                 extAbdomenT: "سک (Abdomen)", extAbdomenD: "پێکهاتووە لە پارچەی یەکبەدواویەک کە کۆئەندامی هەرەس و زاوزێی تێدایە.",
                 extAntennaeT: "شاخک (Antennae)", extAntennaeD: "بۆ هەستکردن بە بۆن، دەنگ و گۆڕانی ژینگەی دەوروبەر بەکاردێت.",
                 extEyesT: "چاو (Eyes)", extEyesD: "مێرووەکان خاوەنی چاوی لێکدراو (Compound) و چاوی سادەن بۆ بینین.",
-                extMouthT: "دەم (Mouthparts)", extMouthD: "بەپێی جۆری خۆراک دەگۆڕێت (بۆ گازگرتن, مژین، یان لێستنەوە).",
+                extMouthT: "دەم (Mouthparts)", extMouthD: "بەپێی جۆری خۆراک دەگۆڕێت (بۆ گازگرتن، مژین، یان لێستنەوە).",
                 extLegsT: "پێ (Legs)", extLegsD: "مێرووەکان خاوەنی شەش پێن (سێ جووت) کە بۆ ڕۆیشتن و بازدان بەکاردێن.",
                 extWingsT: "باڵ (Wings)", extWingsD: "بۆ فڕین بەکاردێن، زۆربەی مێرووەکان خاوەنی چوار باڵن (دوو جووت).",
 
@@ -1038,7 +1099,22 @@
                 tFunc1: "هەڵگرتنی سێ جووت پێ (6 پێ).",
                 tFunc2: "هەڵگرتنی یەک یان دوو جووت باڵ.",
                 tFunc3: "تێدایە ماسولکەکانی ڕۆیشتن و فڕین.",
-                tFunc4: "یارمەتیدانی جوڵە و هاوسەنگی مێروو."
+                tFunc4: "یارمەتیدانی جوڵە و هاوسەنگی مێروو.",
+
+                // کارتی شەشەم (سک)
+                abdomenCardTitle: "سک (Abdomen)",
+                abdomenCardDesc: "سک (Abdomen) دوا بەشی جەستەی مێرووە و لە دوای سنگ هەڵکەوتووە. گەورەترین بەشی جەستەی مێرووە و زۆربەی ئەندامە ناوەکییە گرنگەکان لە ناوی هەڵدەگرێت.",
+                abdomenStructTitle: "پێکهاتەی سک (Structure):",
+                abdomenStructP: "زۆربەی مێرووەکان سکێکی پێکدێت لە ١١ پارچە (Segments)، بەڵام لە هەندێک جۆردا ژمارەکە کەمترە. لەنێوان پارچەکان پەردەیەکی نەرم (Intersegmental membrane) هەیە، کە یارمەتی جوڵە و فراوانبوونی سک دەدات. هەر پارچەیەک لە دوو بەش پێکدێت:",
+                tergumT: "Tergum (Tergite)",
+                tergumD: "بەشی سەرەوەی پارچەکە (دواوەی سک).",
+                sternumT: "Sternum (Sternite)",
+                sternumD: "بەشی خوارەوەی پارچەکە (سک لای دەرەوە).",
+                abdomenFuncsTitle: "ئەرکەکانی سک (Functions):",
+                aFunc1: "هەرسکردنی خواردن.",
+                aFunc2: "هەناسەدان.",
+                aFunc3: "زیادبوون و دانانی هێلکە.",
+                aFunc4: "هەڵگرتنی زۆربەی ئەندامە ناوەکییەکان."
             },
             en: {
                 title: "Chapter One <span>Introduction to Entomology</span>",
@@ -1102,7 +1178,22 @@
                 tFunc1: "Carries three pairs of legs (6 legs).",
                 tFunc2: "Carries one or two pairs of wings.",
                 tFunc3: "Contains flight and walking muscles.",
-                tFunc4: "Assists in locomotion and insect balance."
+                tFunc4: "Assists in locomotion and insect balance.",
+
+                // Chapter 6 (EN)
+                abdomenCardTitle: "Abdomen",
+                abdomenCardDesc: "The abdomen is the posterior section of an insect's body, located after the thorax. It is the largest region and houses most of the vital internal organs.",
+                abdomenStructTitle: "Abdomen Structure:",
+                abdomenStructP: "Most insects have an abdomen consisting of 11 segments, though some groups have fewer. A flexible intersegmental membrane connects these segments, aiding movement and expansion. Each segment consists of two parts:",
+                tergumT: "Tergum (Tergite)",
+                tergumD: "The dorsal (upper) part of the segment.",
+                sternumT: "Sternum (Sternite)",
+                sternumD: "The ventral (lower) part of the segment.",
+                abdomenFuncsTitle: "Functions of the Abdomen:",
+                aFunc1: "Food digestion.",
+                aFunc2: "Respiration (breathing).",
+                aFunc3: "Reproduction and egg laying.",
+                aFunc4: "Housing most internal organs."
             },
             ar: {
                 title: "الفصل الأول <span>مقدمة في علم الحشرات</span>",
@@ -1166,7 +1257,22 @@
                 tFunc1: "حمل ثلاثة أزواج من الأرجل (6 أرجل).",
                 tFunc2: "حمل زوج أو زوجين من الأجنحة طيران.",
                 tFunc3: "يحتوي على عضلات الحركة القوية للطيران والمشي.",
-                tFunc4: "يساعد في توازن وتوجيه حركة الحشرة في بيئتها."
+                tFunc4: "يساعد في توازن وتوجيه حركة الحشرة في بيئتها.",
+
+                // الفصل السادس (AR)
+                abdomenCardTitle: "البطن (Abdomen)",
+                abdomenCardDesc: "البطن هو الجزء الأخير من جسم الحشرة ويأتي بعد الصدر مباشرة. يعد البطن الجزء الأكبر حجماً في جسم الحشرة ويضم معظم الأعضاء الداخلية الحيوية.",
+                abdomenStructTitle: "تركيب البطن:",
+                abdomenStructP: "يتكون بطن معظم الحشرات من 11 قطعة (حلقات)، لكن العدد يقل في بعض المجموعات. يربط بين القطع غشاء مرن ناعم يساعد على الحركة والتمدد. وتتكون كل قطعة من جزأين:",
+                tergumT: "الترجوم (Tergum)",
+                tergumD: "الصفيحة الظهرية (الجزء العلوي من الحلقة).",
+                sternumT: "الاسترنوم (Sternum)",
+                sternumD: "الصفيحة البطنية (الجزء السفلي من الحلقة).",
+                abdomenFuncsTitle: "وظائف البطن الرئيسية:",
+                aFunc1: "هضم الطعام والامتصاص.",
+                aFunc2: "التنفس (تبادل الغازات).",
+                aFunc3: "التكاثر ووضع البيض.",
+                aFunc4: "احتواء معظم الأعضاء الحيوية الداخلية."
             }
         };
 
@@ -1255,6 +1361,21 @@
             document.getElementById('t-func-2').innerText = data.tFunc2;
             document.getElementById('t-func-3').innerText = data.tFunc3;
             document.getElementById('t-func-4').innerText = data.tFunc4;
+
+            // کارتی شەشەم (سک)
+            document.getElementById('abdomen-card-title').innerText = data.abdomenCardTitle;
+            document.getElementById('abdomen-card-desc').innerText = data.abdomenCardDesc;
+            document.getElementById('abdomen-struct-title').innerText = data.abdomenStructTitle;
+            document.getElementById('abdomen-struct-p').innerText = data.abdomenStructP;
+            document.getElementById('tergum-t').innerText = data.tergumT;
+            document.getElementById('tergum-d').innerText = data.tergumD;
+            document.getElementById('sternum-t').innerText = data.sternumT;
+            document.getElementById('sternum-d').innerText = data.sternumD;
+            document.getElementById('abdomen-funcs-title').innerText = data.abdomenFuncsTitle;
+            document.getElementById('a-func-1').innerText = data.aFunc1;
+            document.getElementById('a-func-2').innerText = data.aFunc2;
+            document.getElementById('a-func-3').innerText = data.aFunc3;
+            document.getElementById('a-func-4').innerText = data.aFunc4;
             
             // دوگمەی داونڵۆد
             document.getElementById('download-btn-text').innerText = data.downloadText;
