@@ -460,7 +460,7 @@
             align-items: center;
             overflow: hidden;
             position: relative;
-            cursor: pointer; /* نیشاندانی شێوازی ماوس وەک دەست */
+            cursor: pointer; 
             transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -470,7 +470,6 @@
             box-shadow: 0 8px 20px rgba(139, 69, 19, 0.08);
         }
 
-        /* زیادکردنی نیشاندەری کلیک لەسەر وێنە */
         .insect-image-wrapper::after {
             content: '🔍 کلیک بکە بۆ گەورەکردن';
             font-family: 'Noto Kufi Arabic', sans-serif;
@@ -496,6 +495,16 @@
             height: auto;
             border-radius: 12px;
             object-fit: cover;
+        }
+
+        /* ==========================================================================
+           7. کارتەکانی پێکهاتەی دەرەوە (مۆدێلی Grid ی نوێ)
+           ========================================================================== */
+        .morphology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
         }
 
         /* ==========================================================================
@@ -727,7 +736,7 @@
             </div>
         </div>
 
-        <!-- کارتی دووەم: مێروو چییە؟ (لەگەڵ وێنەی insectpart) -->
+        <!-- کارتی دووەم: مێروو چییە؟ -->
         <div class="info-card" style="animation-delay: 0.4s;">
             <div class="info-header">
                 <i class="ph ph-bug-beetle"></i>
@@ -755,6 +764,92 @@
                 <!-- بەشی وێنەی مێروو -->
                 <div class="insect-image-wrapper">
                     <img src="insectpart.png" alt="Insect Parts" class="insect-img-file">
+                </div>
+            </div>
+        </div>
+
+        <!-- کارتی سێیەم: پێکهاتەی دەرەوەی جەستە (External Morphology) -->
+        <div class="info-card" style="animation-delay: 0.6s;">
+            <div class="info-header">
+                <i class="ph ph-atom"></i>
+                <h2 class="info-title" id="morph-card-title">پێکهاتەی دەرەوەی جەستە (External Morphology)</h2>
+            </div>
+            
+            <p class="info-text" id="morph-card-desc">
+                پێکهاتەی دەرەوەی جەستەی مێرووەکان بە شێوازێکی زۆر سەرنجڕاکێش نەخشێنراوە تاوەکو گونجاو بێت بۆ مانەوە و بەرگری لە ژینگەی جیاوازدا.
+            </p>
+
+            <div class="morphology-grid">
+                <!-- سەر -->
+                <div class="grid-item">
+                    <i class="ph ph-brain"></i>
+                    <div>
+                        <div class="grid-title" id="ext-head-t">سەر (Head)</div>
+                        <div class="grid-desc" id="ext-head-d">ناوەندی هەستەکانە، چاوەکان، شاخکەکان و پارچەکانی دەمی لەسەرە.</div>
+                    </div>
+                </div>
+
+                <!-- سنگ -->
+                <div class="grid-item">
+                    <i class="ph ph-shield"></i>
+                    <div>
+                        <div class="grid-title" id="ext-thorax-t">سنگ (Thorax)</div>
+                        <div class="grid-desc" id="ext-thorax-d">ناوەندی جووڵەیە، پێیەکان و باڵەکان بەم بەشەوە بەستراونەتەوە.</div>
+                    </div>
+                </div>
+
+                <!-- سک -->
+                <div class="grid-item">
+                    <i class="ph ph-heart-beat"></i>
+                    <div>
+                        <div class="grid-title" id="ext-abdomen-t">سک (Abdomen)</div>
+                        <div class="grid-desc" id="ext-abdomen-d">پێکهاتووە لە پارچەی یەکبەدواویەک کە کۆئەندامی هەرەس و زاوزێی تێدایە.</div>
+                    </div>
+                </div>
+
+                <!-- شاخک -->
+                <div class="grid-item">
+                    <i class="ph ph-broadcast"></i>
+                    <div>
+                        <div class="grid-title" id="ext-antennae-t">شاخک (Antennae)</div>
+                        <div class="grid-desc" id="ext-antennae-d">بۆ هەستکردن بە بۆن، دەنگ و گۆڕانی ژینگەی دەوروبەر بەکاردێت.</div>
+                    </div>
+                </div>
+
+                <!-- چاو -->
+                <div class="grid-item">
+                    <i class="ph ph-eye"></i>
+                    <div>
+                        <div class="grid-title" id="ext-eyes-t">چاو (Eyes)</div>
+                        <div class="grid-desc" id="ext-eyes-d">مێرووەکان خاوەنی چاوی لێکدراو (Compound) و چاوی سادەن بۆ بینین.</div>
+                    </div>
+                </div>
+
+                <!-- دەم -->
+                <div class="grid-item">
+                    <i class="ph ph-cookie"></i>
+                    <div>
+                        <div class="grid-title" id="ext-mouth-t">دەم (Mouthparts)</div>
+                        <div class="grid-desc" id="ext-mouth-d">بەپێی جۆری خۆراک دەگۆڕێت (بۆ گازگرتن، مژین، یان لێستنەوە).</div>
+                    </div>
+                </div>
+
+                <!-- پێ -->
+                <div class="grid-item">
+                    <i class="ph ph-footprints"></i>
+                    <div>
+                        <div class="grid-title" id="ext-legs-t">پێ (Legs)</div>
+                        <div class="grid-desc" id="ext-legs-d">مێرووەکان خاوەنی شەش پێن (سێ جووت) کە بۆ ڕۆیشتن و بازدان بەکاردێن.</div>
+                    </div>
+                </div>
+
+                <!-- باڵ -->
+                <div class="grid-item">
+                    <i class="ph ph-wind"></i>
+                    <div>
+                        <div class="grid-title" id="ext-wings-t">باڵ (Wings)</div>
+                        <div class="grid-desc" id="ext-wings-d">بۆ فڕین بەکاردێن، زۆربەی مێرووەکان خاوەنی چوار باڵن (دوو جووت).</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -798,7 +893,19 @@
                 featuresTitle: "تایبەتمەندییە سەرەکەییەکان:",
                 featureT1: "جەستەی سێ بەشی",
                 featureD1: "پێکهاتووە لە سەر (Head)، سنگ (Thorax)، و سک (Abdomen).",
-                downloadText: "داونڵۆدکردنی وێنەکە"
+                downloadText: "داونڵۆدکردنی وێنەکە",
+
+                // وەرگێڕانی کارتی نوێ (مۆرفۆلۆجی)
+                morphTitle: "پێکهاتەی دەرەوەی جەستە (External Morphology)",
+                morphDesc: "پێکهاتەی دەرەوەی جەستەی مێرووەکان بە شێوازێکی زۆر سەرنجڕاکێش نەخشێنراوە تاوەکو گونجاو بێت بۆ مانەوە و بەرگری لە ژینگەی جیاوازدا.",
+                extHeadT: "سەر (Head)", extHeadD: "ناوەندی هەستەکانە، چاوەکان، شاخکەکان و پارچەکانی دەمی لەسەرە.",
+                extThoraxT: "سنگ (Thorax)", extThoraxD: "ناوەندی جووڵەیە، پێیەکان و باڵەکان بەم بەشەوە بەستراونەتەوە.",
+                extAbdomenT: "سک (Abdomen)", extAbdomenD: "پێکهاتووە لە پارچەی یەکبەدواویەک کە کۆئەندامی هەرەس و زاوزێی تێدایە.",
+                extAntennaeT: "شاخک (Antennae)", extAntennaeD: "بۆ هەستکردن بە بۆن، دەنگ و گۆڕانی ژینگەی دەوروبەر بەکاردێت.",
+                extEyesT: "چاو (Eyes)", extEyesD: "مێرووەکان خاوەنی چاوی لێکدراو (Compound) و چاوی سادەن بۆ بینین.",
+                extMouthT: "دەم (Mouthparts)", extMouthD: "بەپێی جۆری خۆراک دەگۆڕێت (بۆ گازگرتن، مژین، یان لێستنەوە).",
+                extLegsT: "پێ (Legs)", extLegsD: "مێرووەکان خاوەنی شەش پێن (سێ جووت) کە بۆ ڕۆیشتن و بازدان بەکاردێن.",
+                extWingsT: "باڵ (Wings)", extWingsD: "بۆ فڕین بەکاردێن، زۆربەی مێرووەکان خاوەنی چوار باڵن (دوو جووت)."
             },
             en: {
                 title: "Chapter One <span>Introduction to Entomology</span>",
@@ -824,7 +931,19 @@
                 featuresTitle: "Key Characteristics:",
                 featureT1: "Three-part Body",
                 featureD1: "Consists of Head, Thorax, and Abdomen.",
-                downloadText: "Download Image"
+                downloadText: "Download Image",
+
+                // External Morphology (EN)
+                morphTitle: "External Morphology",
+                morphDesc: "The external structure of insects is highly specialized to help them survive and adapt to different environments.",
+                extHeadT: "Head", extHeadD: "Sensory and feeding center, contains eyes, antennae, and mouthparts.",
+                extThoraxT: "Thorax", extThoraxD: "The locomotion center, where legs and wings are attached.",
+                extAbdomenT: "Abdomen", extAbdomenD: "Contains vital organs, digestive, and reproductive systems.",
+                extAntennaeT: "Antennae", extAntennaeD: "Sensory organs used for smelling, feeling, and sensing the environment.",
+                extEyesT: "Eyes", extEyesD: "They have compound eyes and simple eyes for vision.",
+                extMouthT: "Mouthparts", extMouthD: "Highly adapted for biting, chewing, sucking, or lapping food.",
+                extLegsT: "Legs", extLegsD: "Insects have six legs (three pairs) adapted for walking or jumping.",
+                extWingsT: "Wings", extWingsD: "Used for flight, most insects have four wings (two pairs)."
             },
             ar: {
                 title: "الفصل الأول <span>مقدمة في علم الحشرات</span>",
@@ -850,7 +969,19 @@
                 featuresTitle: "الخصائص الرئيسية:",
                 featureT1: "جسم مكون من ثلاثة أجزاء",
                 featureD1: "يتكون من الرأس (Head)، الصدر (Thorax)، والبطن (Abdomen).",
-                downloadText: "تحميل الصورة"
+                downloadText: "تحميل الصورة",
+
+                // External Morphology (AR)
+                morphTitle: "بنية الجسم الخارجية (External Morphology)",
+                morphDesc: "تم تصميم الهيكل الخارجي للحشرات بطرق فريدة لتتمكن من البقاء والتكيف مع البيئات المختلفة.",
+                extHeadT: "الرأس (Head)", extHeadD: "مركز الحواس والتغذية، ويحتوي على العيون، وقرون الاستشعار، وأجزاء الفم.",
+                extThoraxT: "الصدر (Thorax)", extThoraxD: "مركز الحركة، حيث تتصل به الأرجل والأجنحة.",
+                extAbdomenT: "البطن (Abdomen)", extAbdomenD: "يتكون من عدة قطع متتالية ويحتوي على الأجهزة الهضمية والتناسلية.",
+                extAntennaeT: "قرون الاستشعار (Antennae)", extAntennaeD: "أعضاء حسية تُستخدم للشم واللمس والإحساس بالبيئة المحيطة.",
+                extEyesT: "العيون (Eyes)", extEyesD: "تمتلك الحشرات عيوناً مركبة (Compound) وعيوناً بسيطة للرؤية.",
+                extMouthT: "أجزاء الفم (Mouthparts)", extMouthD: "تختلف حسب نوع الغذاء (للقضم، أو الامتصاص، أو اللعق).",
+                extLegsT: "الأرجل (Legs)", extLegsD: "تمتلك ستة أرجل (ثلاثة أزواج) تستخدم للمشي، الركض أو القفز.",
+                extWingsT: "الأجنحة (Wings)", extWingsD: "تُستخدم للطيران، وغالبية الحشرات تمتلك أربعة أجنحة (زوجين)."
             }
         };
 
@@ -875,7 +1006,7 @@
 
             if (searchInput) searchInput.placeholder = data.searchPlaceholder;
 
-            // وەرگێڕانی کارتی یەکەم
+            // کارتی یەکەم
             document.getElementById('info-card-title').innerText = data.cardTitle;
             document.getElementById('info-card-p1').innerText = data.cardP1;
             document.getElementById('info-card-p2').innerText = data.cardP2;
@@ -886,12 +1017,32 @@
             document.getElementById('ety-d1').innerText = data.etyD1;
             document.getElementById('ety-d2').innerText = data.etyD2;
 
-            // وەرگێڕانی کارتی دووەم
+            // کارتی دووەم
             document.getElementById('insect-card-title').innerText = data.insectTitle;
             document.getElementById('insect-card-desc').innerText = data.insectDesc;
             document.getElementById('features-title-text').innerText = data.featuresTitle;
             document.getElementById('feature-t1').innerText = data.featureT1;
             document.getElementById('feature-d1').innerText = data.featureD1;
+
+            // کارتی سێیەم (مۆرفۆلۆجی دەرەکی)
+            document.getElementById('morph-card-title').innerText = data.morphTitle;
+            document.getElementById('morph-card-desc').innerText = data.morphDesc;
+            document.getElementById('ext-head-t').innerText = data.extHeadT;
+            document.getElementById('ext-head-d').innerText = data.extHeadD;
+            document.getElementById('ext-thorax-t').innerText = data.extThoraxT;
+            document.getElementById('ext-thorax-d').innerText = data.extThoraxD;
+            document.getElementById('ext-abdomen-t').innerText = data.extAbdomenT;
+            document.getElementById('ext-abdomen-d').innerText = data.extAbdomenD;
+            document.getElementById('ext-antennae-t').innerText = data.extAntennaeT;
+            document.getElementById('ext-antennae-d').innerText = data.extAntennaeD;
+            document.getElementById('ext-eyes-t').innerText = data.extEyesT;
+            document.getElementById('ext-eyes-d').innerText = data.extEyesD;
+            document.getElementById('ext-mouth-t').innerText = data.extMouthT;
+            document.getElementById('ext-mouth-d').innerText = data.extMouthD;
+            document.getElementById('ext-legs-t').innerText = data.extLegsT;
+            document.getElementById('ext-legs-d').innerText = data.extLegsD;
+            document.getElementById('ext-wings-t').innerText = data.extWingsT;
+            document.getElementById('ext-wings-d').innerText = data.extWingsD;
             
             // دوگمەی داونڵۆد
             document.getElementById('download-btn-text').innerText = data.downloadText;
@@ -955,31 +1106,28 @@
             }
         });
 
-        // ================= JS CODE FOR IMAGE MODAL (LIGHTBOX) =================
+        // ================= LIGHTBOX MODAL CODE =================
         const imgWrapper = document.querySelector('.insect-image-wrapper');
         const modal = document.getElementById('image-modal');
         const modalImg = document.getElementById('modal-img');
         const modalDownloadBtn = document.getElementById('modal-download-btn');
         const modalClose = document.getElementById('modal-close');
 
-        // کاتێک کلیک لەسەر چوارچێوەی وێنەکە دەکرێت
         if (imgWrapper) {
             imgWrapper.addEventListener('click', () => {
                 const imgSrc = imgWrapper.querySelector('.insect-img-file').src;
                 modalImg.src = imgSrc;
-                modalDownloadBtn.href = imgSrc; // دانانی سەرچاوە بۆ داونڵۆدکردن
+                modalDownloadBtn.href = imgSrc;
                 modal.classList.add('active');
             });
         }
 
-        // داخستنی مۆدال بە کلیک لەسەر نیشانەی ضرب
         if (modalClose) {
             modalClose.addEventListener('click', () => {
                 modal.classList.remove('active');
             });
         }
 
-        // داخستنی مۆدال بە کلیک لە دەرەوەی وێنەکە (پاشبنەماکە)
         if (modal) {
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
