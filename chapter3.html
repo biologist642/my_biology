@@ -60,7 +60,7 @@
             color: var(--text-primary);
             overflow-x: hidden;
             opacity: 1;
-            padding-top: 80px; /* ڕێگری دەکات لەوەی ناورۆک بچێتە پشت هێدەر */
+            padding-top: 80px; 
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
@@ -70,7 +70,7 @@
         }
 
         /* ==========================================================================
-           2. ناڤبار و ئایکۆن بە مۆوشنی سەرەوە-خوارەوە (Up-Down)
+           2. ناڤبار و ئایکۆن بە مۆوشنی سەرەوە-خوارەوە
            ========================================================================== */
         .navbar {
             position: fixed; 
@@ -121,7 +121,6 @@
         
         .logo { display: flex; align-items: center; gap: 8px; }
         
-        /* مۆوشنی Up-Down (سەرەوە و خوارەوە) بۆ ئایکۆنەکە */
         .logo-icon { 
             font-size: 26px; 
             color: var(--accent-color); 
@@ -129,12 +128,8 @@
         }
 
         @keyframes floatUpDown {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-6px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
         }
 
         .logo h2 { font-size: 22px; font-weight: 700; color: var(--navbar-text); }
@@ -178,7 +173,7 @@
         }
 
         /* ==========================================================================
-           3. نێوۆک و دەقی سەرەکی بە ڕەنگی قاوەیی و مۆوشنی Pulse
+           3. نێوۆک و دەقەکان بە مۆوشنی Pulse
            ========================================================================== */
         .hero-section-wrapper {
             position: relative; 
@@ -210,14 +205,8 @@
             align-items: center; 
             text-align: center; 
             width: 100%;
-            background: transparent; 
-            padding: 0;
-            border-radius: 0;
-            box-shadow: none;
-            border: none;
         }
         
-        /* نووسینە قاوەییەکە بە مۆوشنی لێدان (Pulse) */
         .hero-bold-title { 
             font-size: 48px; 
             font-weight: 800; 
@@ -237,17 +226,12 @@
             font-size: 26px; 
             font-weight: 700; 
             color: #8B4513 !important; 
-            letter-spacing: 0px; 
             text-shadow: var(--text-shadow);
         }
 
         @keyframes textPulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.04);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.04); }
         }
 
         .hero-paragraph { 
@@ -282,19 +266,20 @@
         }
 
         /* ==========================================================================
-           5. لێکوڵینەوە لە مێرووەکان
+           4. ستایلی کارتی گشتی (چوارچێوەی قاوەیی لە هەر چوار لا + مۆوشنی Hover)
            ========================================================================== */
         .info-section {
             padding: 40px 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            gap: 40px; /* مەودای نێوان کارتەکان */
             position: relative;
         }
 
         .info-card {
             background-color: var(--bg-card);
-            border: 3px solid var(--accent-color); /* خەتە قاوەییەکەی لای ڕاست لابرا و کرا بە چوارچێوە لە هەر چوار لا */
+            border: 3px solid var(--accent-color); /* چوارچێوەی قاوەیی لە هەر چوار لا */
             border-radius: 24px;
             padding: 25px 35px;
             max-width: 1150px;
@@ -305,11 +290,10 @@
             opacity: 0;
             transform: translateY(40px);
             animation: cardSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            animation-delay: 0.2s;
-            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease; /* گواستنەوەی نەرم بۆ مۆوشنی سەر هۆڤەر */
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease; 
         }
 
-        /* مۆوشنی کارتەکە کاتێک ماوسی لەسەر دادەنێی */
+        /* مۆوشنی بەرزبوونەوەی کارتەکان لە کاتی Hover */
         .info-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(139, 69, 19, 0.15);
@@ -357,6 +341,7 @@
             text-align: justify;
         }
 
+        /* بەشی Grid */
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -365,9 +350,7 @@
         }
 
         @media (max-width: 600px) {
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
+            .info-grid { grid-template-columns: 1fr; }
         }
 
         .grid-item {
@@ -406,7 +389,9 @@
             line-height: 1.6;
         }
 
-        /* دیزاینی بەشی etymology لەگەڵ مۆوشنی هۆڤەر */
+        /* ==========================================================================
+           5. دیزاینی بەشی Etymology (بە مۆوشنی پێشکەوتوو)
+           ========================================================================== */
         .etymology-box {
             background: var(--badge-bg);
             border-radius: 16px;
@@ -418,10 +403,10 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 15px;
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.3s ease, box-shadow 0.3s ease; /* گواستنەوەی نەرم */
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* مۆوشنی بەشی مۆرکراوی خوارەوە کاتێک ماوسی لەسەر دادەنێیت */
+        /* مۆوشنی مۆرکراوی ژێرەوە لەسەر هۆڤەر */
         .etymology-box:hover {
             transform: scale(1.02);
             background-color: rgba(139, 69, 19, 0.12);
@@ -445,7 +430,55 @@
         }
 
         /* ==========================================================================
-           6. ڕیسپۆنسڤ
+           6. ستایلی کارتی دووەم (تایبەت بە مێروو و وێنەکە)
+           ========================================================================== */
+        .insect-grid-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 30px;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        .features-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-box {
+            width: 100%;
+        }
+
+        /* بەشی وێنەی مێروو لەگەڵ چوارچێوەی داشکراو و مۆوشنی هۆڤەر */
+        .insect-image-wrapper {
+            border: 1.5px dashed var(--accent-color);
+            border-radius: 18px;
+            padding: 12px;
+            background: rgba(139, 69, 19, 0.02);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .insect-image-wrapper:hover {
+            transform: scale(1.03) rotate(1deg);
+            background-color: rgba(139, 69, 19, 0.06);
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.08);
+        }
+
+        .insect-img-file {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        /* ==========================================================================
+           7. ڕیسپۆنسڤ و شاشە بچووکەکان
            ========================================================================== */
         @media (max-width: 992px) {
             .hero-section-wrapper { min-height: 50vh; }
@@ -473,6 +506,7 @@
             input:checked + .slider:before { transform: translateX(18px); }
             
             .info-card { padding: 20px 15px; }
+            .insect-grid-layout { grid-template-columns: 1fr; gap: 20px; }
         }
         
         @media (max-width: 430px) {
@@ -540,7 +574,9 @@
 
     <!-- ================= INFO SECTION ================= -->
     <section class="info-section" id="chapters">
-        <div class="info-card">
+        
+        <!-- کارتی یەکەم: مێرووناسی چییە؟ -->
+        <div class="info-card" style="animation-delay: 0.2s;">
             <div class="info-header">
                 <i class="ph ph-butterfly"></i>
                 <h2 class="info-title" id="info-card-title">مێرووناسی (Entomology) چییە؟</h2>
@@ -583,6 +619,39 @@
                 </div>
             </div>
         </div>
+
+        <!-- کارتی دووەم: مێروو چییە؟ (لەگەڵ وێنەی insectpart) -->
+        <div class="info-card" style="animation-delay: 0.4s;">
+            <div class="info-header">
+                <i class="ph ph-bug-beetle"></i>
+                <h2 class="info-title" id="insect-card-title">مێروو (Insect) چییە؟</h2>
+            </div>
+            
+            <p class="info-text" id="insect-card-desc">
+                مێرووەکان بوونەوەرە بێبڕبڕەکانی سەر بە گرووپی پێ‌جومگەدارەکانن (Arthropods). ئەوان زۆرترین ڕێژەی زیندەوەرانی سەر زەوی پێکدەهێنن.
+            </p>
+
+            <div class="insect-grid-layout">
+                <!-- بەشی دەق و لیست -->
+                <div class="insect-features-side">
+                    <h3 class="features-title" id="features-title-text">تایبەتمەندییە سەرەکەییەکان:</h3>
+                    
+                    <div class="grid-item feature-box">
+                        <i class="ph ph-activity"></i>
+                        <div>
+                            <div class="grid-title" id="feature-t1">جەستەی سێ بەشی</div>
+                            <div class="grid-desc" id="feature-d1">پێکهاتووە لە سەر (Head)، سنگ (Thorax)، و سک (Abdomen).</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- بەشی وێنەی مێروو -->
+                <div class="insect-image-wrapper">
+                    <img src="insectpart.png" alt="Insect Parts" class="insect-img-file">
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <script>
@@ -597,14 +666,20 @@
                 backHome: "گەڕانەوە بۆ سەرەکی",
                 
                 cardTitle: "مێرووناسی (Entomology) چییە؟",
-                cardP1: "مێرووناسی (Entomology) لقێکی گرنگی زانستی ژیانە کە تایبەتە بە لێکۆڵینەوە لەسەر مێرووەکان. ئەم زانستە شێوازی ژیان، پێکهاتە، ڕەفتار، گەشە، پۆلێنکردن، ژینگە، و کاریگەریی مێرووەکان لەسەر مرۆڤ، ئاژەڵ و ڕووەک دەکۆڵێتەوە.",
+                cardP1: "مێرووناسی (Entomology) لقێکی گرنگی زانستی ژیانە کە تایبەتە بە لێکۆڵینەوە لەسەر مێرووەکان. ئەم زانستە شێوازی ژیان، پێکهاتە، ڕەفتار، گەشە، پۆلێنکردن, ژینگە، و کاریگەریی مێرووەکان لەسەر مرۆڤ، ئاژەڵ و ڕووەک دەکۆڵێتەوە.",
                 cardP2: "مێرووناسەکان هەوڵ دەدەن تێبگەن مێرووەکان چۆن دەژین، چۆن زیاد دەبن، چۆن پەیوەندییان بە ژینگەوە هەیە و چۆن دەتوانرێت لە سوود و زیانەکانیان کەڵک وەربگیرێت.",
                 gridT1: "پۆلێنکردنی زانستی",
                 gridD1: "مێرووەکان دەچنە ژێر فەیلەمی پێ جومگەدارەکان (Arthropods) و گەورەترین کۆمەڵەی زیندەوەرانن لەسەر گۆی زەوی.",
                 gridT2: "بوارەکانی لێکۆڵینەوە",
                 gridD2: "شێوازی ژیان، پێکهاتە، ڕەفتار، گەشەکردن و چۆنییەتی گونجانیان لەگەڵ ژینگەکانیاندا.",
                 etyD1: "مێروو (Insects)",
-                etyD2: "زانست/لێکۆڵینەوە (Study/Science)"
+                etyD2: "زانست/لێکۆڵینەوە (Study/Science)",
+
+                insectTitle: "مێروو (Insect) چییە؟",
+                insectDesc: "مێرووەکان بوونەوەرە بێبڕبڕەکانی سەر بە گرووپی پێ‌جومگەدارەکانن (Arthropods). ئەوان زۆرترین ڕێژەی زیندەوەرانی سەر زەوی پێکدەهێنن.",
+                featuresTitle: "تایبەتمەندییە سەرەکەییەکان:",
+                featureT1: "جەستەی سێ بەشی",
+                featureD1: "پێکهاتووە لە سەر (Head)، سنگ (Thorax)، و سک (Abdomen)."
             },
             en: {
                 title: "Chapter One <span>Introduction to Entomology</span>",
@@ -623,7 +698,13 @@
                 gridT2: "Fields of Study",
                 gridD2: "Life cycles, structures, behavior, growth, and adaptation mechanisms within their environments.",
                 etyD1: "Insect (Entomon)",
-                etyD2: "Study / Science (Logia)"
+                etyD2: "Study / Science (Logia)",
+
+                insectTitle: "What is an Insect?",
+                insectDesc: "Insects are invertebrate organisms belonging to the Arthropod group. They make up the largest proportion of living organisms on Earth.",
+                featuresTitle: "Key Characteristics:",
+                featureT1: "Three-part Body",
+                featureD1: "Consists of Head, Thorax, and Abdomen."
             },
             ar: {
                 title: "الفصل الأول <span>مقدمة في علم الحشرات</span>",
@@ -638,11 +719,17 @@
                 cardP1: "علم الحشرات هو فرع مهم من علوم الحياة مخصص لدراسة الحشرات. يدرس هذا العلم نمط الحياة، والتركيب، والسلوك، والنمو، والتصنيف، والبيئة، وتأثير الحشرات على الإنسان والحيوان والنبات.",
                 cardP2: "يسعى علماء الحشرات لفهم كيف تعيش الحشرات وتتكاثر وتتفاعل مع بيئاتها، وكيف يمكن الاستفادة من فوائدها والحد من أضرارها.",
                 gridT1: "التصنيف العلمي",
-                gridD1: "تنتنتمى الحشرات إلى شعبة مفصليات الأرجل (Arthropods) وهي تشكل المجموعة الأكبر من الكائنات الحية على كوكب الأرض.",
+                gridD1: "تنتنمى الحشرات إلى شعبة مفصليات الأرجل (Arthropods) وهي تشكل المجموعة الأكبر من الكائنات الحية على كوكب الأرض.",
                 gridT2: "مجالات الدراسة",
                 gridD2: "دورة حياتها، تراكيبها، سلوكها، نموها، وطرق تكيفها مع البيئات المختلفة.",
                 etyD1: "حشرة (Entomon)",
-                etyD2: "علم / دراسة (Logia)"
+                etyD2: "علم / دراسة (Logia)",
+
+                insectTitle: "ما هي الحشرة (Insect)؟",
+                insectDesc: "الحشرات هي كائنات لا فقارية تنتمي إلى مجموعة مفصليات الأرجل (Arthropods). وهي تشكل النسبة الأكبر من الكائنات الحية على الأرض.",
+                featuresTitle: "الخصائص الرئيسية:",
+                featureT1: "جسم مكون من ثلاثة أجزاء",
+                featureD1: "يتكون من الرأس (Head)، الصدر (Thorax)، والبطن (Abdomen)."
             }
         };
 
@@ -667,6 +754,7 @@
 
             if (searchInput) searchInput.placeholder = data.searchPlaceholder;
 
+            // وەرگێڕانی کارتی یەکەم
             document.getElementById('info-card-title').innerText = data.cardTitle;
             document.getElementById('info-card-p1').innerText = data.cardP1;
             document.getElementById('info-card-p2').innerText = data.cardP2;
@@ -676,6 +764,13 @@
             document.getElementById('grid-d2').innerText = data.gridD2;
             document.getElementById('ety-d1').innerText = data.etyD1;
             document.getElementById('ety-d2').innerText = data.etyD2;
+
+            // وەرگێڕانی کارتی دووەم
+            document.getElementById('insect-card-title').innerText = data.insectTitle;
+            document.getElementById('insect-card-desc').innerText = data.insectDesc;
+            document.getElementById('features-title-text').innerText = data.featuresTitle;
+            document.getElementById('feature-t1').innerText = data.featureT1;
+            document.getElementById('feature-d1').innerText = data.featureD1;
 
             document.querySelectorAll('.theme-status-text').forEach(el => {
                 const isDark = htmlTag.getAttribute('data-theme') === 'dark';
