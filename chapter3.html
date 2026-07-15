@@ -428,7 +428,7 @@
         }
 
         /* ==========================================================================
-           6. ستایلی کارتی دووەم و چوارەم (تایبەت بە مێروو و وێنەکان)
+           6. ستایلی کارتی دووەم، چوارەم، و پێنجەم (تایبەت بە مێروو و وێنەکان)
            ========================================================================== */
         .insect-grid-layout {
             display: grid;
@@ -885,7 +885,78 @@
                 </div>
                 
                 <div class="insect-image-wrapper">
-                    <img src="insecthead.jpg" alt="Insect Head" class="insect-img-file">
+                    <img src="insecthead.png" alt="Insect Head" class="insect-img-file">
+                </div>
+            </div>
+        </div>
+
+        <!-- کارتی پێنجەم: سنگ (Thorax) -->
+        <div class="info-card" style="animation-delay: 1.0s;">
+            <div class="info-header">
+                <i class="ph ph-shield"></i>
+                <h2 class="info-title" id="thorax-card-title">سنگ (Thorax)</h2>
+            </div>
+            
+            <p class="info-text" id="thorax-card-desc">
+                سنگ (Thorax) ناوەڕاستی جەستەی مێرووە و لەنێوان سەر (Head) و سک (Abdomen) هەڵکەوتووە. سنگ ناوەندی جوڵەی مێرووە، چونکە هەموو پێ و باڵەکان لەم بەشە دەردەچن.
+            </p>
+
+            <div class="insect-grid-layout">
+                <div class="insect-features-side">
+                    <h3 class="features-title" id="thorax-parts-title">بەشەکانی سنگ (سێ پارچەی سەرەکی):</h3>
+                    
+                    <div class="grid-item feature-box" style="margin-bottom: 12px;">
+                        <i class="ph ph-arrow-circle-up-right"></i>
+                        <div>
+                            <div class="grid-title" id="pro-t">Prothorax (سنگی پێشەوە)</div>
+                            <div class="grid-desc" id="pro-d">پێشەکیترین بەشی سنگە کە ڕاستەوخۆ بە دواوەی سەرەوە بەستراوەتەوە.</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item feature-box" style="margin-bottom: 12px;">
+                        <i class="ph ph-arrow-circle-right"></i>
+                        <div>
+                            <div class="grid-title" id="meso-t">Mesothorax (سنگی ناوەڕاست)</div>
+                            <div class="grid-desc" id="meso-d">پارچەی ناوەڕاستی سنگە کە جووتێک باڵ و جووتە پێی دووەمی پێوە بەستراوە.</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item feature-box" style="margin-bottom: 20px;">
+                        <i class="ph ph-arrow-circle-down-right"></i>
+                        <div>
+                            <div class="grid-title" id="meta-t">Metathorax (سنگی دواوە)</div>
+                            <div class="grid-desc" id="meta-d">بەشی دواوەی سنگە کە بە سکەوە بەستراوەتەوە و باڵەکانی دواوە و قاچی کۆتایی لەسەرە.</div>
+                        </div>
+                    </div>
+
+                    <h3 class="features-title" id="thorax-funcs-title">ئەرکەکانی سنگ (Functions):</h3>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px;" id="thorax-funcs-list">
+                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
+                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                            <span id="t-func-1">هەڵگرتنی سێ جووت پێ (6 پێ).</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
+                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                            <span id="t-func-2">هەڵگرتنی یەک یان دوو جووت باڵ.</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
+                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                            <span id="t-func-3">تێدایە ماسولکەکانی ڕۆیشتن و فڕین.</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
+                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                            <span id="t-func-4">یارمەتیدانی جوڵە و هاوسەنگی مێروو.</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="insect-image-wrapper">
+                        <img src="thorax1.png" alt="Thorax Exterior" class="insect-img-file">
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="thorax2.png" alt="Thorax Structure" class="insect-img-file">
+                    </div>
                 </div>
             </div>
         </div>
@@ -938,7 +1009,7 @@
                 extAbdomenT: "سک (Abdomen)", extAbdomenD: "پێکهاتووە لە پارچەی یەکبەدواویەک کە کۆئەندامی هەرەس و زاوزێی تێدایە.",
                 extAntennaeT: "شاخک (Antennae)", extAntennaeD: "بۆ هەستکردن بە بۆن، دەنگ و گۆڕانی ژینگەی دەوروبەر بەکاردێت.",
                 extEyesT: "چاو (Eyes)", extEyesD: "مێرووەکان خاوەنی چاوی لێکدراو (Compound) و چاوی سادەن بۆ بینین.",
-                extMouthT: "دەم (Mouthparts)", extMouthD: "بەپێی جۆری خۆراک دەگۆڕێت (بۆ گازگرتن، مژین، یان لێستنەوە).",
+                extMouthT: "دەم (Mouthparts)", extMouthD: "بەپێی جۆری خۆراک دەگۆڕێت (بۆ گازگرتن, مژین، یان لێستنەوە).",
                 extLegsT: "پێ (Legs)", extLegsD: "مێرووەکان خاوەنی شەش پێن (سێ جووت) کە بۆ ڕۆیشتن و بازدان بەکاردێن.",
                 extWingsT: "باڵ (Wings)", extWingsD: "بۆ فڕین بەکاردێن، زۆربەی مێرووەکان خاوەنی چوار باڵن (دوو جووت).",
 
@@ -951,7 +1022,23 @@
                 pedicelT: "٢. پێدیسێل (Pedicel)",
                 pedicelD: "دووەم بەشی ئەنتێنەیە کە دەکەوێتە نێوان سکەیپ و فلاجێلەمە. ئەندامێکی هەستکردنی تایبەتی تێدایە بە ناوی (Johnston's organ) کە یارمەتی هەستکردن بە جووڵە و لەرزین دەدات.",
                 flagellumT: "٣. فلاجێلەم (Flagellum)",
-                flagellumD: "درێژترین بەشی ئەنتێنەیە و لە چەندین پارچەی بچووک (Flagellomeres) پێکدێت. زۆربەی خانە هەستیارەکان (Sensilla) لەم بەشەدان و بۆ ناسینەوەی بۆن و ماددە کیمیاییەکان بەکاردێن."
+                flagellumD: "درێژترین بەشی ئەنتێنەیە و لە چەندین پارچەی بچووک (Flagellomeres) پێکدێت. زۆربەی خانە هەستیارەکان (Sensilla) لەم بەشەدان و بۆ ناسینەوەی بۆن و ماددە کیمیاییەکان بەکاردێن.",
+
+                // کارتی پێنجەم (سنگ)
+                thoraxCardTitle: "سنگ (Thorax)",
+                thoraxCardDesc: "سنگ (Thorax) ناوەڕاستی جەستەی مێرووە و لەنێوان سەر (Head) و سک (Abdomen) هەڵکەوتووە. سنگ ناوەندی جوڵەی مێرووە، چونکە هەموو پێ و باڵەکان لەم بەشە دەردەچن.",
+                thoraxPartsTitle: "بەشەکانی سنگ (سێ پارچەی سەرەکی):",
+                proT: "Prothorax (سنگی پێشەوە)",
+                proD: "پێشەکیترین بەشی سنگە کە ڕاستەوخۆ بە دواوەی سەرەوە بەستراوەتەوە.",
+                mesoT: "Mesothorax (سنگی ناوەڕاست)",
+                mesoD: "پارچەی ناوەڕاستی سنگە کە جووتێک باڵ و جووتە پێی دووەمی پێوە بەستراوە.",
+                metaT: "Metathorax (سنگی دواوە)",
+                metaD: "بەشی دواوەی سنگە کە بە سکەوە بەستراوەتەوە و باڵەکانی دواوە و قاچی کۆتایی لەسەرە.",
+                thoraxFuncsTitle: "ئەرکەکانی سنگ (Functions):",
+                tFunc1: "هەڵگرتنی سێ جووت پێ (6 پێ).",
+                tFunc2: "هەڵگرتنی یەک یان دوو جووت باڵ.",
+                tFunc3: "تێدایە ماسولکەکانی ڕۆیشتن و فڕین.",
+                tFunc4: "یارمەتیدانی جوڵە و هاوسەنگی مێروو."
             },
             en: {
                 title: "Chapter One <span>Introduction to Entomology</span>",
@@ -999,7 +1086,23 @@
                 pedicelT: "2. Pedicel",
                 pedicelD: "The second segment, located between the scape and the flagellum. Contains Johnston's organ to help detect motion and vibrations.",
                 flagellumT: "3. Flagellum",
-                flagellumD: "The longest part, composed of several small segments (flagellomeres). Hosts most sensory receptors (sensilla) for smell and chemical detection."
+                flagellumD: "The longest part, composed of several small segments (flagellomeres). Hosts most sensory receptors (sensilla) for smell and chemical detection.",
+
+                // Chapter 5 (EN)
+                thoraxCardTitle: "Thorax",
+                thoraxCardDesc: "The thorax is the middle section of an insect's body, located between the head and abdomen. It is the locomotion center of the insect, as all legs and wings attach to this region.",
+                thoraxPartsTitle: "Parts of Thorax (Three Main Segments):",
+                proT: "Prothorax",
+                proD: "The front-most segment of the thorax, connected directly to the back of the head.",
+                mesoT: "Mesothorax",
+                mesoD: "The middle segment of the thorax, bearing the first pair of wings and the middle legs.",
+                metaT: "Metathorax",
+                metaD: "The final segment of the thorax, connected to the abdomen, bearing the hind wings and back legs.",
+                thoraxFuncsTitle: "Functions of the Thorax:",
+                tFunc1: "Carries three pairs of legs (6 legs).",
+                tFunc2: "Carries one or two pairs of wings.",
+                tFunc3: "Contains flight and walking muscles.",
+                tFunc4: "Assists in locomotion and insect balance."
             },
             ar: {
                 title: "الفصل الأول <span>مقدمة في علم الحشرات</span>",
@@ -1047,7 +1150,23 @@
                 pedicelT: "٢. العذق (Pedicel)",
                 pedicelD: "الجزء الثاني بين الأصل والسوط. يحتوي على عضو حسي خاص يسمى (Johnston's organ) للمساعدة في كشف الحركة والاهتزازات.",
                 flagellumT: "٣. السوط (Flagellum)",
-                flagellumD: "الجزء الأطول ويتكون من عدة قطع صغيرة. تتركز فيه معظم الخلايا الحسية الكيميائية لاستشعار الروائح والمواد."
+                flagellumD: "الجزء الأطول ويتكون من عدة قطع صغيرة. تتركز فيه معظم الخلايا الحسية الكيميائية لاستشعار الروائح والمواد.",
+
+                // الفصل الخامس (AR)
+                thoraxCardTitle: "الصدر (Thorax)",
+                thoraxCardDesc: "الصدر هو الجزء الأوسط من جسم الحشرة ويقع بين الرأس والبطن. وهو مركز الحركة والنشاط، حيث تتصل به جميع الأرجل والأجنحة.",
+                thoraxPartsTitle: "أقسام الصدر (ثلاثة أجزاء رئيسية):",
+                proT: "الصدر الأمامي (Prothorax)",
+                proD: "الجزء الأمامي الأول من الصدر والمتصل مباشرة بمؤخرة الرأس.",
+                mesoT: "الصدر الأوسط (Mesothorax)",
+                mesoD: "الجزء الأوسط من الصدر، يحمل الزوج الأول من الأجنحة والأرجل الوسطى.",
+                metaT: "الصدر الخلفي (Metathorax)",
+                metaD: "الجزء الأخير من الصدر المتصل بالبطن، ويحمل الأجنحة الخلفية والأرجل الخلفية.",
+                thoraxFuncsTitle: "وظائف الصدر الرئيسية:",
+                tFunc1: "حمل ثلاثة أزواج من الأرجل (6 أرجل).",
+                tFunc2: "حمل زوج أو زوجين من الأجنحة طيران.",
+                tFunc3: "يحتوي على عضلات الحركة القوية للطيران والمشي.",
+                tFunc4: "يساعد في توازن وتوجيه حركة الحشرة في بيئتها."
             }
         };
 
@@ -1120,6 +1239,22 @@
             document.getElementById('pedicel-d').innerText = data.pedicelD;
             document.getElementById('flagellum-t').innerText = data.flagellumT;
             document.getElementById('flagellum-d').innerText = data.flagellumD;
+
+            // کارتی پێنجەم (سنگ)
+            document.getElementById('thorax-card-title').innerText = data.thoraxCardTitle;
+            document.getElementById('thorax-card-desc').innerText = data.thoraxCardDesc;
+            document.getElementById('thorax-parts-title').innerText = data.thoraxPartsTitle;
+            document.getElementById('pro-t').innerText = data.proT;
+            document.getElementById('pro-d').innerText = data.proD;
+            document.getElementById('meso-t').innerText = data.mesoT;
+            document.getElementById('meso-d').innerText = data.mesoD;
+            document.getElementById('meta-t').innerText = data.metaT;
+            document.getElementById('meta-d').innerText = data.metaD;
+            document.getElementById('thorax-funcs-title').innerText = data.thoraxFuncsTitle;
+            document.getElementById('t-func-1').innerText = data.tFunc1;
+            document.getElementById('t-func-2').innerText = data.tFunc2;
+            document.getElementById('t-func-3').innerText = data.tFunc3;
+            document.getElementById('t-func-4').innerText = data.tFunc4;
             
             // دوگمەی داونڵۆد
             document.getElementById('download-btn-text').innerText = data.downloadText;
