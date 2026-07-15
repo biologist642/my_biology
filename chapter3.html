@@ -282,10 +282,10 @@
         }
 
         /* ==========================================================================
-           5. لێکوڵینەوە لە مێرووەکان (گۆڕانکاری بۆ پانکردنەوە و کەمکردنەوەی بۆشاییەکان)
+           5. لێکوڵینەوە لە مێرووەکان
            ========================================================================== */
         .info-section {
-            padding: 40px 20px; /* بۆشایی سەرەوە و خوارەوەی کارتەکە لە 80pxـەوە کەمکراوەتەوە بۆ 40px */
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -294,10 +294,10 @@
 
         .info-card {
             background-color: var(--bg-card);
-            border: 2px solid var(--card-border);
+            border: 3px solid var(--accent-color); /* خەتە قاوەییەکەی لای ڕاست لابرا و کرا بە چوارچێوە لە هەر چوار لا */
             border-radius: 24px;
-            padding: 25px 35px; /* بۆشایی ناوەوە کەمکراوەتەوە بۆ ئەوەی کارتەکە بەرز و فشەڵ دەرنەکەوێت */
-            max-width: 1150px; /* پانییەکەی زیادکراوە لە 800pxـەوە بۆ 1150px هاوشێوەی وێنەی دووەم */
+            padding: 25px 35px;
+            max-width: 1150px;
             width: 100%;
             box-shadow: 0 10px 30px var(--card-glow);
             position: relative;
@@ -306,6 +306,13 @@
             transform: translateY(40px);
             animation: cardSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             animation-delay: 0.2s;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease; /* گواستنەوەی نەرم بۆ مۆوشنی سەر هۆڤەر */
+        }
+
+        /* مۆوشنی کارتەکە کاتێک ماوسی لەسەر دادەنێی */
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(139, 69, 19, 0.15);
         }
 
         @keyframes cardSlideUp {
@@ -315,33 +322,18 @@
             }
         }
 
-        .info-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 6px;
-            height: 100%;
-            background-color: var(--accent-color);
-        }
-
-        html[dir="rtl"] .info-card::before {
-            left: auto;
-            right: 0;
-        }
-
         .info-header {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 20px; /* کەمکردنەوەی مەودای نێوان ناونیشان و دەق */
+            margin-bottom: 20px;
         }
 
         .info-header i {
             font-size: 32px;
             color: var(--accent-color);
             background: var(--badge-bg);
-            padding: 10px; /* کەمکراوەتەوە لە 12px بۆ کۆمپاکتبوونی زیاتر */
+            padding: 10px;
             border-radius: 16px;
             animation: pulseIcon 2s infinite ease-in-out;
         }
@@ -359,9 +351,9 @@
 
         .info-text {
             font-size: 16px;
-            line-height: 1.7; /* تۆزێک هێڵەکان لێک نزیک کراونەتەوە */
+            line-height: 1.7;
             color: var(--text-primary);
-            margin-bottom: 20px; /* بۆشایی ژێر دەقەکان کەمکراونەتەوە */
+            margin-bottom: 20px;
             text-align: justify;
         }
 
@@ -381,7 +373,7 @@
         .grid-item {
             background: rgba(139, 69, 19, 0.03);
             border: 1px solid var(--card-border);
-            padding: 15px; /* بۆشایی ناوەوەی چوارگۆشە بچووکەکان کەمکراوەتەوە */
+            padding: 15px;
             border-radius: 16px;
             display: flex;
             align-items: flex-start;
@@ -414,17 +406,26 @@
             line-height: 1.6;
         }
 
+        /* دیزاینی بەشی etymology لەگەڵ مۆوشنی هۆڤەر */
         .etymology-box {
             background: var(--badge-bg);
             border-radius: 16px;
-            padding: 15px; /* بۆشایی ناو سندووقی ژێرەوە کەمکراوەتەوە بۆ کەمکردنەوەی بەرزی */
+            padding: 15px;
             margin-top: 20px;
-            border: 1px dashed var(--accent-color);
+            border: 1.5px dashed var(--accent-color);
             display: flex;
             justify-content: space-around;
             align-items: center;
             flex-wrap: wrap;
             gap: 15px;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.3s ease, box-shadow 0.3s ease; /* گواستنەوەی نەرم */
+        }
+
+        /* مۆوشنی بەشی مۆرکراوی خوارەوە کاتێک ماوسی لەسەر دادەنێیت */
+        .etymology-box:hover {
+            transform: scale(1.02);
+            background-color: rgba(139, 69, 19, 0.12);
+            box-shadow: 0 6px 15px rgba(139, 69, 19, 0.08);
         }
 
         .etymology-term {
@@ -546,7 +547,7 @@
             </div>
             
             <p class="info-text" id="info-card-p1">
-                مێرووناسی (Entomology) لقێکی گرنگی زانستی ژیانە کە تایبەتە بە لێکۆڵینەوە لەسەر مێرووەکان. ئەم زانستە شێوازی ژیان، پێکهاتە, ڕەفتار، گەشە، پۆلێنکردن، ژینگە، و کاریگەریی مێرووەکان لەسەر مرۆڤ، ئاژەڵ و ڕووەک دەکۆڵێتەوە.
+                مێرووناسی (Entomology) لقێکی گرنگی زانستی ژیانە کە تایبەتە بە لێکۆڵینەوە لەسەر مێرووەکان. ئەم زانستە شێوازی ژیان، پێکهاتە، ڕەفتار، گەشە، پۆلێنکردن، ژینگە، و کاریگەریی مێرووەکان لەسەر مرۆڤ، ئاژەڵ و ڕووەک دەکۆڵێتەوە.
             </p>
 
             <p class="info-text" id="info-card-p2">
