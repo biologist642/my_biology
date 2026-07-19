@@ -1,3 +1,7 @@
+
+
+Chapter3 · HTML
+Syntax highlighting has been disabled due to code size.
 <!DOCTYPE html>
 <html lang="ku" dir="rtl" id="html-tag" data-theme="light">
 <head>
@@ -449,6 +453,76 @@
             width: 100%;
         }
 
+        /* ==========================================================================
+           6.1 دیزاینی نوێی تایبەتمەندییە سەرەکییەکان (کارتی دووەم) - Quick Fact Highlight
+           ========================================================================== */
+        .quick-fact-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.06), rgba(139, 69, 19, 0.01));
+            border: 1.5px solid var(--accent-color);
+            border-radius: 20px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+        }
+
+        .quick-fact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(139, 69, 19, 0.12);
+        }
+
+        .quick-fact-icon {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            box-shadow: 0 6px 14px rgba(139, 69, 19, 0.25);
+        }
+
+        .quick-fact-content {
+            flex: 1;
+        }
+
+        .quick-fact-title {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .quick-fact-desc {
+            font-size: 13.5px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .quick-fact-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .fact-tag {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--badge-text);
+            background: var(--badge-bg);
+            border: 1px dashed var(--accent-color);
+            padding: 4px 12px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
         /* بەشی وێنەی مێروو لەگەڵ چوارچێوەی داشکراو و مۆوشنی هۆڤەر */
         .insect-image-wrapper {
             border: 1.5px dashed var(--accent-color);
@@ -751,11 +825,18 @@
                 <div class="insect-features-side">
                     <h3 class="features-title" id="features-title-text">تایبەتمەندییە سەرەکەییەکان:</h3>
                     
-                    <div class="grid-item feature-box">
-                        <i class="ph ph-activity"></i>
-                        <div>
-                            <div class="grid-title" id="feature-t1">جەستەی سێ بەشی</div>
-                            <div class="grid-desc" id="feature-d1">پێکهاتووە لە سەر (Head)، سنگ (Thorax)، و سک (Abdomen).</div>
+                    <div class="quick-fact-card">
+                        <div class="quick-fact-icon">
+                            <i class="ph ph-hash"></i>
+                        </div>
+                        <div class="quick-fact-content">
+                            <div class="quick-fact-title" id="feature-t1">جەستەی سێ بەشی</div>
+                            <div class="quick-fact-desc" id="feature-d1">پێکهاتووە لە سەر (Head)، سنگ (Thorax)، و سک (Abdomen).</div>
+                            <div class="quick-fact-tags">
+                                <span class="fact-tag" data-i18n="factTagHead">سەر (Head)</span>
+                                <span class="fact-tag" data-i18n="factTagThorax">سنگ (Thorax)</span>
+                                <span class="fact-tag" data-i18n="factTagAbdomen">سک (Abdomen)</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -769,7 +850,7 @@
         <!-- کارتی سێیەم: پێکهاتەی دەرەوەی جەستە (External Morphology) -->
         <div class="info-card" style="animation-delay: 0.6s;">
             <div class="info-header">
-                <i class="ph ph-atom"></i>
+                <i class="ph ph-bug"></i>
                 <h2 class="info-title" id="morph-card-title">پێکهاتەی دەرەوەی جەستە (External Morphology)</h2>
             </div>
             
@@ -779,7 +860,7 @@
 
             <div class="morphology-grid">
                 <div class="grid-item">
-                    <i class="ph ph-brain"></i>
+                    <i class="ph ph-cpu"></i>
                     <div>
                         <div class="grid-title" id="ext-head-t">سەر (Head)</div>
                         <div class="grid-desc" id="ext-head-d">ناوەندی هەستەکانە، چاوەکان، شاخکەکان و پارچەکانی دەمی لەسەرە.</div>
@@ -803,7 +884,7 @@
                 </div>
 
                 <div class="grid-item">
-                    <i class="ph ph-broadcast"></i>
+                    <i class="ph ph-waveform"></i>
                     <div>
                         <div class="grid-title" id="ext-antennae-t">شاخک (Antennae)</div>
                         <div class="grid-desc" id="ext-antennae-d">بۆ هەستکردن بە بۆن، دەنگ و گۆڕانی ژینگەی دەوروبەر بەکاردێت.</div>
@@ -819,7 +900,7 @@
                 </div>
 
                 <div class="grid-item">
-                    <i class="ph ph-cookie"></i>
+                    <i class="ph ph-fork-knife"></i>
                     <div>
                         <div class="grid-title" id="ext-mouth-t">دەم (Mouthparts)</div>
                         <div class="grid-desc" id="ext-mouth-d">بەپێی جۆری خۆراک دەگۆڕێت (بۆ گازگرتن، مژین، یان لێستنەوە).</div>
@@ -1051,7 +1132,7 @@
                 
                 <div style="display: flex; flex-direction: column; gap: 20px;">
                     <div class="insect-image-wrapper">
-                        <img src="leg1.png" alt="Leg Structure" class="insect-img-file">
+                        <img src="leg1.jpg" alt="Leg Structure" class="insect-img-file">
                     </div>
                     <div class="insect-image-wrapper">
                         <img src="leg2.png" alt="Leg Adaptation" class="insect-img-file">
@@ -3281,7 +3362,10 @@
                 refBook1: "Borror and DeLong's Introduction to the Study of Insects — Norman F. Johnson & Charles A. Triplehorn",
                 refBook2: "The Insects: An Outline of Entomology",
                 refBook3: "Snodgrass' Principles of Insect Morphology",
-                refSitesTitle: "وێبسایتە زانستییەکان"
+                refSitesTitle: "وێبسایتە زانستییەکان",
+                factTagHead: "سەر (Head)",
+                factTagThorax: "سنگ (Thorax)",
+                factTagAbdomen: "سک (Abdomen)"
             },
             en: {
                 title: "Chapter One <span>Introduction to Entomology</span>",
@@ -3759,7 +3843,10 @@
                 refBook1: "Borror and DeLong's Introduction to the Study of Insects — Norman F. Johnson & Charles A. Triplehorn",
                 refBook2: "The Insects: An Outline of Entomology",
                 refBook3: "Snodgrass' Principles of Insect Morphology",
-                refSitesTitle: "Scientific Websites"
+                refSitesTitle: "Scientific Websites",
+                factTagHead: "Head",
+                factTagThorax: "Thorax",
+                factTagAbdomen: "Abdomen"
             },
             ar: {
                 title: "الجزء الأول <span>مقدمة في علم الحشرات</span>",
@@ -3893,7 +3980,7 @@
                 mSiphoningTitle: "أجزاء الفم الماصة القمعية (Siphoning)",
                 mSiphoningDesc: "مخصصة لامتصاص سوائل الأزهار، وتمتلك الحشرة أنبوباً طويلاً يلتف أسفل الرأس عند عدم التغذية ولا يمتلك القدرة على الثقب.",
                 mSiphoningExTitle: "مثال",
-                mSpongingExDesc: "الفراشة (Butterfly).",
+                mSiphoningExDesc: "الفراشة (Butterfly).",
                 mSiphoningFunTitle: "الوظيفة",
                 mSiphoningFunDesc: "مص رحيق الأزهار بواسطة خرطوم طويل.",
 
@@ -4237,13 +4324,166 @@
                 refBook1: "مقدمة بورور وديلونغ لدراسة الحشرات — نورمان جونسون وتشارلز تريبلهورن",
                 refBook2: "الحشرات: مدخل إلى علم الحشرات",
                 refBook3: "مبادئ سنودغراس في شكل الحشرات",
-                refSitesTitle: "المواقع العلمية"
+                refSitesTitle: "المواقع العلمية",
+                factTagHead: "الرأس (Head)",
+                factTagThorax: "الصدر (Thorax)",
+                factTagAbdomen: "البطن (Abdomen)"
             }
         };
 
         // ================= سیستەمی زمان گۆڕین =================
         const langBtns = document.querySelectorAll('.lang-btn');
         const htmlTag = document.getElementById('html-tag');
+
+        // نەخشەی id → key بۆ هەموو ئەو دەقانەی بە explicit id کار دەکەن (کارتە کۆنەکان)
+const i18nIdMap = [
+            ['hero-title', 'innerHTML', 'title'],
+            ['hero-desc', 'textContent', 'desc'],
+            ['back-home-text', 'textContent', 'backHome'],
+            ['info-card-title', 'textContent', 'cardTitle'],
+            ['info-card-p1', 'textContent', 'cardP1'],
+            ['info-card-p2', 'textContent', 'cardP2'],
+            ['grid-t1', 'textContent', 'gridT1'],
+            ['grid-d1', 'textContent', 'gridD1'],
+            ['grid-t2', 'textContent', 'gridT2'],
+            ['grid-d2', 'textContent', 'gridD2'],
+            ['ety-d1', 'textContent', 'etyD1'],
+            ['ety-d2', 'textContent', 'etyD2'],
+            ['insect-card-title', 'textContent', 'insectTitle'],
+            ['insect-card-desc', 'textContent', 'insectDesc'],
+            ['features-title-text', 'textContent', 'featuresTitle'],
+            ['feature-t1', 'textContent', 'featureT1'],
+            ['feature-d1', 'textContent', 'featureD1'],
+            ['morph-card-title', 'textContent', 'morphTitle'],
+            ['morph-card-desc', 'textContent', 'morphDesc'],
+            ['ext-head-t', 'textContent', 'extHeadT'],
+            ['ext-head-d', 'textContent', 'extHeadD'],
+            ['ext-thorax-t', 'textContent', 'extThoraxT'],
+            ['ext-thorax-d', 'textContent', 'extThoraxD'],
+            ['ext-abdomen-t', 'textContent', 'extAbdomenT'],
+            ['ext-abdomen-d', 'textContent', 'extAbdomenD'],
+            ['ext-antennae-t', 'textContent', 'extAntennaeT'],
+            ['ext-antennae-d', 'textContent', 'extAntennaeD'],
+            ['ext-eyes-t', 'textContent', 'extEyesT'],
+            ['ext-eyes-d', 'textContent', 'extEyesD'],
+            ['ext-mouth-t', 'textContent', 'extMouthT'],
+            ['ext-mouth-d', 'textContent', 'extMouthD'],
+            ['ext-legs-t', 'textContent', 'extLegsT'],
+            ['ext-legs-d', 'textContent', 'extLegsD'],
+            ['ext-wings-t', 'textContent', 'extWingsT'],
+            ['ext-wings-d', 'textContent', 'extWingsD'],
+            ['head-card-title', 'textContent', 'headCardTitle'],
+            ['head-card-desc', 'textContent', 'headCardDesc'],
+            ['parts-title-text', 'textContent', 'partsTitleText'],
+            ['scape-t', 'textContent', 'scapeT'],
+            ['scape-d', 'textContent', 'scapeD'],
+            ['pedicel-t', 'textContent', 'pedicelT'],
+            ['pedicel-d', 'textContent', 'pedicelD'],
+            ['flagellum-t', 'textContent', 'flagellumT'],
+            ['flagellum-d', 'textContent', 'flagellumD'],
+            ['thorax-card-title', 'textContent', 'thoraxCardTitle'],
+            ['thorax-card-desc', 'textContent', 'thoraxCardDesc'],
+            ['thorax-parts-title', 'textContent', 'thoraxPartsTitle'],
+            ['pro-t', 'textContent', 'proT'],
+            ['pro-d', 'textContent', 'proD'],
+            ['meso-t', 'textContent', 'mesoT'],
+            ['meso-d', 'textContent', 'mesoD'],
+            ['meta-t', 'textContent', 'metaT'],
+            ['meta-d', 'textContent', 'metaD'],
+            ['thorax-funcs-title', 'textContent', 'thoraxFuncsTitle'],
+            ['t-func-1', 'textContent', 'tFunc1'],
+            ['t-func-2', 'textContent', 'tFunc2'],
+            ['t-func-3', 'textContent', 'tFunc3'],
+            ['t-func-4', 'textContent', 'tFunc4'],
+            ['legs-card-title', 'textContent', 'legsCardTitle'],
+            ['legs-card-desc', 'textContent', 'legsCardDesc'],
+            ['legs-parts-title', 'textContent', 'legsPartsTitle'],
+            ['coxa-t', 'textContent', 'coxaT'],
+            ['coxa-d', 'textContent', 'coxaD'],
+            ['trochanter-t', 'textContent', 'trochanterT'],
+            ['trochanter-d', 'textContent', 'trochanterD'],
+            ['femur-t', 'textContent', 'femurT'],
+            ['femur-d', 'textContent', 'femurD'],
+            ['tibia-t', 'textContent', 'tibiaT'],
+            ['tibia-d', 'textContent', 'tibiaD'],
+            ['tarsus-t', 'textContent', 'tarsusT'],
+            ['tarsus-d', 'textContent', 'tarsusD'],
+            ['legs-funcs-title', 'textContent', 'legsFuncsTitle'],
+            ['l-func-1', 'textContent', 'lFunc1'],
+            ['l-func-2', 'textContent', 'lFunc2'],
+            ['l-func-3', 'textContent', 'lFunc3'],
+            ['l-func-4', 'textContent', 'lFunc4'],
+            ['l-func-5', 'textContent', 'lFunc5'],
+            ['l-func-6', 'textContent', 'lFunc6'],
+            ['l-func-7', 'textContent', 'lFunc7'],
+            ['abdomen-card-title', 'textContent', 'abdomenCardTitle'],
+            ['abdomen-card-desc', 'textContent', 'abdomenCardDesc'],
+            ['abdomen-struct-title', 'textContent', 'abdomenStructTitle'],
+            ['abdomen-struct-p', 'textContent', 'abdomenStructP'],
+            ['tergum-t', 'textContent', 'tergumT'],
+            ['tergum-d', 'textContent', 'tergumD'],
+            ['sternum-t', 'textContent', 'sternumT'],
+            ['sternum-d', 'textContent', 'sternumD'],
+            ['abdomen-funcs-title', 'textContent', 'abdomenFuncsTitle'],
+            ['a-func-1', 'textContent', 'aFunc1'],
+            ['a-func-2', 'textContent', 'aFunc2'],
+            ['a-func-3', 'textContent', 'aFunc3'],
+            ['a-func-4', 'textContent', 'aFunc4'],
+            ['mouthparts-card-title', 'textContent', 'mouthpartsCardTitle'],
+            ['mouthparts-card-desc', 'textContent', 'mouthpartsCardDesc'],
+            ['mouthparts-struct-title', 'textContent', 'mouthpartsStructTitle'],
+            ['labrum-t', 'textContent', 'labrumT'],
+            ['labrum-d', 'textContent', 'labrumD'],
+            ['mandibles-t', 'textContent', 'mandiblesT'],
+            ['mandibles-d', 'textContent', 'mandiblesD'],
+            ['maxillae-t', 'textContent', 'maxillaeT'],
+            ['maxillae-d', 'textContent', 'maxillaeD'],
+            ['hypopharynx-t', 'textContent', 'hypopharynxT'],
+            ['hypopharynx-d', 'textContent', 'hypopharynxD'],
+            ['labium-t', 'textContent', 'labiumT'],
+            ['labium-d', 'textContent', 'labiumD'],
+            ['m-types-main-title', 'textContent', 'mTypesMainTitle'],
+            ['m-types-main-desc', 'textContent', 'mTypesMainDesc'],
+            ['m-chewing-title', 'textContent', 'mChewingTitle'],
+            ['m-chewing-desc', 'textContent', 'mChewingDesc'],
+            ['m-chewing-ex-title', 'textContent', 'mChewingExTitle'],
+            ['m-chewing-ex-desc', 'textContent', 'mChewingExDesc'],
+            ['m-chewing-fun-title', 'textContent', 'mChewingFunTitle'],
+            ['m-chewing-fun-desc', 'textContent', 'mChewingFunDesc'],
+            ['m-piercing-title', 'textContent', 'mPiercingTitle'],
+            ['m-piercing-desc', 'textContent', 'mPiercingDesc'],
+            ['m-piercing-ex-title', 'textContent', 'mPiercingExTitle'],
+            ['m-piercing-ex-desc', 'textContent', 'mPiercingExDesc'],
+            ['m-piercing-fun-title', 'textContent', 'mPiercingFunTitle'],
+            ['m-piercing-fun-desc', 'textContent', 'mPiercingFunDesc'],
+            ['m-siphoning-title', 'textContent', 'mSiphoningTitle'],
+            ['m-siphoning-desc', 'textContent', 'mSiphoningDesc'],
+            ['m-siphoning-ex-title', 'textContent', 'mSiphoningExTitle'],
+            ['m-siphoning-ex-desc', 'textContent', 'mSiphoningExDesc'],
+            ['m-siphoning-fun-title', 'textContent', 'mSiphoningFunTitle'],
+            ['m-siphoning-fun-desc', 'textContent', 'mSiphoningFunDesc'],
+            ['m-sponging-title', 'textContent', 'mSpongingTitle'],
+            ['m-sponging-desc', 'textContent', 'mSpongingDesc'],
+            ['m-sponging-ex-title', 'textContent', 'mSpongingExTitle'],
+            ['m-sponging-ex-desc', 'textContent', 'mSpongingExDesc'],
+            ['m-sponging-fun-title', 'textContent', 'mSpongingFunTitle'],
+            ['m-sponging-fun-desc', 'textContent', 'mSpongingFunDesc'],
+            ['download-btn-text', 'textContent', 'downloadText']
+        ];
+
+        // سنابشۆتی دەقی کوردی: هەرچی لە HTML دا نووسراوە وەردەگیرێت پێش هیچ گۆڕانێکی زمان،
+        // بۆیە ئەگەر دەقی کوردیت دەستکاری کرد، لە کاتی گەڕانەوە بۆ کوردی نافەوتێت
+        const originalTexts = {};
+        i18nIdMap.forEach(([id, prop, key]) => {
+            const el = document.getElementById(id);
+            if (el) originalTexts[key] = el[prop];
+        });
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (originalTexts[key] === undefined) {
+                originalTexts[key] = el.textContent;
+            }
+        });
 
         langBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -4269,7 +4509,8 @@
         });
 
         function updateLanguageText(lang) {
-            const data = translations[lang];
+            // بۆ کوردی: هەمیشە دەقی ڕاستەقینەی ناو HTML بەکاردێت (نەک وەرگێڕانی نەگۆڕ)
+            const data = (lang === 'ku') ? originalTexts : translations[lang];
             
             // Hero section
             document.getElementById('hero-title').innerHTML = data.title;
