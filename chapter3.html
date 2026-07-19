@@ -538,14 +538,12 @@ Syntax highlighting has been disabled due to code size.
             transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .grid-item .emoji-icon {
-            font-size: 22px;
-            line-height: 1;
+        .grid-item .emoji-icon-img {
+            width: 24px;
+            height: 24px;
             margin-top: 3px;
             flex-shrink: 0;
-            font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Twemoji Mozilla", sans-serif;
-            font-style: normal;
-            font-weight: normal;
+            object-fit: contain;
         }
 
         .insect-image-wrapper:hover {
@@ -889,7 +887,7 @@ Syntax highlighting has been disabled due to code size.
 
             <div class="morphology-grid">
                 <div class="grid-item">
-                    <span class="emoji-icon">🧠</span>
+                    <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f9e0.svg" class="emoji-icon-img" alt="🧠">
                     <div>
                         <div class="grid-title" id="ext-head-t">سەر (Head)</div>
                         <div class="grid-desc" id="ext-head-d">ناوەندی هەستەکانە، چاوەکان، شاخکەکان و پارچەکانی دەمی لەسەرە.</div>
@@ -905,7 +903,7 @@ Syntax highlighting has been disabled due to code size.
                 </div>
 
                 <div class="grid-item">
-                    <span class="emoji-icon">🪳</span>
+                    <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1fab3.svg" class="emoji-icon-img" alt="🪳">
                     <div>
                         <div class="grid-title" id="ext-abdomen-t">سک (Abdomen)</div>
                         <div class="grid-desc" id="ext-abdomen-d">پێکهاتووە لە پارچەی یەکبەدواویەک کە کۆئەندامی هەرەس و زاوزێی تێدایە.</div>
@@ -913,7 +911,7 @@ Syntax highlighting has been disabled due to code size.
                 </div>
 
                 <div class="grid-item">
-                    <span class="emoji-icon">🐜</span>
+                    <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f41c.svg" class="emoji-icon-img" alt="🐜">
                     <div>
                         <div class="grid-title" id="ext-antennae-t">شاخک (Antennae)</div>
                         <div class="grid-desc" id="ext-antennae-d">بۆ هەستکردن بە بۆن، دەنگ و گۆڕانی ژینگەی دەوروبەر بەکاردێت.</div>
@@ -929,7 +927,7 @@ Syntax highlighting has been disabled due to code size.
                 </div>
 
                 <div class="grid-item">
-                    <span class="emoji-icon">👄</span>
+                    <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f444.svg" class="emoji-icon-img" alt="👄">
                     <div>
                         <div class="grid-title" id="ext-mouth-t">دەم (Mouthparts)</div>
                         <div class="grid-desc" id="ext-mouth-d">بەپێی جۆری خۆراک دەگۆڕێت (بۆ گازگرتن، مژین، یان لێستنەوە).</div>
@@ -945,7 +943,7 @@ Syntax highlighting has been disabled due to code size.
                 </div>
 
                 <div class="grid-item">
-                    <span class="emoji-icon">🦋</span>
+                    <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f98b.svg" class="emoji-icon-img" alt="🦋">
                     <div>
                         <div class="grid-title" id="ext-wings-t">باڵ (Wings)</div>
                         <div class="grid-desc" id="ext-wings-d">بۆ فڕین بەکاردێن، زۆربەی مێرووەکان خاوەنی چوار باڵن (دوو جووت).</div>
