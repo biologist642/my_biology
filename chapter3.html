@@ -538,6 +538,13 @@ Syntax highlighting has been disabled due to code size.
             transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
+        .grid-item .emoji-icon {
+            font-size: 22px;
+            line-height: 1;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
         .insect-image-wrapper:hover {
             transform: scale(1.03) rotate(1deg);
             background-color: rgba(139, 69, 19, 0.06);
@@ -545,23 +552,42 @@ Syntax highlighting has been disabled due to code size.
         }
 
         .insect-image-wrapper::after {
-            content: '🔍 کلیک بکە بۆ گەورەکردن';
+            content: '🔍 کلیک بکە بۆ گەورەکردن و دابەزاندنی وێنەکە';
             font-family: 'Noto Kufi Arabic', sans-serif;
-            font-size: 11px;
+            font-size: 10.5px;
             font-weight: 600;
+            letter-spacing: 0.2px;
             position: absolute;
             bottom: 10px;
-            background: rgba(139, 69, 19, 0.9);
+            left: 50%;
+            transform: translate(-50%, 6px);
+            background: rgba(28, 16, 11, 0.82);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
             color: #ffffff;
-            padding: 4px 12px;
+            padding: 5px 14px;
             border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            white-space: nowrap;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s ease, transform 0.3s ease;
             pointer-events: none;
+            z-index: 2;
+        }
+
+        .insect-image-wrapper:hover::after {
+            opacity: 1;
+            transform: translate(-50%, 0);
         }
 
         html[dir="ltr"] .insect-image-wrapper::after {
-            content: '🔍 Click to Enlarge';
+            content: '🔍 Click to enlarge & download the image';
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html[lang="ar"] .insect-image-wrapper::after {
+            content: '🔍 اضغط للتكبير وتنزيل الصورة';
         }
 
         .insect-img-file {
@@ -860,7 +886,7 @@ Syntax highlighting has been disabled due to code size.
 
             <div class="morphology-grid">
                 <div class="grid-item">
-                    <i class="ph ph-cpu"></i>
+                    <span class="emoji-icon">🧠</span>
                     <div>
                         <div class="grid-title" id="ext-head-t">سەر (Head)</div>
                         <div class="grid-desc" id="ext-head-d">ناوەندی هەستەکانە، چاوەکان، شاخکەکان و پارچەکانی دەمی لەسەرە.</div>
@@ -876,7 +902,7 @@ Syntax highlighting has been disabled due to code size.
                 </div>
 
                 <div class="grid-item">
-                    <i class="ph ph-heart-beat"></i>
+                    <span class="emoji-icon">🪳</span>
                     <div>
                         <div class="grid-title" id="ext-abdomen-t">سک (Abdomen)</div>
                         <div class="grid-desc" id="ext-abdomen-d">پێکهاتووە لە پارچەی یەکبەدواویەک کە کۆئەندامی هەرەس و زاوزێی تێدایە.</div>
@@ -884,7 +910,7 @@ Syntax highlighting has been disabled due to code size.
                 </div>
 
                 <div class="grid-item">
-                    <i class="ph ph-waveform"></i>
+                    <span class="emoji-icon">🐜</span>
                     <div>
                         <div class="grid-title" id="ext-antennae-t">شاخک (Antennae)</div>
                         <div class="grid-desc" id="ext-antennae-d">بۆ هەستکردن بە بۆن، دەنگ و گۆڕانی ژینگەی دەوروبەر بەکاردێت.</div>
@@ -900,7 +926,7 @@ Syntax highlighting has been disabled due to code size.
                 </div>
 
                 <div class="grid-item">
-                    <i class="ph ph-fork-knife"></i>
+                    <span class="emoji-icon">👄</span>
                     <div>
                         <div class="grid-title" id="ext-mouth-t">دەم (Mouthparts)</div>
                         <div class="grid-desc" id="ext-mouth-d">بەپێی جۆری خۆراک دەگۆڕێت (بۆ گازگرتن، مژین، یان لێستنەوە).</div>
@@ -916,7 +942,7 @@ Syntax highlighting has been disabled due to code size.
                 </div>
 
                 <div class="grid-item">
-                    <i class="ph ph-wind"></i>
+                    <span class="emoji-icon">🦋</span>
                     <div>
                         <div class="grid-title" id="ext-wings-t">باڵ (Wings)</div>
                         <div class="grid-desc" id="ext-wings-d">بۆ فڕین بەکاردێن، زۆربەی مێرووەکان خاوەنی چوار باڵن (دوو جووت).</div>
