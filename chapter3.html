@@ -1,3 +1,7 @@
+
+
+Chapter3 · HTML
+Syntax highlighting has been disabled due to code size.
 <!DOCTYPE html>
 <html lang="ku" dir="rtl" id="html-tag" data-theme="light">
 <head>
@@ -542,6 +546,107 @@
             object-fit: contain;
         }
 
+        .info-header .header-emoji-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--badge-bg);
+            padding: 10px;
+            border-radius: 16px;
+            animation: pulseIcon 2s infinite ease-in-out;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        /* بەشەکانی ئەنتێنە بە شێوەیەکی وردتر و بچووکتر، بۆ ئەوەی لەگەڵ قەبارەی وێنەکە بگونجێت */
+        .antenna-part-box {
+            padding: 12px 14px !important;
+        }
+
+        .antenna-part-box .grid-title {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .antenna-part-box .grid-desc {
+            font-size: 12.5px;
+            line-height: 1.55;
+        }
+
+        /* ئایکۆنی بەشەکانی سنگ - بچووکتر و وردتر */
+        .thorax-part-icon {
+            font-size: 16px !important;
+            color: #fff !important;
+            background: var(--accent-color);
+            width: 26px;
+            height: 26px;
+            min-width: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0 !important;
+        }
+
+        /* لیستی ئەرکەکانی سنگ - دیزاین و مۆوشنی سادە */
+        .func-chip-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .func-chip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(139, 69, 19, 0.035);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 9px 14px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            opacity: 0;
+            transform: translateX(14px);
+            animation: funcChipIn 0.5s ease forwards;
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        html[dir="ltr"] .func-chip {
+            transform: translateX(-14px);
+        }
+
+        .func-chip:hover {
+            background: rgba(139, 69, 19, 0.08);
+            border-color: var(--accent-color);
+            transform: translateX(-3px) scale(1.01);
+        }
+
+        .func-chip .func-chip-icon {
+            width: 22px;
+            height: 22px;
+            min-width: 22px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .func-chip .func-chip-icon i {
+            font-size: 12px;
+        }
+
+        @keyframes funcChipIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         .insect-image-wrapper:hover {
             transform: scale(1.03) rotate(1deg);
             background-color: rgba(139, 69, 19, 0.06);
@@ -951,7 +1056,7 @@
         <!-- کارتی چوارەم: سەر (Head) و شاخکەکان (Antennae) -->
         <div class="info-card" style="animation-delay: 0.8s;">
             <div class="info-header">
-                <i class="ph ph-eye-closed"></i>
+                <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f9e0.svg" class="header-emoji-icon" alt="🧠">
                 <h2 class="info-title" id="head-card-title">سەر و ئەنتێنە</h2>
             </div>
             
@@ -963,24 +1068,21 @@
                 <div class="insect-features-side">
                     <h3 class="features-title" id="parts-title-text">بەشەکانی Antennae (سێ بەشی سەرەکی):</h3>
                     
-                    <div class="grid-item feature-box" style="margin-bottom: 12px;">
-                        <i class="ph ph-number-one"></i>
+                    <div class="grid-item feature-box antenna-part-box" style="margin-bottom: 8px;">
                         <div>
                             <div class="grid-title" id="scape-t">(Scape)</div>
                             <div class="grid-desc" id="scape-d">یەکەم و گەورەترین بەشی ئەنتێنەیە، بە سەری مێرووەوە بەستراوەتەوە و جووڵەی ئەنتێنەکە کۆنترۆڵ دەکات.</div>
                         </div>
                     </div>
 
-                    <div class="grid-item feature-box" style="margin-bottom: 12px;">
-                        <i class="ph ph-number-two"></i>
+                    <div class="grid-item feature-box antenna-part-box" style="margin-bottom: 8px;">
                         <div>
                             <div class="grid-title" id="pedicel-t">(Pedicel)</div>
                             <div class="grid-desc" id="pedicel-d">دووەم بەشی ئەنتێنەیە کە دەکەوێتە نێوان سکەیپ و فلاجێلەمە. ئەندامێکی هەستکردنی تایبەتی تێدایە بە ناوی (Johnston's organ) کە یارمەتی هەستکردن بە جووڵە و لەرزین دەدات.</div>
                         </div>
                     </div>
 
-                    <div class="grid-item feature-box">
-                        <i class="ph ph-number-three"></i>
+                    <div class="grid-item feature-box antenna-part-box">
                         <div>
                             <div class="grid-title" id="flagellum-t">(Flagellum)</div>
                             <div class="grid-desc" id="flagellum-d">درێژترین بەشی ئەنتێنەیە و لە چەندینamp  پارچەی بچووک (Flagellomeres) پێکدێت. زۆربەی خانە هەستیarەکان (Sensilla) لەم بەشەدان و بۆ ناسینەوەی بۆن و ماددە کیمیاییەکان بەکاردێن.</div>
@@ -1010,7 +1112,7 @@
                     <h3 class="features-title" id="thorax-parts-title">بەشەکانی سنگ (سێ پارچەی سەرەکی):</h3>
                     
                     <div class="grid-item feature-box" style="margin-bottom: 12px;">
-                        <i class="ph ph-arrow-circle-up-right"></i>
+                        <i class="ph ph-caret-up thorax-part-icon"></i>
                         <div>
                             <div class="grid-title" id="pro-t">Prothorax (سنگی پێشەوە)</div>
                             <div class="grid-desc" id="pro-d">پێشەکیترین بەشی سنگە کە ڕاستەوخۆ بە دواوەی سەرەوە بەستراوەتەوە.</div>
@@ -1018,7 +1120,7 @@
                     </div>
 
                     <div class="grid-item feature-box" style="margin-bottom: 12px;">
-                        <i class="ph ph-arrow-circle-right"></i>
+                        <i class="ph ph-caret-right thorax-part-icon"></i>
                         <div>
                             <div class="grid-title" id="meso-t">Mesothorax (سنگی ناوەڕاست)</div>
                             <div class="grid-desc" id="meso-d">پارچەی ناوەڕاستی سنگە کە جووتێک باڵ و جووتە پێی دووەمی پێوە بەستراوە.</div>
@@ -1026,7 +1128,7 @@
                     </div>
 
                     <div class="grid-item feature-box" style="margin-bottom: 20px;">
-                        <i class="ph ph-arrow-circle-down-right"></i>
+                        <i class="ph ph-caret-down thorax-part-icon"></i>
                         <div>
                             <div class="grid-title" id="meta-t">Metathorax (سنگی دواوە)</div>
                             <div class="grid-desc" id="meta-d">بەشی دواوەی سنگە کە بە سکەوە بەستراوەتەوە و باڵەکانی دواوە و قاچی کۆتایی لەسەرە.</div>
@@ -1034,21 +1136,21 @@
                     </div>
 
                     <h3 class="features-title" id="thorax-funcs-title">ئەرکەکانی سنگ (Functions):</h3>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px;" id="thorax-funcs-list">
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                    <ul class="func-chip-list" id="thorax-funcs-list">
+                        <li class="func-chip" style="animation-delay: 0.1s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span id="t-func-1">هەڵگرتنی سێ جووت پێ (6 پێ).</span>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                        <li class="func-chip" style="animation-delay: 0.2s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span id="t-func-2">هەڵگرتنی یەک یان دوو جووت باڵ.</span>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                        <li class="func-chip" style="animation-delay: 0.3s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span id="t-func-3">تێدایە ماسولکەکانی ڕۆیشتن و فڕین.</span>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                        <li class="func-chip" style="animation-delay: 0.4s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span id="t-func-4">یارمەتیدانی جوڵە و هاوسەنگی مێروو.</span>
                         </li>
                     </ul>
