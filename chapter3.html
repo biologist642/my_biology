@@ -547,8 +547,8 @@ Syntax highlighting has been disabled due to code size.
         }
 
         .info-header .header-emoji-icon {
-            width: 32px;
-            height: 32px;
+            width: 40px;
+            height: 40px;
             background: var(--badge-bg);
             padding: 10px;
             border-radius: 16px;
@@ -572,14 +572,29 @@ Syntax highlighting has been disabled due to code size.
             line-height: 1.55;
         }
 
+        /* بۆکسی وردی بەشەکانی سنگ و پێ - بچووکتر */
+        .compact-part-box {
+            padding: 11px 13px !important;
+        }
+
+        .compact-part-box .grid-title {
+            font-size: 13.5px;
+            margin-bottom: 3px;
+        }
+
+        .compact-part-box .grid-desc {
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
         /* ئایکۆنی بەشەکانی سنگ - بچووکتر و وردتر */
         .thorax-part-icon {
-            font-size: 16px !important;
+            font-size: 13px !important;
             color: #fff !important;
             background: var(--accent-color);
-            width: 26px;
-            height: 26px;
-            min-width: 26px;
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -587,24 +602,39 @@ Syntax highlighting has been disabled due to code size.
             margin-top: 0 !important;
         }
 
-        /* لیستی ئەرکەکانی سنگ - دیزاین و مۆوشنی سادە */
+        /* ئایکۆنی بەشەکانی پێ - بچووکتر و وردتر */
+        .legs-part-icon {
+            font-size: 12px !important;
+            color: #fff !important;
+            background: var(--accent-color);
+            width: 19px;
+            height: 19px;
+            min-width: 19px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0 !important;
+        }
+
+        /* لیستی ئەرکەکانی سنگ و پێ - دیزاین و مۆوشنی سادە */
         .func-chip-list {
             list-style: none;
             padding: 0;
             display: flex;
             flex-direction: column;
-            gap: 9px;
+            gap: 8px;
         }
 
         .func-chip {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 9px;
             background: rgba(139, 69, 19, 0.035);
             border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 9px 14px;
-            font-size: 14px;
+            border-radius: 11px;
+            padding: 7px 12px;
+            font-size: 13px;
             color: var(--text-secondary);
             opacity: 0;
             transform: translateX(14px);
@@ -623,21 +653,21 @@ Syntax highlighting has been disabled due to code size.
         }
 
         .func-chip .func-chip-icon {
-            width: 22px;
-            height: 22px;
-            min-width: 22px;
+            width: 19px;
+            height: 19px;
+            min-width: 19px;
             border-radius: 50%;
             background: var(--accent-color);
             color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 11px;
             flex-shrink: 0;
         }
 
         .func-chip .func-chip-icon i {
-            font-size: 12px;
+            font-size: 11px;
         }
 
         @keyframes funcChipIn {
@@ -1168,7 +1198,7 @@ Syntax highlighting has been disabled due to code size.
         </div>
 
         <!-- کارتی نوێ: پێ (Legs) -->
-        <div class="info-card" style="animation-delay: 1.1s;">
+        <div class="info-card" style="animation-delay: 1.2s;">
             <div class="info-header">
                 <i class="ph ph-footprints"></i>
                 <h2 class="info-title" id="legs-card-title">پێ (Legs)</h2>
@@ -1182,40 +1212,40 @@ Syntax highlighting has been disabled due to code size.
                 <div class="insect-features-side">
                     <h3 class="features-title" id="legs-parts-title">بەشەکانی پێ (Leg Parts):</h3>
                     
-                    <div class="grid-item feature-box" style="margin-bottom: 12px;">
-                        <i class="ph ph-number-one"></i>
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
+                        <i class="ph ph-number-one legs-part-icon"></i>
                         <div>
                             <div class="grid-title" id="coxa-t">کۆکسا (Coxa - حەوز)</div>
                             <div class="grid-desc" id="coxa-d">بنکەی پێیەکەیە کە پێکان بە بەشی سنگی مێرووەکەوە دەبەستێتەوە یەکەم بەشی پێیە، وەک جومگەیەکی سەرەکی کار دەکات.</div>
                         </div>
                     </div>
 
-                    <div class="grid-item feature-box" style="margin-bottom: 12px;">
-                        <i class="ph ph-number-two"></i>
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
+                        <i class="ph ph-number-two legs-part-icon"></i>
                         <div>
                             <div class="grid-title" id="trochanter-t">ترۆکانتەر (Trochanter)</div>
                             <div class="grid-desc" id="trochanter-d">بەشێکی زۆر بچووکە لە نێوان حەوز و ڕان، کە ڕێگە بە چەمانەوە و نەرمیی جوڵەی پێیەکە دەدات.</div>
                         </div>
                     </div>
 
-                    <div class="grid-item feature-box" style="margin-bottom: 12px;">
-                        <i class="ph ph-number-three"></i>
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
+                        <i class="ph ph-number-three legs-part-icon"></i>
                         <div>
                             <div class="grid-title" id="femur-t">فیمەر (Femur - ڕان)</div>
                             <div class="grid-desc" id="femur-d">بەهێزترین و ئەستوورترین بەشی پێی مێرووەکەیە، کە ماسولکە سەرەکەییەکانی تێدایە (بەتایبەت لە مێرووە بازدەرەکاندا وەک کولە).</div>
                         </div>
                     </div>
 
-                    <div class="grid-item feature-box" style="margin-bottom: 12px;">
-                        <i class="ph ph-number-four"></i>
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
+                        <i class="ph ph-number-four legs-part-icon"></i>
                         <div>
                             <div class="grid-title" id="tibia-t">تیبیا (Tibia - قاچ)</div>
                             <div class="grid-desc" id="tibia-d">بەشێکی باریک و درێژە، زۆرجار دڕک یان مووی زبری پێوەیە کە یارمەتی مێرووەکە دەدات لە کاتی ڕێکردن یان گرتنی شتەکاندا.</div>
                         </div>
                     </div>
 
-                    <div class="grid-item feature-box" style="margin-bottom: 20px;">
-                        <i class="ph ph-number-five"></i>
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 16px;">
+                        <i class="ph ph-number-five legs-part-icon"></i>
                         <div>
                             <div class="grid-title" id="tarsus-t">تارسەس (Tarsus - پێ)</div>
                             <div class="grid-desc" id="tarsus-d">کۆتا بەشی پێیەکەیە کە لە چەند پارچەیەک (Tarsomeres) پێکدێت و لە کۆتاییەکەیدا نینۆک یان چەنگاڵ (Claws) هەیە بۆ نووسان بە ڕووەکانەوە.</div>
@@ -1223,33 +1253,33 @@ Syntax highlighting has been disabled due to code size.
                     </div>
 
                     <h3 class="features-title" id="legs-funcs-title">ئەرکە سەرەکییەکانی پێ (Main Functions):</h3>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px;" id="legs-funcs-list">
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                    <ul class="func-chip-list" id="legs-funcs-list">
+                        <li class="func-chip" style="animation-delay: 0.1s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span id="l-func-1">ڕۆیشتن و جوڵەکردن.</span>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                        <li class="func-chip" style="animation-delay: 0.15s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span id="l-func-2">بازدان.</span>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                        <li class="func-chip" style="animation-delay: 0.2s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span id="l-func-3">هەڵکشان بەسەر ڕووەکان.</span>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                        <li class="func-chip" style="animation-delay: 0.25s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span id="l-func-4">مەلەکردن لە ناو ئاو.</span>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                        <li class="func-chip" style="animation-delay: 0.3s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span id="l-func-5">هەڵکەندنی خاک.</span>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                        <li class="func-chip" style="animation-delay: 0.35s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span id="l-func-6">ڕاوکردن و گرتنی نێچیر.</span>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                        <li class="func-chip" style="animation-delay: 0.4s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span id="l-func-7">کۆکردنەوەی پۆلەنی گوڵ لەلایەن هەنگەکان.</span>
                         </li>
                     </ul>
@@ -1266,8 +1296,115 @@ Syntax highlighting has been disabled due to code size.
             </div>
         </div>
 
+        <!-- ================= جۆرەکانی پێ بەپێی ئەرکیان (Leg Types) ================= -->
+        <div class="info-card" style="animation-delay: 1.4s;">
+            <div class="info-header">
+                <i class="ph ph-footprints"></i>
+                <h2 class="info-title" data-i18n="legTypesTitle">جۆرەکانی پێ بەپێی ئەرکیان (Leg Types)</h2>
+            </div>
+            <p class="info-text" data-i18n="legTypesDesc">پێی مێرووەکان بەپێی ژینگە و شێوازی ژیانیان چەندین شێوازی جیاوازیان وەرگرتووە.</p>
+            <div class="morphology-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legAmbT">پێی ڕۆیشتن (Ambulatory Legs)</h3>
+                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legAmbD">بۆ ڕۆیشتن و خولانەوە لەسەر زەوی، هەموو پێیەکان نزیکەی یەک قەبارەن.</p>
+                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                            <i class="ph ph-tag" style="font-size: 18px;"></i>
+                            <div>
+                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
+                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legAmbEx">سیسرکە (Cockroach)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="Legt1.jpg" alt="پێی ڕۆیشتن (Ambulatory Legs)" class="insect-img-file">
+                    </div>
+                </div>
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legSalT">پێی بازدان (Saltatorial Legs)</h3>
+                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legSalD">پێی دواوە زۆر درێژ و بەهێزن و یارمەتی بازدانی دوور دەدەن.</p>
+                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                            <i class="ph ph-tag" style="font-size: 18px;"></i>
+                            <div>
+                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
+                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legSalEx">کولە (Grasshopper)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="Let2.jpg" alt="پێی بازدان (Saltatorial Legs)" class="insect-img-file">
+                    </div>
+                </div>
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legRapT">پێی ڕاوکردن (Raptorial Legs)</h3>
+                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legRapD">پێی پێشەوە گەورە و خاراوییە، بۆ گرتنی نێچیر و ڕاوکردن بەکاردێت.</p>
+                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                            <i class="ph ph-tag" style="font-size: 18px;"></i>
+                            <div>
+                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
+                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legRapEx">مانتیس (Praying mantis)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="Legt3.jpg" alt="پێی ڕاوکردن (Raptorial Legs)" class="insect-img-file">
+                    </div>
+                </div>
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legFosT">پێی هەڵکەندن (Fossorial Legs)</h3>
+                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legFosD">پێی پێشەوە پان و بەهێزە، بۆ کەندنی خاک و دروستکردنی کون بەکاردێت.</p>
+                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                            <i class="ph ph-tag" style="font-size: 18px;"></i>
+                            <div>
+                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
+                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legFosEx">زەویبڕ (Mole cricket)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="Legt4.jpg" alt="پێی هەڵکەندن (Fossorial Legs)" class="insect-img-file">
+                    </div>
+                </div>
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legNatT">پێی مەلەکردن (Natatorial Legs)</h3>
+                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legNatD">پێی دواوە پانە و مووی زۆری هەیە، بۆ مەلەکردن لە ناو ئاو گونجاوە.</p>
+                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                            <i class="ph ph-tag" style="font-size: 18px;"></i>
+                            <div>
+                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
+                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legNatEx">قالۆنچەی مەلەوانی ئاو (Diving beetle)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="Legt5.jpg" alt="پێی مەلەکردن (Natatorial Legs)" class="insect-img-file">
+                    </div>
+                </div>
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legPolT">پێی کۆکردنەوەی پۆلەن (Pollen-Collecting Legs)</h3>
+                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legPolD">لە پێی دواوە سەبەتەی پۆلەن (Corbicula) هەیە، بۆ کۆکردنەوە و گواستنەوەی پۆلەنی گوڵ بەکاردێت.</p>
+                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                            <i class="ph ph-tag" style="font-size: 18px;"></i>
+                            <div>
+                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
+                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legPolEx">هەنگی هەنگوین (Honey bee)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="Let6.jpg" alt="پێی کۆکردنەوەی پۆلەن (Pollen-Collecting Legs)" class="insect-img-file">
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- کارتی حەوتەم: سک (Abdomen) -->
-        <div class="info-card" style="animation-delay: 1.2s;">
+        <div class="info-card" style="animation-delay: 1.6s;">
             <div class="info-header">
                 <i class="ph ph-heartbeat"></i>
                 <h2 class="info-title" id="abdomen-card-title">سک (Abdomen)</h2>
@@ -1328,7 +1465,7 @@ Syntax highlighting has been disabled due to code size.
         </div>
 
         <!-- کارتی هەشتەم: دەم (Mouthparts) -->
-        <div class="info-card" style="animation-delay: 1.4s;">
+        <div class="info-card" style="animation-delay: 1.8s;">
             <div class="info-header">
                 <i class="ph ph-cookie"></i>
                 <h2 class="info-title" id="mouthparts-card-title">دەم (Mouthparts)</h2>
@@ -1390,7 +1527,7 @@ Syntax highlighting has been disabled due to code size.
         </div>
 
         <!-- ================= جۆرەکانی دەم (Mouthparts Types) ================= -->
-        <div class="info-card" style="animation-delay: 1.6s;">
+        <div class="info-card" style="animation-delay: 2.0s;">
             <div class="info-header">
                 <i class="ph ph-nut"></i>
                 <h2 class="info-title" id="m-types-main-title">جۆرەکانی دەم (Mouthparts Types)</h2>
@@ -1525,116 +1662,8 @@ Syntax highlighting has been disabled due to code size.
             </div>
         </div>
 
-
-        <!-- ================= جۆرەکانی پێ بەپێی ئەرکیان (Leg Types) ================= -->
-        <div class="info-card" style="animation-delay: 1.8s;">
-            <div class="info-header">
-                <i class="ph ph-footprints"></i>
-                <h2 class="info-title" data-i18n="legTypesTitle">جۆرەکانی پێ بەپێی ئەرکیان (Leg Types)</h2>
-            </div>
-            <p class="info-text" data-i18n="legTypesDesc">پێی مێرووەکان بەپێی ژینگە و شێوازی ژیانیان چەندین شێوازی جیاوازیان وەرگرتووە.</p>
-            <div class="morphology-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legAmbT">پێی ڕۆیشتن (Ambulatory Legs)</h3>
-                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legAmbD">بۆ ڕۆیشتن و خولانەوە لەسەر زەوی، هەموو پێیەکان نزیکەی یەک قەبارەن.</p>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
-                            <i class="ph ph-tag" style="font-size: 18px;"></i>
-                            <div>
-                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
-                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legAmbEx">سیسرکە (Cockroach)</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="legtype-ambulatory.jpg" alt="پێی ڕۆیشتن (Ambulatory Legs)" class="insect-img-file">
-                    </div>
-                </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legSalT">پێی بازدان (Saltatorial Legs)</h3>
-                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legSalD">پێی دواوە زۆر درێژ و بەهێزن و یارمەتی بازدانی دوور دەدەن.</p>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
-                            <i class="ph ph-tag" style="font-size: 18px;"></i>
-                            <div>
-                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
-                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legSalEx">کولە (Grasshopper)</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="legtype-saltatorial.jpg" alt="پێی بازدان (Saltatorial Legs)" class="insect-img-file">
-                    </div>
-                </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legRapT">پێی ڕاوکردن (Raptorial Legs)</h3>
-                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legRapD">پێی پێشەوە گەورە و خاراوییە، بۆ گرتنی نێچیر و ڕاوکردن بەکاردێت.</p>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
-                            <i class="ph ph-tag" style="font-size: 18px;"></i>
-                            <div>
-                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
-                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legRapEx">مانتیس (Praying mantis)</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="legtype-raptorial.jpg" alt="پێی ڕاوکردن (Raptorial Legs)" class="insect-img-file">
-                    </div>
-                </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legFosT">پێی هەڵکەندن (Fossorial Legs)</h3>
-                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legFosD">پێی پێشەوە پان و بەهێزە، بۆ کەندنی خاک و دروستکردنی کون بەکاردێت.</p>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
-                            <i class="ph ph-tag" style="font-size: 18px;"></i>
-                            <div>
-                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
-                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legFosEx">زەویبڕ (Mole cricket)</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="legtype-fossorial.jpg" alt="پێی هەڵکەندن (Fossorial Legs)" class="insect-img-file">
-                    </div>
-                </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legNatT">پێی مەلەکردن (Natatorial Legs)</h3>
-                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legNatD">پێی دواوە پانە و مووی زۆری هەیە، بۆ مەلەکردن لە ناو ئاو گونجاوە.</p>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
-                            <i class="ph ph-tag" style="font-size: 18px;"></i>
-                            <div>
-                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
-                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legNatEx">قالۆنچەی مەلەوانی ئاو (Diving beetle)</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="legtype-natatorial.jpg" alt="پێی مەلەکردن (Natatorial Legs)" class="insect-img-file">
-                    </div>
-                </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legPolT">پێی کۆکردنەوەی پۆلەن (Pollen-Collecting Legs)</h3>
-                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legPolD">لە پێی دواوە سەبەتەی پۆلەن (Corbicula) هەیە، بۆ کۆکردنەوە و گواستنەوەی پۆلەنی گوڵ بەکاردێت.</p>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
-                            <i class="ph ph-tag" style="font-size: 18px;"></i>
-                            <div>
-                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
-                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legPolEx">هەنگی هەنگوین (Honey bee)</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="legtype-pollen.jpg" alt="پێی کۆکردنەوەی پۆلەن (Pollen-Collecting Legs)" class="insect-img-file">
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- ================= باڵ (Wings) ================= -->
-        <div class="info-card" style="animation-delay: 2.0s;">
+        <div class="info-card" style="animation-delay: 2.2s;">
             <div class="info-header">
                 <i class="ph ph-butterfly"></i>
                 <h2 class="info-title" data-i18n="wingsCardTitle">باڵ (Wings)</h2>
@@ -1725,7 +1754,7 @@ Syntax highlighting has been disabled due to code size.
         </div>
 
         <!-- ================= جۆرەکانی باڵ (Wing Types) ================= -->
-        <div class="info-card" style="animation-delay: 2.2s;">
+        <div class="info-card" style="animation-delay: 2.4s;">
             <div class="info-header">
                 <i class="ph ph-shapes"></i>
                 <h2 class="info-title" data-i18n="wTypesMainTitle">جۆرەکانی باڵ (Wing Types)</h2>
@@ -1816,7 +1845,7 @@ Syntax highlighting has been disabled due to code size.
         </div>
 
         <!-- ================= چاوی مێرووەکان (Insect Eyes) ================= -->
-        <div class="info-card" style="animation-delay: 2.4s;">
+        <div class="info-card" style="animation-delay: 2.6s;">
             <div class="info-header">
                 <i class="ph ph-eye"></i>
                 <h2 class="info-title" data-i18n="eyesCardTitle">چاوی مێرووەکان (Insect Eyes)</h2>
@@ -2123,7 +2152,7 @@ Syntax highlighting has been disabled due to code size.
             </div>
         </div>
         <!-- ================= ئامانجی مێرووناسی (Goals of Entomology) ================= -->
-        <div class="info-card" style="animation-delay: 4.0s;">
+        <div class="info-card" style="animation-delay: 3.6s;">
             <div class="info-header">
                 <i class="ph ph-target"></i>
                 <h2 class="info-title" data-i18n="goalCardTitle">ئامانجی مێرووناسی (Goals of Entomology)</h2>
@@ -2169,7 +2198,7 @@ Syntax highlighting has been disabled due to code size.
         </div>
 
         <!-- ================= زیانەکانی مێرووەکان (Harms of Insects) ================= -->
-        <div class="info-card" style="animation-delay: 4.2s;">
+        <div class="info-card" style="animation-delay: 3.8s;">
             <div class="info-header">
                 <i class="ph ph-warning"></i>
                 <h2 class="info-title" data-i18n="harmCardTitle">زیانەکانی مێرووەکان (Harms of Insects)</h2>
@@ -2253,7 +2282,7 @@ Syntax highlighting has been disabled due to code size.
         </div>
 
         <!-- ================= ئەکۆلۆژی مێرووەکان (Insect Ecology) ================= -->
-        <div class="info-card" style="animation-delay: 4.4s;">
+        <div class="info-card" style="animation-delay: 4.0s;">
             <div class="info-header">
                 <i class="ph ph-tree"></i>
                 <h2 class="info-title" data-i18n="ecoCardTitle">ئەکۆلۆژی مێرووەکان (Insect Ecology)</h2>
@@ -2413,7 +2442,7 @@ Syntax highlighting has been disabled due to code size.
             </div>
         </div>
         <!-- ================= پێستگۆڕین (Molting / Ecdysis) ================= -->
-        <div class="info-card" style="animation-delay: 4.6s;">
+        <div class="info-card" style="animation-delay: 4.2s;">
             <div class="info-header">
                 <i class="ph ph-arrows-clockwise"></i>
                 <h2 class="info-title" data-i18n="moltCardTitle">پێستگۆڕین (Molting / Ecdysis)</h2>
@@ -2481,7 +2510,7 @@ Syntax highlighting has been disabled due to code size.
         </div>
 
         <!-- ================= ژمارە و جۆراوجۆری مێرووەکان (Number & Diversity) ================= -->
-        <div class="info-card" style="animation-delay: 4.8s;">
+        <div class="info-card" style="animation-delay: 4.4s;">
             <div class="info-header">
                 <i class="ph ph-chart-pie-slice"></i>
                 <h2 class="info-title" data-i18n="divCardTitle">ژمارە و جۆراوجۆری مێرووەکان (Number & Diversity)</h2>
@@ -2539,7 +2568,7 @@ Syntax highlighting has been disabled due to code size.
         </div>
 
         <!-- ================= قۆناغەکانی ژیانی مێرووەکان (Life Cycle) ================= -->
-        <div class="info-card" style="animation-delay: 5.0s;">
+        <div class="info-card" style="animation-delay: 4.6s;">
             <div class="info-header">
                 <i class="ph ph-butterfly"></i>
                 <h2 class="info-title" data-i18n="lifeCardTitle">قۆناغەکانی ژیانی مێرووەکان (Life Cycle)</h2>
@@ -2598,7 +2627,7 @@ Syntax highlighting has been disabled due to code size.
         </div>
 
         <!-- ================= ڕەفتاری مێرووەکان (Insect Behavior) ================= -->
-        <div class="info-card" style="animation-delay: 5.2s;">
+        <div class="info-card" style="animation-delay: 4.8s;">
             <div class="info-header">
                 <i class="ph ph-compass"></i>
                 <h2 class="info-title" data-i18n="behCardTitle">ڕەفتاری مێرووەکان (Insect Behavior)</h2>
@@ -2675,7 +2704,7 @@ Syntax highlighting has been disabled due to code size.
             </div>
         </div>
         <!-- ================= تایبەتمەندییە گشتییەکانی مێرووەکان (General Characteristics) ================= -->
-        <div class="info-card" style="animation-delay: 5.6s;">
+        <div class="info-card" style="animation-delay: 5.0s;">
             <div class="info-header">
                 <i class="ph ph-list-checks"></i>
                 <h2 class="info-title" data-i18n="genCardTitle">تایبەتمەندییە گشتییەکانی مێرووەکان (General Characteristics)</h2>
@@ -2770,7 +2799,7 @@ Syntax highlighting has been disabled due to code size.
         </div>
 
         <!-- ================= کۆکردنەوە و پاراستنی مێرووەکان (Collection & Preservation) ================= -->
-        <div class="info-card" style="animation-delay: 5.8s;">
+        <div class="info-card" style="animation-delay: 5.2s;">
             <div class="info-header">
                 <i class="ph ph-package"></i>
                 <h2 class="info-title" data-i18n="colCardTitle">کۆکردنەوە و پاراستنی مێرووەکان (Collection & Preservation)</h2>
@@ -2965,7 +2994,7 @@ Syntax highlighting has been disabled due to code size.
         </div>
 
         <!-- ================= سەرچاوەکان (References) ================= -->
-        <div class="info-card" style="animation-delay: 6.0s;">
+        <div class="info-card" style="animation-delay: 5.4s;">
             <div class="info-header">
                 <i class="ph ph-books"></i>
                 <h2 class="info-title" data-i18n="refCardTitle">سەرچاوەکان (References)</h2>
