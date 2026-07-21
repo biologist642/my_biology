@@ -677,6 +677,13 @@ Syntax highlighting has been disabled due to code size.
             }
         }
 
+        .inline-emoji {
+            width: 18px;
+            height: 18px;
+            vertical-align: -3px;
+            object-fit: contain;
+        }
+
         .system-box-anim {
             opacity: 0;
             transform: translateY(16px);
@@ -2196,7 +2203,7 @@ Syntax highlighting has been disabled due to code size.
                 <h2 class="info-title" data-i18n="goalCardTitle">ئامانجی مێرووناسی (Goals of Entomology)</h2>
             </div>
             <p class="info-text" data-i18n="goalCardDesc">مێرووناسی ئامانجی سەرەکیی بریتییە لە ناسین و لێکۆڵینەوەی مێرووەکان لە هەموو لایەنەکانی ژیانیان، بۆ تێگەیشتن لە پێکهاتە، گەشە، ڕەفتار، ژینگە و پەیوەندییان بە مرۆڤ و ژینگە.</p>
-            <div class="morphology-grid">
+            <div class="morphology-grid grid-3col">
                 <div class="grid-item">
                     <i class="ph ph-magnifying-glass"></i>
                     <div>
@@ -2256,7 +2263,7 @@ Syntax highlighting has been disabled due to code size.
                         </div>
                     </div>
                     <div class="insect-image-wrapper">
-                        <img src="harm-agriculture.jpg" alt="زیان بە کشتوکاڵ" class="insect-img-file">
+                        <img src="Harm1.jpg" alt="زیان بە کشتوکاڵ" class="insect-img-file">
                     </div>
                 </div>
                 <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
@@ -2265,7 +2272,7 @@ Syntax highlighting has been disabled due to code size.
                         <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="harm2D">هەندێک مێروو وەک ناوەند (Vector) کار دەکەن و میکرۆب یان پارازیت لە گیاندارێکەوە بۆ گیاندارێکی تر دەگوازنەوە.</p>
                     </div>
                     <div class="insect-image-wrapper">
-                        <img src="harm-disease.jpg" alt="گواستنەوەی نەخۆشی" class="insect-img-file">
+                        <img src="Harm2.jpg" alt="گواستنەوەی نەخۆشی" class="insect-img-file">
                     </div>
                 </div>
                 <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
@@ -2281,7 +2288,7 @@ Syntax highlighting has been disabled due to code size.
                         </div>
                     </div>
                     <div class="insect-image-wrapper">
-                        <img src="harm-food.jpg" alt="زیان بە خواردن" class="insect-img-file">
+                        <img src="Harm3.jpg" alt="زیان بە خواردن" class="insect-img-file">
                     </div>
                 </div>
                 <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
@@ -2297,7 +2304,7 @@ Syntax highlighting has been disabled due to code size.
                         </div>
                     </div>
                     <div class="insect-image-wrapper">
-                        <img src="harm-property.jpg" alt="زیان بە ماڵ و سامان" class="insect-img-file">
+                        <img src="Harm4.jpg" alt="زیان بە ماڵ و سامان" class="insect-img-file">
                     </div>
                 </div>
                 <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
@@ -2313,7 +2320,7 @@ Syntax highlighting has been disabled due to code size.
                         </div>
                     </div>
                     <div class="insect-image-wrapper">
-                        <img src="harm-health.jpg" alt="زیان بە مرۆڤ و ئاژەڵان" class="insect-img-file">
+                        <img src="Harm5.jpg" alt="زیان بە مرۆڤ و ئاژەڵان" class="insect-img-file">
                     </div>
                 </div>
             </div>
@@ -2327,7 +2334,7 @@ Syntax highlighting has been disabled due to code size.
             </div>
             <p class="info-text" data-i18n="ecoCardDesc">شوێنی ژیان (Habitat) ئەو شوێنەیە کە مێرووێک تێیدا دەژی، خواردن دەدۆزێتەوە، گەشە دەکات و زیاد دەبێت. مێرووەکان لە چەندین جۆر ژینگەدا دەژین.</p>
             <div class="morphology-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div class="system-box-anim" style="animation-delay: 0.1s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="hab1T">ژینگەی وشک (Terrestrial Habitat)</h3>
                         <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="hab1D">دارستان، کێڵگە، چیمەن و بیابان.</p>
@@ -2340,10 +2347,10 @@ Syntax highlighting has been disabled due to code size.
                         </div>
                     </div>
                     <div class="insect-image-wrapper">
-                        <img src="habitat-terrestrial.jpg" alt="ژینگەی وشک (Terrestrial Habitat)" class="insect-img-file">
+                        <img src="Eco1.jpg" alt="ژینگەی وشک (Terrestrial Habitat)" class="insect-img-file">
                     </div>
                 </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div class="system-box-anim" style="animation-delay: 0.2s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="hab2T">ژینگەی ئاوی (Aquatic Habitat)</h3>
                         <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="hab2D">ڕووبار، دەریاچە و زەوی ئاوی.</p>
@@ -2356,10 +2363,10 @@ Syntax highlighting has been disabled due to code size.
                         </div>
                     </div>
                     <div class="insect-image-wrapper">
-                        <img src="habitat-aquatic.jpg" alt="ژینگەی ئاوی (Aquatic Habitat)" class="insect-img-file">
+                        <img src="Eco2.jpg" alt="ژینگەی ئاوی (Aquatic Habitat)" class="insect-img-file">
                     </div>
                 </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div class="system-box-anim" style="animation-delay: 0.3s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="hab3T">ژیان لەسەر ڕووەک (Plant Habitat)</h3>
                         <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="hab3D">پەڕە، گوڵ، لق و ڕەگ.</p>
@@ -2372,10 +2379,10 @@ Syntax highlighting has been disabled due to code size.
                         </div>
                     </div>
                     <div class="insect-image-wrapper">
-                        <img src="habitat-plant.jpg" alt="ژیان لەسەر ڕووەک (Plant Habitat)" class="insect-img-file">
+                        <img src="Eco3.jpg" alt="ژیان لەسەر ڕووەک (Plant Habitat)" class="insect-img-file">
                     </div>
                 </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div class="system-box-anim" style="animation-delay: 0.4s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="hab4T">ژیان لە ناو خاک (Soil Habitat)</h3>
                         <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="hab4D">ناو خاک و ژێر بەرد.</p>
@@ -2388,7 +2395,7 @@ Syntax highlighting has been disabled due to code size.
                         </div>
                     </div>
                     <div class="insect-image-wrapper">
-                        <img src="habitat-soil.jpg" alt="ژیان لە ناو خاک (Soil Habitat)" class="insect-img-file">
+                        <img src="Eco4.jpg" alt="ژیان لە ناو خاک (Soil Habitat)" class="insect-img-file">
                     </div>
                 </div>
             </div>
@@ -2396,7 +2403,7 @@ Syntax highlighting has been disabled due to code size.
                 <h3 class="features-title" data-i18n="foodChainTitle">زنجیرەی خواردن (Food Chain)</h3>
             <p class="info-text" data-i18n="foodChainDesc">زنجیرەی خواردن بریتییە لە گواستنەوەی وزە لە گیاندارێکەوە بۆ گیاندارێکی تر لە ڕێگەی خواردنەوە. مێرووەکان چەند ڕۆڵێکیان تێدا هەیە.</p>
             <div class="morphology-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div class="system-box-anim" style="animation-delay: 0.1s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="fc1T">خواردنی ڕووەک (Primary Consumers)</h3>
                         <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="fc1D">خواردنی پەڕە و گوڵ و میوە.</p>
@@ -2408,8 +2415,11 @@ Syntax highlighting has been disabled due to code size.
                             </div>
                         </div>
                     </div>
+                    <div class="insect-image-wrapper">
+                        <img src="Eco5.jpg" alt="خواردنی ڕووەک (Primary Consumers)" class="insect-img-file">
+                    </div>
                 </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div class="system-box-anim" style="animation-delay: 0.2s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="fc2T">ڕاوکەر (Predators)</h3>
                         <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="fc2D">مێرووی تر دەخۆن.</p>
@@ -2421,8 +2431,11 @@ Syntax highlighting has been disabled due to code size.
                             </div>
                         </div>
                     </div>
+                    <div class="insect-image-wrapper">
+                        <img src="Eco6.jpg" alt="ڕاوکەر (Predators)" class="insect-img-file">
+                    </div>
                 </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div class="system-box-anim" style="animation-delay: 0.3s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="fc3T">پاراسایت (Parasitoids)</h3>
                         <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="fc3D">هێلکەکانیان لەسەر یان ناو مێرووی تر دادەنێن و لاروەکە بە خواردنی خانەخوێیەکە گەشە دەکات.</p>
@@ -2434,8 +2447,11 @@ Syntax highlighting has been disabled due to code size.
                             </div>
                         </div>
                     </div>
+                    <div class="insect-image-wrapper">
+                        <img src="Eco7.jpg" alt="پاراسایت (Parasitoids)" class="insect-img-file">
+                    </div>
                 </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div class="system-box-anim" style="animation-delay: 0.4s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="fc4T">شیکەرەوە (Decomposers)</h3>
                         <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="fc4D">ماددە ئۆرگانیکییە مردووەکان دەشکێننەوە و یارمەتی گەڕاندنەوەیان دەدەن بۆ خاک.</p>
@@ -2447,33 +2463,36 @@ Syntax highlighting has been disabled due to code size.
                             </div>
                         </div>
                     </div>
+                    <div class="insect-image-wrapper">
+                        <img src="Eco8.jpg" alt="شیکەرەوە (Decomposers)" class="insect-img-file">
+                    </div>
                 </div>
             </div>
                 <div class="etymology-box" style="margin-top: 20px;">
-                    <div style="text-align: center;"><div class="grid-title" data-i18n="fcExampleTitle" style="margin-bottom:6px;">نموونەی زنجیرەی خواردن</div><div class="grid-desc" data-i18n="fcExampleD">🌱 ڕووەک → 🦗 Grasshopper → 🦗 Praying mantis → 🐦 باڵندە — ئەم زنجیرەیە پیشان دەدات چۆن وزە لە ڕووەکەوە دەگوازرێتەوە بۆ مێروو، و دواتر بۆ ئاژەڵەکانی تر.</div></div>
+                    <div style="text-align: center;"><div class="grid-title" data-i18n="fcExampleTitle" style="margin-bottom:6px;">نموونەی زنجیرەی خواردن</div><div class="grid-desc" data-i18n="fcExampleD"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f331.svg" class="inline-emoji" alt="🌱"> ڕووەک → <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f997.svg" class="inline-emoji" alt="🦗"> Grasshopper → <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f997.svg" class="inline-emoji" alt="🦗"> Praying mantis → <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f426.svg" class="inline-emoji" alt="🐦"> باڵندە — ئەم زنجیرەیە پیشان دەدات چۆن وزە لە ڕووەکەوە دەگوازرێتەوە بۆ مێروو، و دواتر بۆ ئاژەڵەکانی تر.</div></div>
                 </div>
             </div>
             <div style="margin-top: 20px;">
                 <h3 class="features-title" data-i18n="ecoImpTitle">گرنگی ئەکۆلۆژی مێرووەکان</h3>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px;">
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                    <ul class="func-chip-list">
+                        <li class="func-chip" style="animation-delay: 0.1s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span data-i18n="ecoImp1">پاراستنی هاوسەنگی ئەکۆسیستەم.</span>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                        <li class="func-chip" style="animation-delay: 0.15s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span data-i18n="ecoImp2">پۆلەنگواستنەوەی زۆرێک لە ڕووەکەکان.</span>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                        <li class="func-chip" style="animation-delay: 0.2s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span data-i18n="ecoImp3">کۆنترۆڵی سروشتی مێرووە زیانبەخشەکان.</span>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                        <li class="func-chip" style="animation-delay: 0.25s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span data-i18n="ecoImp4">شیکردنەوەی ماددە ئۆرگانیکییەکان و باشترکردنی خاک.</span>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                        <li class="func-chip" style="animation-delay: 0.3s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span data-i18n="ecoImp5">دابینکردنی خواردن بۆ زۆر لە باڵندە، ماسی و ئاژەڵەکانی تر.</span>
                         </li>
                     </ul>
@@ -2488,60 +2507,60 @@ Syntax highlighting has been disabled due to code size.
             <p class="info-text" data-i18n="moltCardDesc">پێستگۆڕین ئەو پرۆسەیەیە کە مێروو پێستی دەرەوەی کۆنی خۆی (Exoskeleton) دادەماڵێت و پێستێکی نوێ دروست دەکات، چونکە پێستی دەرەوە ڕەقە و ناتوانێت لەگەڵ گەشەی جەستەدا فراوان ببێت.</p>
             <div class="insect-grid-layout">
                 <div class="insect-features-side">
-                    <div class="grid-item feature-box" style="margin-bottom: 12px;">
-                        <i class="ph ph-circle-dashed"></i>
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
+                        <i class="ph ph-circle-dashed thorax-part-icon"></i>
                         <div>
                             <div class="grid-title" data-i18n="molt1T">١. دروستبوونی پێستی نوێ</div>
                             <div class="grid-desc" data-i18n="molt1D">خانەکانی پێست پێستێکی نوێ لە ژێر پێستی کۆن دروست دەکەن.</div>
                         </div>
                     </div>
-                    <div class="grid-item feature-box" style="margin-bottom: 12px;">
-                        <i class="ph ph-circle-dashed"></i>
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
+                        <i class="ph ph-circle-dashed thorax-part-icon"></i>
                         <div>
                             <div class="grid-title" data-i18n="molt2T">٢. جیابوونەوەی پێستی کۆن</div>
                             <div class="grid-desc" data-i18n="molt2D">پێستی کۆن لە پێستی نوێ جیا دەبێتەوە.</div>
                         </div>
                     </div>
-                    <div class="grid-item feature-box" style="margin-bottom: 12px;">
-                        <i class="ph ph-circle-dashed"></i>
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
+                        <i class="ph ph-circle-dashed thorax-part-icon"></i>
                         <div>
                             <div class="grid-title" data-i18n="molt3T">٣. دەرچوون لە پێستی کۆن (Ecdysis)</div>
                             <div class="grid-desc" data-i18n="molt3D">مێروو پێستی کۆن دەشکێنێت و لێی دەردەچێت.</div>
                         </div>
                     </div>
-                    <div class="grid-item feature-box" style="margin-bottom: 12px;">
-                        <i class="ph ph-circle-dashed"></i>
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 16px;">
+                        <i class="ph ph-circle-dashed thorax-part-icon"></i>
                         <div>
                             <div class="grid-title" data-i18n="molt4T">٤. ڕەقبوونی پێستی نوێ</div>
                             <div class="grid-desc" data-i18n="molt4D">دوای دەرچوون، پێستی نوێ نەرمە و دوای ماوەیەک بەهۆی Sclerotization ڕەق و بەهێز دەبێت.</div>
                         </div>
                     </div>
                     <h3 class="features-title" data-i18n="moltImpTitle">گرنگی پێستگۆڕین</h3>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px;">
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                    <ul class="func-chip-list">
+                        <li class="func-chip" style="animation-delay: 0.1s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span data-i18n="moltImp1">گەشەی جەستە.</span>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                        <li class="func-chip" style="animation-delay: 0.2s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span data-i18n="moltImp2">گۆڕانی قۆناغەکانی ژیان.</span>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                        <li class="func-chip" style="animation-delay: 0.3s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span data-i18n="moltImp3">نوێکردنەوەی پێستی دەرەوە.</span>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
+                        <li class="func-chip" style="animation-delay: 0.4s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
                             <span data-i18n="moltImp4">چارەسەرکردنی هەندێک برین و زیان.</span>
                         </li>
                     </ul>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 20px;">
                 <div class="insect-image-wrapper">
-                    <img src="molting1.jpg" alt="Molting Process" class="insect-img-file">
+                    <img src="skin1.jpg" alt="Molting Process" class="insect-img-file">
                 </div>
                 <div class="insect-image-wrapper">
-                    <img src="molting2.jpg" alt="Ecdysis" class="insect-img-file">
+                    <img src="skin2.jpg" alt="Ecdysis" class="insect-img-file">
                 </div>
                 </div>
             </div>
