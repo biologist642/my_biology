@@ -677,6 +677,24 @@ Syntax highlighting has been disabled due to code size.
             }
         }
 
+        .system-box-anim {
+            opacity: 0;
+            transform: translateY(16px);
+            animation: systemBoxIn 0.55s ease forwards;
+        }
+
+        .system-box-anim:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 22px rgba(139, 69, 19, 0.1);
+        }
+
+        @keyframes systemBoxIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .insect-image-wrapper:hover {
             transform: scale(1.03) rotate(1deg);
             background-color: rgba(139, 69, 19, 0.06);
@@ -737,6 +755,22 @@ Syntax highlighting has been disabled due to code size.
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
             margin-top: 25px;
+        }
+
+        .grid-3col {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media (max-width: 768px) {
+            .grid-3col {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-3col {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* ==========================================================================
@@ -1901,48 +1935,54 @@ Syntax highlighting has been disabled due to code size.
         <!-- ================= سیستەمە ناوەکییەکان (Internal Anatomy) ================= -->
         <div class="info-card" style="animation-delay: 2.8s;">
             <div class="info-header">
-                <i class="ph ph-flask"></i>
+                <i class="ph ph-scan"></i>
                 <h2 class="info-title" data-i18n="intSysCardTitle">سیستەمە ناوەکییەکان (Internal Anatomy)</h2>
             </div>
             <p class="info-text" data-i18n="intSysCardDesc">جەستەی مێروو چەند سیستەمێکی ناوەکی هەیە کە هەریەکەیان ئەرکی تایبەت بەخۆیان دەبەن: سیستەمی هەرسکردن، هەناسەدان، سوڕانی خوێن، دەمار و زیادبوون.</p>
             <div class="morphology-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div class="system-box-anim" style="animation-delay: 0.1s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="digestT">سیستەمی هەرسکردن (Digestive System)</h3>
                         <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="digestD">بەرپرسیارە لە وەرگرتن، هەرسکردن و هەڵمژینی خواردن و دەرکردنی پاشماوە. لە سێ بەش پێکدێت: Foregut (پێشەوە)، Midgut (ناوەڕاست)، Hindgut (دواوە).</p>
                     </div>
+                    <div class="insect-image-wrapper">
+                        <img src="sys1.jpg" alt="سیستەمی هەرسکردن (Digestive System)" class="insect-img-file">
+                    </div>
                 </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div class="system-box-anim" style="animation-delay: 0.2s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="respT">سیستەمی هەناسەدان (Respiratory System)</h3>
                         <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="respD">مێرووەکان سسیان نییە، بەڵکو هەناسە لە ڕێگەی تراکیا (Tracheae) و کونی هەناسەدان (Spiracles) دەکێشن، بۆ گەیاندنی ئۆکسجین بۆ خانەکان و دەرکردنی گازی کاربۆن.</p>
                     </div>
                     <div class="insect-image-wrapper">
-                        <img src="respiratory.png" alt="سیستەمی هەناسەدان (Respiratory System)" class="insect-img-file">
+                        <img src="sys2.jpg" alt="سیستەمی هەناسەدان (Respiratory System)" class="insect-img-file">
                     </div>
                 </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div class="system-box-anim" style="animation-delay: 0.3s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="circT">سیستەمی سوڕانی خوێن (Circulatory System)</h3>
                         <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="circD">مێرووەکان سیستەمی خوێنی کراوەیان (Open Circulatory System) هەیە، پێکهاتووە لە دڵ (Heart)، ئەورتا (Aorta) و هێمۆلیمف (Hemolymph)، بۆ گواستنەوەی ماددە خۆراکی و هۆرمۆن و پاراستنی جەستە. هێمۆلیمف ئۆکسجین ناگوازێتەوە چونکە سیستەمی هەناسەدان بەجیا کار دەکات.</p>
                     </div>
                     <div class="insect-image-wrapper">
-                        <img src="circulatory.png" alt="سیستەمی سوڕانی خوێن (Circulatory System)" class="insect-img-file">
+                        <img src="sys3.jpg" alt="سیستەمی سوڕانی خوێن (Circulatory System)" class="insect-img-file">
                     </div>
                 </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div class="system-box-anim" style="animation-delay: 0.4s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="nervT">سیستەمی دەمار (Nervous System)</h3>
                         <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="nervD">هەموو جوڵە و هەستکردنی مێروو کۆنترۆڵ دەکات، پێکهاتووە لە مێشک (Brain)، گانگلیۆنی ژێر سورێژە و پشتوێنی دەماری ژێرەوە، بۆ کۆنترۆڵکردنی جوڵە و وەرگرتنی زانیاری لە چاو و ئەنتێنە.</p>
                     </div>
                     <div class="insect-image-wrapper">
-                        <img src="nervous.png" alt="سیستەمی دەمار (Nervous System)" class="insect-img-file">
+                        <img src="sys4.jpg" alt="سیستەمی دەمار (Nervous System)" class="insect-img-file">
                     </div>
                 </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div class="system-box-anim" style="animation-delay: 0.5s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="reprT">سیستەمی زیادبوون (Reproductive System)</h3>
                         <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="reprD">بەرپرسیارە لە بەرهەمهێنانی نەوەی نوێ. لە نێر: Testes، Vas deferens، Ejaculatory duct. لە مێ: Ovaries، Oviduct، Spermatheca، Ovipositor. ئەرکی: بەرهەمهێنانی سپێرم و هێلکە، پتاندن و دانانی هێلکە.</p>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="sys5.jpg" alt="سیستەمی زیادبوون (Reproductive System)" class="insect-img-file">
                     </div>
                 </div>
             </div>
@@ -1956,7 +1996,7 @@ Syntax highlighting has been disabled due to code size.
             </div>
             <p class="info-text" data-i18n="histCardDesc">مێرووناسی (Entomology) یەکێکە لە کۆنترین لقەکانی زانستی ژیان. مرۆڤ لە سەدان ساڵ پێش زایینەوە سەرنجی مێرووەکانی داوە، بەتایبەتی لە کۆنی میسر و چین. لە سەدەی چوارەمی پێش زایین، Aristotle یەکەم کەس بوو کە مێرووەکانی بە شێوەی زانستی لێکۆڵینەوەی لەسەر کرد.</p>
             <div class="morphology-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div class="system-box-anim" style="animation-delay: 0.1s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 2px;" data-i18n="aristotleName">Aristotle</h3>
                         <div style="font-size: 12.5px; color: var(--accent-color); font-weight: 600; margin-bottom: 10px;" data-i18n="aristotleYears">٣٨٤–٣٢٢ پ.ز</div>
@@ -1964,10 +2004,10 @@ Syntax highlighting has been disabled due to code size.
                         <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="aristotleD2">بە یەکێک لە دامەزرێنەرانی زانستی گیانداران دادەنرێت.</p>
                     </div>
                     <div class="insect-image-wrapper">
-                        <img src="aristotle.jpg" alt="Aristotle" class="insect-img-file">
+                        <img src="zana1.jpg" alt="Aristotle" class="insect-img-file">
                     </div>
                 </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div class="system-box-anim" style="animation-delay: 0.2s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 2px;" data-i18n="linnaeusName">Carl Linnaeus</h3>
                         <div style="font-size: 12.5px; color: var(--accent-color); font-weight: 600; margin-bottom: 10px;" data-i18n="linnaeusYears">١٧٠٧–١٧٧٨</div>
@@ -1975,10 +2015,10 @@ Syntax highlighting has been disabled due to code size.
                         <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="linnaeusD2">بنەمای پۆلێنکردنی نوێی مێرووەکانی دانا.</p>
                     </div>
                     <div class="insect-image-wrapper">
-                        <img src="linnaeus.jpg" alt="Carl Linnaeus" class="insect-img-file">
+                        <img src="zana2.jpg" alt="Carl Linnaeus" class="insect-img-file">
                     </div>
                 </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div class="system-box-anim" style="animation-delay: 0.3s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 2px;" data-i18n="darwinName">Charles Darwin</h3>
                         <div style="font-size: 12.5px; color: var(--accent-color); font-weight: 600; margin-bottom: 10px;" data-i18n="darwinYears">١٨٠٩–١٨٨٢</div>
@@ -1986,10 +2026,10 @@ Syntax highlighting has been disabled due to code size.
                         <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="darwinD2">توێژینەوەکانی کاریگەرییەکی گەورەیان لە تێگەیشتن لە گەشە و جۆراوجۆری مێرووەکان هەبوو.</p>
                     </div>
                     <div class="insect-image-wrapper">
-                        <img src="darwin.jpg" alt="Charles Darwin" class="insect-img-file">
+                        <img src="zana3.jpg" alt="Charles Darwin" class="insect-img-file">
                     </div>
                 </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div class="system-box-anim" style="animation-delay: 0.4s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 2px;" data-i18n="fabreName">Jean-Henri Fabre</h3>
                         <div style="font-size: 12.5px; color: var(--accent-color); font-weight: 600; margin-bottom: 10px;" data-i18n="fabreYears">١٨٢٣–١٩١٥</div>
@@ -1997,7 +2037,7 @@ Syntax highlighting has been disabled due to code size.
                         <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="fabreD2">بە توێژینەوەکانی لەسەر ڕەفتار و ژیانی مێرووەکان ناوبانگی جیهانی وەرگرت.</p>
                     </div>
                     <div class="insect-image-wrapper">
-                        <img src="fabre.jpg" alt="Jean-Henri Fabre" class="insect-img-file">
+                        <img src="zana4.jpg" alt="Jean-Henri Fabre" class="insect-img-file">
                     </div>
                 </div>
             </div>
@@ -2007,11 +2047,11 @@ Syntax highlighting has been disabled due to code size.
         <!-- ================= گرنگی مێرووناسی (Importance of Entomology) ================= -->
         <div class="info-card" style="animation-delay: 3.2s;">
             <div class="info-header">
-                <i class="ph ph-star"></i>
+                <i class="ph ph-bug-beetle"></i>
                 <h2 class="info-title" data-i18n="impCardTitle">گرنگی مێرووناسی (Importance of Entomology)</h2>
             </div>
             <p class="info-text" data-i18n="impCardDesc">مێرووناسی لە چەندین بواردا ڕۆڵێکی سەرەکی دەگێڕێت، لە کشتوکاڵەوە تا تەندروستی و دادپزیشکی.</p>
-            <div class="morphology-grid">
+            <div class="morphology-grid grid-3col">
                 <div class="grid-item">
                     <i class="ph ph-plant"></i>
                     <div>
