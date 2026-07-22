@@ -5287,13 +5287,19 @@ const i18nIdMap = [
                     el.className = 'search-result-item';
                     el.innerHTML = '<i class="ph ph-magnifying-glass"></i><span>' + highlightMatch(item.title, q) + '</span>';
                     el.addEventListener('click', () => {
+                        searchInput.blur();
                         searchResults.classList.remove('active');
                         searchContainer.classList.remove('active');
                         searchInput.value = '';
-                        item.card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        item.card.classList.remove('search-highlight-flash');
-                        void item.card.offsetWidth;
-                        item.card.classList.add('search-highlight-flash');
+                        const targetCard = item.card;
+                        requestAnimationFrame(() => {
+                            setTimeout(() => {
+                                targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                targetCard.classList.remove('search-highlight-flash');
+                                void targetCard.offsetWidth;
+                                targetCard.classList.add('search-highlight-flash');
+                            }, 60);
+                        });
                     });
                     searchResults.appendChild(el);
                 });
@@ -5366,14 +5372,3 @@ const i18nIdMap = [
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
