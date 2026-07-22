@@ -1,3 +1,7 @@
+
+
+Chapter3 · HTML
+Syntax highlighting has been disabled due to code size.
 <!DOCTYPE html>
 <html lang="ku" dir="rtl" id="html-tag" data-theme="light">
 <head>
@@ -541,6 +545,7 @@
             margin-top: 3px;
             flex-shrink: 0;
             object-fit: contain;
+            filter: brightness(0) saturate(100%) invert(29%) sepia(51%) saturate(1749%) hue-rotate(346deg) brightness(93%) contrast(91%);
         }
 
         .info-header .header-emoji-icon {
@@ -552,6 +557,7 @@
             animation: pulseIcon 2s infinite ease-in-out;
             object-fit: contain;
             flex-shrink: 0;
+            filter: brightness(0) saturate(100%) invert(29%) sepia(51%) saturate(1749%) hue-rotate(346deg) brightness(93%) contrast(91%);
         }
 
         /* بەشەکانی ئەنتێنە بە شێوەیەکی وردتر و بچووکتر، بۆ ئەوەی لەگەڵ قەبارەی وێنەکە بگونجێت */
@@ -912,7 +918,7 @@
         <div class="nav-right-group">
             <a href="index.html" class="back-home-btn" id="back-to-home">
                 <i class="ph ph-house"></i>
-                <span id="back-home-text">گەڕانەوە بۆ سەرەکی</span>
+                <span id="back-home-text">سەرەکی</span>
             </a>
             <div class="logo">
                 <i class="ph ph-bug logo-icon"></i> <h2>Nova<span>Entomo</span></h2>
@@ -931,7 +937,7 @@
                 <button class="lang-btn" data-lang="ar">عر</button>
             </div>
             <div class="theme-controller-wrapper">
-                <span class="theme-status-text">ڕووناک</span>
+                <span class="theme-status-text" id="theme-status-text">ڕووناک</span>
                 <label class="theme-switch">
                     <input type="checkbox" class="theme-checkbox" />
                     <div class="slider"></div>
@@ -1043,8 +1049,316 @@
             </div>
         </div>
 
-        <!-- کارتی سێیەم: پێکهاتەی دەرەوەی جەستە (External Morphology) -->
+        <!-- ================= گرنگی مێرووناسی (Importance of Entomology) ================= -->
         <div class="info-card" style="animation-delay: 0.6s;">
+            <div class="info-header">
+                <i class="ph ph-bug-beetle"></i>
+                <h2 class="info-title" data-i18n="impCardTitle">گرنگی مێرووناسی (Importance of Entomology)</h2>
+            </div>
+            <p class="info-text" data-i18n="impCardDesc">مێرووناسی لە چەندین بواردا ڕۆڵێکی سەرەکی دەگێڕێت، لە کشتوکاڵەوە تا تەندروستی و دادپزیشکی.</p>
+            <div class="morphology-grid grid-3col">
+                <div class="grid-item">
+                    <i class="ph ph-plant"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="imp1T">گرنگی لە کشتوکاڵ</div>
+                        <div class="grid-desc" data-i18n="imp1D">کۆنترۆڵی مێرووە زیانبەخشەکان، پاراستنی بەرهەمی چاندن، زیادکردنی بەرهەم بەهۆی پۆلەنگواستنەوە.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-heartbeat"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="imp2T">گرنگی لە تەندروستی</div>
+                        <div class="grid-desc" data-i18n="imp2D">ناسینی مێرووە گواستنەوەی نەخۆشییەکان (وەک مێشوولە و مەگەسی ماڵ) و یارمەتیدان لە کۆنترۆڵکردنیان.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-globe-hemisphere-west"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="imp3T">گرنگی لە ژینگە</div>
+                        <div class="grid-desc" data-i18n="imp3D">پاراستنی هاوسەنگی ئیکۆسیستەم، پۆلەنگواستنەوەی ڕووەکەکان، شیکردنەوەی ماددە ئۆرگانیکییەکان.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-currency-circle-dollar"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="imp4T">گرنگی لە ئابووری</div>
+                        <div class="grid-desc" data-i18n="imp4D">بەرهەمهێنانی هەنگوین و ئاوریشم، کەمکردنەوەی زیانی کشتوکاڵ.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-microscope"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="imp5T">گرنگی لە توێژینەوەی زانستی</div>
+                        <div class="grid-desc" data-i18n="imp5D">بەکارهێنانی مێرووەکان لە توێژینەوەی ژیناسی، فیزیۆلۆژی و بایۆتێکنەلۆژی.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="imp6T">گرنگی لە دادپزیشکی</div>
+                        <div class="grid-desc" data-i18n="imp6D">بەکارهێنانی مێرووەکان لە دیاریکردنی کاتی مردن لە توێژینەوە تاوانکارییەکان (Forensic Entomology).</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= ئامانجی مێرووناسی (Goals of Entomology) ================= -->
+        <div class="info-card" style="animation-delay: 0.8s;">
+            <div class="info-header">
+                <i class="ph ph-target"></i>
+                <h2 class="info-title" data-i18n="goalCardTitle">ئامانجی مێرووناسی (Goals of Entomology)</h2>
+            </div>
+            <p class="info-text" data-i18n="goalCardDesc">مێرووناسی ئامانجی سەرەکیی بریتییە لە ناسین و لێکۆڵینەوەی مێرووەکان لە هەموو لایەنەکانی ژیانیان، بۆ تێگەیشتن لە پێکهاتە، گەشە، ڕەفتار، ژینگە و پەیوەندییان بە مرۆڤ و ژینگە.</p>
+            <div class="morphology-grid grid-3col">
+                <div class="grid-item">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="goal1T">ناسین و پۆلێنکردنی مێرووەکان</div>
+                        <div class="grid-desc" data-i18n="goal1D">ناساندنی جۆرە جیاوازەکان و پۆلێنکردنیان بە شێوەی زانستی.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-notebook"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="goal2T">لێکۆڵینەوە لە پێکهاتە و ژیانی مێرووەکان</div>
+                        <div class="grid-desc" data-i18n="goal2D">خوێندنەوەی مۆرفۆلۆژی، فیزیۆلۆژی، ڕەفتار و قۆناغەکانی ژیانیان.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-plant"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="goal3T">پاراستنی بەرهەمی کشتوکاڵ</div>
+                        <div class="grid-desc" data-i18n="goal3D">ناسین و کۆنترۆڵکردنی مێرووە زیانبەخشەکان و پاراستنی چاندنەکان.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-globe-hemisphere-west"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="goal4T">پاراستنی ژینگە و جۆراوجۆری زیندەوەران</div>
+                        <div class="grid-desc" data-i18n="goal4D">پاراستنی مێرووە سوودبەخشەکان و هاوسەنگی ژینگە.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-heartbeat"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="goal5T">پاراستنی تەندروستی مرۆڤ و ئاژەڵان</div>
+                        <div class="grid-desc" data-i18n="goal5D">لێکۆڵینەوە لە مێرووە گواستنەوەکانی نەخۆشی و ڕێگاکانی کۆنترۆڵکردنیان.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= ژمارە و جۆراوجۆری مێرووەکان (Number & Diversity) ================= -->
+        <div class="info-card" style="animation-delay: 1.0s;">
+            <div class="info-header">
+                <i class="ph ph-chart-pie-slice"></i>
+                <h2 class="info-title" data-i18n="divCardTitle">ژمارە و جۆراوجۆری مێرووەکان (Number & Diversity)</h2>
+            </div>
+            <p class="info-text" data-i18n="divCardDesc">مێرووەکان گەورەترین و فراوانترین پۆلی گیاندارانی سەر زەوین. لە هەموو کیشوەرەکان و زۆربەی ژینگەکان، وەک دارستان، کێڵگە، بیابان، چیا، ئاوی شیرین و شارەکان دەژین.</p>
+            <div class="insect-grid-layout">
+                <div class="insect-features-side">
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
+                        <i class="ph ph-hash thorax-part-icon"></i>
+                        <div>
+                            <div class="grid-title" data-i18n="div1T">ژمارەی مێرووەکان</div>
+                            <div class="grid-desc" data-i18n="div1D">تاکو ئێستا زیاتر لە ١,٠٠٠,٠٠٠ (یەک ملیۆن) جۆری مێروو بە فەرمی ناسێنراون. زانایان پێیان وایە کۆی ژمارە دەگاتە ٥ تا ١٠ ملیۆن جۆر. نزیکەی ٥٠–٥٥٪ لە هەموو جۆرە ناسراوەکانی گیانداران، مێروون.</div>
+                        </div>
+                    </div>
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 16px;">
+                        <i class="ph ph-shapes thorax-part-icon"></i>
+                        <div>
+                            <div class="grid-title" data-i18n="div2T">جۆراوجۆری مێرووەکان</div>
+                            <div class="grid-desc" data-i18n="div2D">مێرووەکان لە ڕووی قەبارە (چەند میلیمەتر تا چەند سانتیمەتر)، ڕەنگ، شێوە، ژینگە، خواردن و شێوازی ژیان زۆر جیاوازن.</div>
+                        </div>
+                    </div>
+                    <h3 class="features-title" data-i18n="divImpTitle">گرنگی جۆراوجۆری مێرووەکان</h3>
+                    <ul class="func-chip-list">
+                        <li class="func-chip" style="animation-delay: 0.1s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span data-i18n="divImp1">پاراستنی هاوسەنگی ژینگە.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.2s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span data-i18n="divImp2">پۆلەنگواستنەوەی ڕووەکەکان.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.3s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span data-i18n="divImp3">کۆنترۆڵی سروشتی مێرووە زیانبەخشەکان.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.4s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span data-i18n="divImp4">شیکردنەوەی ماددە ئۆرگانیکییەکان.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.5s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span data-i18n="divImp5">خواردن بۆ زۆر لە باڵندە، ماسی و ئاژەڵەکان.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="insect-image-wrapper">
+                    <img src="num1.png" alt="Number of Insects" class="insect-img-file">
+                </div>
+                <div class="insect-image-wrapper">
+                    <img src="num2.png" alt="Insect Diversity" class="insect-img-file">
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= تایبەتمەندییە گشتییەکانی مێرووەکان (General Characteristics) ================= -->
+        <div class="info-card" style="animation-delay: 1.2s;">
+            <div class="info-header">
+                <i class="ph ph-list-checks"></i>
+                <h2 class="info-title" data-i18n="genCardTitle">تایبەتمەندییە گشتییەکانی مێرووەکان (General Characteristics)</h2>
+            </div>
+            <p class="info-text" data-i18n="genCardDesc">مێرووەکان (Insects) گەورەترین پۆلی گیاندارانن، سەر بە Phylum Arthropoda و Class Insecta ن. هەموویان هاوبەشن لە چەندین تایبەتمەندی بنەڕەتیدا.</p>
+            <div class="morphology-grid">
+                <div class="grid-item">
+                    <i class="ph ph-selection-all"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="gen1T">جەستەیان سێ بەشە</div>
+                        <div class="grid-desc" data-i18n="gen1D">سەر (Head)، سنگ (Thorax) و سک (Abdomen).</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-footprints"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="gen2T">سێ جووت پێیان هەیە (٦ پێ)</div>
+                        <div class="grid-desc" data-i18n="gen2D">هەموو مێرووە پێگەیشتووەکان ٦ پێ هەیانە کە لە سنگ دەردەچن.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-broadcast"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="gen3T">یەک جووت شاخک (Antennae)</div>
+                        <div class="grid-desc" data-i18n="gen3D">بۆ بۆنکردن، دەستپێکردن، هەستکردن بە لەرزین و ناسینەوەی ژینگە بەکاردێن.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-eye"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="gen4T">چاو</div>
+                        <div class="grid-desc" data-i18n="gen4D">زۆربەیان دوو چاوی هەڵبەستراو هەیە، زۆر جۆری سێ چاوی سادەیان (Ocelli) هەیە.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-wind"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="gen5T">باڵ</div>
+                        <div class="grid-desc" data-i18n="gen5D">زۆربەی مێرووە پێگەیشتووەکان دوو جووت باڵ (٤ باڵ) هەیانە، هەندێکیان یەک جووت یان بێ باڵن.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-shield"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="gen6T">پێستی دەرەوە (Exoskeleton)</div>
+                        <div class="grid-desc" data-i18n="gen6D">جەستەیان بە پۆستێکی ڕەق لە Chitin داپۆشراوە کە پاراستن و پشتگیری دەدات.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-arrows-clockwise"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="gen7T">پێستگۆڕین (Molting)</div>
+                        <div class="grid-desc" data-i18n="gen7D">بۆ گەشەکردن، ناچارە چەند جار پێستیان بگۆڕن (Ecdysis).</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-lungs"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="gen8T">هەناسەدان</div>
+                        <div class="grid-desc" data-i18n="gen8D">لە ڕێگەی Spiracles و Tracheae هەناسە دەدەن، سیان نییە.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-heartbeat"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="gen9T">سیستەمی سوڕی خوێن</div>
+                        <div class="grid-desc" data-i18n="gen9D">سیستەمی خوێنی کراوەیانە (Open Circulatory System)، خوێنیان Hemolymph ناوداری.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-butterfly"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="gen10T">گەشە و گۆڕانکاری (Metamorphosis)</div>
+                        <div class="grid-desc" data-i18n="gen10D">زۆربەیان لە کاتی گەشەدا گۆڕانکاری تێدەپەڕن، بە جۆرەکانی: Ametabolous، Hemimetabolous، Holometabolous.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-egg"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="gen11T">زیادبوون</div>
+                        <div class="grid-desc" data-i18n="gen11D">زۆربەیان بە دانانی هێلکە زیاد دەبن، پیتاندن زۆرجار لە ناو جەستەی مێدا ڕوودەدات.</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <i class="ph ph-chart-pie-slice"></i>
+                    <div>
+                        <div class="grid-title" data-i18n="gen12T">ژمارە و جۆراوجۆری</div>
+                        <div class="grid-desc" data-i18n="gen12D">زیاتر لە ١ ملیۆن جۆر بە فەرمی ناسێنراون و لە هەموو کیشوەرەکاندا دەژین.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= مێژووی مێرووناسی (History of Entomology) ================= -->
+        <div class="info-card" style="animation-delay: 1.4s;">
+            <div class="info-header">
+                <i class="ph ph-scroll"></i>
+                <h2 class="info-title" data-i18n="histCardTitle">مێژووی مێرووناسی (History of Entomology)</h2>
+            </div>
+            <p class="info-text" data-i18n="histCardDesc">مێرووناسی (Entomology) یەکێکە لە کۆنترین لقەکانی زانستی ژیان. مرۆڤ لە سەدان ساڵ پێش زایینەوە سەرنجی مێرووەکانی داوە، بەتایبەتی لە کۆنی میسر و چین. لە سەدەی چوارەمی پێش زایین، Aristotle یەکەم کەس بوو کە مێرووەکانی بە شێوەی زانستی لێکۆڵینەوەی لەسەر کرد.</p>
+            <div class="morphology-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+                <div class="system-box-anim" style="animation-delay: 0.1s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 2px;" data-i18n="aristotleName">Aristotle</h3>
+                        <div style="font-size: 12.5px; color: var(--accent-color); font-weight: 600; margin-bottom: 10px;" data-i18n="aristotleYears">٣٨٤–٣٢٢ پ.ز</div>
+                        <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="aristotleD1">یەکەم کەس بوو کە مێرووەکانی بە شێوەی زانستی وەسف کرد.</p>
+                        <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="aristotleD2">بە یەکێک لە دامەزرێنەرانی زانستی گیانداران دادەنرێت.</p>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="zana1.png" alt="Aristotle" class="insect-img-file">
+                    </div>
+                </div>
+                <div class="system-box-anim" style="animation-delay: 0.2s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 2px;" data-i18n="linnaeusName">Carl Linnaeus</h3>
+                        <div style="font-size: 12.5px; color: var(--accent-color); font-weight: 600; margin-bottom: 10px;" data-i18n="linnaeusYears">١٧٠٧–١٧٧٨</div>
+                        <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="linnaeusD1">دامەزرێنەری سیستەمی ناونانی دووانی (Binomial Nomenclature).</p>
+                        <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="linnaeusD2">بنەمای پۆلێنکردنی نوێی مێرووەکانی دانا.</p>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="zana2.png" alt="Carl Linnaeus" class="insect-img-file">
+                    </div>
+                </div>
+                <div class="system-box-anim" style="animation-delay: 0.3s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 2px;" data-i18n="darwinName">Charles Darwin</h3>
+                        <div style="font-size: 12.5px; color: var(--accent-color); font-weight: 600; margin-bottom: 10px;" data-i18n="darwinYears">١٨٠٩–١٨٨٢</div>
+                        <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="darwinD1">دانەری تیۆری گەشە (Evolution).</p>
+                        <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="darwinD2">توێژینەوەکانی کاریگەرییەکی گەورەیان لە تێگەیشتن لە گەشە و جۆراوجۆری مێرووەکان هەبوو.</p>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="zana3.png" alt="Charles Darwin" class="insect-img-file">
+                    </div>
+                </div>
+                <div class="system-box-anim" style="animation-delay: 0.4s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 2px;" data-i18n="fabreName">Jean-Henri Fabre</h3>
+                        <div style="font-size: 12.5px; color: var(--accent-color); font-weight: 600; margin-bottom: 10px;" data-i18n="fabreYears">١٨٢٣–١٩١٥</div>
+                        <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="fabreD1">بە "باوکی مێرووناسیی ڕەفتاری" ناسراوە.</p>
+                        <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="fabreD2">بە توێژینەوەکانی لەسەر ڕەفتار و ژیانی مێرووەکان ناوبانگی جیهانی وەرگرت.</p>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="zana4.png" alt="Jean-Henri Fabre" class="insect-img-file">
+                    </div>
+                </div>
+            </div>
+            <p class="info-text" data-i18n="histClosing" style="margin-top: 10px;">لە سەدەی هەژدەهەم، Carl Linnaeus سیستەمی ناونانی زانستی دامەزراند کە بووە بنەمای مێرووناسیی نوێ. لە سەدەی نۆزدەهەم، تیۆری گەشەی Charles Darwin تێگەیشتن لە پەیوەندی و گەشەی مێرووەکانی پەرەپێدا. ئەمڕۆ، مێرووناسی بە یارمەتی تەکنەلۆژیی نوێ وەک ژینۆمناسی و مایکروسکۆپی ئەلیکترۆنی، لە بوارەکانی کشتوکاڵ، تەندروستی و ژینگەپارێزی ڕۆڵێکی گرنگ دەگێڕێت.</p>
+        </div>
+
+        <!-- کارتی سێیەم: پێکهاتەی دەرەوەی جەستە (External Morphology) -->
+        <div class="info-card" style="animation-delay: 1.6s;">
             <div class="info-header">
                 <i class="ph ph-bug"></i>
                 <h2 class="info-title" id="morph-card-title">پێکهاتەی دەرەوەی جەستە</h2>
@@ -1122,7 +1436,7 @@
         </div>
 
         <!-- کارتی چوارەم: سەر (Head) و شاخکەکان (Antennae) -->
-        <div class="info-card" style="animation-delay: 0.8s;">
+        <div class="info-card" style="animation-delay: 1.8s;">
             <div class="info-header">
                 <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f9e0.svg" class="header-emoji-icon" alt="🧠">
                 <h2 class="info-title" id="head-card-title">سەر و ئەنتێنە</h2>
@@ -1164,346 +1478,8 @@
             </div>
         </div>
 
-        <!-- کارتی پێنجەم: سنگ (Thorax) -->
-        <div class="info-card" style="animation-delay: 1.0s;">
-            <div class="info-header">
-                <i class="ph ph-shield"></i>
-                <h2 class="info-title" id="thorax-card-title">سنگ (Thorax)</h2>
-            </div>
-            
-            <p class="info-text" id="thorax-card-desc">
-                سنگ (Thorax) ناوەڕاستی جەستەی مێرووە و لەنێوان سەر (Head) و سک (Abdomen) هەڵکەوتووە. سنگ ناوەندی جوڵەی مێرووە، چونکە هەموو پێ و باڵەکان لەم بەشە دەردەچن.
-            </p>
-
-            <div class="insect-grid-layout">
-                <div class="insect-features-side">
-                    <h3 class="features-title" id="thorax-parts-title">بەشەکانی سنگ (سێ پارچەی سەرەکی):</h3>
-                    
-                    <div class="grid-item feature-box" style="margin-bottom: 12px;">
-                        <i class="ph ph-caret-up thorax-part-icon"></i>
-                        <div>
-                            <div class="grid-title" id="pro-t">Prothorax (سنگی پێشەوە)</div>
-                            <div class="grid-desc" id="pro-d">پێشەکیترین بەشی سنگە کە ڕاستەوخۆ بە دواوەی سەرەوە بەستراوەتەوە.</div>
-                        </div>
-                    </div>
-
-                    <div class="grid-item feature-box" style="margin-bottom: 12px;">
-                        <i class="ph ph-caret-right thorax-part-icon"></i>
-                        <div>
-                            <div class="grid-title" id="meso-t">Mesothorax (سنگی ناوەڕاست)</div>
-                            <div class="grid-desc" id="meso-d">پارچەی ناوەڕاستی سنگە کە جووتێک باڵ و جووتە پێی دووەمی پێوە بەستراوە.</div>
-                        </div>
-                    </div>
-
-                    <div class="grid-item feature-box" style="margin-bottom: 20px;">
-                        <i class="ph ph-caret-down thorax-part-icon"></i>
-                        <div>
-                            <div class="grid-title" id="meta-t">Metathorax (سنگی دواوە)</div>
-                            <div class="grid-desc" id="meta-d">بەشی دواوەی سنگە کە بە سکەوە بەستراوەتەوە و باڵەکانی دواوە و قاچی کۆتایی لەسەرە.</div>
-                        </div>
-                    </div>
-
-                    <h3 class="features-title" id="thorax-funcs-title">ئەرکەکانی سنگ (Functions):</h3>
-                    <ul class="func-chip-list" id="thorax-funcs-list">
-                        <li class="func-chip" style="animation-delay: 0.1s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span id="t-func-1">هەڵگرتنی سێ جووت پێ (6 پێ).</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.2s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span id="t-func-2">هەڵگرتنی یەک یان دوو جووت باڵ.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.3s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span id="t-func-3">تێدایە ماسولکەکانی ڕۆیشتن و فڕین.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.4s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span id="t-func-4">یارمەتیدانی جوڵە و هاوسەنگی مێروو.</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div style="display: flex; flex-direction: column; gap: 20px;">
-                    <div class="insect-image-wrapper">
-                        <img src="thorax1.png" alt="Thorax Exterior" class="insect-img-file">
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="thorax2.png" alt="Thorax Structure" class="insect-img-file">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- کارتی نوێ: پێ (Legs) -->
-        <div class="info-card" style="animation-delay: 1.2s;">
-            <div class="info-header">
-                <i class="ph ph-footprints"></i>
-                <h2 class="info-title" id="legs-card-title">پێ (Legs)</h2>
-            </div>
-            
-            <p class="info-text" id="legs-card-desc">
-                پێی مێرووەکان لە سنگ (Thorax) دەردەچن، و هەموو مێرووەکان سێ جووت پێ (6 پێ) هەیانە. هەر پێیەک لە ٦ بەشی سەرەکی پێکدێت.
-            </p>
-
-            <div class="insect-grid-layout">
-                <div class="insect-features-side">
-                    <h3 class="features-title" id="legs-parts-title">بەشەکانی پێ (Leg Parts):</h3>
-                    
-                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
-                        <i class="ph ph-number-one legs-part-icon"></i>
-                        <div>
-                            <div class="grid-title" id="coxa-t">کۆکسا (Coxa - حەوز)</div>
-                            <div class="grid-desc" id="coxa-d">بنکەی پێیەکەیە کە پێکان بە بەشی سنگی مێرووەکەوە دەبەستێتەوە یەکەم بەشی پێیە، وەک جومگەیەکی سەرەکی کار دەکات.</div>
-                        </div>
-                    </div>
-
-                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
-                        <i class="ph ph-number-two legs-part-icon"></i>
-                        <div>
-                            <div class="grid-title" id="trochanter-t">ترۆکانتەر (Trochanter)</div>
-                            <div class="grid-desc" id="trochanter-d">بەشێکی زۆر بچووکە لە نێوان حەوز و ڕان، کە ڕێگە بە چەمانەوە و نەرمیی جوڵەی پێیەکە دەدات.</div>
-                        </div>
-                    </div>
-
-                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
-                        <i class="ph ph-number-three legs-part-icon"></i>
-                        <div>
-                            <div class="grid-title" id="femur-t">فیمەر (Femur - ڕان)</div>
-                            <div class="grid-desc" id="femur-d">بەهێزترین و ئەستوورترین بەشی پێی مێرووەکەیە، کە ماسولکە سەرەکەییەکانی تێدایە (بەتایبەت لە مێرووە بازدەرەکاندا وەک کولە).</div>
-                        </div>
-                    </div>
-
-                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
-                        <i class="ph ph-number-four legs-part-icon"></i>
-                        <div>
-                            <div class="grid-title" id="tibia-t">تیبیا (Tibia - قاچ)</div>
-                            <div class="grid-desc" id="tibia-d">بەشێکی باریک و درێژە، زۆرجار دڕک یان مووی زبری پێوەیە کە یارمەتی مێرووەکە دەدات لە کاتی ڕێکردن یان گرتنی شتەکاندا.</div>
-                        </div>
-                    </div>
-
-                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 16px;">
-                        <i class="ph ph-number-five legs-part-icon"></i>
-                        <div>
-                            <div class="grid-title" id="tarsus-t">تارسەس (Tarsus - پێ)</div>
-                            <div class="grid-desc" id="tarsus-d">کۆتا بەشی پێیەکەیە کە لە چەند پارچەیەک (Tarsomeres) پێکدێت و لە کۆتاییەکەیدا نینۆک یان چەنگاڵ (Claws) هەیە بۆ نووسان بە ڕووەکانەوە.</div>
-                        </div>
-                    </div>
-
-                    <h3 class="features-title" id="legs-funcs-title">ئەرکە سەرەکییەکانی پێ (Main Functions):</h3>
-                    <ul class="func-chip-list" id="legs-funcs-list">
-                        <li class="func-chip" style="animation-delay: 0.1s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span id="l-func-1">ڕۆیشتن و جوڵەکردن.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.15s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span id="l-func-2">بازدان.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.2s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span id="l-func-3">هەڵکشان بەسەر ڕووەکان.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.25s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span id="l-func-4">مەلەکردن لە ناو ئاو.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.3s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span id="l-func-5">هەڵکەندنی خاک.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.35s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span id="l-func-6">ڕاوکردن و گرتنی نێچیر.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.4s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span id="l-func-7">کۆکردنەوەی پۆلەنی گوڵ لەلایەن هەنگەکان.</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div style="display: flex; flex-direction: column; gap: 20px;">
-                    <div class="insect-image-wrapper">
-                        <img src="leg1.jpg" alt="Leg Structure" class="insect-img-file">
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="leg2.png" alt="Leg Adaptation" class="insect-img-file">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ================= جۆرەکانی پێ بەپێی ئەرکیان (Leg Types) ================= -->
-        <div class="info-card" style="animation-delay: 1.4s;">
-            <div class="info-header">
-                <i class="ph ph-footprints"></i>
-                <h2 class="info-title" data-i18n="legTypesTitle">جۆرەکانی پێ بەپێی ئەرکیان (Leg Types)</h2>
-            </div>
-            <p class="info-text" data-i18n="legTypesDesc">پێی مێرووەکان بەپێی ژینگە و شێوازی ژیانیان چەندین شێوازی جیاوازیان وەرگرتووە.</p>
-            <div class="morphology-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legAmbT">پێی ڕۆیشتن (Ambulatory Legs)</h3>
-                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legAmbD">بۆ ڕۆیشتن و خولانەوە لەسەر زەوی، هەموو پێیەکان نزیکەی یەک قەبارەن.</p>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
-                            <i class="ph ph-tag" style="font-size: 18px;"></i>
-                            <div>
-                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
-                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legAmbEx">سیسرکە (Cockroach)</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="leg3.png" alt="پێی ڕۆیشتن (Ambulatory Legs)" class="insect-img-file">
-                    </div>
-                </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legSalT">پێی بازدان (Saltatorial Legs)</h3>
-                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legSalD">پێی دواوە زۆر درێژ و بەهێزن و یارمەتی بازدانی دوور دەدەن.</p>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
-                            <i class="ph ph-tag" style="font-size: 18px;"></i>
-                            <div>
-                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
-                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legSalEx">کولە (Grasshopper)</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="leg4.png" alt="پێی بازدان (Saltatorial Legs)" class="insect-img-file">
-                    </div>
-                </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legRapT">پێی ڕاوکردن (Raptorial Legs)</h3>
-                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legRapD">پێی پێشەوە گەورە و خاراوییە، بۆ گرتنی نێچیر و ڕاوکردن بەکاردێت.</p>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
-                            <i class="ph ph-tag" style="font-size: 18px;"></i>
-                            <div>
-                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
-                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legRapEx">مانتیس (Praying mantis)</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="leg5.png" alt="پێی ڕاوکردن (Raptorial Legs)" class="insect-img-file">
-                    </div>
-                </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legFosT">پێی هەڵکەندن (Fossorial Legs)</h3>
-                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legFosD">پێی پێشەوە پان و بەهێزە، بۆ کەندنی خاک و دروستکردنی کون بەکاردێت.</p>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
-                            <i class="ph ph-tag" style="font-size: 18px;"></i>
-                            <div>
-                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
-                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legFosEx">زەویبڕ (Mole cricket)</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="leg6.png" alt="پێی هەڵکەندن (Fossorial Legs)" class="insect-img-file">
-                    </div>
-                </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legNatT">پێی مەلەکردن (Natatorial Legs)</h3>
-                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legNatD">پێی دواوە پانە و مووی زۆری هەیە، بۆ مەلەکردن لە ناو ئاو گونجاوە.</p>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
-                            <i class="ph ph-tag" style="font-size: 18px;"></i>
-                            <div>
-                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
-                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legNatEx">قالۆنچەی مەلەوانی ئاو (Diving beetle)</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="leg7.png" alt="پێی مەلەکردن (Natatorial Legs)" class="insect-img-file">
-                    </div>
-                </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legPolT">پێی کۆکردنەوەی پۆلەن (Pollen-Collecting Legs)</h3>
-                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legPolD">لە پێی دواوە سەبەتەی پۆلەن (Corbicula) هەیە، بۆ کۆکردنەوە و گواستنەوەی پۆلەنی گوڵ بەکاردێت.</p>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
-                            <i class="ph ph-tag" style="font-size: 18px;"></i>
-                            <div>
-                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
-                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legPolEx">هەنگی هەنگوین (Honey bee)</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="leg8.png" alt="پێی کۆکردنەوەی پۆلەن (Pollen-Collecting Legs)" class="insect-img-file">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- کارتی حەوتەم: سک (Abdomen) -->
-        <div class="info-card" style="animation-delay: 1.6s;">
-            <div class="info-header">
-                <i class="ph ph-heartbeat"></i>
-                <h2 class="info-title" id="abdomen-card-title">سک (Abdomen)</h2>
-            </div>
-            
-            <p class="info-text" id="abdomen-card-desc">
-                سک (Abdomen) دوا بەشی جەستەی مێرووە و لە دوای سنگ هەڵکەوتووە. گەورەترین بەشی جەستەی مێرووە و زۆربەی ئەندامە ناوەکییە گرنگەکان لە ناوی هەڵدەگرێت.
-            </p>
-
-            <div class="insect-grid-layout">
-                <div class="insect-features-side">
-                    <h3 class="features-title" id="abdomen-struct-title">پێکهاتەی سک (Structure):</h3>
-                    <p class="info-text" style="font-size: 14.5px; margin-bottom: 15px;" id="abdomen-struct-p">
-                        زۆربەی مێرووەکان سکێکی پێکدێت لە ١١ پارچە (Segments)، بەڵام لە هەندێک جۆردا ژمارەکە کەمترە. لەنێوان پارچەکان پەردەیەکی نەرم (Intersegmental membrane) هەیە، کە یارمەتی جوڵە و فراوانبوونی سک دەدات. هەر پارچەیەک لە دوو بەش پێکدێت:
-                    </p>
-
-                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
-                        <i class="ph ph-caret-double-up thorax-part-icon"></i>
-                        <div>
-                            <div class="grid-title" id="tergum-t">Tergum (Tergite)</div>
-                            <div class="grid-desc" id="tergum-d">بەشی سەرەوەی پارچەکە (دواوەی سک).</div>
-                        </div>
-                    </div>
-
-                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 16px;">
-                        <i class="ph ph-caret-double-down thorax-part-icon"></i>
-                        <div>
-                            <div class="grid-title" id="sternum-t">Sternum (Sternite)</div>
-                            <div class="grid-desc" id="sternum-d">بەشی خوارەوەی پارچەکە (سک لای دەرەوە).</div>
-                        </div>
-                    </div>
-
-                    <h3 class="features-title" id="abdomen-funcs-title">ئەرکەکانی سک (Functions):</h3>
-                    <ul class="func-chip-list" id="abdomen-funcs-list">
-                        <li class="func-chip" style="animation-delay: 0.1s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span id="a-func-1">هەرسکردنی خواردن.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.2s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span id="a-func-2">هەناسه دان.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.3s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span id="a-func-3">زیادبوون و دانانی هێلکە.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.4s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span id="a-func-4">هەڵگرتنی زۆربەی ئەندامە ناوەکییەکان.</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="insect-image-wrapper">
-                    <img src="abdomen.jpg" alt="Abdomen Structure" class="insect-img-file">
-                </div>
-            </div>
-        </div>
-
         <!-- کارتی هەشتەم: دەم (Mouthparts) -->
-        <div class="info-card" style="animation-delay: 1.8s;">
+        <div class="info-card" style="animation-delay: 2.0s;">
             <div class="info-header">
                 <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f444.svg" class="header-emoji-icon" alt="👄">
                 <h2 class="info-title" id="mouthparts-card-title">دەم (Mouthparts)</h2>
@@ -1565,7 +1541,7 @@
         </div>
 
         <!-- ================= جۆرەکانی دەم (Mouthparts Types) ================= -->
-        <div class="info-card" style="animation-delay: 2.0s;">
+        <div class="info-card" style="animation-delay: 2.2s;">
             <div class="info-header">
                 <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f444.svg" class="header-emoji-icon" alt="👄">
                 <h2 class="info-title" id="m-types-main-title">جۆرەکانی دەم (Mouthparts Types)</h2>
@@ -1698,8 +1674,136 @@
             </div>
         </div>
 
+        <!-- ================= چاوی مێرووەکان (Insect Eyes) ================= -->
+        <div class="info-card" style="animation-delay: 2.4s;">
+            <div class="info-header">
+                <i class="ph ph-eye"></i>
+                <h2 class="info-title" data-i18n="eyesCardTitle">چاوی مێرووەکان (Insect Eyes)</h2>
+            </div>
+            <p class="info-text" data-i18n="eyesCardDesc">چاو (Eye) یەکێکە لە گرنگترین ئەندامە هەستکردنەکانی مێرووەکان کە لە سەر (Head) هەڵکەوتووە. چاو یارمەتی مێروو دەدات ڕووناکی، جوڵە، ڕەنگ و دەوروبەری خۆی بناسێت. زۆربەی مێرووەکان دوو جۆر چاو هەیانە: چاوی هەڵبەستراو بۆ بینین، و چاوی سادە بۆ هەستکردن بە ڕووناکی.</p>
+            <div class="morphology-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="eyeCompT">چاوە هەڵبەستراوەکان (Compound Eyes)</h3>
+                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="eyeCompD">لە هەزاران یەکەی بچووک پێکدێن کە پێیان دەوترێت Ommatidia. دوو چاو لە دوو لای سەر هەیە، باشترین چاوە بۆ هەستکردن بە جوڵە، و هەندێک مێروو توانای بینینی تیشکی UV یان هەیە.</p>
+                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                            <i class="ph ph-gear" style="font-size: 18px;"></i>
+                            <div>
+                                <div class="grid-title" style="font-size: 13px;" data-i18n="functionLabel">ئەرک (Function)</div>
+                                <div class="grid-desc" style="font-size: 12px;" data-i18n="eyeCompFun">بینین، ناسینەوەی جوڵە، دۆزینەوەی خواردن، هەڵهاتن لە دوژمن.</div>
+                            </div>
+                        </div>
+                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                            <i class="ph ph-tag" style="font-size: 18px;"></i>
+                            <div>
+                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
+                                <div class="grid-desc" style="font-size: 12px;" data-i18n="eyeCompEx">مێشی ماڵ (Housefly)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="eye2.jpg" alt="چاوە هەڵبەستراوەکان (Compound Eyes)" class="insect-img-file">
+                    </div>
+                </div>
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="eyeSimpT">چاوە سادەکان (Simple Eyes / Ocelli)</h3>
+                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="eyeSimpD">چاوگەلێکی بچووکن کە لە سەرەوەی سەری مێروو هەڵکەوتوون، زۆرجار سێ چاون، وێنەی تەواو دروست ناکەن، تەنها ڕووناکی و تاریکی هەست پێدەکەن.</p>
+                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                            <i class="ph ph-gear" style="font-size: 18px;"></i>
+                            <div>
+                                <div class="grid-title" style="font-size: 13px;" data-i18n="functionLabel">ئەرک (Function)</div>
+                                <div class="grid-desc" style="font-size: 12px;" data-i18n="eyeSimpFun">هەستکردن بە ڕووناکی، پاراستنی هاوسەنگی لە کاتی فڕین، یارمەتیدانی چاوە هەڵبەستراوەکان.</div>
+                            </div>
+                        </div>
+                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                            <i class="ph ph-tag" style="font-size: 18px;"></i>
+                            <div>
+                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
+                                <div class="grid-desc" style="font-size: 12px;" data-i18n="eyeSimpEx">هەنگ (Honey bee)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="Eye1.png" alt="چاوە سادەکان (Simple Eyes / Ocelli)" class="insect-img-file">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- کارتی پێنجەم: سنگ (Thorax) -->
+        <div class="info-card" style="animation-delay: 2.6s;">
+            <div class="info-header">
+                <i class="ph ph-shield"></i>
+                <h2 class="info-title" id="thorax-card-title">سنگ (Thorax)</h2>
+            </div>
+            
+            <p class="info-text" id="thorax-card-desc">
+                سنگ (Thorax) ناوەڕاستی جەستەی مێرووە و لەنێوان سەر (Head) و سک (Abdomen) هەڵکەوتووە. سنگ ناوەندی جوڵەی مێرووە، چونکە هەموو پێ و باڵەکان لەم بەشە دەردەچن.
+            </p>
+
+            <div class="insect-grid-layout">
+                <div class="insect-features-side">
+                    <h3 class="features-title" id="thorax-parts-title">بەشەکانی سنگ (سێ پارچەی سەرەکی):</h3>
+                    
+                    <div class="grid-item feature-box" style="margin-bottom: 12px;">
+                        <i class="ph ph-caret-up thorax-part-icon"></i>
+                        <div>
+                            <div class="grid-title" id="pro-t">Prothorax (سنگی پێشەوە)</div>
+                            <div class="grid-desc" id="pro-d">پێشەکیترین بەشی سنگە کە ڕاستەوخۆ بە دواوەی سەرەوە بەستراوەتەوە.</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item feature-box" style="margin-bottom: 12px;">
+                        <i class="ph ph-caret-right thorax-part-icon"></i>
+                        <div>
+                            <div class="grid-title" id="meso-t">Mesothorax (سنگی ناوەڕاست)</div>
+                            <div class="grid-desc" id="meso-d">پارچەی ناوەڕاستی سنگە کە جووتێک باڵ و جووتە پێی دووەمی پێوە بەستراوە.</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item feature-box" style="margin-bottom: 20px;">
+                        <i class="ph ph-caret-down thorax-part-icon"></i>
+                        <div>
+                            <div class="grid-title" id="meta-t">Metathorax (سنگی دواوە)</div>
+                            <div class="grid-desc" id="meta-d">بەشی دواوەی سنگە کە بە سکەوە بەستراوەتەوە و باڵەکانی دواوە و قاچی کۆتایی لەسەرە.</div>
+                        </div>
+                    </div>
+
+                    <h3 class="features-title" id="thorax-funcs-title">ئەرکەکانی سنگ (Functions):</h3>
+                    <ul class="func-chip-list" id="thorax-funcs-list">
+                        <li class="func-chip" style="animation-delay: 0.1s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span id="t-func-1">هەڵگرتنی سێ جووت پێ (6 پێ).</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.2s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span id="t-func-2">هەڵگرتنی یەک یان دوو جووت باڵ.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.3s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span id="t-func-3">تێدایە ماسولکەکانی ڕۆیشتن و فڕین.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.4s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span id="t-func-4">یارمەتیدانی جوڵە و هاوسەنگی مێروو.</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="insect-image-wrapper">
+                        <img src="thorax1.png" alt="Thorax Exterior" class="insect-img-file">
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="thorax2.png" alt="Thorax Structure" class="insect-img-file">
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- ================= باڵ (Wings) ================= -->
-        <div class="info-card" style="animation-delay: 2.2s;">
+        <div class="info-card" style="animation-delay: 2.8s;">
             <div class="info-header">
                 <i class="ph ph-butterfly"></i>
                 <h2 class="info-title" data-i18n="wingsCardTitle">باڵ (Wings)</h2>
@@ -1790,7 +1894,7 @@
         </div>
 
         <!-- ================= جۆرەکانی باڵ (Wing Types) ================= -->
-        <div class="info-card" style="animation-delay: 2.4s;">
+        <div class="info-card" style="animation-delay: 3.0s;">
             <div class="info-header">
                 <i class="ph ph-bird"></i>
                 <h2 class="info-title" data-i18n="wTypesMainTitle">جۆرەکانی باڵ (Wing Types)</h2>
@@ -1880,64 +1984,275 @@
             </div>
         </div>
 
-        <!-- ================= چاوی مێرووەکان (Insect Eyes) ================= -->
-        <div class="info-card" style="animation-delay: 2.6s;">
+        <!-- کارتی نوێ: پێ (Legs) -->
+        <div class="info-card" style="animation-delay: 3.2s;">
             <div class="info-header">
-                <i class="ph ph-eye"></i>
-                <h2 class="info-title" data-i18n="eyesCardTitle">چاوی مێرووەکان (Insect Eyes)</h2>
+                <i class="ph ph-footprints"></i>
+                <h2 class="info-title" id="legs-card-title">پێ (Legs)</h2>
             </div>
-            <p class="info-text" data-i18n="eyesCardDesc">چاو (Eye) یەکێکە لە گرنگترین ئەندامە هەستکردنەکانی مێرووەکان کە لە سەر (Head) هەڵکەوتووە. چاو یارمەتی مێروو دەدات ڕووناکی، جوڵە، ڕەنگ و دەوروبەری خۆی بناسێت. زۆربەی مێرووەکان دوو جۆر چاو هەیانە: چاوی هەڵبەستراو بۆ بینین، و چاوی سادە بۆ هەستکردن بە ڕووناکی.</p>
-            <div class="morphology-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="eyeCompT">چاوە هەڵبەستراوەکان (Compound Eyes)</h3>
-                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="eyeCompD">لە هەزاران یەکەی بچووک پێکدێن کە پێیان دەوترێت Ommatidia. دوو چاو لە دوو لای سەر هەیە، باشترین چاوە بۆ هەستکردن بە جوڵە، و هەندێک مێروو توانای بینینی تیشکی UV یان هەیە.</p>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
-                            <i class="ph ph-gear" style="font-size: 18px;"></i>
-                            <div>
-                                <div class="grid-title" style="font-size: 13px;" data-i18n="functionLabel">ئەرک (Function)</div>
-                                <div class="grid-desc" style="font-size: 12px;" data-i18n="eyeCompFun">بینین، ناسینەوەی جوڵە، دۆزینەوەی خواردن، هەڵهاتن لە دوژمن.</div>
-                            </div>
-                        </div>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
-                            <i class="ph ph-tag" style="font-size: 18px;"></i>
-                            <div>
-                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
-                                <div class="grid-desc" style="font-size: 12px;" data-i18n="eyeCompEx">مێشی ماڵ (Housefly)</div>
-                            </div>
+            
+            <p class="info-text" id="legs-card-desc">
+                پێی مێرووەکان لە سنگ (Thorax) دەردەچن، و هەموو مێرووەکان سێ جووت پێ (6 پێ) هەیانە. هەر پێیەک لە ٦ بەشی سەرەکی پێکدێت.
+            </p>
+
+            <div class="insect-grid-layout">
+                <div class="insect-features-side">
+                    <h3 class="features-title" id="legs-parts-title">بەشەکانی پێ (Leg Parts):</h3>
+                    
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
+                        <i class="ph ph-number-one legs-part-icon"></i>
+                        <div>
+                            <div class="grid-title" id="coxa-t">کۆکسا (Coxa - حەوز)</div>
+                            <div class="grid-desc" id="coxa-d">بنکەی پێیەکەیە کە پێکان بە بەشی سنگی مێرووەکەوە دەبەستێتەوە یەکەم بەشی پێیە، وەک جومگەیەکی سەرەکی کار دەکات.</div>
                         </div>
                     </div>
-                    <div class="insect-image-wrapper">
-                        <img src="eye2.jpg" alt="چاوە هەڵبەستراوەکان (Compound Eyes)" class="insect-img-file">
+
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
+                        <i class="ph ph-number-two legs-part-icon"></i>
+                        <div>
+                            <div class="grid-title" id="trochanter-t">ترۆکانتەر (Trochanter)</div>
+                            <div class="grid-desc" id="trochanter-d">بەشێکی زۆر بچووکە لە نێوان حەوز و ڕان، کە ڕێگە بە چەمانەوە و نەرمیی جوڵەی پێیەکە دەدات.</div>
+                        </div>
                     </div>
+
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
+                        <i class="ph ph-number-three legs-part-icon"></i>
+                        <div>
+                            <div class="grid-title" id="femur-t">فیمەر (Femur - ڕان)</div>
+                            <div class="grid-desc" id="femur-d">بەهێزترین و ئەستوورترین بەشی پێی مێرووەکەیە، کە ماسولکە سەرەکەییەکانی تێدایە (بەتایبەت لە مێرووە بازدەرەکاندا وەک کولە).</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
+                        <i class="ph ph-number-four legs-part-icon"></i>
+                        <div>
+                            <div class="grid-title" id="tibia-t">تیبیا (Tibia - قاچ)</div>
+                            <div class="grid-desc" id="tibia-d">بەشێکی باریک و درێژە، زۆرجار دڕک یان مووی زبری پێوەیە کە یارمەتی مێرووەکە دەدات لە کاتی ڕێکردن یان گرتنی شتەکاندا.</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 16px;">
+                        <i class="ph ph-number-five legs-part-icon"></i>
+                        <div>
+                            <div class="grid-title" id="tarsus-t">تارسەس (Tarsus - پێ)</div>
+                            <div class="grid-desc" id="tarsus-d">کۆتا بەشی پێیەکەیە کە لە چەند پارچەیەک (Tarsomeres) پێکدێت و لە کۆتاییەکەیدا نینۆک یان چەنگاڵ (Claws) هەیە بۆ نووسان بە ڕووەکانەوە.</div>
+                        </div>
+                    </div>
+
+                    <h3 class="features-title" id="legs-funcs-title">ئەرکە سەرەکییەکانی پێ (Main Functions):</h3>
+                    <ul class="func-chip-list" id="legs-funcs-list">
+                        <li class="func-chip" style="animation-delay: 0.1s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span id="l-func-1">ڕۆیشتن و جوڵەکردن.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.15s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span id="l-func-2">بازدان.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.2s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span id="l-func-3">هەڵکشان بەسەر ڕووەکان.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.25s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span id="l-func-4">مەلەکردن لە ناو ئاو.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.3s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span id="l-func-5">هەڵکەندنی خاک.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.35s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span id="l-func-6">ڕاوکردن و گرتنی نێچیر.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.4s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span id="l-func-7">کۆکردنەوەی پۆلەنی گوڵ لەلایەن هەنگەکان.</span>
+                        </li>
+                    </ul>
                 </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="eyeSimpT">چاوە سادەکان (Simple Eyes / Ocelli)</h3>
-                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="eyeSimpD">چاوگەلێکی بچووکن کە لە سەرەوەی سەری مێروو هەڵکەوتوون، زۆرجار سێ چاون، وێنەی تەواو دروست ناکەن، تەنها ڕووناکی و تاریکی هەست پێدەکەن.</p>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
-                            <i class="ph ph-gear" style="font-size: 18px;"></i>
-                            <div>
-                                <div class="grid-title" style="font-size: 13px;" data-i18n="functionLabel">ئەرک (Function)</div>
-                                <div class="grid-desc" style="font-size: 12px;" data-i18n="eyeSimpFun">هەستکردن بە ڕووناکی، پاراستنی هاوسەنگی لە کاتی فڕین، یارمەتیدانی چاوە هەڵبەستراوەکان.</div>
-                            </div>
-                        </div>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
-                            <i class="ph ph-tag" style="font-size: 18px;"></i>
-                            <div>
-                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
-                                <div class="grid-desc" style="font-size: 12px;" data-i18n="eyeSimpEx">هەنگ (Honey bee)</div>
-                            </div>
-                        </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="insect-image-wrapper">
+                        <img src="leg1.jpg" alt="Leg Structure" class="insect-img-file">
                     </div>
                     <div class="insect-image-wrapper">
-                        <img src="Eye1.png" alt="چاوە سادەکان (Simple Eyes / Ocelli)" class="insect-img-file">
+                        <img src="leg2.png" alt="Leg Adaptation" class="insect-img-file">
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- ================= جۆرەکانی پێ بەپێی ئەرکیان (Leg Types) ================= -->
+        <div class="info-card" style="animation-delay: 3.4s;">
+            <div class="info-header">
+                <i class="ph ph-footprints"></i>
+                <h2 class="info-title" data-i18n="legTypesTitle">جۆرەکانی پێ بەپێی ئەرکیان (Leg Types)</h2>
+            </div>
+            <p class="info-text" data-i18n="legTypesDesc">پێی مێرووەکان بەپێی ژینگە و شێوازی ژیانیان چەندین شێوازی جیاوازیان وەرگرتووە.</p>
+            <div class="morphology-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legAmbT">پێی ڕۆیشتن (Ambulatory Legs)</h3>
+                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legAmbD">بۆ ڕۆیشتن و خولانەوە لەسەر زەوی، هەموو پێیەکان نزیکەی یەک قەبارەن.</p>
+                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                            <i class="ph ph-tag" style="font-size: 18px;"></i>
+                            <div>
+                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
+                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legAmbEx">سیسرکە (Cockroach)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="leg3.png" alt="پێی ڕۆیشتن (Ambulatory Legs)" class="insect-img-file">
+                    </div>
+                </div>
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legSalT">پێی بازدان (Saltatorial Legs)</h3>
+                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legSalD">پێی دواوە زۆر درێژ و بەهێزن و یارمەتی بازدانی دوور دەدەن.</p>
+                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                            <i class="ph ph-tag" style="font-size: 18px;"></i>
+                            <div>
+                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
+                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legSalEx">کولە (Grasshopper)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="leg4.png" alt="پێی بازدان (Saltatorial Legs)" class="insect-img-file">
+                    </div>
+                </div>
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legRapT">پێی ڕاوکردن (Raptorial Legs)</h3>
+                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legRapD">پێی پێشەوە گەورە و خاراوییە، بۆ گرتنی نێچیر و ڕاوکردن بەکاردێت.</p>
+                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                            <i class="ph ph-tag" style="font-size: 18px;"></i>
+                            <div>
+                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
+                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legRapEx">مانتیس (Praying mantis)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="leg5.png" alt="پێی ڕاوکردن (Raptorial Legs)" class="insect-img-file">
+                    </div>
+                </div>
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legFosT">پێی هەڵکەندن (Fossorial Legs)</h3>
+                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legFosD">پێی پێشەوە پان و بەهێزە، بۆ کەندنی خاک و دروستکردنی کون بەکاردێت.</p>
+                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                            <i class="ph ph-tag" style="font-size: 18px;"></i>
+                            <div>
+                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
+                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legFosEx">زەویبڕ (Mole cricket)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="leg6.png" alt="پێی هەڵکەندن (Fossorial Legs)" class="insect-img-file">
+                    </div>
+                </div>
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legNatT">پێی مەلەکردن (Natatorial Legs)</h3>
+                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legNatD">پێی دواوە پانە و مووی زۆری هەیە، بۆ مەلەکردن لە ناو ئاو گونجاوە.</p>
+                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                            <i class="ph ph-tag" style="font-size: 18px;"></i>
+                            <div>
+                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
+                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legNatEx">قالۆنچەی مەلەوانی ئاو (Diving beetle)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="leg7.png" alt="پێی مەلەکردن (Natatorial Legs)" class="insect-img-file">
+                    </div>
+                </div>
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                    <div>
+                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="legPolT">پێی کۆکردنەوەی پۆلەن (Pollen-Collecting Legs)</h3>
+                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="legPolD">لە پێی دواوە سەبەتەی پۆلەن (Corbicula) هەیە، بۆ کۆکردنەوە و گواستنەوەی پۆلەنی گوڵ بەکاردێت.</p>
+                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                            <i class="ph ph-tag" style="font-size: 18px;"></i>
+                            <div>
+                                <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
+                                <div class="grid-desc" style="font-size: 12px;" data-i18n="legPolEx">هەنگی هەنگوین (Honey bee)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="insect-image-wrapper">
+                        <img src="leg8.png" alt="پێی کۆکردنەوەی پۆلەن (Pollen-Collecting Legs)" class="insect-img-file">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- کارتی حەوتەم: سک (Abdomen) -->
+        <div class="info-card" style="animation-delay: 3.6s;">
+            <div class="info-header">
+                <i class="ph ph-heartbeat"></i>
+                <h2 class="info-title" id="abdomen-card-title">سک (Abdomen)</h2>
+            </div>
+            
+            <p class="info-text" id="abdomen-card-desc">
+                سک (Abdomen) دوا بەشی جەستەی مێرووە و لە دوای سنگ هەڵکەوتووە. گەورەترین بەشی جەستەی مێرووە و زۆربەی ئەندامە ناوەکییە گرنگەکان لە ناوی هەڵدەگرێت.
+            </p>
+
+            <div class="insect-grid-layout">
+                <div class="insect-features-side">
+                    <h3 class="features-title" id="abdomen-struct-title">پێکهاتەی سک (Structure):</h3>
+                    <p class="info-text" style="font-size: 14.5px; margin-bottom: 15px;" id="abdomen-struct-p">
+                        زۆربەی مێرووەکان سکێکی پێکدێت لە ١١ پارچە (Segments)، بەڵام لە هەندێک جۆردا ژمارەکە کەمترە. لەنێوان پارچەکان پەردەیەکی نەرم (Intersegmental membrane) هەیە، کە یارمەتی جوڵە و فراوانبوونی سک دەدات. هەر پارچەیەک لە دوو بەش پێکدێت:
+                    </p>
+
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
+                        <i class="ph ph-caret-double-up thorax-part-icon"></i>
+                        <div>
+                            <div class="grid-title" id="tergum-t">Tergum (Tergite)</div>
+                            <div class="grid-desc" id="tergum-d">بەشی سەرەوەی پارچەکە (دواوەی سک).</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 16px;">
+                        <i class="ph ph-caret-double-down thorax-part-icon"></i>
+                        <div>
+                            <div class="grid-title" id="sternum-t">Sternum (Sternite)</div>
+                            <div class="grid-desc" id="sternum-d">بەشی خوارەوەی پارچەکە (سک لای دەرەوە).</div>
+                        </div>
+                    </div>
+
+                    <h3 class="features-title" id="abdomen-funcs-title">ئەرکەکانی سک (Functions):</h3>
+                    <ul class="func-chip-list" id="abdomen-funcs-list">
+                        <li class="func-chip" style="animation-delay: 0.1s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span id="a-func-1">هەرسکردنی خواردن.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.2s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span id="a-func-2">هەناسه دان.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.3s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span id="a-func-3">زیادبوون و دانانی هێلکە.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.4s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span id="a-func-4">هەڵگرتنی زۆربەی ئەندامە ناوەکییەکان.</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="insect-image-wrapper">
+                    <img src="abdomen.jpg" alt="Abdomen Structure" class="insect-img-file">
+                </div>
+            </div>
+        </div>
+
         <!-- ================= سیستەمە ناوەکییەکان (Internal Anatomy) ================= -->
-        <div class="info-card" style="animation-delay: 2.8s;">
+        <div class="info-card" style="animation-delay: 3.8s;">
             <div class="info-header">
                 <i class="ph ph-scan"></i>
                 <h2 class="info-title" data-i18n="intSysCardTitle">سیستەمە ناوەکییەکان (Internal Anatomy)</h2>
@@ -1992,117 +2307,8 @@
             </div>
         </div>
 
-        <!-- ================= مێژووی مێرووناسی (History of Entomology) ================= -->
-        <div class="info-card" style="animation-delay: 3.0s;">
-            <div class="info-header">
-                <i class="ph ph-scroll"></i>
-                <h2 class="info-title" data-i18n="histCardTitle">مێژووی مێرووناسی (History of Entomology)</h2>
-            </div>
-            <p class="info-text" data-i18n="histCardDesc">مێرووناسی (Entomology) یەکێکە لە کۆنترین لقەکانی زانستی ژیان. مرۆڤ لە سەدان ساڵ پێش زایینەوە سەرنجی مێرووەکانی داوە، بەتایبەتی لە کۆنی میسر و چین. لە سەدەی چوارەمی پێش زایین، Aristotle یەکەم کەس بوو کە مێرووەکانی بە شێوەی زانستی لێکۆڵینەوەی لەسەر کرد.</p>
-            <div class="morphology-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
-                <div class="system-box-anim" style="animation-delay: 0.1s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 2px;" data-i18n="aristotleName">Aristotle</h3>
-                        <div style="font-size: 12.5px; color: var(--accent-color); font-weight: 600; margin-bottom: 10px;" data-i18n="aristotleYears">٣٨٤–٣٢٢ پ.ز</div>
-                        <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="aristotleD1">یەکەم کەس بوو کە مێرووەکانی بە شێوەی زانستی وەسف کرد.</p>
-                        <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="aristotleD2">بە یەکێک لە دامەزرێنەرانی زانستی گیانداران دادەنرێت.</p>
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="zana1.png" alt="Aristotle" class="insect-img-file">
-                    </div>
-                </div>
-                <div class="system-box-anim" style="animation-delay: 0.2s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 2px;" data-i18n="linnaeusName">Carl Linnaeus</h3>
-                        <div style="font-size: 12.5px; color: var(--accent-color); font-weight: 600; margin-bottom: 10px;" data-i18n="linnaeusYears">١٧٠٧–١٧٧٨</div>
-                        <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="linnaeusD1">دامەزرێنەری سیستەمی ناونانی دووانی (Binomial Nomenclature).</p>
-                        <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="linnaeusD2">بنەمای پۆلێنکردنی نوێی مێرووەکانی دانا.</p>
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="zana2.png" alt="Carl Linnaeus" class="insect-img-file">
-                    </div>
-                </div>
-                <div class="system-box-anim" style="animation-delay: 0.3s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 2px;" data-i18n="darwinName">Charles Darwin</h3>
-                        <div style="font-size: 12.5px; color: var(--accent-color); font-weight: 600; margin-bottom: 10px;" data-i18n="darwinYears">١٨٠٩–١٨٨٢</div>
-                        <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="darwinD1">دانەری تیۆری گەشە (Evolution).</p>
-                        <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="darwinD2">توێژینەوەکانی کاریگەرییەکی گەورەیان لە تێگەیشتن لە گەشە و جۆراوجۆری مێرووەکان هەبوو.</p>
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="zana3.png" alt="Charles Darwin" class="insect-img-file">
-                    </div>
-                </div>
-                <div class="system-box-anim" style="animation-delay: 0.4s; background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
-                    <div>
-                        <h3 class="features-title" style="margin-bottom: 2px;" data-i18n="fabreName">Jean-Henri Fabre</h3>
-                        <div style="font-size: 12.5px; color: var(--accent-color); font-weight: 600; margin-bottom: 10px;" data-i18n="fabreYears">١٨٢٣–١٩١٥</div>
-                        <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="fabreD1">بە "باوکی مێرووناسیی ڕەفتاری" ناسراوە.</p>
-                        <p class="info-text" style="font-size: 13.5px; line-height: 1.6;" data-i18n="fabreD2">بە توێژینەوەکانی لەسەر ڕەفتار و ژیانی مێرووەکان ناوبانگی جیهانی وەرگرت.</p>
-                    </div>
-                    <div class="insect-image-wrapper">
-                        <img src="zana4.png" alt="Jean-Henri Fabre" class="insect-img-file">
-                    </div>
-                </div>
-            </div>
-            <p class="info-text" data-i18n="histClosing" style="margin-top: 10px;">لە سەدەی هەژدەهەم، Carl Linnaeus سیستەمی ناونانی زانستی دامەزراند کە بووە بنەمای مێرووناسیی نوێ. لە سەدەی نۆزدەهەم، تیۆری گەشەی Charles Darwin تێگەیشتن لە پەیوەندی و گەشەی مێرووەکانی پەرەپێدا. ئەمڕۆ، مێرووناسی بە یارمەتی تەکنەلۆژیی نوێ وەک ژینۆمناسی و مایکروسکۆپی ئەلیکترۆنی، لە بوارەکانی کشتوکاڵ، تەندروستی و ژینگەپارێزی ڕۆڵێکی گرنگ دەگێڕێت.</p>
-        </div>
-
-        <!-- ================= گرنگی مێرووناسی (Importance of Entomology) ================= -->
-        <div class="info-card" style="animation-delay: 3.2s;">
-            <div class="info-header">
-                <i class="ph ph-bug-beetle"></i>
-                <h2 class="info-title" data-i18n="impCardTitle">گرنگی مێرووناسی (Importance of Entomology)</h2>
-            </div>
-            <p class="info-text" data-i18n="impCardDesc">مێرووناسی لە چەندین بواردا ڕۆڵێکی سەرەکی دەگێڕێت، لە کشتوکاڵەوە تا تەندروستی و دادپزیشکی.</p>
-            <div class="morphology-grid grid-3col">
-                <div class="grid-item">
-                    <i class="ph ph-plant"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="imp1T">گرنگی لە کشتوکاڵ</div>
-                        <div class="grid-desc" data-i18n="imp1D">کۆنترۆڵی مێرووە زیانبەخشەکان، پاراستنی بەرهەمی چاندن، زیادکردنی بەرهەم بەهۆی پۆلەنگواستنەوە.</div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <i class="ph ph-heartbeat"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="imp2T">گرنگی لە تەندروستی</div>
-                        <div class="grid-desc" data-i18n="imp2D">ناسینی مێرووە گواستنەوەی نەخۆشییەکان (وەک مێشوولە و مەگەسی ماڵ) و یارمەتیدان لە کۆنترۆڵکردنیان.</div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <i class="ph ph-globe-hemisphere-west"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="imp3T">گرنگی لە ژینگە</div>
-                        <div class="grid-desc" data-i18n="imp3D">پاراستنی هاوسەنگی ئیکۆسیستەم، پۆلەنگواستنەوەی ڕووەکەکان، شیکردنەوەی ماددە ئۆرگانیکییەکان.</div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <i class="ph ph-currency-circle-dollar"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="imp4T">گرنگی لە ئابووری</div>
-                        <div class="grid-desc" data-i18n="imp4D">بەرهەمهێنانی هەنگوین و ئاوریشم، کەمکردنەوەی زیانی کشتوکاڵ.</div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <i class="ph ph-microscope"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="imp5T">گرنگی لە توێژینەوەی زانستی</div>
-                        <div class="grid-desc" data-i18n="imp5D">بەکارهێنانی مێرووەکان لە توێژینەوەی ژیناسی، فیزیۆلۆژی و بایۆتێکنەلۆژی.</div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <i class="ph ph-magnifying-glass"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="imp6T">گرنگی لە دادپزیشکی</div>
-                        <div class="grid-desc" data-i18n="imp6D">بەکارهێنانی مێرووەکان لە دیاریکردنی کاتی مردن لە توێژینەوە تاوانکارییەکان (Forensic Entomology).</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- ================= سوودەکانی مێرووەکان (Benefits of Insects) ================= -->
-        <div class="info-card" style="animation-delay: 3.4s;">
+        <div class="info-card" style="animation-delay: 4.0s;">
             <div class="info-header">
                 <i class="ph ph-hand-heart"></i>
                 <h2 class="info-title" data-i18n="benCardTitle">سوودەکانی مێرووەکان (Benefits of Insects)</h2>
@@ -2193,54 +2399,9 @@
                 </div>
             </div>
         </div>
-        <!-- ================= ئامانجی مێرووناسی (Goals of Entomology) ================= -->
-        <div class="info-card" style="animation-delay: 3.6s;">
-            <div class="info-header">
-                <i class="ph ph-target"></i>
-                <h2 class="info-title" data-i18n="goalCardTitle">ئامانجی مێرووناسی (Goals of Entomology)</h2>
-            </div>
-            <p class="info-text" data-i18n="goalCardDesc">مێرووناسی ئامانجی سەرەکیی بریتییە لە ناسین و لێکۆڵینەوەی مێرووەکان لە هەموو لایەنەکانی ژیانیان، بۆ تێگەیشتن لە پێکهاتە، گەشە، ڕەفتار، ژینگە و پەیوەندییان بە مرۆڤ و ژینگە.</p>
-            <div class="morphology-grid grid-3col">
-                <div class="grid-item">
-                    <i class="ph ph-magnifying-glass"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="goal1T">ناسین و پۆلێنکردنی مێرووەکان</div>
-                        <div class="grid-desc" data-i18n="goal1D">ناساندنی جۆرە جیاوازەکان و پۆلێنکردنیان بە شێوەی زانستی.</div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <i class="ph ph-notebook"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="goal2T">لێکۆڵینەوە لە پێکهاتە و ژیانی مێرووەکان</div>
-                        <div class="grid-desc" data-i18n="goal2D">خوێندنەوەی مۆرفۆلۆژی، فیزیۆلۆژی، ڕەفتار و قۆناغەکانی ژیانیان.</div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <i class="ph ph-plant"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="goal3T">پاراستنی بەرهەمی کشتوکاڵ</div>
-                        <div class="grid-desc" data-i18n="goal3D">ناسین و کۆنترۆڵکردنی مێرووە زیانبەخشەکان و پاراستنی چاندنەکان.</div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <i class="ph ph-globe-hemisphere-west"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="goal4T">پاراستنی ژینگە و جۆراوجۆری زیندەوەران</div>
-                        <div class="grid-desc" data-i18n="goal4D">پاراستنی مێرووە سوودبەخشەکان و هاوسەنگی ژینگە.</div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <i class="ph ph-heartbeat"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="goal5T">پاراستنی تەندروستی مرۆڤ و ئاژەڵان</div>
-                        <div class="grid-desc" data-i18n="goal5D">لێکۆڵینەوە لە مێرووە گواستنەوەکانی نەخۆشی و ڕێگاکانی کۆنترۆڵکردنیان.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- ================= زیانەکانی مێرووەکان (Harms of Insects) ================= -->
-        <div class="info-card" style="animation-delay: 3.8s;">
+        <div class="info-card" style="animation-delay: 4.2s;">
             <div class="info-header">
                 <i class="ph ph-warning"></i>
                 <h2 class="info-title" data-i18n="harmCardTitle">زیانەکانی مێرووەکان (Harms of Insects)</h2>
@@ -2324,7 +2485,7 @@
         </div>
 
         <!-- ================= ئەکۆلۆژی مێرووەکان (Insect Ecology) ================= -->
-        <div class="info-card" style="animation-delay: 4.0s;">
+        <div class="info-card" style="animation-delay: 4.4s;">
             <div class="info-header">
                 <i class="ph ph-tree"></i>
                 <h2 class="info-title" data-i18n="ecoCardTitle">ئەکۆلۆژی مێرووەکان (Insect Ecology)</h2>
@@ -2495,131 +2656,6 @@
                     </ul>
             </div>
         </div>
-        <!-- ================= پێستگۆڕین (Molting / Ecdysis) ================= -->
-        <div class="info-card" style="animation-delay: 4.2s;">
-            <div class="info-header">
-                <i class="ph ph-arrows-clockwise"></i>
-                <h2 class="info-title" data-i18n="moltCardTitle">پێستگۆڕین (Molting / Ecdysis)</h2>
-            </div>
-            <p class="info-text" data-i18n="moltCardDesc">پێستگۆڕین ئەو پرۆسەیەیە کە مێروو پێستی دەرەوەی کۆنی خۆی (Exoskeleton) دادەماڵێت و پێستێکی نوێ دروست دەکات، چونکە پێستی دەرەوە ڕەقە و ناتوانێت لەگەڵ گەشەی جەستەدا فراوان ببێت.</p>
-            <div class="insect-grid-layout">
-                <div class="insect-features-side">
-                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
-                        <i class="ph ph-circle-dashed thorax-part-icon"></i>
-                        <div>
-                            <div class="grid-title" data-i18n="molt1T">١. دروستبوونی پێستی نوێ</div>
-                            <div class="grid-desc" data-i18n="molt1D">خانەکانی پێست پێستێکی نوێ لە ژێر پێستی کۆن دروست دەکەن.</div>
-                        </div>
-                    </div>
-                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
-                        <i class="ph ph-circle-dashed thorax-part-icon"></i>
-                        <div>
-                            <div class="grid-title" data-i18n="molt2T">٢. جیابوونەوەی پێستی کۆن</div>
-                            <div class="grid-desc" data-i18n="molt2D">پێستی کۆن لە پێستی نوێ جیا دەبێتەوە.</div>
-                        </div>
-                    </div>
-                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
-                        <i class="ph ph-circle-dashed thorax-part-icon"></i>
-                        <div>
-                            <div class="grid-title" data-i18n="molt3T">٣. دەرچوون لە پێستی کۆن (Ecdysis)</div>
-                            <div class="grid-desc" data-i18n="molt3D">مێروو پێستی کۆن دەشکێنێت و لێی دەردەچێت.</div>
-                        </div>
-                    </div>
-                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 16px;">
-                        <i class="ph ph-circle-dashed thorax-part-icon"></i>
-                        <div>
-                            <div class="grid-title" data-i18n="molt4T">٤. ڕەقبوونی پێستی نوێ</div>
-                            <div class="grid-desc" data-i18n="molt4D">دوای دەرچوون، پێستی نوێ نەرمە و دوای ماوەیەک بەهۆی Sclerotization ڕەق و بەهێز دەبێت.</div>
-                        </div>
-                    </div>
-                    <h3 class="features-title" data-i18n="moltImpTitle">گرنگی پێستگۆڕین</h3>
-                    <ul class="func-chip-list">
-                        <li class="func-chip" style="animation-delay: 0.1s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span data-i18n="moltImp1">گەشەی جەستە.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.2s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span data-i18n="moltImp2">گۆڕانی قۆناغەکانی ژیان.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.3s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span data-i18n="moltImp3">نوێکردنەوەی پێستی دەرەوە.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.4s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span data-i18n="moltImp4">چارەسەرکردنی هەندێک برین و زیان.</span>
-                        </li>
-                    </ul>
-                </div>
-                <div style="display: flex; flex-direction: column; gap: 20px;">
-                <div class="insect-image-wrapper">
-                    <img src="skin1.jpg" alt="Molting Process" class="insect-img-file">
-                </div>
-                <div class="insect-image-wrapper">
-                    <img src="skin2.png" alt="Ecdysis" class="insect-img-file">
-                </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ================= ژمارە و جۆراوجۆری مێرووەکان (Number & Diversity) ================= -->
-        <div class="info-card" style="animation-delay: 4.4s;">
-            <div class="info-header">
-                <i class="ph ph-chart-pie-slice"></i>
-                <h2 class="info-title" data-i18n="divCardTitle">ژمارە و جۆراوجۆری مێرووەکان (Number & Diversity)</h2>
-            </div>
-            <p class="info-text" data-i18n="divCardDesc">مێرووەکان گەورەترین و فراوانترین پۆلی گیاندارانی سەر زەوین. لە هەموو کیشوەرەکان و زۆربەی ژینگەکان، وەک دارستان، کێڵگە، بیابان، چیا، ئاوی شیرین و شارەکان دەژین.</p>
-            <div class="insect-grid-layout">
-                <div class="insect-features-side">
-                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
-                        <i class="ph ph-hash thorax-part-icon"></i>
-                        <div>
-                            <div class="grid-title" data-i18n="div1T">ژمارەی مێرووەکان</div>
-                            <div class="grid-desc" data-i18n="div1D">تاکو ئێستا زیاتر لە ١,٠٠٠,٠٠٠ (یەک ملیۆن) جۆری مێروو بە فەرمی ناسێنراون. زانایان پێیان وایە کۆی ژمارە دەگاتە ٥ تا ١٠ ملیۆن جۆر. نزیکەی ٥٠–٥٥٪ لە هەموو جۆرە ناسراوەکانی گیانداران، مێروون.</div>
-                        </div>
-                    </div>
-                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 16px;">
-                        <i class="ph ph-shapes thorax-part-icon"></i>
-                        <div>
-                            <div class="grid-title" data-i18n="div2T">جۆراوجۆری مێرووەکان</div>
-                            <div class="grid-desc" data-i18n="div2D">مێرووەکان لە ڕووی قەبارە (چەند میلیمەتر تا چەند سانتیمەتر)، ڕەنگ، شێوە، ژینگە، خواردن و شێوازی ژیان زۆر جیاوازن.</div>
-                        </div>
-                    </div>
-                    <h3 class="features-title" data-i18n="divImpTitle">گرنگی جۆراوجۆری مێرووەکان</h3>
-                    <ul class="func-chip-list">
-                        <li class="func-chip" style="animation-delay: 0.1s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span data-i18n="divImp1">پاراستنی هاوسەنگی ژینگە.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.2s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span data-i18n="divImp2">پۆلەنگواستنەوەی ڕووەکەکان.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.3s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span data-i18n="divImp3">کۆنترۆڵی سروشتی مێرووە زیانبەخشەکان.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.4s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span data-i18n="divImp4">شیکردنەوەی ماددە ئۆرگانیکییەکان.</span>
-                        </li>
-                        <li class="func-chip" style="animation-delay: 0.5s;">
-                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span data-i18n="divImp5">خواردن بۆ زۆر لە باڵندە، ماسی و ئاژەڵەکان.</span>
-                        </li>
-                    </ul>
-                </div>
-                <div style="display: flex; flex-direction: column; gap: 20px;">
-                <div class="insect-image-wrapper">
-                    <img src="num1.png" alt="Number of Insects" class="insect-img-file">
-                </div>
-                <div class="insect-image-wrapper">
-                    <img src="num2.png" alt="Insect Diversity" class="insect-img-file">
-                </div>
-                </div>
-            </div>
-        </div>
 
         <!-- ================= قۆناغەکانی ژیانی مێرووەکان (Life Cycle) ================= -->
         <div class="info-card" style="animation-delay: 4.6s;">
@@ -2757,97 +2793,71 @@
                     </ul>
             </div>
         </div>
-        <!-- ================= تایبەتمەندییە گشتییەکانی مێرووەکان (General Characteristics) ================= -->
+
+        <!-- ================= پێستگۆڕین (Molting / Ecdysis) ================= -->
         <div class="info-card" style="animation-delay: 5.0s;">
             <div class="info-header">
-                <i class="ph ph-list-checks"></i>
-                <h2 class="info-title" data-i18n="genCardTitle">تایبەتمەندییە گشتییەکانی مێرووەکان (General Characteristics)</h2>
+                <i class="ph ph-arrows-clockwise"></i>
+                <h2 class="info-title" data-i18n="moltCardTitle">پێستگۆڕین (Molting / Ecdysis)</h2>
             </div>
-            <p class="info-text" data-i18n="genCardDesc">مێرووەکان (Insects) گەورەترین پۆلی گیاندارانن، سەر بە Phylum Arthropoda و Class Insecta ن. هەموویان هاوبەشن لە چەندین تایبەتمەندی بنەڕەتیدا.</p>
-            <div class="morphology-grid">
-                <div class="grid-item">
-                    <i class="ph ph-selection-all"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="gen1T">جەستەیان سێ بەشە</div>
-                        <div class="grid-desc" data-i18n="gen1D">سەر (Head)، سنگ (Thorax) و سک (Abdomen).</div>
+            <p class="info-text" data-i18n="moltCardDesc">پێستگۆڕین ئەو پرۆسەیەیە کە مێروو پێستی دەرەوەی کۆنی خۆی (Exoskeleton) دادەماڵێت و پێستێکی نوێ دروست دەکات، چونکە پێستی دەرەوە ڕەقە و ناتوانێت لەگەڵ گەشەی جەستەدا فراوان ببێت.</p>
+            <div class="insect-grid-layout">
+                <div class="insect-features-side">
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
+                        <i class="ph ph-circle-dashed thorax-part-icon"></i>
+                        <div>
+                            <div class="grid-title" data-i18n="molt1T">١. دروستبوونی پێستی نوێ</div>
+                            <div class="grid-desc" data-i18n="molt1D">خانەکانی پێست پێستێکی نوێ لە ژێر پێستی کۆن دروست دەکەن.</div>
+                        </div>
                     </div>
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
+                        <i class="ph ph-circle-dashed thorax-part-icon"></i>
+                        <div>
+                            <div class="grid-title" data-i18n="molt2T">٢. جیابوونەوەی پێستی کۆن</div>
+                            <div class="grid-desc" data-i18n="molt2D">پێستی کۆن لە پێستی نوێ جیا دەبێتەوە.</div>
+                        </div>
+                    </div>
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
+                        <i class="ph ph-circle-dashed thorax-part-icon"></i>
+                        <div>
+                            <div class="grid-title" data-i18n="molt3T">٣. دەرچوون لە پێستی کۆن (Ecdysis)</div>
+                            <div class="grid-desc" data-i18n="molt3D">مێروو پێستی کۆن دەشکێنێت و لێی دەردەچێت.</div>
+                        </div>
+                    </div>
+                    <div class="grid-item feature-box compact-part-box" style="margin-bottom: 16px;">
+                        <i class="ph ph-circle-dashed thorax-part-icon"></i>
+                        <div>
+                            <div class="grid-title" data-i18n="molt4T">٤. ڕەقبوونی پێستی نوێ</div>
+                            <div class="grid-desc" data-i18n="molt4D">دوای دەرچوون، پێستی نوێ نەرمە و دوای ماوەیەک بەهۆی Sclerotization ڕەق و بەهێز دەبێت.</div>
+                        </div>
+                    </div>
+                    <h3 class="features-title" data-i18n="moltImpTitle">گرنگی پێستگۆڕین</h3>
+                    <ul class="func-chip-list">
+                        <li class="func-chip" style="animation-delay: 0.1s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span data-i18n="moltImp1">گەشەی جەستە.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.2s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span data-i18n="moltImp2">گۆڕانی قۆناغەکانی ژیان.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.3s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span data-i18n="moltImp3">نوێکردنەوەی پێستی دەرەوە.</span>
+                        </li>
+                        <li class="func-chip" style="animation-delay: 0.4s;">
+                            <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
+                            <span data-i18n="moltImp4">چارەسەرکردنی هەندێک برین و زیان.</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="grid-item">
-                    <i class="ph ph-footprints"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="gen2T">سێ جووت پێیان هەیە (٦ پێ)</div>
-                        <div class="grid-desc" data-i18n="gen2D">هەموو مێرووە پێگەیشتووەکان ٦ پێ هەیانە کە لە سنگ دەردەچن.</div>
-                    </div>
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="insect-image-wrapper">
+                    <img src="skin1.jpg" alt="Molting Process" class="insect-img-file">
                 </div>
-                <div class="grid-item">
-                    <i class="ph ph-broadcast"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="gen3T">یەک جووت شاخک (Antennae)</div>
-                        <div class="grid-desc" data-i18n="gen3D">بۆ بۆنکردن، دەستپێکردن، هەستکردن بە لەرزین و ناسینەوەی ژینگە بەکاردێن.</div>
-                    </div>
+                <div class="insect-image-wrapper">
+                    <img src="skin2.png" alt="Ecdysis" class="insect-img-file">
                 </div>
-                <div class="grid-item">
-                    <i class="ph ph-eye"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="gen4T">چاو</div>
-                        <div class="grid-desc" data-i18n="gen4D">زۆربەیان دوو چاوی هەڵبەستراو هەیە، زۆر جۆری سێ چاوی سادەیان (Ocelli) هەیە.</div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <i class="ph ph-wind"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="gen5T">باڵ</div>
-                        <div class="grid-desc" data-i18n="gen5D">زۆربەی مێرووە پێگەیشتووەکان دوو جووت باڵ (٤ باڵ) هەیانە، هەندێکیان یەک جووت یان بێ باڵن.</div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <i class="ph ph-shield"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="gen6T">پێستی دەرەوە (Exoskeleton)</div>
-                        <div class="grid-desc" data-i18n="gen6D">جەستەیان بە پۆستێکی ڕەق لە Chitin داپۆشراوە کە پاراستن و پشتگیری دەدات.</div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <i class="ph ph-arrows-clockwise"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="gen7T">پێستگۆڕین (Molting)</div>
-                        <div class="grid-desc" data-i18n="gen7D">بۆ گەشەکردن، ناچارە چەند جار پێستیان بگۆڕن (Ecdysis).</div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <i class="ph ph-lungs"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="gen8T">هەناسەدان</div>
-                        <div class="grid-desc" data-i18n="gen8D">لە ڕێگەی Spiracles و Tracheae هەناسە دەدەن، سیان نییە.</div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <i class="ph ph-heartbeat"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="gen9T">سیستەمی سوڕی خوێن</div>
-                        <div class="grid-desc" data-i18n="gen9D">سیستەمی خوێنی کراوەیانە (Open Circulatory System)، خوێنیان Hemolymph ناوداری.</div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <i class="ph ph-butterfly"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="gen10T">گەشە و گۆڕانکاری (Metamorphosis)</div>
-                        <div class="grid-desc" data-i18n="gen10D">زۆربەیان لە کاتی گەشەدا گۆڕانکاری تێدەپەڕن، بە جۆرەکانی: Ametabolous، Hemimetabolous، Holometabolous.</div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <i class="ph ph-egg"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="gen11T">زیادبوون</div>
-                        <div class="grid-desc" data-i18n="gen11D">زۆربەیان بە دانانی هێلکە زیاد دەبن، پیتاندن زۆرجار لە ناو جەستەی مێدا ڕوودەدات.</div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <i class="ph ph-chart-pie-slice"></i>
-                    <div>
-                        <div class="grid-title" data-i18n="gen12T">ژمارە و جۆراوجۆری</div>
-                        <div class="grid-desc" data-i18n="gen12D">زیاتر لە ١ ملیۆن جۆر بە فەرمی ناسێنراون و لە هەموو کیشوەرەکاندا دەژین.</div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -3101,7 +3111,7 @@
                 light: "ڕووناک",
                 dark: "تاریک",
                 searchPlaceholder: "گەڕان...",
-                backHome: "گەڕانەوە بۆ سەرەکی",
+                backHome: "سەرەکی",
                 
                 cardTitle: "مێرووناسی (Entomology) چییە؟",
                 cardP1: "مێرووناسی (Entomology) لقێکی گرنگی زانستی ژیانە کە تایبەتە بە لێکۆڵینەوە لەسەر مێرووەکان. ئەم زانستە شێوازی ژیان، پێکهاتە، ڕەفتار، گەشە، پۆلێنکردن، ژینگە، و کاریگەریی مێرووەکان لەسەر مرۆڤ، ئاژەڵ و ڕووەک دەکۆڵێتەوە.",
@@ -3582,7 +3592,7 @@
                 light: "Light",
                 dark: "Dark",
                 searchPlaceholder: "Search...",
-                backHome: "Back to Home",
+                backHome: "Home",
                 
                 cardTitle: "What is Entomology?",
                 cardP1: "Entomology is an important branch of biological science dedicated to the study of insects. This science studies the way of life, structure, behavior, development, classification, ecology, and impact of insects on humans, animals, and plants.",
@@ -4063,7 +4073,7 @@
                 light: "مضيء",
                 dark: "مظلم",
                 searchPlaceholder: "بحث...",
-                backHome: "العودة للرئيسية",
+                backHome: "الرئيسية",
                 
                 cardTitle: "ما هو علم الحشرات؟",
                 cardP1: "علم الحشرات هو فرع مهم من العلوم الحياتية مخصص لدراسة الحشرات. يدرس هذا العلم نمط الحياة، البنية، السلوك، النمو، التصنيف، البيئة، وتأثير الحشرات على الإنسان والحيوان والنبات.",
@@ -4725,6 +4735,13 @@ const i18nIdMap = [
             document.getElementById('hero-desc').textContent = data.desc;
             document.getElementById('hero-btn-text').innerHTML = `${data.btnText} <i class="ph ph-arrow-down"></i>`;
             document.getElementById('back-home-text').textContent = data.backHome;
+
+            // نوێکردنەوەی دەقی ڕووناک/تاریک بەپێی زمانی نوێ، بەبێ گۆڕینی مۆدەکە
+            const currentThemeNow = htmlTag.getAttribute('data-theme') || 'light';
+            const themeStatusEl = document.getElementById('theme-status-text');
+            if (themeStatusEl) {
+                themeStatusEl.textContent = (currentThemeNow === 'light') ? data.light : data.dark;
+            }
             document.getElementById('search-input').placeholder = data.searchPlaceholder;
 
             // Card 1
