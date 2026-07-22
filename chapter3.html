@@ -1,3 +1,7 @@
+
+
+Chapter3 · HTML
+Syntax highlighting has been disabled due to code size.
 <!DOCTYPE html>
 <html lang="ku" dir="rtl" id="html-tag" data-theme="light">
 <head>
@@ -292,6 +296,7 @@
             box-shadow: 0 10px 30px var(--card-glow);
             position: relative;
             overflow: hidden;
+            scroll-margin-top: 100px;
             opacity: 0;
             transform: translateY(40px);
             animation: cardSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -767,7 +772,7 @@
             flex-wrap: wrap;
             gap: 10px;
             background: linear-gradient(90deg, #2c1a11, #4a2f1a, #2c1a11);
-            padding: 11px 22px;
+            padding: 14px 22px;
             border-top: 1px solid rgba(210, 125, 45, 0.2);
         }
 
@@ -957,12 +962,12 @@
         }
 
         .info-card.search-highlight-flash {
-            animation: searchHighlightFlash 1.4s ease;
+            animation: searchHighlightFlash 1.8s ease;
         }
 
         @keyframes searchHighlightFlash {
-            0%, 100% { box-shadow: none; border-color: var(--card-border); }
-            25% { box-shadow: 0 0 0 4px rgba(139, 69, 19, 0.35); border-color: var(--accent-color); }
+            0%, 100% { box-shadow: none; border-color: var(--accent-color); background-color: var(--bg-card); }
+            15%, 45% { box-shadow: 0 0 0 6px rgba(139, 69, 19, 0.4); border-color: var(--accent-color); background-color: rgba(139, 69, 19, 0.06); }
         }
 
         @keyframes systemBoxIn {
@@ -5285,7 +5290,7 @@ const i18nIdMap = [
                         searchResults.classList.remove('active');
                         searchContainer.classList.remove('active');
                         searchInput.value = '';
-                        item.card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        item.card.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         item.card.classList.remove('search-highlight-flash');
                         void item.card.offsetWidth;
                         item.card.classList.add('search-highlight-flash');
@@ -5361,3 +5366,14 @@ const i18nIdMap = [
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
