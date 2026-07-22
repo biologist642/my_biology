@@ -1,7 +1,3 @@
-
-
-Chapter3 · HTML
-Syntax highlighting has been disabled due to code size.
 <!DOCTYPE html>
 <html lang="ku" dir="rtl" id="html-tag" data-theme="light">
 <head>
@@ -696,6 +692,199 @@ Syntax highlighting has been disabled due to code size.
         .system-box-anim:hover {
             transform: translateY(-4px);
             box-shadow: 0 10px 22px rgba(139, 69, 19, 0.1);
+        }
+
+        /* کارتی سەرچاوەکان - کتێب و ماڵپەڕ */
+        .ref-book-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(139, 69, 19, 0.03);
+            border: 1.5px solid var(--card-border);
+            border-radius: 14px;
+            padding: 14px 16px;
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+
+        .ref-book-card i {
+            font-size: 20px;
+            color: var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        .ref-site-card {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(139, 69, 19, 0.03);
+            border: 1.5px dashed var(--card-border);
+            border-radius: 14px;
+            padding: 12px 16px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .ref-site-card:hover {
+            background: rgba(139, 69, 19, 0.08);
+            border-color: var(--accent-color);
+            border-style: solid;
+        }
+
+        .ref-site-card i {
+            color: var(--accent-color);
+            font-size: 17px;
+            flex-shrink: 0;
+        }
+
+        .ref-site-card span {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .ref-site-arrow {
+            font-size: 14px !important;
+            opacity: 0.5;
+        }
+
+        /* ==========================================================================
+           فووتەری BioNova - زۆر باریک، ڕەنگی قاوەیی
+           ========================================================================== */
+        .site-footer-bionova {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: linear-gradient(90deg, #2c1a11, #4a2f1a, #2c1a11);
+            padding: 7px 22px;
+            border-top: 1px solid rgba(210, 125, 45, 0.2);
+        }
+
+        .developer-credit-bionova {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 4px 14px;
+            border-radius: 30px;
+            border: 1px solid rgba(210, 125, 45, 0.15);
+        }
+
+        .developer-credit-bionova span {
+            font-size: 12px;
+            font-weight: 600;
+            color: #e5d8d2 !important;
+            white-space: nowrap;
+        }
+
+        .bionova-social-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bionova-social-btn {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e5d8d2 !important;
+            font-size: 13px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .bionova-social-btn:hover {
+            transform: translateY(-3px) scale(1.15);
+            color: #ffffff !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .bionova-social-btn.facebook:hover {
+            background: #1877F2;
+            border-color: #1877F2;
+        }
+
+        .bionova-social-btn.instagram:hover {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            border-color: #dc2743;
+        }
+
+        .bionova-social-btn.tiktok:hover {
+            background: #010101;
+            border-color: #ff0050;
+            color: #ffffff !important;
+            box-shadow: 0 0 10px rgba(255, 0, 80, 0.5), 0 0 15px rgba(0, 242, 234, 0.3);
+        }
+
+        .bionova-social-btn.telegram:hover {
+            background: #24A1DE;
+            border-color: #24A1DE;
+        }
+
+        .bionova-social-btn.email:hover {
+            background: #ea4335;
+            border-color: #ea4335;
+        }
+
+        .footer-copyright-text {
+            font-size: 11.5px;
+            color: #b8a89e;
+            white-space: nowrap;
+        }
+
+        .footer-copyright-text b {
+            color: #e5d8d2;
+        }
+
+        /* دوگمەی گەڕانەوە بۆ سەرەوە */
+        .scroll-to-top-btn {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(139, 69, 19, 0.35);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
+            z-index: 500;
+        }
+
+        .scroll-to-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-to-top-btn:hover {
+            background: var(--text-primary);
+            transform: translateY(-4px);
+        }
+
+        @media (max-width: 600px) {
+            .site-footer-bionova { flex-direction: column; padding: 10px 16px; }
+            .scroll-to-top-btn { width: 40px; height: 40px; font-size: 17px; bottom: 16px; left: 16px; }
         }
 
         @keyframes systemBoxIn {
@@ -3065,30 +3254,70 @@ Syntax highlighting has been disabled due to code size.
             </div>
             <p class="info-text" data-i18n="refCardDesc">لیستی سەرچاوە سەرەکییەکانی ئەم چاپتەرە، بۆ کەسانێک کە دەیانەوێت زیاتر بخوێننەوە.</p>
             <h3 class="features-title" data-i18n="refBooksTitle">کتێبە سەرەکییەکان</h3>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px;">
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
-                            <span data-i18n="refBook1">Borror and DeLong's Introduction to the Study of Insects — Norman F. Johnson & Charles A. Triplehorn</span>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
-                            <span data-i18n="refBook2">The Insects: An Outline of Entomology</span>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-secondary);">
-                            <i class="ph ph-check-circle" style="color: var(--accent-color); font-size: 18px;"></i>
-                            <span data-i18n="refBook3">Snodgrass' Principles of Insect Morphology</span>
-                        </li>
-                    </ul>
-            <h3 class="features-title" style="margin-top: 20px;" data-i18n="refSitesTitle">وێبسایتە زانستییەکان</h3>
-            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px;">
-                <li style="font-size: 13.5px;"><a href="https://www.gutenberg.org/ebooks/64677" target="_blank" style="color: var(--accent-color); text-decoration: underline;">gutenberg.org/ebooks/64677</a></li>
-                <li style="font-size: 13.5px;"><a href="https://link.springer.com/book/10.1007/1-4020-3183-1" target="_blank" style="color: var(--accent-color); text-decoration: underline;">link.springer.com/book/10.1007/1-4020-3183-1</a></li>
-                <li style="font-size: 13.5px;"><a href="https://entomology.unl.edu/basic-insect-morphology/" target="_blank" style="color: var(--accent-color); text-decoration: underline;">entomology.unl.edu/basic-insect-morphology</a></li>
-                <li style="font-size: 13.5px;"><a href="https://biocontrol.entomology.cornell.edu/bio.php" target="_blank" style="color: var(--accent-color); text-decoration: underline;">biocontrol.entomology.cornell.edu/bio.php</a></li>
-                <li style="font-size: 13.5px;"><a href="https://shop.elsevier.com/books/insect-ecology/schowalter/978-0-323-85673-7" target="_blank" style="color: var(--accent-color); text-decoration: underline;">shop.elsevier.com/books/insect-ecology</a></li>
-            </ul>
+            <div class="morphology-grid" style="grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px;">
+                <div class="system-box-anim ref-book-card" style="animation-delay: 0.1s;">
+                    <i class="ph ph-book-bookmark"></i>
+                    <span data-i18n="refBook1">Borror and DeLong's Introduction to the Study of Insects — Norman F. Johnson & Charles A. Triplehorn</span>
+                </div>
+                <div class="system-box-anim ref-book-card" style="animation-delay: 0.2s;">
+                    <i class="ph ph-book-bookmark"></i>
+                    <span data-i18n="refBook2">The Insects: An Outline of Entomology</span>
+                </div>
+                <div class="system-box-anim ref-book-card" style="animation-delay: 0.3s;">
+                    <i class="ph ph-book-bookmark"></i>
+                    <span data-i18n="refBook3">Snodgrass' Principles of Insect Morphology</span>
+                </div>
+            </div>
+            <h3 class="features-title" style="margin-top: 22px;" data-i18n="refSitesTitle">وێبسایتە زانستییەکان</h3>
+            <div class="morphology-grid" style="grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px;">
+                <a href="https://www.gutenberg.org/ebooks/64677" target="_blank" class="system-box-anim ref-site-card" style="animation-delay: 0.1s;">
+                    <i class="ph ph-globe-hemisphere-west"></i>
+                    <span>gutenberg.org/ebooks/64677</span>
+                    <i class="ph ph-arrow-up-right ref-site-arrow"></i>
+                </a>
+                <a href="https://link.springer.com/book/10.1007/1-4020-3183-1" target="_blank" class="system-box-anim ref-site-card" style="animation-delay: 0.15s;">
+                    <i class="ph ph-globe-hemisphere-west"></i>
+                    <span>link.springer.com/book/10.1007/1-4020-3183-1</span>
+                    <i class="ph ph-arrow-up-right ref-site-arrow"></i>
+                </a>
+                <a href="https://entomology.unl.edu/basic-insect-morphology/" target="_blank" class="system-box-anim ref-site-card" style="animation-delay: 0.2s;">
+                    <i class="ph ph-globe-hemisphere-west"></i>
+                    <span>entomology.unl.edu/basic-insect-morphology</span>
+                    <i class="ph ph-arrow-up-right ref-site-arrow"></i>
+                </a>
+                <a href="https://biocontrol.entomology.cornell.edu/bio.php" target="_blank" class="system-box-anim ref-site-card" style="animation-delay: 0.25s;">
+                    <i class="ph ph-globe-hemisphere-west"></i>
+                    <span>biocontrol.entomology.cornell.edu/bio.php</span>
+                    <i class="ph ph-arrow-up-right ref-site-arrow"></i>
+                </a>
+                <a href="https://shop.elsevier.com/books/insect-ecology/schowalter/978-0-323-85673-7" target="_blank" class="system-box-anim ref-site-card" style="animation-delay: 0.3s;">
+                    <i class="ph ph-globe-hemisphere-west"></i>
+                    <span>shop.elsevier.com/books/insect-ecology</span>
+                    <i class="ph ph-arrow-up-right ref-site-arrow"></i>
+                </a>
+            </div>
         </div>
     </section>
+
+    <!-- ================= فووتەری BioNova ================= -->
+    <footer class="site-footer-bionova">
+        <div class="developer-credit-bionova">
+            <span id="footer-connect-text" data-i18n="footerConnect">پەیوەندی کردن:</span>
+            <div class="bionova-social-links">
+                <a href="https://www.facebook.com/profile.php?id=61591499576796" target="_blank" class="bionova-social-btn facebook" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+                <a href="https://www.instagram.com/bionova.group?igsh=bDlqc2lsNzU2Ymd5" target="_blank" class="bionova-social-btn instagram" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                <a href="https://www.tiktok.com/@bionova.group?_r=1&_t=ZS-97XScYSqhXA" target="_blank" class="bionova-social-btn tiktok" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
+                <a href="https://t.me/Bionova_academic_community_nw" target="_blank" class="bionova-social-btn telegram" aria-label="Telegram"><i class="ph ph-telegram-logo"></i></a>
+                <a href="mailto:bionovaacademic@gmail.com" class="bionova-social-btn email" aria-label="Email"><i class="ph ph-envelope-simple"></i></a>
+            </div>
+        </div>
+        <span class="footer-copyright-text"><b>NovaEntomo</b> © 2026 — <span id="footer-rights-text" data-i18n="footerRights">سەرجەم مافەکانی پارێزراوە</span></span>
+    </footer>
+
+    <!-- دوگمەی گەڕانەوە بۆ سەرەوە -->
+    <button class="scroll-to-top-btn" id="scroll-top-btn" aria-label="Scroll to top">
+        <i class="ph ph-arrow-up"></i>
+    </button>
 
     <!-- ================= LIGHTBOX MODAL ================= -->
     <div id="image-modal" class="modal-overlay">
@@ -3583,7 +3812,9 @@ Syntax highlighting has been disabled due to code size.
                 refSitesTitle: "وێبسایتە زانستییەکان",
                 factTagHead: "سەر (Head)",
                 factTagThorax: "سنگ (Thorax)",
-                factTagAbdomen: "سک (Abdomen)"
+                factTagAbdomen: "سک (Abdomen)",
+                footerConnect: "پەیوەندی کردن:",
+                footerRights: "سەرجەم مافەکانی پارێزراوە"
             },
             en: {
                 title: "Chapter One <span>Introduction to Entomology</span>",
@@ -4064,7 +4295,9 @@ Syntax highlighting has been disabled due to code size.
                 refSitesTitle: "Scientific Websites",
                 factTagHead: "Head",
                 factTagThorax: "Thorax",
-                factTagAbdomen: "Abdomen"
+                factTagAbdomen: "Abdomen",
+                footerConnect: "Connect with us:",
+                footerRights: "All rights reserved"
             },
             ar: {
                 title: "الجزء الأول <span>مقدمة في علم الحشرات</span>",
@@ -4545,7 +4778,9 @@ Syntax highlighting has been disabled due to code size.
                 refSitesTitle: "المواقع العلمية",
                 factTagHead: "الرأس (Head)",
                 factTagThorax: "الصدر (Thorax)",
-                factTagAbdomen: "البطن (Abdomen)"
+                factTagAbdomen: "البطن (Abdomen)",
+                footerConnect: "تواصل معنا:",
+                footerRights: "جميع الحقوق محفوظة"
             }
         };
 
@@ -4923,6 +5158,19 @@ const i18nIdMap = [
         const searchTrigger = document.getElementById('nav-search-trigger');
         const searchContainer = document.getElementById('search-container');
         const searchInput = document.getElementById('search-input');
+
+        // ================= دوگمەی گەڕانەوە بۆ سەرەوە =================
+        const scrollTopBtn = document.getElementById('scroll-top-btn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
         searchTrigger.addEventListener('click', (e) => {
             e.stopPropagation();
