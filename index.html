@@ -1631,6 +1631,19 @@
 
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('overlay');
+        // ========== گەڕانی دڵنیای بۆ دوگمەکانی بەشەکان (chapter-btn) ==========
+        // بەکارهێنانی delegation چونکە کارتەکان بە دینامیکی دروست دەکرێن
+        document.addEventListener('click', function(e) {
+            const btn = e.target.closest('.chapter-btn');
+            if (btn) {
+                e.preventDefault();
+                const targetHref = btn.getAttribute('href');
+                if (targetHref) {
+                    window.location.href = targetHref;
+                }
+            }
+        });
+ 
         document.getElementById('open-sidebar').addEventListener('click', () => { sidebar.classList.add('open'); overlay.classList.add('show'); });
         document.getElementById('close-sidebar').addEventListener('click', () => { sidebar.classList.remove('open'); overlay.classList.remove('show'); });
         overlay.addEventListener('click', () => { sidebar.classList.remove('open'); overlay.classList.remove('show'); });
