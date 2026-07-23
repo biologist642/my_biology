@@ -364,8 +364,9 @@
             overflow: hidden;
             box-shadow: 0 6px 18px rgba(139, 69, 19, 0.08);
             opacity: 0;
-            transform: translateY(18px);
-            animation: videoCardIn 0.6s ease forwards;
+            transform: translateY(40px) scale(0.92) rotate(-1.5deg);
+            scroll-margin-top: 100px;
+            animation: videoCardIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
             transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
         }
  
@@ -375,7 +376,7 @@
         }
  
         @keyframes videoCardIn {
-            to { opacity: 1; transform: translateY(0); }
+            to { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
         }
  
         .video-thumb-wrapper {
@@ -425,6 +426,12 @@
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease;
             pointer-events: none;
+            animation: playBtnPulse 2.4s ease-in-out infinite;
+        }
+ 
+        @keyframes playBtnPulse {
+            0%, 100% { box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(139, 69, 19, 0.45); }
+            50% { box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35), 0 0 0 12px rgba(139, 69, 19, 0); }
         }
  
         .video-card:hover .video-play-btn {
@@ -453,6 +460,239 @@
             .videos-section-wrapper { padding: 0 18px; }
             .video-play-btn { width: 42px; height: 42px; font-size: 18px; }
         }
+ 
+        /* ==========================================================================
+           لایتباکسی ڤیدیۆ - گەورەکردنی ڤیدیۆ لەسەر شاشە
+           ========================================================================== */
+        .video-lightbox-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 6, 3, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+            padding: 20px;
+        }
+ 
+        .video-lightbox-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+ 
+        .video-lightbox-content {
+            width: min(880px, 100%);
+            position: relative;
+        }
+ 
+        .video-lightbox-player {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+ 
+        .video-lightbox-player iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+ 
+        .video-lightbox-close {
+            position: absolute;
+            top: -48px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: #fff;
+            border: none;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.25s ease;
+        }
+ 
+        .video-lightbox-close:hover {
+            transform: translateX(-50%) scale(1.1) rotate(90deg);
+            background: #fff;
+            color: var(--accent-color);
+        }
+ 
+        /* ==========================================================================
+           بەشی ڤیدیۆکانی تیک تۆک
+           ========================================================================== */
+        .tiktok-videos-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+ 
+        .tiktok-card {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            background: var(--bg-card);
+            border: 1.5px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(139, 69, 19, 0.08);
+            opacity: 0;
+            transform: translateY(30px) scale(0.92);
+            animation: videoCardIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+        }
+ 
+        .tiktok-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 26px rgba(139, 69, 19, 0.16);
+        }
+ 
+        .tiktok-card-thumb {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 9 / 13;
+            background: linear-gradient(155deg, #1a1a1a, #2c2c2c 55%, #1a1a1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+ 
+        .tiktok-card-thumb i.ph-tiktok-logo {
+            font-size: 38px;
+            color: rgba(255, 255, 255, 0.9);
+            filter: drop-shadow(0 0 10px rgba(255, 0, 80, 0.35)) drop-shadow(0 0 10px rgba(0, 242, 234, 0.25));
+        }
+ 
+        .tiktok-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            backdrop-filter: blur(2px);
+        }
+ 
+        .tiktok-card-caption {
+            padding: 10px 12px;
+            background: rgba(139, 69, 19, 0.07);
+            color: var(--accent-color);
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.4;
+            min-height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+ 
+        @media (max-width: 992px) {
+            .tiktok-videos-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+ 
+        @media (max-width: 700px) {
+            .tiktok-videos-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+ 
+        @media (max-width: 480px) {
+            .tiktok-videos-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+ 
+        /* ==========================================================================
+           دیزاینی دراپداونی گەڕان
+           ========================================================================== */
+        .search-results-dropdown {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            width: 280px;
+            max-height: 340px;
+            overflow-y: auto;
+            background: var(--bg-card);
+            border: 1.5px solid var(--card-border);
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            z-index: 200;
+            padding: 8px;
+        }
+ 
+        html[dir="ltr"] .search-results-dropdown {
+            left: auto;
+            right: 0;
+        }
+ 
+        .search-results-dropdown.active {
+            display: block;
+        }
+ 
+        .search-result-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 13.5px;
+            color: var(--text-primary);
+            transition: background-color 0.2s ease;
+        }
+ 
+        .search-result-item:hover {
+            background: rgba(139, 69, 19, 0.08);
+        }
+ 
+        .search-result-item img {
+            width: 40px;
+            height: 26px;
+            object-fit: cover;
+            border-radius: 5px;
+            flex-shrink: 0;
+        }
+ 
+        .search-result-item mark {
+            background: rgba(139, 69, 19, 0.25);
+            color: inherit;
+            border-radius: 3px;
+            padding: 0 1px;
+        }
+ 
+        .search-no-results {
+            padding: 14px 12px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+ 
+        .video-card.search-highlight-flash, .tiktok-card.search-highlight-flash {
+            animation: searchHighlightFlash 1.8s ease;
+        }
+ 
+        @keyframes searchHighlightFlash {
+            0%, 100% { box-shadow: 0 6px 18px rgba(139, 69, 19, 0.08); border-color: var(--card-border); }
+            15%, 45% { box-shadow: 0 0 0 6px rgba(139, 69, 19, 0.4); border-color: var(--accent-color); }
+        }
     </style>
 </head>
 <body>
@@ -462,7 +702,7 @@
         <div class="nav-right-group">
             <a href="index.html" class="back-home-btn" id="back-to-home">
                 <i class="ph ph-house"></i>
-                <span id="back-home-text">گەڕانەوە بۆ سەرەکی</span>
+                <span id="back-home-text">سەرەکی</span>
             </a>
             <div class="logo">
                 <i class="ph ph-bug logo-icon"></i> <h2>Nova<span>Entomo</span></h2>
@@ -473,6 +713,7 @@
             <div class="search-container-inline" id="search-container">
                 <input type="text" class="search-input-inline" placeholder="گەڕان..." id="search-input">
                 <button class="nav-search-btn" id="nav-search-trigger" aria-label="Search"><i class="ph ph-magnifying-glass"></i></button>
+                <div class="search-results-dropdown" id="search-results"></div>
             </div>
             
             <div class="lang-links-wrapper">
@@ -495,7 +736,7 @@
         <div class="hero-layout-container">
             <div class="hero-text-side">
                 <h1 class="hero-bold-title" id="hero-title">
-                    بەشی یەکەم <span id="hero-title-sub">ڕوونکردنەوەی ڤیدیۆی و دەنگی</span>
+                    بەشی یازدەیەم <span id="hero-title-sub">ڕوونکردنەوەی ڤیدیۆی و دەنگی</span>
                 </h1>
                 <p class="hero-paragraph" id="hero-desc">
                     بینینی زانیاری و وردەکاری جیهانی مێرووناسی بە شێوەی ڤیدیۆی ڕوونکردنەوەی و دەنگی مێرووە جیاوازەکان. </p>
@@ -604,16 +845,86 @@
         </div>
     </section>
  
+    <!-- ================= بەشی ڤیدیۆکانی تیک تۆک ================= -->
+    <section class="videos-section-wrapper">
+        <div class="videos-section-header">
+            <div>
+                <h2 data-i18n="tiktokTitle">ڤیدیۆی تیک تۆک</h2>
+                <p data-i18n="tiktokDesc">کورتەڤیدیۆی سەرنجڕاکێش دەربارەی مێرووەکان</p>
+            </div>
+            <div class="videos-header-icon"><i class="ph ph-tiktok-logo"></i></div>
+        </div>
+        <div class="tiktok-videos-grid">
+                <a href="https://vt.tiktok.com/ZSXGKrCLr/" target="_blank" rel="noopener" class="tiktok-card" style="animation-delay: 0.1s;">
+                    <div class="tiktok-card-thumb">
+                        <i class="ph ph-tiktok-logo"></i>
+                        <div class="tiktok-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="tiktok-card-caption" data-i18n="tt1Caption">پێناسەی ئێنتۆمۆلۆجی</div>
+                </a>
+                <a href="https://vt.tiktok.com/ZSXGKmtBD/" target="_blank" rel="noopener" class="tiktok-card" style="animation-delay: 0.2s;">
+                    <div class="tiktok-card-thumb">
+                        <i class="ph ph-tiktok-logo"></i>
+                        <div class="tiktok-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="tiktok-card-caption" data-i18n="tt2Caption">پڕۆسەی گواستنەوەی خۆراک لە لایەن مێرووەکان</div>
+                </a>
+                <a href="https://vt.tiktok.com/ZSXGKW7hF/" target="_blank" rel="noopener" class="tiktok-card" style="animation-delay: 0.3s;">
+                    <div class="tiktok-card-thumb">
+                        <i class="ph ph-tiktok-logo"></i>
+                        <div class="tiktok-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="tiktok-card-caption" data-i18n="tt3Caption">جیاوازی لەنێوان مێروو و Bug</div>
+                </a>
+                <a href="https://vt.tiktok.com/ZSXGK92ev/" target="_blank" rel="noopener" class="tiktok-card" style="animation-delay: 0.4s;">
+                    <div class="tiktok-card-thumb">
+                        <i class="ph ph-tiktok-logo"></i>
+                        <div class="tiktok-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="tiktok-card-caption" data-i18n="tt4Caption">چۆن قالۆنچە بەبێ سەر دەژی؟</div>
+                </a>
+                <a href="https://vt.tiktok.com/ZSXGKTxRe/" target="_blank" rel="noopener" class="tiktok-card" style="animation-delay: 0.5s;">
+                    <div class="tiktok-card-thumb">
+                        <i class="ph ph-tiktok-logo"></i>
+                        <div class="tiktok-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="tiktok-card-caption" data-i18n="tt5Caption">ئەو مێرووانەی هاوشێوەی گەڵان</div>
+                </a>
+                <a href="https://vt.tiktok.com/ZSXGEBJsa/" target="_blank" rel="noopener" class="tiktok-card" style="animation-delay: 0.6s;">
+                    <div class="tiktok-card-thumb">
+                        <i class="ph ph-tiktok-logo"></i>
+                        <div class="tiktok-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="tiktok-card-caption" data-i18n="tt6Caption">بۆچی مێرووە ڕەشەکان پەلامارمان نادەن؟</div>
+                </a>
+                <a href="https://vt.tiktok.com/ZSXGE2KBm/" target="_blank" rel="noopener" class="tiktok-card" style="animation-delay: 0.7s;">
+                    <div class="tiktok-card-thumb">
+                        <i class="ph ph-tiktok-logo"></i>
+                        <div class="tiktok-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="tiktok-card-caption" data-i18n="tt7Caption">مێروو و ئاو</div>
+                </a>
+        </div>
+    </section>
+ 
+    <!-- ================= لایتباکسی ڤیدیۆ ================= -->
+    <div class="video-lightbox-overlay" id="video-lightbox">
+        <div class="video-lightbox-content">
+            <button class="video-lightbox-close" id="video-lightbox-close" aria-label="Close"><i class="ph ph-x"></i></button>
+            <div class="video-lightbox-player" id="video-lightbox-player"></div>
+        </div>
+    </div>
+ 
     <script>
         const translations = {
             ku: {
-                title: "بەشی یازدەیەم<span id='hero-title-sub'>دەستپێکێک بۆ مێرووناسی</span>",
-                desc: "مێرووناسی؛ گەشتێکە بۆ ناو جیهانی بوونەوەرە هەرە بچووکەکان، کە گەورەترین کاریگەرییان لەسەر گۆی زەوی هەیە.",
+                title: "بەشی یازدەیەم <span id='hero-title-sub'>ڕوونکردنەوەی ڤیدیۆی و دەنگی</span>",
+                desc: "بینینی زانیاری و وردەکاری جیهانی مێرووناسی بە شێوەی ڤیدیۆی ڕوونکردنەوەی و دەنگی مێرووە جیاوازەکان.",
                 btnText: "دەستپێکردنی گەشتەکە",
                 light: "ڕووناک",
                 dark: "تاریک",
                 searchPlaceholder: "گەڕان...",
-                backHome: "گەڕانەوە بۆ سەرەکی",
+                backHome: "سەرەکی",
                 videosTitle: "ڤیدیۆ",
                 videosDesc: "بۆ زانیاری زیاتر ڤیدیۆکانی خوارەوە سەیر بکە",
                 video1Caption: "مێرووناسی چییە؟",
@@ -628,15 +939,24 @@
                 video10Caption: "ڕۆڵی مێرووەکان لە زانستی تاوانکاری",
                 video11Caption: "چۆن دەتوانین پەپوولە مۆمیا بکەین؟",
                 video12Caption: "کۆئەندامی سوڕانی مێرووەکان",
+                tiktokTitle: "ڤیدیۆی تیک تۆک",
+                tiktokDesc: "کورتەڤیدیۆی سەرنجڕاکێش دەربارەی مێرووەکان",
+                tt1Caption: "پێناسەی ئێنتۆمۆلۆجی",
+                tt2Caption: "پڕۆسەی گواستنەوەی خۆراک لە لایەن مێرووەکان",
+                tt3Caption: "جیاوازی لەنێوان مێروو و Bug",
+                tt4Caption: "چۆن قالۆنچە بەبێ سەر دەژی؟",
+                tt5Caption: "ئەو مێرووانەی هاوشێوەی گەڵان",
+                tt6Caption: "بۆچی مێرووە ڕەشەکان پەلامارمان نادەن؟",
+                tt7Caption: "مێروو و ئاو",
             },
             en: {
-                title: "Chapter One <span>Introduction to Entomology</span>",
-                desc: "Entomology; a journey into the world of the tiniest creatures, which have the greatest impact on Earth.",
+                title: "Chapter Eleven <span>Video & Audio Explanation</span>",
+                desc: "Explore the details of the entomology world through explanatory videos and audio about different insects.",
                 btnText: "Start Exploring",
                 light: "Light",
                 dark: "Dark",
                 searchPlaceholder: "Search...",
-                backHome: "Back to Home",
+                backHome: "Home",
                 videosTitle: "Videos",
                 videosDesc: "Watch the videos below for more information",
                 video1Caption: "What is Entomology?",
@@ -651,15 +971,24 @@
                 video10Caption: "The Role of Insects in Forensic Science",
                 video11Caption: "How Can We Mummify a Butterfly?",
                 video12Caption: "The Circulatory System of Insects",
+                tiktokTitle: "TikTok Videos",
+                tiktokDesc: "Engaging short videos about insects",
+                tt1Caption: "Definition of Entomology",
+                tt2Caption: "How Insects Transport Food",
+                tt3Caption: "The Difference Between an Insect and a Bug",
+                tt4Caption: "How Does a Beetle Live Without a Head?",
+                tt5Caption: "Insects That Look Like Leaves",
+                tt6Caption: "Why Don't Black Ants Attack Us?",
+                tt7Caption: "Insects and Water",
             },
             ar: {
-                title: "الفصل الأول <span>مقدمة في علم الحشرات</span>",
-                desc: "علم الحشرات؛ رحلة إلى عالم أصغر الكائنات الحية التي تمتلك التأثير الأكبر على كوكب الأرض.",
+                title: "الفصل الحادي عشر <span>شرح مرئي وصوتي</span>",
+                desc: "استكشف تفاصيل عالم علم الحشرات من خلال فيديوهات توضيحية وأصوات لحشرات مختلفة.",
                 btnText: "ابدأ الرحلة",
                 light: "فاتح",
                 dark: "مظلم",
                 searchPlaceholder: "بحث...",
-                backHome: "العودة للرئيسية",
+                backHome: "الرئيسية",
                 videosTitle: "فيديوهات",
                 videosDesc: "شاهد الفيديوهات أدناه لمزيد من المعلومات",
                 video1Caption: "ما هو علم الحشرات؟",
@@ -674,6 +1003,15 @@
                 video10Caption: "دور الحشرات في علم الطب الشرعي",
                 video11Caption: "كيف يمكننا تحنيط الفراشة؟",
                 video12Caption: "الجهاز الدوري عند الحشرات",
+                tiktokTitle: "فيديوهات تيك توك",
+                tiktokDesc: "فيديوهات قصيرة وممتعة عن الحشرات",
+                tt1Caption: "تعريف علم الحشرات",
+                tt2Caption: "كيف تنقل الحشرات الغذاء",
+                tt3Caption: "الفرق بين الحشرة والـ Bug",
+                tt4Caption: "كيف يعيش الخنفساء بدون رأس؟",
+                tt5Caption: "حشرات تشبه أوراق الشجر",
+                tt6Caption: "لماذا لا تهاجمنا النمل الأسود؟",
+                tt7Caption: "الحشرات والماء",
             }
         };
  
@@ -752,35 +1090,149 @@
             });
         });
  
+        const searchResults = document.getElementById('search-results');
+ 
+        function getSearchableItems() {
+            const items = [];
+            document.querySelectorAll('.video-card').forEach(card => {
+                const capEl = card.querySelector('.video-caption');
+                const imgEl = card.querySelector('.video-thumb-img');
+                items.push({
+                    card,
+                    title: capEl ? capEl.textContent.trim() : '',
+                    img: imgEl ? imgEl.src : ''
+                });
+            });
+            document.querySelectorAll('.tiktok-card').forEach(card => {
+                const capEl = card.querySelector('.tiktok-card-caption');
+                items.push({
+                    card,
+                    title: capEl ? capEl.textContent.trim() : '',
+                    img: ''
+                });
+            });
+            return items.filter(i => i.title);
+        }
+ 
+        function highlightMatch(text, query) {
+            const idx = text.toLowerCase().indexOf(query.toLowerCase());
+            if (idx === -1) return text;
+            return text.slice(0, idx) + '<mark>' + text.slice(idx, idx + query.length) + '</mark>' + text.slice(idx + query.length);
+        }
+ 
+        function goToResult(card) {
+            if (!card) return;
+            const navOffset = 100;
+            const rect = card.getBoundingClientRect();
+            const targetY = window.pageYOffset + rect.top - navOffset;
+            window.scrollTo({ top: Math.max(targetY, 0), behavior: 'smooth' });
+            card.classList.remove('search-highlight-flash');
+            void card.offsetWidth;
+            card.classList.add('search-highlight-flash');
+        }
+ 
+        function closeSearchUI() {
+            searchInput.blur();
+            searchResults.classList.remove('active');
+            searchContainer.classList.remove('active');
+            searchInput.value = '';
+        }
+ 
+        let currentMatches = [];
+ 
+        function runSearch(query) {
+            const q = query.trim();
+            if (!q) {
+                searchResults.classList.remove('active');
+                searchResults.innerHTML = '';
+                currentMatches = [];
+                return;
+            }
+            const items = getSearchableItems();
+            const matches = items.filter(i => i.title.toLowerCase().includes(q.toLowerCase())).slice(0, 8);
+            currentMatches = matches;
+ 
+            searchResults.innerHTML = '';
+            if (matches.length === 0) {
+                const noRes = document.createElement('div');
+                noRes.className = 'search-no-results';
+                noRes.textContent = (document.documentElement.lang === 'en') ? 'No results found' : (document.documentElement.lang === 'ar') ? 'لا توجد نتائج' : 'هیچ ئەنجامێک نەدۆزرایەوە';
+                searchResults.appendChild(noRes);
+            } else {
+                matches.forEach(item => {
+                    const el = document.createElement('div');
+                    el.className = 'search-result-item';
+                    const imgHtml = item.img ? `<img src="${item.img}" alt="">` : '<i class="ph ph-magnifying-glass"></i>';
+                    el.innerHTML = imgHtml + '<span>' + highlightMatch(item.title, q) + '</span>';
+                    el.addEventListener('click', () => {
+                        const targetCard = item.card;
+                        closeSearchUI();
+                        setTimeout(() => goToResult(targetCard), 50);
+                    });
+                    searchResults.appendChild(el);
+                });
+            }
+            searchResults.classList.add('active');
+        }
+ 
+        searchInput.addEventListener('input', () => runSearch(searchInput.value));
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                if (currentMatches.length > 0) {
+                    const targetCard = currentMatches[0].card;
+                    closeSearchUI();
+                    setTimeout(() => goToResult(targetCard), 50);
+                }
+            }
+        });
+ 
         document.getElementById('nav-search-trigger').addEventListener('click', (e) => {
             e.stopPropagation();
             searchContainer.classList.toggle('active');
             if(searchContainer.classList.contains('active')) {
                 searchInput.focus();
+            } else {
+                searchResults.classList.remove('active');
             }
         });
  
         document.addEventListener('click', (e) => {
             if (!searchContainer.contains(e.target)) {
                 searchContainer.classList.remove('active');
+                searchResults.classList.remove('active');
             }
         });
  
         applyLanguage('ku');
  
-        // ================= کلیک بۆ کردنەوەی ڤیدیۆکان (Facade Pattern بۆ خێرایی) =================
+        // ================= لایتباکسی ڤیدیۆ (کردنەوەی گەورە لەسەر شاشە) =================
+        const videoLightbox = document.getElementById('video-lightbox');
+        const videoLightboxPlayer = document.getElementById('video-lightbox-player');
+ 
+        function openVideoLightbox(videoId) {
+            videoLightboxPlayer.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+            videoLightbox.classList.add('active');
+        }
+ 
+        function closeVideoLightbox() {
+            videoLightbox.classList.remove('active');
+            videoLightboxPlayer.innerHTML = '';
+        }
+ 
         document.querySelectorAll('.video-thumb-wrapper').forEach(wrapper => {
             wrapper.addEventListener('click', () => {
                 const videoId = wrapper.getAttribute('data-video-id');
-                const iframe = document.createElement('iframe');
-                iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-                iframe.title = 'YouTube video player';
-                iframe.frameBorder = '0';
-                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-                iframe.allowFullscreen = true;
-                wrapper.innerHTML = '';
-                wrapper.appendChild(iframe);
-            }, { once: true });
+                openVideoLightbox(videoId);
+            });
+        });
+ 
+        document.getElementById('video-lightbox-close').addEventListener('click', closeVideoLightbox);
+        videoLightbox.addEventListener('click', (e) => {
+            if (e.target === videoLightbox) closeVideoLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeVideoLightbox();
         });
     </script>
 </body>
