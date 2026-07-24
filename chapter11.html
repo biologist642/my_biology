@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NovaEntomo</title>
+    <script>
+        (function() {
+            try {
+                var savedTheme = localStorage.getItem('novaentomo-theme');
+                var savedLang = localStorage.getItem('novaentomo-lang');
+                var htmlEl = document.documentElement;
+                if (savedTheme) htmlEl.setAttribute('data-theme', savedTheme);
+                if (savedLang) {
+                    htmlEl.setAttribute('lang', savedLang);
+                    htmlEl.setAttribute('dir', savedLang === 'en' ? 'ltr' : 'rtl');
+                }
+            } catch (e) {}
+        })();
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://www.youtube-nocookie.com">
     <link rel="preconnect" href="https://i.ytimg.com">
@@ -678,7 +692,10 @@
         .video-lightbox-content.tiktok-mode .vc-volume-slider,
         .video-lightbox-content.tiktok-mode .vc-mute-btn,
         .video-lightbox-content.tiktok-mode #vc-mute-btn,
-        .video-lightbox-content.tiktok-mode .vc-speed-select {
+        .video-lightbox-content.tiktok-mode .vc-speed-select,
+        .video-custom-controls.fallback-mode .vc-volume-slider,
+        .video-custom-controls.fallback-mode #vc-mute-btn,
+        .video-custom-controls.fallback-mode .vc-speed-select {
             display: none;
         }
  
@@ -896,6 +913,178 @@
         @keyframes searchHighlightFlash {
             0%, 100% { box-shadow: 0 6px 18px rgba(139, 69, 19, 0.08); border-color: var(--card-border); }
             15%, 45% { box-shadow: 0 0 0 6px rgba(139, 69, 19, 0.4); border-color: var(--accent-color); }
+        }
+ 
+        /* ==========================================================================
+           فووتەری BioNova - زۆر باریک، ڕەنگی قاوەیی
+           ========================================================================== */
+        .site-footer-bionova {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: linear-gradient(90deg, #2c1a11, #4a2f1a, #2c1a11);
+            padding: 14px 22px;
+            border-top: 1px solid rgba(210, 125, 45, 0.2);
+        }
+ 
+        .developer-credit-bionova {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 4px 14px;
+            border-radius: 30px;
+            border: 1px solid rgba(210, 125, 45, 0.15);
+        }
+ 
+        .developer-credit-bionova span {
+            font-size: 12px;
+            font-weight: 600;
+            color: #e5d8d2 !important;
+            white-space: nowrap;
+        }
+ 
+        .bionova-social-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+ 
+        .bionova-social-btn {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e5d8d2 !important;
+            font-size: 13px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+ 
+        .bionova-social-btn:hover {
+            transform: translateY(-3px) scale(1.15);
+            color: #ffffff !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+ 
+        .bionova-social-btn.facebook:hover {
+            background: #1877F2;
+            border-color: #1877F2;
+        }
+ 
+        .bionova-social-btn.instagram:hover {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            border-color: #dc2743;
+        }
+ 
+        .bionova-social-btn.tiktok:hover {
+            background: #010101;
+            border-color: #ff0050;
+            color: #ffffff !important;
+            box-shadow: 0 0 10px rgba(255, 0, 80, 0.5), 0 0 15px rgba(0, 242, 234, 0.3);
+        }
+ 
+        .bionova-social-btn.telegram:hover {
+            background: #24A1DE;
+            border-color: #24A1DE;
+        }
+ 
+        .bionova-social-btn.email:hover {
+            background: #ea4335;
+            border-color: #ea4335;
+        }
+ 
+        .footer-copyright-text {
+            font-size: 11.5px;
+            color: #b8a89e;
+            white-space: nowrap;
+        }
+ 
+        .footer-copyright-text b {
+            color: #e5d8d2;
+        }
+ 
+        /* دوگمەی گەڕانەوە بۆ سەرەوە - کەمێک بەرزتر کرا تاکو فووتەر جوان دیاربێت */
+        .scroll-to-top-btn {
+            position: fixed;
+            bottom: 90px;
+            left: 24px;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(139, 69, 19, 0.35);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
+            z-index: 500;
+        }
+ 
+        .scroll-to-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+ 
+        .scroll-to-top-btn:hover {
+            background: var(--text-primary);
+            transform: translateY(-4px);
+        }
+ 
+        @media (max-width: 600px) {
+            .site-footer-bionova { flex-direction: column; padding: 10px 16px; }
+            .scroll-to-top-btn { width: 40px; height: 40px; font-size: 17px; bottom: 78px; left: 16px; }
+        }
+ 
+        /* ==========================================================================
+           دیزاینی جوانتر بۆ ناونیشانی بەشەکانی ڤیدیۆ (ڤیدیۆ / ڤیدیۆی تیک تۆک)
+           ========================================================================== */
+        .videos-section-header h2 {
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(90deg, var(--accent-color), #d27d2d, var(--accent-color));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titleShine 4s linear infinite;
+        }
+ 
+        @keyframes titleShine {
+            to { background-position: -200% center; }
+        }
+ 
+        .videos-header-icon {
+            animation: headerIconPulse 2.6s ease-in-out infinite;
+        }
+ 
+        @keyframes headerIconPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(139, 69, 19, 0.3); }
+            50% { transform: scale(1.08); box-shadow: 0 0 0 8px rgba(139, 69, 19, 0); }
+        }
+ 
+        .videos-section-header p {
+            opacity: 0;
+            animation: fadeInUpText 0.8s ease 0.3s forwards;
+        }
+ 
+        @keyframes fadeInUpText {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -1454,6 +1643,26 @@
         </div>
     </section>
  
+    <!-- ================= فووتەری BioNova ================= -->
+    <footer class="site-footer-bionova">
+        <span class="footer-copyright-text"><b>NovaEntomo</b> © 2026 — <span id="footer-rights-text" data-i18n="footerRights">سەرجەم مافەکانی پارێزراوە</span></span>
+        <div class="developer-credit-bionova">
+            <span id="footer-connect-text" data-i18n="footerConnect">پەیوەندی کردن:</span>
+            <div class="bionova-social-links">
+                <a href="https://www.facebook.com/profile.php?id=61591499576796" target="_blank" class="bionova-social-btn facebook" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+                <a href="https://www.instagram.com/bionova.group?igsh=bDlqc2lsNzU2Ymd5" target="_blank" class="bionova-social-btn instagram" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                <a href="https://www.tiktok.com/@bionova.group?_r=1&_t=ZS-97XScYSqhXA" target="_blank" class="bionova-social-btn tiktok" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
+                <a href="https://t.me/Bionova_academic_community_nw" target="_blank" class="bionova-social-btn telegram" aria-label="Telegram"><i class="ph ph-telegram-logo"></i></a>
+                <a href="mailto:bionovaacademic@gmail.com" class="bionova-social-btn email" aria-label="Email"><i class="ph ph-envelope-simple"></i></a>
+            </div>
+        </div>
+    </footer>
+ 
+    <!-- دوگمەی گەڕانەوە بۆ سەرەوە -->
+    <button class="scroll-to-top-btn" id="scroll-top-btn" aria-label="Scroll to top">
+        <i class="ph ph-arrow-up"></i>
+    </button>
+ 
     <!-- ================= لایتباکسی ڤیدیۆ ================= -->
     <div class="video-lightbox-overlay" id="video-lightbox">
         <div class="video-lightbox-content">
@@ -1534,6 +1743,8 @@
                 tt5Caption: "ئەو مێرووانەی هاوشێوەی گەڵان",
                 tt6Caption: "بۆچی مێرووە ڕەشەکان پەلامارمان نادەن؟",
                 tt7Caption: "مێروو و ئاو",
+                footerConnect: "پەیوەندی کردن:",
+                footerRights: "سەرجەم مافەکانی پارێزراوە"
             },
             en: {
                 title: "Chapter Eleven <span>Video & Audio Explanation</span>",
@@ -1587,6 +1798,8 @@
                 tt5Caption: "Insects That Look Like Leaves",
                 tt6Caption: "Why Don't Black Ants Attack Us?",
                 tt7Caption: "Insects and Water",
+                footerConnect: "Connect with us:",
+                footerRights: "All rights reserved"
             },
             ar: {
                 title: "الفصل الحادي عشر <span>شرح مرئي وصوتي</span>",
@@ -1640,6 +1853,8 @@
                 tt5Caption: "حشرات تشبه أوراق الشجر",
                 tt6Caption: "لماذا لا تهاجمنا النمل الأسود؟",
                 tt7Caption: "الحشرات والماء",
+                footerConnect: "تواصل معنا:",
+                footerRights: "جميع الحقوق محفوظة"
             }
         };
  
@@ -1696,12 +1911,26 @@
             }, 450);
         });
  
+        // ================= دوگمەی گەڕانەوە بۆ سەرەوە =================
+        const scrollTopBtn = document.getElementById('scroll-top-btn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+ 
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const selectedLang = this.getAttribute('data-lang');
                 htmlTag.setAttribute('dir', selectedLang === 'en' ? 'ltr' : 'rtl');
                 htmlTag.setAttribute('lang', selectedLang);
                 applyLanguage(selectedLang);
+                try { localStorage.setItem('novaentomo-lang', selectedLang); } catch (e) {}
             });
         });
  
@@ -1710,6 +1939,7 @@
                 const theme = e.target.checked ? 'dark' : 'light';
                 htmlTag.setAttribute('data-theme', theme);
                 document.querySelectorAll('.theme-checkbox').forEach(c => c.checked = e.target.checked);
+                try { localStorage.setItem('novaentomo-theme', theme); } catch (err) {}
                 
                 const currentLang = htmlTag.getAttribute('lang') || 'ku';
                 document.querySelectorAll('.theme-status-text').forEach(el => {
@@ -1832,7 +2062,24 @@
             }
         });
  
-        applyLanguage('ku');
+        // ================= دووبارە دانانی زمان و مۆد لەسەر ڕیفرێش =================
+        (function initSavedPreferences() {
+            let savedLang = 'ku';
+            let savedTheme = 'light';
+            try {
+                savedLang = localStorage.getItem('novaentomo-lang') || 'ku';
+                savedTheme = localStorage.getItem('novaentomo-theme') || 'light';
+            } catch (e) {}
+ 
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === savedLang);
+            });
+            document.querySelectorAll('.theme-checkbox').forEach(chk => {
+                chk.checked = (savedTheme === 'dark');
+            });
+ 
+            applyLanguage(savedLang);
+        })();
  
         // ================= لایتباکسی ڤیدیۆ (کردنەوەی گەورە لەسەر شاشە) =================
         const videoLightbox = document.getElementById('video-lightbox');
@@ -1854,7 +2101,7 @@
  
         window.onYouTubeIframeAPIReady = function() {
             ytApiReady = true;
-            if (pendingVideoId) {
+            if (pendingVideoId && !usingFallback) {
                 createYTPlayer(pendingVideoId);
                 pendingVideoId = null;
             }
@@ -1892,9 +2139,24 @@
             if (oldMount) oldMount.remove();
         }
  
+        let fallbackTimer = null;
+        let usingFallback = false;
+ 
+        function useFallbackIframe(videoId) {
+            usingFallback = true;
+            const mount = document.createElement('div');
+            mount.id = 'yt-player-mount';
+            mount.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen onload="document.getElementById('video-lightbox-spinner').style.display='none';"></iframe>`;
+            videoLightboxPlayer.insertBefore(mount, videoSpinner.nextSibling);
+            customControls.classList.add('fallback-mode');
+        }
+ 
         function openVideoLightbox(videoId) {
             destroyYTPlayer();
+            if (fallbackTimer) clearTimeout(fallbackTimer);
+            usingFallback = false;
             videoLightboxContent.classList.remove('tiktok-mode');
+            customControls.classList.remove('fallback-mode');
             videoSpinner.style.display = 'block';
             currentVideoId = videoId;
             currentTiktokUrl = null;
@@ -1903,6 +2165,12 @@
                 createYTPlayer(videoId);
             } else {
                 pendingVideoId = videoId;
+                // ئەگەر API‌ی یوتیوب لە ١.٢ چرکەدا ئامادە نەبوو (بلۆک کرابوو یان هێواش)، ڕاستەوخۆ iframe‌ی سادە باردەکەین بۆ خێرایی
+                fallbackTimer = setTimeout(() => {
+                    if (!ytApiReady && !usingFallback) {
+                        useFallbackIframe(videoId);
+                    }
+                }, 1200);
             }
         }
  
@@ -1923,9 +2191,12 @@
             videoLightbox.classList.remove('active');
             destroyYTPlayer();
             videoLightboxContent.classList.remove('tiktok-mode');
+            customControls.classList.remove('fallback-mode');
             videoSpinner.style.display = 'block';
             currentVideoId = null;
             currentTiktokUrl = null;
+            if (fallbackTimer) { clearTimeout(fallbackTimer); fallbackTimer = null; }
+            usingFallback = false;
         }
  
         // ================= کۆنترۆڵە تایبەتییەکان (دەنگ، خێرایی، کۆپیکردنی لینک) =================
