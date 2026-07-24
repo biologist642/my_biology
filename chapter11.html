@@ -1,6 +1,3 @@
-
-
-Chapter11 · HTML
 <!DOCTYPE html>
 <html lang="ku" dir="rtl" id="html-tag" data-theme="light">
 <head>
@@ -11,6 +8,7 @@ Chapter11 · HTML
     <link rel="preconnect" href="https://www.youtube-nocookie.com">
     <link rel="preconnect" href="https://i.ytimg.com">
     <link rel="preconnect" href="https://www.tiktok.com">
+    <script src="https://www.youtube.com/iframe_api" defer></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     
     <style>
@@ -358,17 +356,17 @@ Chapter11 · HTML
             animation: headerIconFloat 2.6s ease-in-out infinite;
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
         }
-
+ 
         .videos-header-icon:hover {
             transform: scale(1.12) rotate(-6deg);
             box-shadow: 0 6px 16px rgba(139, 69, 19, 0.3);
         }
-
+ 
         @keyframes headerIconFloat {
             0%, 100% { transform: translateY(0); box-shadow: 0 0 0 0 rgba(139, 69, 19, 0.25); }
             50% { transform: translateY(-4px); box-shadow: 0 6px 14px 0 rgba(139, 69, 19, 0.2); }
         }
-
+ 
         .videos-header-icon .ph-tiktok-logo {
             filter: drop-shadow(0 0 6px rgba(255, 0, 80, 0.35)) drop-shadow(0 0 6px rgba(0, 242, 234, 0.3));
         }
@@ -401,7 +399,7 @@ Chapter11 · HTML
         @keyframes videoCardIn {
             to { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
         }
-
+ 
         @keyframes videoCardGlow {
             0%, 100% { box-shadow: 0 6px 18px rgba(139, 69, 19, 0.08), 0 0 0 0 rgba(139, 69, 19, 0.35); border-color: var(--accent-color); }
             50% { box-shadow: 0 6px 18px rgba(139, 69, 19, 0.08), 0 0 10px 2px rgba(139, 69, 19, 0.35); border-color: var(--hero-border-line); }
@@ -516,7 +514,7 @@ Chapter11 · HTML
             position: relative;
             transition: width 0.2s ease;
         }
-
+ 
         .video-lightbox-content.tiktok-mode {
             width: min(420px, 100%);
         }
@@ -528,13 +526,32 @@ Chapter11 · HTML
             border-radius: 14px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
         }
-
+ 
+        .video-lightbox-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 46px;
+            height: 46px;
+            margin: -23px 0 0 -23px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-top-color: var(--accent-color);
+            border-radius: 50%;
+            animation: spinnerRotate 0.8s linear infinite;
+            z-index: 1;
+        }
+ 
+        @keyframes spinnerRotate {
+            to { transform: rotate(360deg); }
+        }
+ 
         .video-lightbox-content.tiktok-mode .video-lightbox-player {
             aspect-ratio: 9 / 16;
             max-height: 85vh;
         }
-
+ 
         .tiktok-card-thumb-img {
             position: absolute;
             inset: 0;
@@ -548,7 +565,7 @@ Chapter11 · HTML
             z-index: 0;
             transition: opacity 0.3s ease, transform 0.4s ease, filter 0.3s ease;
         }
-
+ 
         .tiktok-card:hover .tiktok-card-thumb-img {
             opacity: 1;
             filter: blur(0.5px) brightness(1);
@@ -585,6 +602,107 @@ Chapter11 · HTML
             transform: translateX(-50%) scale(1.1) rotate(90deg);
             background: #fff;
             color: var(--accent-color);
+        }
+ 
+        /* ==========================================================================
+           کۆنترۆڵی تایبەتی ڤیدیۆ (وەک سۆشیال میدیا) - لە کاتی هۆڤەردا دەردەکەوێت
+           ========================================================================== */
+        .video-custom-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 10px 16px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+ 
+        .video-lightbox-player:hover .video-custom-controls,
+        .video-custom-controls.force-show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+ 
+        .vc-btn {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+ 
+        .vc-btn:hover {
+            background: var(--accent-color);
+            transform: scale(1.1);
+        }
+ 
+        .vc-volume-slider {
+            width: 70px;
+            accent-color: var(--accent-color);
+            cursor: pointer;
+        }
+ 
+        .vc-speed-select {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #fff;
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+ 
+        .vc-speed-select option {
+            background: #2c1a11;
+            color: #fff;
+        }
+ 
+        .vc-spacer { flex: 1; }
+ 
+        .video-lightbox-content.tiktok-mode .vc-volume-slider,
+        .video-lightbox-content.tiktok-mode .vc-mute-btn,
+        .video-lightbox-content.tiktok-mode #vc-mute-btn,
+        .video-lightbox-content.tiktok-mode .vc-speed-select {
+            display: none;
+        }
+ 
+        .vc-copied-toast {
+            position: absolute;
+            bottom: 54px;
+            left: 50%;
+            transform: translateX(-50%) translateY(6px);
+            background: var(--accent-color);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 3;
+        }
+ 
+        .vc-copied-toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
         }
  
         /* ==========================================================================
@@ -666,12 +784,12 @@ Chapter11 · HTML
             animation: tiktokBtnPulse 2.4s ease-in-out infinite;
             z-index: 2;
         }
-
+ 
         @keyframes tiktokBtnPulse {
             0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.25); }
             50% { box-shadow: 0 0 0 8px rgba(255, 255, 255, 0); }
         }
-
+ 
         .tiktok-card:hover .tiktok-play-btn {
             transform: translate(-50%, -50%) scale(1.15);
             background: rgba(255, 255, 255, 0.22);
@@ -928,6 +1046,153 @@ Chapter11 · HTML
                     </div>
                     <div class="video-caption" data-i18n="video12Caption">کۆئەندامی سوڕانی مێرووەکان</div>
                 </div>
+                <div class="video-card" style="animation-delay: 1.3s;">
+                    <div class="video-thumb-wrapper" data-video-id="ws_D5nXOAJg">
+                        <img src="https://img.youtube.com/vi/ws_D5nXOAJg/hqdefault.jpg" alt="شێوازی ژیانی خاڵخاڵۆکە" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video13Caption">شێوازی ژیانی خاڵخاڵۆکە</div>
+                </div>
+                <div class="video-card" style="animation-delay: 1.4s;">
+                    <div class="video-thumb-wrapper" data-video-id="G3VMl-EY2DM">
+                        <img src="https://img.youtube.com/vi/G3VMl-EY2DM/hqdefault.jpg" alt="چۆن کرمۆکە دەبێتە پەپوولە؟" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video14Caption">چۆن کرمۆکە دەبێتە پەپوولە؟</div>
+                </div>
+                <div class="video-card" style="animation-delay: 1.5s;">
+                    <div class="video-thumb-wrapper" data-video-id="O1S8WzwLPlM">
+                        <img src="https://img.youtube.com/vi/O1S8WzwLPlM/hqdefault.jpg" alt="لە کرمۆکەوە بۆ پەپوولە" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video15Caption">لە کرمۆکەوە بۆ پەپوولە</div>
+                </div>
+                <div class="video-card" style="animation-delay: 1.6s;">
+                    <div class="video-thumb-wrapper" data-video-id="8VQwY1mASMU">
+                        <img src="https://img.youtube.com/vi/8VQwY1mASMU/hqdefault.jpg" alt="ناسینی چەندین جۆر مێروو" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video16Caption">ناسینی چەندین جۆر مێروو</div>
+                </div>
+                <div class="video-card" style="animation-delay: 1.7s;">
+                    <div class="video-thumb-wrapper" data-video-id="7HAUQWr7L2Q">
+                        <img src="https://img.youtube.com/vi/7HAUQWr7L2Q/hqdefault.jpg" alt="15 ڕاستی دەربارەی کولە" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video17Caption">15 ڕاستی دەربارەی کولە</div>
+                </div>
+                <div class="video-card" style="animation-delay: 1.8s;">
+                    <div class="video-thumb-wrapper" data-video-id="jWx1wPKAkpc">
+                        <img src="https://img.youtube.com/vi/jWx1wPKAkpc/hqdefault.jpg" alt="ڕاستی نەزانراو دەربارەی کولە" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video18Caption">ڕاستی نەزانراو دەربارەی کولە</div>
+                </div>
+                <div class="video-card" style="animation-delay: 1.9s;">
+                    <div class="video-thumb-wrapper" data-video-id="Vty2IaFJOPU">
+                        <img src="https://img.youtube.com/vi/Vty2IaFJOPU/hqdefault.jpg" alt="شیوازی ژیانی کولە" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video19Caption">شیوازی ژیانی کولە</div>
+                </div>
+                <div class="video-card" style="animation-delay: 2.0s;">
+                    <div class="video-thumb-wrapper" data-video-id="Wes73qsp5MM">
+                        <img src="https://img.youtube.com/vi/Wes73qsp5MM/hqdefault.jpg" alt="زەردەواڵە چییە؟" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video20Caption">زەردەواڵە چییە؟</div>
+                </div>
+                <div class="video-card" style="animation-delay: 2.1s;">
+                    <div class="video-thumb-wrapper" data-video-id="ImwO7-tC7Co">
+                        <img src="https://img.youtube.com/vi/ImwO7-tC7Co/hqdefault.jpg" alt="زانیاری دەربارەی بۆلی Hymenoptera" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video21Caption">زانیاری دەربارەی بۆلی Hymenoptera</div>
+                </div>
+                <div class="video-card" style="animation-delay: 2.2s;">
+                    <div class="video-thumb-wrapper" data-video-id="cqzlCjULmgo">
+                        <img src="https://img.youtube.com/vi/cqzlCjULmgo/hqdefault.jpg" alt="زەردەواڵەی مشاراو چییە؟" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video22Caption">زەردەواڵەی مشاراو چییە؟</div>
+                </div>
+                <div class="video-card" style="animation-delay: 2.3s;">
+                    <div class="video-thumb-wrapper" data-video-id="sAKkjD3nEv0">
+                        <img src="https://img.youtube.com/vi/sAKkjD3nEv0/hqdefault.jpg" alt="چۆنیەتی درووست کردنی هەنگوین" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video23Caption">چۆنیەتی درووست کردنی هەنگوین</div>
+                </div>
+                <div class="video-card" style="animation-delay: 2.4s;">
+                    <div class="video-thumb-wrapper" data-video-id="TzjP6FyXdb0">
+                        <img src="https://img.youtube.com/vi/TzjP6FyXdb0/hqdefault.jpg" alt="نهێنی ژیانی هەنگەکان" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video24Caption">نهێنی ژیانی هەنگەکان</div>
+                </div>
+                <div class="video-card" style="animation-delay: 2.5s;">
+                    <div class="video-thumb-wrapper" data-video-id="PdkGSFf8keo">
+                        <img src="https://img.youtube.com/vi/PdkGSFf8keo/hqdefault.jpg" alt="بڕینەوەی مێش هەنگوین" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video25Caption">بڕینەوەی مێش هەنگوین</div>
+                </div>
+                <div class="video-card" style="animation-delay: 2.6s;">
+                    <div class="video-thumb-wrapper" data-video-id="-lfnNEkiJqM">
+                        <img src="https://img.youtube.com/vi/-lfnNEkiJqM/hqdefault.jpg" alt="100 مێرووی سەرنجڕاکێش" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video26Caption">100 مێرووی سەرنجڕاکێش</div>
+                </div>
+                <div class="video-card" style="animation-delay: 2.7s;">
+                    <div class="video-thumb-wrapper" data-video-id="tjgjtRpyo0w">
+                        <img src="https://img.youtube.com/vi/tjgjtRpyo0w/hqdefault.jpg" alt="200 جۆر قالۆنچە" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video27Caption">200 جۆر قالۆنچە</div>
+                </div>
+                <div class="video-card" style="animation-delay: 2.8s;">
+                    <div class="video-thumb-wrapper" data-video-id="LJWsqaEiUao">
+                        <img src="https://img.youtube.com/vi/LJWsqaEiUao/hqdefault.jpg" alt="جیهانی بچوکی مێرووەکان" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video28Caption">جیهانی بچوکی مێرووەکان</div>
+                </div>
+                <div class="video-card" style="animation-delay: 2.9s;">
+                    <div class="video-thumb-wrapper" data-video-id="dm1gXOzuRKM">
+                        <img src="https://img.youtube.com/vi/dm1gXOzuRKM/hqdefault.jpg" alt="سەری مێرووەکان" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video29Caption">سەری مێرووەکان</div>
+                </div>
+                <div class="video-card" style="animation-delay: 3.0s;">
+                    <div class="video-thumb-wrapper" data-video-id="ZoUCTWQztcE">
+                        <img src="https://img.youtube.com/vi/ZoUCTWQztcE/hqdefault.jpg" alt="کۆکردنەوەی مێروو لە ماڵەوە" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video30Caption">کۆکردنەوەی مێروو لە ماڵەوە</div>
+                </div>
+                <div class="video-card" style="animation-delay: 3.1s;">
+                    <div class="video-thumb-wrapper" data-video-id="ys53gwBmYnA">
+                        <img src="https://img.youtube.com/vi/ys53gwBmYnA/hqdefault.jpg" alt="10 ڕێگە بۆ کۆکردنەوەی مێروو" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video31Caption">10 ڕێگە بۆ کۆکردنەوەی مێروو</div>
+                </div>
+                <div class="video-card" style="animation-delay: 3.2s;">
+                    <div class="video-thumb-wrapper" data-video-id="4VoXUOGaIs8">
+                        <img src="https://img.youtube.com/vi/4VoXUOGaIs8/hqdefault.jpg" alt="کام جۆری مێروو خێراترینە؟" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video32Caption">کام جۆری مێروو خێراترینە؟</div>
+                </div>
+                <div class="video-card" style="animation-delay: 3.3s;">
+                    <div class="video-thumb-wrapper" data-video-id="SqZwanl7zyU">
+                        <img src="https://img.youtube.com/vi/SqZwanl7zyU/hqdefault.jpg" alt="جۆنیەتی پاراستنی مێروو" class="video-thumb-img" loading="lazy" decoding="async">
+                        <div class="video-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="video-caption" data-i18n="video33Caption">جۆنیەتی پاراستنی مێروو</div>
+                </div>
         </div>
     </section>
  
@@ -1172,6 +1437,20 @@ Chapter11 · HTML
                     </div>
                     <div class="tiktok-card-caption">کۆکردنەوەی مێرووەکان 10</div>
                 </a>
+                <a href="https://vt.tiktok.com/ZSXWkMaAF/" target="_blank" rel="noopener" class="tiktok-card" style="animation-delay: 1.4s;">
+                    <div class="tiktok-card-thumb">
+                        <i class="ph ph-tiktok-logo"></i>
+                        <div class="tiktok-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="tiktok-card-caption">پۆلی Orthoptera</div>
+                </a>
+                <a href="https://vt.tiktok.com/ZSXWBktuA/" target="_blank" rel="noopener" class="tiktok-card" style="animation-delay: 1.5s;">
+                    <div class="tiktok-card-thumb">
+                        <i class="ph ph-tiktok-logo"></i>
+                        <div class="tiktok-play-btn"><i class="ph-fill ph-play"></i></div>
+                    </div>
+                    <div class="tiktok-card-caption">چۆن بازنەی مەرگی مێروولەکان درووست دەبێت؟</div>
+                </a>
         </div>
     </section>
  
@@ -1179,7 +1458,25 @@ Chapter11 · HTML
     <div class="video-lightbox-overlay" id="video-lightbox">
         <div class="video-lightbox-content">
             <button class="video-lightbox-close" id="video-lightbox-close" aria-label="Close"><i class="ph ph-x"></i></button>
-            <div class="video-lightbox-player" id="video-lightbox-player"></div>
+            <div class="video-lightbox-player" id="video-lightbox-player">
+                <div class="video-lightbox-spinner" id="video-lightbox-spinner"></div>
+                <div id="yt-player-mount"></div>
+                <div class="video-custom-controls" id="video-custom-controls">
+                    <button class="vc-btn" id="vc-mute-btn" aria-label="Mute"><i class="ph ph-speaker-high"></i></button>
+                    <input type="range" class="vc-volume-slider" id="vc-volume-slider" min="0" max="100" value="100">
+                    <div class="vc-spacer"></div>
+                    <select class="vc-speed-select" id="vc-speed-select">
+                        <option value="0.5">0.5x</option>
+                        <option value="0.75">0.75x</option>
+                        <option value="1" selected>1x</option>
+                        <option value="1.25">1.25x</option>
+                        <option value="1.5">1.5x</option>
+                        <option value="2">2x</option>
+                    </select>
+                    <button class="vc-btn" id="vc-copy-btn" aria-label="Copy link"><i class="ph ph-link"></i></button>
+                </div>
+                <div class="vc-copied-toast" id="vc-copied-toast">لینک کۆپی کرا!</div>
+            </div>
         </div>
     </div>
  
@@ -1207,6 +1504,27 @@ Chapter11 · HTML
                 video10Caption: "ڕۆڵی مێرووەکان لە زانستی تاوانکاری",
                 video11Caption: "چۆن دەتوانین پەپوولە مۆمیا بکەین؟",
                 video12Caption: "کۆئەندامی سوڕانی مێرووەکان",
+                video13Caption: "شێوازی ژیانی خاڵخاڵۆکە",
+                video14Caption: "چۆن کرمۆکە دەبێتە پەپوولە؟",
+                video15Caption: "لە کرمۆکەوە بۆ پەپوولە",
+                video16Caption: "ناسینی چەندین جۆر مێروو",
+                video17Caption: "15 ڕاستی دەربارەی کولە",
+                video18Caption: "ڕاستی نەزانراو دەربارەی کولە",
+                video19Caption: "شیوازی ژیانی کولە",
+                video20Caption: "زەردەواڵە چییە؟",
+                video21Caption: "زانیاری دەربارەی بۆلی Hymenoptera",
+                video22Caption: "زەردەواڵەی مشاراو چییە؟",
+                video23Caption: "چۆنیەتی درووست کردنی هەنگوین",
+                video24Caption: "نهێنی ژیانی هەنگەکان",
+                video25Caption: "بڕینەوەی مێش هەنگوین",
+                video26Caption: "100 مێرووی سەرنجڕاکێش",
+                video27Caption: "200 جۆر قالۆنچە",
+                video28Caption: "جیهانی بچوکی مێرووەکان",
+                video29Caption: "سەری مێرووەکان",
+                video30Caption: "کۆکردنەوەی مێروو لە ماڵەوە",
+                video31Caption: "10 ڕێگە بۆ کۆکردنەوەی مێروو",
+                video32Caption: "کام جۆری مێروو خێراترینە؟",
+                video33Caption: "جۆنیەتی پاراستنی مێروو",
                 tiktokTitle: "ڤیدیۆی تیک تۆک",
                 tiktokDesc: "کورتەڤیدیۆی سەرنجڕاکێش دەربارەی مێرووەکان",
                 tt1Caption: "پێناسەی ئێنتۆمۆلۆجی",
@@ -1239,6 +1557,27 @@ Chapter11 · HTML
                 video10Caption: "The Role of Insects in Forensic Science",
                 video11Caption: "How Can We Mummify a Butterfly?",
                 video12Caption: "The Circulatory System of Insects",
+                video13Caption: "The Lifestyle of the Ladybug",
+                video14Caption: "How Does a Caterpillar Become a Butterfly?",
+                video15Caption: "From Caterpillar to Butterfly",
+                video16Caption: "Getting to Know Many Insect Species",
+                video17Caption: "15 Facts About Ants",
+                video18Caption: "Unknown Facts About Ants",
+                video19Caption: "The Lifestyle of Ants",
+                video20Caption: "What is a Wasp?",
+                video21Caption: "Information About the Order Hymenoptera",
+                video22Caption: "What is a Hidden Wasp?",
+                video23Caption: "How Honey is Made",
+                video24Caption: "The Secret Life of Bees",
+                video25Caption: "Extracting Honey from Bees",
+                video26Caption: "100 Fascinating Insects",
+                video27Caption: "200 Types of Beetles",
+                video28Caption: "The Tiny World of Insects",
+                video29Caption: "The Heads of Insects",
+                video30Caption: "Collecting Insects at Home",
+                video31Caption: "10 Ways to Collect Insects",
+                video32Caption: "Which Insect is the Fastest?",
+                video33Caption: "How to Preserve Insects",
                 tiktokTitle: "TikTok Videos",
                 tiktokDesc: "Engaging short videos about insects",
                 tt1Caption: "Definition of Entomology",
@@ -1271,6 +1610,27 @@ Chapter11 · HTML
                 video10Caption: "دور الحشرات في علم الطب الشرعي",
                 video11Caption: "كيف يمكننا تحنيط الفراشة؟",
                 video12Caption: "الجهاز الدوري عند الحشرات",
+                video13Caption: "أسلوب حياة الدعسوقة",
+                video14Caption: "كيف تتحول اليرقة إلى فراشة؟",
+                video15Caption: "من اليرقة إلى الفراشة",
+                video16Caption: "التعرف على أنواع عديدة من الحشرات",
+                video17Caption: "15 حقيقة عن النمل",
+                video18Caption: "حقائق غير معروفة عن النمل",
+                video19Caption: "أسلوب حياة النمل",
+                video20Caption: "ما هو الدبور؟",
+                video21Caption: "معلومات عن رتبة غشائيات الأجنحة",
+                video22Caption: "ما هو الدبور المختبئ؟",
+                video23Caption: "كيف يُصنع العسل",
+                video24Caption: "الحياة السرية للنحل",
+                video25Caption: "استخراج العسل من النحل",
+                video26Caption: "100 حشرة مثيرة للاهتمام",
+                video27Caption: "200 نوع من الخنافس",
+                video28Caption: "عالم الحشرات الصغير",
+                video29Caption: "رؤوس الحشرات",
+                video30Caption: "جمع الحشرات في المنزل",
+                video31Caption: "10 طرق لجمع الحشرات",
+                video32Caption: "ما هي أسرع حشرة؟",
+                video33Caption: "كيفية حفظ الحشرات",
                 tiktokTitle: "فيديوهات تيك توك",
                 tiktokDesc: "فيديوهات قصيرة وممتعة عن الحشرات",
                 tt1Caption: "تعريف علم الحشرات",
@@ -1478,25 +1838,134 @@ Chapter11 · HTML
         const videoLightbox = document.getElementById('video-lightbox');
         const videoLightboxContent = document.querySelector('.video-lightbox-content');
         const videoLightboxPlayer = document.getElementById('video-lightbox-player');
+        const videoSpinner = document.getElementById('video-lightbox-spinner');
+        const customControls = document.getElementById('video-custom-controls');
+        const vcMuteBtn = document.getElementById('vc-mute-btn');
+        const vcVolumeSlider = document.getElementById('vc-volume-slider');
+        const vcSpeedSelect = document.getElementById('vc-speed-select');
+        const vcCopyBtn = document.getElementById('vc-copy-btn');
+        const vcToast = document.getElementById('vc-copied-toast');
  
-        function openVideoLightbox(videoId) {
-            videoLightboxContent.classList.remove('tiktok-mode');
-            // youtube-nocookie.com پەیوەندی خێراتری بارکردن دەدات
-            videoLightboxPlayer.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
-            videoLightbox.classList.add('active');
+        let ytApiReady = false;
+        let ytPlayer = null;
+        let pendingVideoId = null;
+        let currentVideoId = null;
+        let currentTiktokUrl = null;
+ 
+        window.onYouTubeIframeAPIReady = function() {
+            ytApiReady = true;
+            if (pendingVideoId) {
+                createYTPlayer(pendingVideoId);
+                pendingVideoId = null;
+            }
+        };
+ 
+        function createYTPlayer(videoId) {
+            const mount = document.createElement('div');
+            mount.id = 'yt-player-mount';
+            videoLightboxPlayer.insertBefore(mount, videoSpinner.nextSibling);
+            ytPlayer = new YT.Player('yt-player-mount', {
+                videoId: videoId,
+                host: 'https://www.youtube-nocookie.com',
+                playerVars: { autoplay: 1, rel: 0, modestbranding: 1, playsinline: 1, enablejsapi: 1 },
+                events: {
+                    onReady: (e) => {
+                        e.target.playVideo();
+                        vcVolumeSlider.value = 100;
+                        vcSpeedSelect.value = '1';
+                    },
+                    onStateChange: (e) => {
+                        if (e.data === YT.PlayerState.PLAYING) {
+                            videoSpinner.style.display = 'none';
+                        }
+                    }
+                }
+            });
         }
  
-        function openTiktokLightbox(embedId) {
+        function destroyYTPlayer() {
+            if (ytPlayer && ytPlayer.destroy) {
+                ytPlayer.destroy();
+            }
+            ytPlayer = null;
+            const oldMount = document.getElementById('yt-player-mount');
+            if (oldMount) oldMount.remove();
+        }
+ 
+        function openVideoLightbox(videoId) {
+            destroyYTPlayer();
+            videoLightboxContent.classList.remove('tiktok-mode');
+            videoSpinner.style.display = 'block';
+            currentVideoId = videoId;
+            currentTiktokUrl = null;
+            videoLightbox.classList.add('active');
+            if (ytApiReady) {
+                createYTPlayer(videoId);
+            } else {
+                pendingVideoId = videoId;
+            }
+        }
+ 
+        function openTiktokLightbox(embedId, tiktokUrl) {
+            destroyYTPlayer();
             videoLightboxContent.classList.add('tiktok-mode');
-            videoLightboxPlayer.innerHTML = `<iframe src="https://www.tiktok.com/embed/v2/${embedId}?autoplay=1" title="TikTok video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+            videoSpinner.style.display = 'block';
+            currentVideoId = null;
+            currentTiktokUrl = tiktokUrl;
+            const mount = document.createElement('div');
+            mount.id = 'yt-player-mount';
+            mount.innerHTML = `<iframe src="https://www.tiktok.com/embed/v2/${embedId}?autoplay=1" title="TikTok video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen onload="document.getElementById('video-lightbox-spinner').style.display='none';"></iframe>`;
+            videoLightboxPlayer.insertBefore(mount, videoSpinner.nextSibling);
             videoLightbox.classList.add('active');
         }
  
         function closeVideoLightbox() {
             videoLightbox.classList.remove('active');
-            videoLightboxPlayer.innerHTML = '';
+            destroyYTPlayer();
             videoLightboxContent.classList.remove('tiktok-mode');
+            videoSpinner.style.display = 'block';
+            currentVideoId = null;
+            currentTiktokUrl = null;
         }
+ 
+        // ================= کۆنترۆڵە تایبەتییەکان (دەنگ، خێرایی، کۆپیکردنی لینک) =================
+        vcMuteBtn.addEventListener('click', () => {
+            if (!ytPlayer || !ytPlayer.isMuted) return;
+            if (ytPlayer.isMuted()) {
+                ytPlayer.unMute();
+                vcMuteBtn.innerHTML = '<i class="ph ph-speaker-high"></i>';
+            } else {
+                ytPlayer.mute();
+                vcMuteBtn.innerHTML = '<i class="ph ph-speaker-x"></i>';
+            }
+        });
+ 
+        vcVolumeSlider.addEventListener('input', () => {
+            if (!ytPlayer || !ytPlayer.setVolume) return;
+            const val = parseInt(vcVolumeSlider.value, 10);
+            ytPlayer.setVolume(val);
+            if (val === 0) {
+                ytPlayer.mute();
+                vcMuteBtn.innerHTML = '<i class="ph ph-speaker-x"></i>';
+            } else if (ytPlayer.isMuted && ytPlayer.isMuted()) {
+                ytPlayer.unMute();
+                vcMuteBtn.innerHTML = '<i class="ph ph-speaker-high"></i>';
+            }
+        });
+ 
+        vcSpeedSelect.addEventListener('change', () => {
+            if (!ytPlayer || !ytPlayer.setPlaybackRate) return;
+            ytPlayer.setPlaybackRate(parseFloat(vcSpeedSelect.value));
+        });
+ 
+        vcCopyBtn.addEventListener('click', () => {
+            const url = currentTiktokUrl ? currentTiktokUrl : (currentVideoId ? `https://youtu.be/${currentVideoId}` : '');
+            if (!url) return;
+            navigator.clipboard.writeText(url).then(() => {
+                vcToast.classList.add('show');
+                setTimeout(() => vcToast.classList.remove('show'), 1800);
+            }).catch(() => {});
+        });
  
         document.querySelectorAll('.video-thumb-wrapper').forEach(wrapper => {
             wrapper.addEventListener('click', () => {
@@ -1512,13 +1981,13 @@ Chapter11 · HTML
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeVideoLightbox();
         });
-
+ 
         // ================= وێنەی ڕاستەقینەی تیک تۆک + کردنەوەی ناوەوەی ڤیدیۆکە =================
         document.querySelectorAll('.tiktok-card').forEach(card => {
             const tiktokUrl = card.getAttribute('href');
             const thumbBox = card.querySelector('.tiktok-card-thumb');
             const icon = thumbBox ? thumbBox.querySelector('.ph-tiktok-logo') : null;
-
+ 
             fetch(`https://www.tiktok.com/oembed?url=${encodeURIComponent(tiktokUrl)}`)
                 .then(res => res.ok ? res.json() : Promise.reject())
                 .then(data => {
@@ -1536,15 +2005,16 @@ Chapter11 · HTML
                     }
                 })
                 .catch(() => { /* شکستی هێنا، کارتەکە وەک خۆی بە لینکی دەرەوە دەمێنێتەوە */ });
-
+ 
             card.addEventListener('click', (e) => {
                 if (card.dataset.embedId) {
                     e.preventDefault();
-                    openTiktokLightbox(card.dataset.embedId);
+                    openTiktokLightbox(card.dataset.embedId, tiktokUrl);
                 }
                 // ئەگەر embedId نەدۆزرایەوە، کارتەکە وەک لینکی ئاسایی دەکرێتەوە لە تابێکی نوێدا
             });
         });
-    </script>
+    
+</script>
 </body>
 </html>
