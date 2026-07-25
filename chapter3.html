@@ -856,7 +856,7 @@
         /* دوگمەی گەڕانەوە بۆ سەرەوە */
         .scroll-to-top-btn {
             position: fixed;
-            bottom: 24px;
+            bottom: 90px;
             left: 24px;
             width: 46px;
             height: 46px;
@@ -890,7 +890,7 @@
 
         @media (max-width: 600px) {
             .site-footer-bionova { flex-direction: column; padding: 10px 16px; }
-            .scroll-to-top-btn { width: 40px; height: 40px; font-size: 17px; bottom: 16px; left: 16px; }
+            .scroll-to-top-btn { width: 40px; height: 40px; font-size: 17px; bottom: 78px; left: 16px; }
         }
 
         /* ==========================================================================
@@ -1426,7 +1426,7 @@
                 <h2 class="info-title" data-i18n="divCardTitle">ژمارە و جۆراوجۆری مێرووەکان</h2>
             </div>
             <p class="info-text" data-i18n="divCardDesc">مێرووەکان گەورەترین و فراوانترین پۆلی گیاندارانی سەر زەوین. لە هەموو کیشوەرەکان و زۆربەی ژینگەکان، وەک دارستان، کێڵگە، بیابان، چیا، ئاوی شیرین و شارەکان دەژین.</p>
-            <div class="insect-grid-layout">
+            <div class="insect-grid-layout" style="align-items: start;">
                 <div class="insect-features-side">
                     <div class="grid-item feature-box compact-part-box" style="margin-bottom: 9px;">
                         <i class="ph ph-hash thorax-part-icon"></i>
@@ -1466,7 +1466,7 @@
                         </li>
                     </ul>
                 </div>
-                <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div style="display: flex; flex-direction: column; gap: 14px; max-width: 260px; margin: 0 auto;">
                 <div class="insect-image-wrapper">
                     <img src="num1.png" alt="Number of Insects" class="insect-img-file" loading="lazy" decoding="async">
                 </div>
@@ -1500,9 +1500,9 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <i class="ph ph-broadcast"></i>
+                    <i class="ph ph-waveform"></i>
                     <div>
-                        <div class="grid-title" data-i18n="gen3T">جووتێک شاخۆڵەی مێروو./div>
+                        <div class="grid-title" data-i18n="gen3T">جووتێک شاخۆڵەی مێروو.</div>
                         <div class="grid-desc" data-i18n="gen3D">بۆ بۆنکردن، هەستکردن و ناسیینەوە بەکاریدێنن.</div>
                     </div>
                 </div>
@@ -1514,7 +1514,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <i class="ph ph-wind"></i>
+                    <i class="ph ph-butterfly"></i>
                     <div>
                         <div class="grid-title" data-i18n="gen5T">باڵ</div>
                         <div class="grid-desc" data-i18n="gen5D">زۆربەی مێرووە پێگەیشتووەکان دوو جووت باڵ (٤ باڵ) هەیانە، هەندێکیان یەک جووت یان بێ باڵن.</div>
@@ -1528,7 +1528,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <i class="ph ph-arrows-clockwise"></i>
+                    <i class="ph ph-circle-dashed"></i>
                     <div>
                         <div class="grid-title" data-i18n="gen7T">پێستگۆڕین (Molting)</div>
                         <div class="grid-desc" data-i18n="gen7D">بۆ گەشەکردن، ناچارە چەند جار پێستیان بگۆڕن (Ecdysis).</div>
@@ -1823,14 +1823,14 @@
             </p>
 
             <div class="morphology-grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px;">
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 14px; border-radius: 16px; display: flex; flex-direction: column; justify-content: space-between; gap: 10px;">
                     <div>
-                        <h3 class="features-title" id="m-chewing-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;">دەمی جووین (Chewing Mouthparts)</h3>
-                        <p class="info-text" id="m-chewing-desc" style="font-size: 14px; line-height: 1.6; min-height: 90px; text-align: justify;">
+                        <h3 class="features-title" id="m-chewing-title" style="margin-bottom: 6px; border-bottom: 1px solid var(--card-border); padding-bottom: 4px; font-size: 15px;">دەمی جووین (Chewing Mouthparts)</h3>
+                        <p class="info-text" id="m-chewing-desc" style="font-size: 12.5px; line-height: 1.5; min-height: 60px; text-align: justify;">
                             دەمی جووین بنەڕەتیترین شێوازی دەمە لە مێرووەکاندا. بۆ پارچەپارچەکردن، وردکردن و جووینی خۆراکی ڕەق بەکاردێت. خاوەنی شەویلگەی زۆر بەهێزن بە ناوی (Mandibles).
                         </p>
                         
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                        <div class="grid-item" style="margin-bottom: 6px; padding: 7px; background: rgba(139, 69, 19, 0.03);">
                             <i class="ph ph-bug" style="font-size: 18px;"></i>
                             <div>
                                 <div class="grid-title" id="m-chewing-ex-title" style="font-size: 13px;">نموونە (Example)</div>
@@ -1838,7 +1838,7 @@
                             </div>
                         </div>
 
-                        <div class="grid-item" style="padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                        <div class="grid-item" style="padding: 7px; background: rgba(139, 69, 19, 0.03);">
                             <i class="ph ph-gear" style="font-size: 18px;"></i>
                             <div>
                                 <div class="grid-title" id="m-chewing-fun-title" style="font-size: 13px;">ئەرک (Function)</div>
@@ -1847,20 +1847,20 @@
                         </div>
                     </div>
                     
-                    <div class="insect-image-wrapper">
+                    <div class="insect-image-wrapper" style="max-width: 200px; margin: 0 auto;">
                         <img src="mouth2.png" alt="Chewing Mouthparts" class="insect-img-file" loading="lazy" decoding="async">
                     </div>
                 </div>
 
                 <!-- ٢. دەمی دڕاندن و مژین (Piercing–Sucking) -->
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 14px; border-radius: 16px; display: flex; flex-direction: column; justify-content: space-between; gap: 10px;">
                     <div>
-                        <h3 class="features-title" id="m-piercing-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;">دەمی دڕاندن و مژین (Piercing–Sucking)</h3>
-                        <p class="info-text" id="m-piercing-desc" style="font-size: 14px; line-height: 1.6; min-height: 90px; text-align: justify;">
+                        <h3 class="features-title" id="m-piercing-title" style="margin-bottom: 6px; border-bottom: 1px solid var(--card-border); padding-bottom: 4px; font-size: 15px;">دەمی دڕاندن و مژین (Piercing–Sucking)</h3>
+                        <p class="info-text" id="m-piercing-desc" style="font-size: 12.5px; line-height: 1.5; min-height: 60px; text-align: justify;">
                             بۆ کونکردنی پێستی ئاژەڵان یان شانەی ڕووەکەکان گۆڕاوە. پێکهاتەی دەمەکەیان وەک دەرزییەکی تیژی باریک وایە کە پێی دەوترێت (Proboscis).
                         </p>
                         
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                        <div class="grid-item" style="margin-bottom: 6px; padding: 7px; background: rgba(139, 69, 19, 0.03);">
                             <i class="ph ph-drop" style="font-size: 18px;"></i>
                             <div>
                                 <div class="grid-title" id="m-piercing-ex-title" style="font-size: 13px;">نموونە (Example)</div>
@@ -1868,7 +1868,7 @@
                             </div>
                         </div>
 
-                        <div class="grid-item" style="padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                        <div class="grid-item" style="padding: 7px; background: rgba(139, 69, 19, 0.03);">
                             <i class="ph ph-gear" style="font-size: 18px;"></i>
                             <div>
                                 <div class="grid-title" id="m-piercing-fun-title" style="font-size: 13px;">ئەرک (Function)</div>
@@ -1877,20 +1877,20 @@
                         </div>
                     </div>
                     
-                    <div class="insect-image-wrapper">
+                    <div class="insect-image-wrapper" style="max-width: 200px; margin: 0 auto;">
                         <img src="Mouth3.jpg" alt="Piercing Sucking Mouthparts" class="insect-img-file" loading="lazy" decoding="async">
                     </div>
                 </div>
 
                 <!-- ٣. دەمی مژینی شلە (Siphoning) -->
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 14px; border-radius: 16px; display: flex; flex-direction: column; justify-content: space-between; gap: 10px;">
                     <div>
-                        <h3 class="features-title" id="m-siphoning-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;">دەمی مژینی شلە (Siphoning)</h3>
-                        <p class="info-text" id="m-siphoning-desc" style="font-size: 14px; line-height: 1.6; min-height: 90px; text-align: justify;">
+                        <h3 class="features-title" id="m-siphoning-title" style="margin-bottom: 6px; border-bottom: 1px solid var(--card-border); padding-bottom: 4px; font-size: 15px;">دەمی مژینی شلە (Siphoning)</h3>
+                        <p class="info-text" id="m-siphoning-desc" style="font-size: 12.5px; line-height: 1.5; min-height: 60px; text-align: justify;">
                             تایبەتە بە مژینی شلەی گوڵەکان. مێرووەکە خاوەنی بۆرییەکی درێژی لوولەکۆییە کە لە کاتی پشوو و نەخواردندا لە ژێر سەریدا پێچدەخوات. توانای بڕینی نییە.
                         </p>
                         
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                        <div class="grid-item" style="margin-bottom: 6px; padding: 7px; background: rgba(139, 69, 19, 0.03);">
                             <i class="ph ph-flower" style="font-size: 18px;"></i>
                             <div>
                                 <div class="grid-title" id="m-siphoning-ex-title" style="font-size: 13px;">نموونە (Example)</div>
@@ -1898,7 +1898,7 @@
                             </div>
                         </div>
 
-                        <div class="grid-item" style="padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                        <div class="grid-item" style="padding: 7px; background: rgba(139, 69, 19, 0.03);">
                             <i class="ph ph-gear" style="font-size: 18px;"></i>
                             <div>
                                 <div class="grid-title" id="m-siphoning-fun-title" style="font-size: 13px;">ئەرک (Function)</div>
@@ -1907,20 +1907,20 @@
                         </div>
                     </div>
                     
-                    <div class="insect-image-wrapper">
+                    <div class="insect-image-wrapper" style="max-width: 200px; margin: 0 auto;">
                         <img src="mouth4.png" alt="Siphoning Mouthparts" class="insect-img-file" loading="lazy" decoding="async">
                     </div>
                 </div>
 
                 <!-- ٤. دەمی ئیسفەنجی (Sponging) -->
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 14px; border-radius: 16px; display: flex; flex-direction: column; justify-content: space-between; gap: 10px;">
                     <div>
-                        <h3 class="features-title" id="m-sponging-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;">دەمی ئیسفەنجی (Sponging)</h3>
-                        <p class="info-text" id="m-sponging-desc" style="font-size: 14px; line-height: 1.6; min-height: 90px; text-align: justify;">
+                        <h3 class="features-title" id="m-sponging-title" style="margin-bottom: 6px; border-bottom: 1px solid var(--card-border); padding-bottom: 4px; font-size: 15px;">دەمی ئیسفەنجی (Sponging)</h3>
+                        <p class="info-text" id="m-sponging-desc" style="font-size: 12.5px; line-height: 1.5; min-height: 60px; text-align: justify;">
                             بۆ مژینی خۆراکی شل یان نیوەشل گۆڕاوە. سەرەتا لیکی تایبەت دەڕژێنێتە سەر خۆراکە ڕەقەکە تا دەتوێتەوە، پاشان لە ڕێی پێکهاتەیەکی نەرمەوە (Labellum) دەیمژێت.
                         </p>
                         
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                        <div class="grid-item" style="margin-bottom: 6px; padding: 7px; background: rgba(139, 69, 19, 0.03);">
                             <i class="ph ph-house-line" style="font-size: 18px;"></i>
                             <div>
                                 <div class="grid-title" id="m-sponging-ex-title" style="font-size: 13px;">نموونە (Example)</div>
@@ -1928,7 +1928,7 @@
                             </div>
                         </div>
 
-                        <div class="grid-item" style="padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                        <div class="grid-item" style="padding: 7px; background: rgba(139, 69, 19, 0.03);">
                             <i class="ph ph-gear" style="font-size: 18px;"></i>
                             <div>
                                 <div class="grid-title" id="m-sponging-fun-title" style="font-size: 13px;">ئەرک (Function)</div>
@@ -1937,7 +1937,7 @@
                         </div>
                     </div>
                     
-                    <div class="insect-image-wrapper">
+                    <div class="insect-image-wrapper" style="max-width: 200px; margin: 0 auto;">
                         <img src="mouth5.png" alt="Sponging Mouthparts" class="insect-img-file" loading="lazy" decoding="async">
                     </div>
                 </div>
@@ -1953,18 +1953,18 @@
             </div>
             <p class="info-text" data-i18n="eyesCardDesc">چاو (Eye) یەکێکە لە گرنگترین ئەندامە هەستکردنەکانی مێرووەکان کە لە سەر (Head) هەڵکەوتووە. چاو یارمەتی مێروو دەدات ڕووناکی، جوڵە، ڕەنگ و دەوروبەری خۆی بناسێت. زۆربەی مێرووەکان دوو جۆر چاو هەیانە: چاوی هەڵبەستراو بۆ بینین، و چاوی سادە بۆ هەستکردن بە ڕووناکی.</p>
             <div class="morphology-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 14px; border-radius: 16px; display: flex; flex-direction: column; justify-content: space-between; gap: 10px;">
                     <div>
-                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="eyeCompT">چاوە هەڵبەستراوەکان (Compound Eyes)</h3>
-                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="eyeCompD">لە هەزاران یەکەی بچووک پێکدێن کە پێیان دەوترێت Ommatidia. دوو چاو لە دوو لای سەر هەیە، باشترین چاوە بۆ هەستکردن بە جوڵە، و هەندێک مێروو توانای بینینی تیشکی UV یان هەیە.</p>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                        <h3 class="features-title" style="margin-bottom: 6px; border-bottom: 1px solid var(--card-border); padding-bottom: 4px; font-size: 15px;" data-i18n="eyeCompT">چاوە هەڵبەستراوەکان (Compound Eyes)</h3>
+                        <p class="info-text" style="font-size: 12.5px; line-height: 1.5; min-height: 50px; text-align: justify;" data-i18n="eyeCompD">لە هەزاران یەکەی بچووک پێکدێن کە پێیان دەوترێت Ommatidia. دوو چاو لە دوو لای سەر هەیە، باشترین چاوە بۆ هەستکردن بە جوڵە، و هەندێک مێروو توانای بینینی تیشکی UV یان هەیە.</p>
+                        <div class="grid-item" style="margin-bottom: 6px; padding: 7px; background: rgba(139, 69, 19, 0.03);">
                             <i class="ph ph-gear" style="font-size: 18px;"></i>
                             <div>
                                 <div class="grid-title" style="font-size: 13px;" data-i18n="functionLabel">ئەرک (Function)</div>
                                 <div class="grid-desc" style="font-size: 12px;" data-i18n="eyeCompFun">بینین، ناسینەوەی جوڵە، دۆزینەوەی خواردن، هەڵهاتن لە دوژمن.</div>
                             </div>
                         </div>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                        <div class="grid-item" style="margin-bottom: 6px; padding: 7px; background: rgba(139, 69, 19, 0.03);">
                             <i class="ph ph-tag" style="font-size: 18px;"></i>
                             <div>
                                 <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
@@ -1972,22 +1972,22 @@
                             </div>
                         </div>
                     </div>
-                    <div class="insect-image-wrapper">
+                    <div class="insect-image-wrapper" style="max-width: 220px; margin: 0 auto;">
                         <img src="eye2.jpg" alt="چاوە هەڵبەستراوەکان (Compound Eyes)" class="insect-img-file" loading="lazy" decoding="async">
                     </div>
                 </div>
-                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
+                <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 14px; border-radius: 16px; display: flex; flex-direction: column; justify-content: space-between; gap: 10px;">
                     <div>
-                        <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="eyeSimpT">چاوە سادەکان (Simple Eyes / Ocelli)</h3>
-                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="eyeSimpD">چاوگەلێکی بچووکن کە لە سەرەوەی سەری مێروو هەڵکەوتوون، زۆرجار سێ چاون، وێنەی تەواو دروست ناکەن، تەنها ڕووناکی و تاریکی هەست پێدەکەن.</p>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                        <h3 class="features-title" style="margin-bottom: 6px; border-bottom: 1px solid var(--card-border); padding-bottom: 4px; font-size: 15px;" data-i18n="eyeSimpT">چاوە سادەکان (Simple Eyes / Ocelli)</h3>
+                        <p class="info-text" style="font-size: 12.5px; line-height: 1.5; min-height: 50px; text-align: justify;" data-i18n="eyeSimpD">چاوگەلێکی بچووکن کە لە سەرەوەی سەری مێروو هەڵکەوتوون، زۆرجار سێ چاون، وێنەی تەواو دروست ناکەن، تەنها ڕووناکی و تاریکی هەست پێدەکەن.</p>
+                        <div class="grid-item" style="margin-bottom: 6px; padding: 7px; background: rgba(139, 69, 19, 0.03);">
                             <i class="ph ph-gear" style="font-size: 18px;"></i>
                             <div>
                                 <div class="grid-title" style="font-size: 13px;" data-i18n="functionLabel">ئەرک (Function)</div>
                                 <div class="grid-desc" style="font-size: 12px;" data-i18n="eyeSimpFun">هەستکردن بە ڕووناکی، پاراستنی هاوسەنگی لە کاتی فڕین، یارمەتیدانی چاوە هەڵبەستراوەکان.</div>
                             </div>
                         </div>
-                        <div class="grid-item" style="margin-bottom: 8px; padding: 10px; background: rgba(139, 69, 19, 0.03);">
+                        <div class="grid-item" style="margin-bottom: 6px; padding: 7px; background: rgba(139, 69, 19, 0.03);">
                             <i class="ph ph-tag" style="font-size: 18px;"></i>
                             <div>
                                 <div class="grid-title" style="font-size: 13px;" data-i18n="exampleLabel">نموونە (Example)</div>
@@ -1995,7 +1995,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="insect-image-wrapper">
+                    <div class="insect-image-wrapper" style="max-width: 220px; margin: 0 auto;">
                         <img src="Eye1.png" alt="چاوە سادەکان (Simple Eyes / Ocelli)" class="insect-img-file" loading="lazy" decoding="async">
                     </div>
                 </div>
