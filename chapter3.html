@@ -1053,6 +1053,22 @@
             }
         }
 
+        .mtypes-4col {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @media (max-width: 992px) {
+            .mtypes-4col {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mtypes-4col {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* ==========================================================================
            8. ستایلی Lightbox Modal (پەنجەرەی گەورەکردنی وێنە)
            ========================================================================== */
@@ -1486,7 +1502,7 @@
             <p class="info-text" data-i18n="genCardDesc">مێرووەکان گەورەترین پۆلی گیاندارانن، سەر بە شانشینی جومگەپێیەکان و پۆلی مێرووەکانن. هەموویان هاوبەشن لە چەندین تایبەتمەندی بنەڕەتیدا.</p>
             <div class="morphology-grid">
                 <div class="grid-item">
-                    <i class="ph ph-selection-all"></i>
+                    <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f997.svg" class="emoji-icon-img" alt="🦗">
                     <div>
                         <div class="grid-title" data-i18n="gen1T">جەستەیان سێ بەشە</div>
                         <div class="grid-desc" data-i18n="gen1D">سەر، سنگ و سک.</div>
@@ -1500,7 +1516,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <i class="ph ph-waveform"></i>
+                    <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f41c.svg" class="emoji-icon-img" alt="🐜">
                     <div>
                         <div class="grid-title" data-i18n="gen3T">جووتێک شاخۆڵەی مێروو.</div>
                         <div class="grid-desc" data-i18n="gen3D">بۆ بۆنکردن، هەستکردن و ناسیینەوە بەکاریدێنن.</div>
@@ -1535,7 +1551,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <i class="ph ph-lungs"></i>
+                    <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1fac1.svg" class="emoji-icon-img" alt="🫁">
                     <div>
                         <div class="grid-title" data-i18n="gen8T">هەناسەدان</div>
                         <div class="grid-desc" data-i18n="gen8D">لە ڕێگەی کونە هەواکان و بۆریچکەکانی هەواوە هەناسە دەدەن، سییەکانیان نییە.</div>
@@ -1549,7 +1565,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <i class="ph ph-butterfly"></i>
+                    <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f41e.svg" class="emoji-icon-img" alt="🐞">
                     <div>
                         <div class="grid-title" data-i18n="gen10T">گەشە و گۆڕانکاری</div>
                         <div class="grid-desc" data-i18n="gen10D">زۆربەیان لە کاتی گەشەکردندا گۆڕانکاری (تەواو یان بەشەکی) بەسەردا دێن، بە جۆرەکانی: بێ گۆڕانکاری، گۆڕانکاریی نا تەواو، و گۆڕانکاریی تەواو.</div>
@@ -1738,7 +1754,7 @@
                     <div class="grid-item feature-box antenna-part-box">
                         <div>
                             <div class="grid-title" id="flagellum-t">(Flagellum)</div>
-                            <div class="grid-desc" id="flagellum-d">درێژترین بەشی ئەنتێنەیە و لە چەندینamp  پارچەی بچووک (Flagellomeres) پێکدێت. زۆربەی خانە هەستیarەکان (Sensilla) لەم بەشەدان و بۆ ناسینەوەی بۆن و ماددە کیمیاییەکان بەکاردێن.</div>
+                            <div class="grid-desc" id="flagellum-d">درێژترین بەشی شاخۆڵەیە و لە چەندین پارچەی بچووک پێکدێت. زۆربەی خانە هەستیارەکان لەم بەشەدان و بۆ ناسینەوەی بۆن و ماددە کیمیاییەکان بەکاردێن.</div>
                         </div>
                     </div>
                 </div>
@@ -1805,7 +1821,7 @@
                     </div>
                 </div>
                 
-                <div class="insect-image-wrapper">
+                <div class="insect-image-wrapper" style="aspect-ratio: 3 / 4;">
                     <img src="mouth1.jpg" alt="Mouthparts Structure" class="insect-img-file" loading="lazy" decoding="async">
                 </div>
             </div>
@@ -1822,7 +1838,7 @@
                 دەمی مێرووەکان بەپێی شێوازی ژیان و جۆری خۆراکیان بە چەندین شێوازی جیاواز و تایبەت گۆڕانیان بەسەردا هاتووە تا بتوانن سوود لە سەرچاوە خۆراکییە جیاوازەکان وەربگرن.
             </p>
 
-            <div class="morphology-grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px;">
+            <div class="morphology-grid mtypes-4col" style="gap: 16px;">
                 <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 14px; border-radius: 16px; display: flex; flex-direction: column; justify-content: space-between; gap: 10px;">
                     <div>
                         <h3 class="features-title" id="m-chewing-title" style="margin-bottom: 6px; border-bottom: 1px solid var(--card-border); padding-bottom: 4px; font-size: 15px;">دەمی جووین (Chewing Mouthparts)</h3>
