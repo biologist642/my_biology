@@ -294,13 +294,17 @@
             overflow: hidden;
             scroll-margin-top: 100px;
             opacity: 0;
-            transform: translateY(40px);
-            animation: cardSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease; 
+            transform: translateY(36px) scale(0.985);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+        }
+
+        .info-card.in-view {
+            opacity: 1;
+            transform: translateY(0) scale(1);
         }
 
         .info-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-8px) scale(1.006);
             box-shadow: 0 20px 40px rgba(139, 69, 19, 0.15);
         }
 
@@ -981,43 +985,56 @@
             box-shadow: 0 8px 20px rgba(139, 69, 19, 0.08);
         }
 
+        .insect-image-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(20, 12, 6, 0.45) 0%, rgba(20, 12, 6, 0) 45%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+            border-radius: 12px;
+        }
+
+        .insect-image-wrapper:hover::before {
+            opacity: 1;
+        }
+
         .insect-image-wrapper::after {
-            content: 'کلیک بکە بۆ گەورەکردن و دابەزاندنی وێنەکە';
+            content: 'کلیک بکە بۆ گەورەکردن';
             font-family: 'Noto Kufi Arabic', sans-serif;
-            font-size: 10.5px;
-            font-weight: 600;
-            letter-spacing: 0.2px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.15px;
             position: absolute;
             bottom: 10px;
             left: 50%;
-            transform: translate(-50%, 6px);
-            background: rgba(139, 69, 19, 0.9);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
+            transform: translate(-50%, 4px);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
             color: #ffffff;
-            padding: 5px 14px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
             white-space: nowrap;
             opacity: 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
             transition: opacity 0.3s ease, transform 0.3s ease;
             pointer-events: none;
             z-index: 2;
         }
 
         .insect-image-wrapper:hover::after {
-            opacity: 1;
+            opacity: 0.95;
             transform: translate(-50%, 0);
         }
 
         html[dir="ltr"] .insect-image-wrapper::after {
-            content: 'Click to enlarge & download the image';
+            content: 'Click to enlarge';
             font-family: 'Poppins', sans-serif;
         }
 
         html[lang="ar"] .insect-image-wrapper::after {
-            content: 'اضغط للتكبير وتنزيل الصورة';
+            content: 'اضغط للتكبير';
         }
 
         .insect-img-file {
@@ -1153,6 +1170,90 @@
         .modal-download-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(139, 69, 19, 0.6);
+        }
+
+        /* بۆکسی وێنە لەناو مۆدال + هەڵبژاردنی بڕین */
+        .modal-image-stage {
+            position: relative;
+            display: inline-flex;
+            max-width: 100%;
+            max-height: 70vh;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .modal-image-stage.crop-mode {
+            cursor: crosshair;
+        }
+
+        .crop-selection-box {
+            position: absolute;
+            border: 2px dashed #ffffff;
+            background: rgba(139, 69, 19, 0.2);
+            box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0.45);
+            pointer-events: none;
+        }
+
+        .crop-hint-text {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 20px;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .modal-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .modal-tool-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 9px 18px;
+            border-radius: 30px;
+            font-size: 13.5px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal-tool-btn:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .modal-tool-btn.active {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .modal-save-btn {
+            border: none;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .modal-toolbar { gap: 8px; }
+            .modal-tool-btn, .modal-download-btn { padding: 8px 14px; font-size: 12.5px; }
         }
 
         /* ==========================================================================
@@ -3189,21 +3290,21 @@
                 <div class="grid-item">
                     <i class="ph ph-square"></i>
                     <div>
-                        <div class="grid-title" data-i18n="tool5T">Beating Sheet</div>
+                        <div class="grid-title" data-i18n="tool5T">پەڕەی لێدان</div>
                         <div class="grid-desc" data-i18n="tool5D">پارچەیەکی سپی کە لە ژێر لقەکان دادەنرێت بۆ کۆکردنەوەی مێرووەکان.</div>
                     </div>
                 </div>
                 <div class="grid-item">
                     <i class="ph ph-circle-dashed"></i>
                     <div>
-                        <div class="grid-title" data-i18n="tool6T">Pitfall Trap</div>
+                        <div class="grid-title" data-i18n="tool6T">تەڵەی چاڵاوی</div>
                         <div class="grid-desc" data-i18n="tool6D">داوی ناو زەوی بۆ گرتنی مێرووەکانی سەر زەوی.</div>
                     </div>
                 </div>
                 <div class="grid-item">
                     <i class="ph ph-lightbulb"></i>
                     <div>
-                        <div class="grid-title" data-i18n="tool7T">Light Trap</div>
+                        <div class="grid-title" data-i18n="tool7T">تەڵەی ڕووناکی</div>
                         <div class="grid-desc" data-i18n="tool7D">داوی ڕووناکی بۆ کۆکردنەوەی مێرووە شەوانەکان.</div>
                     </div>
                 </div>
@@ -3216,40 +3317,40 @@
                     <img src="col2.png" alt="Insect Collection Tools 2" class="insect-img-file" loading="lazy" decoding="async">
                 </div>
                 </div>
-            <h3 class="features-title" style="margin-top: 20px;" data-i18n="methodsTitle">ڕێگاکانی کۆکردنەوە (Methods of Collecting)</h3>
+            <h3 class="features-title" style="margin-top: 20px;" data-i18n="methodsTitle">ڕێگاکانی کۆکردنەوە</h3>
             <div class="morphology-grid">
                 <div class="grid-item">
                     <i class="ph ph-butterfly"></i>
                     <div>
-                        <div class="grid-title" data-i18n="meth1T">Sweep Netting</div>
+                        <div class="grid-title" data-i18n="meth1T">تۆڕی ڕادان / پەڕینەوە</div>
                         <div class="grid-desc" data-i18n="meth1D">ڕاکێشانی تۆڕ بەسەر گیا و کیڵگە.</div>
                     </div>
                 </div>
                 <div class="grid-item">
                     <i class="ph ph-hand"></i>
                     <div>
-                        <div class="grid-title" data-i18n="meth2T">Hand Collecting</div>
+                        <div class="grid-title" data-i18n="meth2T">کۆکردنەوە بە دەست</div>
                         <div class="grid-desc" data-i18n="meth2D">گرتنی مێروو بە دەست.</div>
                     </div>
                 </div>
                 <div class="grid-item">
                     <i class="ph ph-lightbulb"></i>
                     <div>
-                        <div class="grid-title" data-i18n="meth3T">Light Trap</div>
+                        <div class="grid-title" data-i18n="meth3T">تەڵەی ڕووناکی</div>
                         <div class="grid-desc" data-i18n="meth3D">بەکارهێنانی ڕووناکی لە شەودا.</div>
                     </div>
                 </div>
                 <div class="grid-item">
                     <i class="ph ph-circle-dashed"></i>
                     <div>
-                        <div class="grid-title" data-i18n="meth4T">Pitfall Trap</div>
+                        <div class="grid-title" data-i18n="meth4T">تەڵەی چاڵاوی</div>
                         <div class="grid-desc" data-i18n="meth4D">دانانی داو لە ناو خاک بۆ مێرووەکانی سەر زەوی.</div>
                     </div>
                 </div>
                 <div class="grid-item">
                     <i class="ph ph-tree"></i>
                     <div>
-                        <div class="grid-title" data-i18n="meth5T">Beating Method</div>
+                        <div class="grid-title" data-i18n="meth5T">پەڕەی لێدان</div>
                         <div class="grid-desc" data-i18n="meth5D">لێدانی لقەکان بۆ ئەوەی مێرووەکان بکەونە سەر پارچەکە.</div>
                     </div>
                 </div>
@@ -3269,12 +3370,12 @@
                     <img src="col4.png" alt="Collection Methods 2" class="insect-img-file" loading="lazy" decoding="async">
                 </div>
                 </div>
-            <h3 class="features-title" style="margin-top: 20px;" data-i18n="presTitle">پاراستنی مێرووەکان (Preservation)</h3>
+            <h3 class="features-title" style="margin-top: 20px;" data-i18n="presTitle">پاراستنی مێرووەکان</h3>
             <div class="morphology-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
                 <div style="background: rgba(139, 69, 19, 0.02); border: 1.5px solid var(--card-border); padding: 20px; border-radius: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;">
                     <div>
                         <h3 class="features-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;" data-i18n="pres1T">مێرووە ڕەقەکان</h3>
-                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="pres1D">بە Entomological Pins لەسەر پین دەکرێن و لە سندوقی تایبەتی مێروو (Insect Box) پارێزراون.</p>
+                        <p class="info-text" style="font-size: 14px; line-height: 1.6; min-height: 70px; text-align: justify;" data-i18n="pres1D">مێرووە ووشککراوەکان بەکارهێنانی دەرزی تایبەتی مێرووناسی لە شوێنی دیاریکراوی جەستەیان دەپێنرێن و لە ناو سندوقی تایبەتی هەڵگرتنی مێروودا لەگەڵ کارتۆنی ناونانی زانیارییەکاندا دەپارێزرێن</p>
                     </div>
                     <div class="insect-image-wrapper">
                         <img src="col6.png" alt="مێرووە ڕەقەکان" class="insect-img-file" loading="lazy" decoding="async">
@@ -3290,7 +3391,7 @@
                     </div>
                 </div>
             </div>
-            <h3 class="features-title" style="margin-top: 20px;" data-i18n="buildTitle">دروستکردنی کۆمەڵە (Building a Collection)</h3>
+            <h3 class="features-title" style="margin-top: 20px;" data-i18n="buildTitle">دروستکردنی کۆمەڵە</h3>
             <div class="insect-grid-layout">
                 <div class="insect-features-side">
                     <h3 class="features-title" data-i18n="buildStepsTitle">هەنگاوەکان</h3>
@@ -3309,7 +3410,7 @@
                         </li>
                         <li class="func-chip" style="animation-delay: 0.4s;">
                             <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
-                            <span data-i18n="build4">نووسینی لیبڵ (Label): شوێنی کۆکردنەوە، بەروار، ناوی کۆکەرەوە، ناوی مێروو.</span>
+                            <span data-i18n="build4">نووسینی لیبڵ: شوێنی کۆکردنەوە، بەروار، ناوی کۆکەرەوە، ناوی مێروو.</span>
                         </li>
                         <li class="func-chip" style="animation-delay: 0.5s;">
                             <span class="func-chip-icon"><i class="ph ph-check-bold"></i></span>
@@ -3344,11 +3445,11 @@
             </div>
         </div>
 
-        <!-- ================= سەرچاوەکان (References) ================= -->
+        <!-- ================= سەرچاوەکان ================= -->
         <div class="info-card" style="animation-delay: 5.4s;">
             <div class="info-header">
                 <i class="ph ph-books"></i>
-                <h2 class="info-title" data-i18n="refCardTitle">سەرچاوەکان (References)</h2>
+                <h2 class="info-title" data-i18n="refCardTitle">سەرچاوەکان</h2>
             </div>
             <p class="info-text" data-i18n="refCardDesc">لیستی سەرچاوە سەرەکییەکانی ئەم چاپتەرە، بۆ کەسانێک کە دەیانەوێت زیاتر بخوێننەوە.</p>
             <h3 class="features-title" data-i18n="refBooksTitle">کتێبە سەرەکییەکان</h3>
@@ -3421,10 +3522,28 @@
     <div id="image-modal" class="modal-overlay">
         <div class="modal-content">
             <button class="modal-close-btn" id="modal-close">&times;</button>
-            <img id="modal-img" src="" alt="Enlarged Image">
-            <a id="modal-download-btn" class="modal-download-btn" href="" download="image.png">
-                <i class="ph ph-download-simple"></i> <span id="download-btn-text">دابەزاندن</span>
-            </a>
+            <div class="modal-image-stage" id="modal-image-stage">
+                <img id="modal-img" src="" alt="Enlarged Image">
+                <div class="crop-selection-box" id="crop-selection-box" hidden></div>
+                <span class="crop-hint-text" id="crop-hint-text" data-i18n="modalCropActiveText" hidden>Drag a box over the image</span>
+            </div>
+            <div class="modal-toolbar">
+                <button type="button" class="modal-tool-btn" id="modal-rotate-btn" title="Rotate">
+                    <i class="ph ph-arrow-clockwise"></i> <span data-i18n="modalRotateText">سوڕاندن</span>
+                </button>
+                <button type="button" class="modal-tool-btn" id="modal-crop-btn" title="Crop">
+                    <i class="ph ph-crop"></i> <span data-i18n="modalCropText">بڕین</span>
+                </button>
+                <button type="button" class="modal-tool-btn" id="modal-reset-btn" title="Reset">
+                    <i class="ph ph-arrow-counter-clockwise"></i> <span data-i18n="modalResetText">ڕێکخستنەوە</span>
+                </button>
+                <a id="modal-download-btn" class="modal-download-btn" href="" download="image.png">
+                    <i class="ph ph-download-simple"></i> <span id="download-btn-text">دابەزاندن</span>
+                </a>
+                <button type="button" class="modal-download-btn modal-save-btn" id="modal-save-btn">
+                    <i class="ph ph-floppy-disk"></i> <span data-i18n="modalSaveText">پاشەکەوتکردن</span>
+                </button>
+            </div>
         </div>
     </div>
 
@@ -3456,6 +3575,11 @@
                 featureT1: "جەستەی سێ بەشی",
                 featureD1: "پێکهاتووە لە سەر (Head)، سنگ، و سک (Abdomen).",
                 downloadText: "دابەزاندن",
+                modalRotateText: "سوڕاندن",
+                modalCropText: "بڕین",
+                modalCropActiveText: "بۆکسێک لەسەر وێنەکە ڕابکێشە",
+                modalResetText: "ڕێکخستنەوە",
+                modalSaveText: "پاشەکەوتکردن",
 
                 morphTitle: "پێکهاتەی دەرەوەی جەستە (External Morphology)",
                 morphDesc: "پێکهاتەی دەرەوەی جەستەی مێرووەکان بە شێوازێکی زۆر سەرنجڕاکێش نەخشێنراوە تاوەکو گونجاو بێت بۆ مانەوە و بەرگری لە ژینگەی جیاوازدا.",
@@ -3865,36 +3989,36 @@
                 tool3D: "بۆ هەڵگرتنی مێروو بەبێ زیانگەیاندن.",
                 tool4T: "قووتووی کوشتنی مێروو",
                 tool4D: "بوتڵێکی تایبەت بۆ کوشتنی نموونەکان بە شێوەی زانستی.",
-                tool5T: "Beating Sheet",
+                tool5T: "پەڕەی لێدان",
                 tool5D: "پارچەیەکی سپی کە لە ژێر لقەکان دادەنرێت بۆ کۆکردنەوەی مێرووەکان.",
-                tool6T: "Pitfall Trap",
+                tool6T: "تەڵەی چاڵاوی",
                 tool6D: "داوی ناو زەوی بۆ گرتنی مێرووەکانی سەر زەوی.",
-                tool7T: "Light Trap",
+                tool7T: "تەڵەی ڕووناکی",
                 tool7D: "داوی ڕووناکی بۆ کۆکردنەوەی مێرووە شەوانەکان.",
-                methodsTitle: "ڕێگاکانی کۆکردنەوە (Methods of Collecting)",
-                meth1T: "Sweep Netting",
+                methodsTitle: "ڕێگاکانی کۆکردنەوە",
+                meth1T: "تۆڕی ڕادان / پەڕینەوە",
                 meth1D: "ڕاکێشانی تۆڕ بەسەر گیا و کیڵگە.",
-                meth2T: "Hand Collecting",
+                meth2T: "کۆکردنەوە بە دەست",
                 meth2D: "گرتنی مێروو بە دەست.",
-                meth3T: "Light Trap",
+                meth3T: "تەڵەی ڕووناکی",
                 meth3D: "بەکارهێنانی ڕووناکی لە شەودا.",
-                meth4T: "Pitfall Trap",
+                meth4T: "تەڵەی چاڵاوی",
                 meth4D: "دانانی داو لە ناو خاک بۆ مێرووەکانی سەر زەوی.",
-                meth5T: "Beating Method",
+                meth5T: "پەڕەی لێدان",
                 meth5D: "لێدانی لقەکان بۆ ئەوەی مێرووەکان بکەونە سەر پارچەکە.",
                 meth6T: "Aspirator",
                 meth6D: "مژینی مێرووە بچووکەکان.",
-                presTitle: "پاراستنی مێرووەکان (Preservation)",
+                presTitle: "پاراستنی مێرووەکان",
                 pres1T: "مێرووە ڕەقەکان",
-                pres1D: "بە Entomological Pins لەسەر پین دەکرێن و لە سندوقی تایبەتی مێروو (Insect Box) پارێزراون.",
+                pres1D: "مێرووە ووشککراوەکان بەکارهێنانی دەرزی تایبەتی مێرووناسی لە شوێنی دیاریکراوی جەستەیان دەپێنرێن و لە ناو سندوقی تایبەتی هەڵگرتنی مێروودا لەگەڵ کارتۆنی ناونانی زانیارییەکاندا دەپارێزرێن",
                 pres2T: "مێرووە نەرمەکان",
                 pres2D: "لە ناو ٧٠–٩٥٪ Ethanol پارێزراون.",
-                buildTitle: "دروستکردنی کۆمەڵە (Building a Collection)",
+                buildTitle: "دروستکردنی کۆمەڵە",
                 buildStepsTitle: "هەنگاوەکان",
                 build1: "کۆکردنەوەی مێروو.",
                 build2: "کوشتنی نموونە بە شێوەی زانستی.",
                 build3: "پاراستنی نموونە (Pin یان Ethanol).",
-                build4: "نووسینی لیبڵ (Label): شوێنی کۆکردنەوە، بەروار، ناوی کۆکەرەوە، ناوی مێروو.",
+                build4: "نووسینی لیبڵ: شوێنی کۆکردنەوە، بەروار، ناوی کۆکەرەوە، ناوی مێروو.",
                 build5: "ڕێکخستنی نموونەکان لە سندوقی مێروو.",
                 colImpTitle: "گرنگی کۆمەڵەی مێرووەکان",
                 colImp1: "یارمەتیدانی خوێندکاران و توێژەران.",
@@ -3939,6 +4063,11 @@
                 featureT1: "Three-part Body:",
                 featureD1: "Consists of Head, Thorax, and Abdomen.",
                 downloadText: "Download",
+                modalRotateText: "Rotate",
+                modalCropText: "Crop",
+                modalCropActiveText: "Drag a box over the image",
+                modalResetText: "Reset",
+                modalSaveText: "Save",
 
                 morphTitle: "External Morphology",
                 morphDesc: "The external structure of insects is highly specialized to help them survive and adapt to different environments.",
@@ -4369,7 +4498,7 @@
                 meth6D: "Sucking up small insects.",
                 presTitle: "Preservation",
                 pres1T: "Hard-bodied Insects",
-                pres1D: "Pinned with entomological pins and stored in a special insect box.",
+                pres1D: "Dried insects are pinned at a specific point on the body using special entomological pins, then stored in a dedicated insect box along with a label card recording the specimen's information.",
                 pres2T: "Soft-bodied Insects",
                 pres2D: "Preserved in 70-95% Ethanol.",
                 buildTitle: "Building a Collection",
@@ -4422,6 +4551,11 @@
                 featureT1: ":جسم مكون من ثلاثة أجزاء",
                 featureD1: "يتكون من الرأس، الصدر، والبطن.",
                 downloadText: "تنزيل",
+                modalRotateText: "تدوير",
+                modalCropText: "قص",
+                modalCropActiveText: "اسحب مربعًا فوق الصورة",
+                modalResetText: "إعادة ضبط",
+                modalSaveText: "حفظ",
 
                 morphTitle: "المورفولوجيا الخارجية",
                 morphDesc: "تم تصميم البنية الخارجية لأجسام الحشرات بطريقة رائعة للغاية لتناسب البقاء والدفاع في البيئات المختلفة.",
@@ -4502,7 +4636,7 @@
                 labrumT: "الشفة العليا (Labrum)",
                 labrumD: "الجزء العلوي من الفم، يحجز ويحمي الطعام أثناء التغذية.",
                 mandiblesT: "الفكوك العلوية (Mandibles)",
-                mandiblesD: "زوج من الفكوك القوية للقضم، المضغ، التقطيع والإمساك بالطعام.",
+                mandiblesD: "زوج من الفكوك يُستخدم للقضم والمضغ والتقطيع والإمساك بالطعام، وتكون قوية جدًا لدى الحشرات التي تتغذى على مواد صلبة.",
                 maxillaeT: "الفكوك السفلية (Maxillae)",
                 maxillaeD: "تساعد في إمساك وتوجيه الطعام، وتحتوي على ملامس فكية لتحسس التذوق واللمس.",
                 hypopharynxT: "البلعوم السفلي (Hypopharynx)",
@@ -4623,7 +4757,7 @@
                 nervT: "الجهاز العصبي",
                 nervD: "يتحكم في جميع حركات وأحاسيس الحشرة، ويتكون من الدماغ والعقدة تحت المريئية والحبل العصبي البطني، ويتحكم بالحركة ويستقبل المعلومات من العينين وقرون الاستشعار.",
                 reprT: "الجهاز التناسلي",
-                reprD: "مسؤول عن إنتاج الجيل الجديد. في الذكر: الخصيتان والوعاء الناقل والقناة القاذفة. في الأنثى: المبايض وقناة البيض والقابلة المنوية والمبيض. وظيفته: إنتاج الحيوانات المنوية والبويضات والتلقيح ووضع البيض.",
+                reprD: "مسؤول عن إنتاج الجيل الجديد. في الذكر: الخصيتان والوعاء الناقل والقناة القاذفة. في الأنثى: المبايض وقناة البيض والقابلة المنوية وآلة وضع البيض (Ovipositor). وظيفته: إنتاج الحيوانات المنوية والبويضات والتلقيح ووضع البيض.",
                 histCardTitle: "تاريخ علم الحشرات",
                 histCardDesc: "علم الحشرات من أقدم فروع علوم الحياة. لاحظ الإنسان الحشرات منذ قرون قبل الميلاد، خاصة في مصر القديمة والصين. وفي القرن الرابع قبل الميلاد كان أرسطو أول من درس الحشرات بأسلوب علمي.",
                 histClosing: "في القرن الثامن عشر أسس كارل لينيوس نظام التسمية العلمية الذي أصبح أساس علم الحشرات الحديث. وفي القرن التاسع عشر، طوّرت نظرية التطور لتشارلز داروين فهم علاقة الحشرات وتطورها. واليوم يؤدي علم الحشرات دورًا مهمًا في الزراعة والصحة والحفاظ على البيئة بمساعدة تقنيات حديثة مثل علم الجينوم والمجهر الإلكتروني.",
@@ -4831,7 +4965,7 @@
                 tool3D: "لمسك الحشرات دون إتلافها.",
                 tool4T: "وعاء القتل",
                 tool4D: "وعاء خاص لقتل العينات بأسلوب علمي.",
-                tool5T: "لوح النفض (Beating Sheet)",
+                tool5T: "لوح النفض",
                 tool5D: "قماش أبيض يوضع تحت الأغصان لجمع الحشرات.",
                 tool6T: "مصيدة الحفرة",
                 tool6D: "مصيدة أرضية لالتقاط الحشرات التي تعيش على سطح الأرض.",
@@ -4852,7 +4986,7 @@
                 meth6D: "شفط الحشرات الصغيرة.",
                 presTitle: "الحفظ",
                 pres1T: "الحشرات ذات الجسم الصلب",
-                pres1D: "تُثبت بدبابيس خاصة بالحشرات وتُحفظ في صندوق حشرات مخصص.",
+                pres1D: "تُثبت الحشرات المجففة بدبابيس مخصصة بعلم الحشرات في نقطة محددة من الجسم، ثم تُحفظ في صندوق حشرات مخصص مع بطاقة تحمل معلومات العينة.",
                 pres2T: "الحشرات ذات الجسم الطري",
                 pres2D: "تُحفظ في إيثانول بتركيز ٧٠-٩٥٪.",
                 buildTitle: "بناء مجموعة",
@@ -5329,6 +5463,18 @@ const i18nIdMap = [
             }
         });
 
+        // ================= مۆوشنی دەرکەوتنی کارتەکان لە کاتی سکرۆڵکردن =================
+        const cardRevealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    cardRevealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.info-card').forEach(card => cardRevealObserver.observe(card));
+
         // ================= دوگمەی گەڕانەوە بۆ سەرەوە =================
         const scrollTopBtn = document.getElementById('scroll-top-btn');
         window.addEventListener('scroll', () => {
@@ -5364,24 +5510,186 @@ const i18nIdMap = [
         const modalImg = document.getElementById('modal-img');
         const modalClose = document.getElementById('modal-close');
         const modalDownload = document.getElementById('modal-download-btn');
+        const modalStage = document.getElementById('modal-image-stage');
+        const modalRotateBtn = document.getElementById('modal-rotate-btn');
+        const modalCropBtn = document.getElementById('modal-crop-btn');
+        const modalResetBtn = document.getElementById('modal-reset-btn');
+        const modalSaveBtn = document.getElementById('modal-save-btn');
+        const cropBox = document.getElementById('crop-selection-box');
+        const cropHint = document.getElementById('crop-hint-text');
         const imageWrappers = document.querySelectorAll('.insect-image-wrapper img');
+
+        let originalImgSrc = '';
+        let originalFileName = 'image.png';
+        let rotationDeg = 0;
+        let cropMode = false;
+        let dragStart = null;
+
+        function fileNameFromSrc(src) {
+            try {
+                const clean = src.split('?')[0];
+                return clean.substring(clean.lastIndexOf('/') + 1) || 'image.png';
+            } catch (e) {
+                return 'image.png';
+            }
+        }
 
         imageWrappers.forEach(img => {
             img.parentElement.addEventListener('click', () => {
                 modal.classList.add('active');
+                originalImgSrc = img.src;
+                originalFileName = fileNameFromSrc(img.src);
+                rotationDeg = 0;
                 modalImg.src = img.src;
                 modalDownload.href = img.src;
+                modalDownload.setAttribute('download', originalFileName);
+                exitCropMode();
             });
         });
 
         modalClose.addEventListener('click', () => {
             modal.classList.remove('active');
+            exitCropMode();
         });
 
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.classList.remove('active');
+                exitCropMode();
             }
+        });
+
+        // ------- سوڕاندنی وێنە (Rotate) -------
+        modalRotateBtn.addEventListener('click', () => {
+            const image = new Image();
+            image.crossOrigin = 'anonymous';
+            image.onload = () => {
+                const canvas = document.createElement('canvas');
+                const w = image.naturalWidth, h = image.naturalHeight;
+                canvas.width = h;
+                canvas.height = w;
+                const ctx = canvas.getContext('2d');
+                ctx.translate(canvas.width / 2, canvas.height / 2);
+                ctx.rotate(90 * Math.PI / 180);
+                ctx.drawImage(image, -w / 2, -h / 2);
+                try {
+                    modalImg.src = canvas.toDataURL('image/png');
+                } catch (err) {
+                    console.warn('Rotate could not export image (likely a cross-origin image):', err);
+                }
+            };
+            image.src = modalImg.src;
+        });
+
+        // ------- بڕینی وێنە (Crop) -------
+        function enterCropMode() {
+            cropMode = true;
+            modalCropBtn.classList.add('active');
+            modalStage.classList.add('crop-mode');
+            cropHint.hidden = false;
+        }
+
+        function exitCropMode() {
+            cropMode = false;
+            dragStart = null;
+            modalCropBtn.classList.remove('active');
+            modalStage.classList.remove('crop-mode');
+            cropHint.hidden = true;
+            cropBox.hidden = true;
+            cropBox.style.width = '0px';
+            cropBox.style.height = '0px';
+        }
+
+        modalCropBtn.addEventListener('click', () => {
+            if (cropMode) {
+                exitCropMode();
+            } else {
+                enterCropMode();
+            }
+        });
+
+        modalStage.addEventListener('pointerdown', (e) => {
+            if (!cropMode || e.target !== modalImg) return;
+            const rect = modalImg.getBoundingClientRect();
+            dragStart = { x: e.clientX - rect.left, y: e.clientY - rect.top, rect };
+            cropBox.hidden = false;
+            cropBox.style.left = dragStart.x + 'px';
+            cropBox.style.top = dragStart.y + 'px';
+            cropBox.style.width = '0px';
+            cropBox.style.height = '0px';
+        });
+
+        modalStage.addEventListener('pointermove', (e) => {
+            if (!cropMode || !dragStart) return;
+            const rect = dragStart.rect;
+            const curX = Math.min(Math.max(e.clientX - rect.left, 0), rect.width);
+            const curY = Math.min(Math.max(e.clientY - rect.top, 0), rect.height);
+            const left = Math.min(curX, dragStart.x);
+            const top = Math.min(curY, dragStart.y);
+            const w = Math.abs(curX - dragStart.x);
+            const h = Math.abs(curY - dragStart.y);
+            cropBox.style.left = left + 'px';
+            cropBox.style.top = top + 'px';
+            cropBox.style.width = w + 'px';
+            cropBox.style.height = h + 'px';
+        });
+
+        modalStage.addEventListener('pointerup', () => {
+            if (!cropMode || !dragStart) return;
+            const rect = dragStart.rect;
+            const boxLeft = parseFloat(cropBox.style.left);
+            const boxTop = parseFloat(cropBox.style.top);
+            const boxW = parseFloat(cropBox.style.width);
+            const boxH = parseFloat(cropBox.style.height);
+            dragStart = null;
+
+            if (boxW < 12 || boxH < 12) {
+                cropBox.hidden = true;
+                return;
+            }
+
+            const scaleX = modalImg.naturalWidth / rect.width;
+            const scaleY = modalImg.naturalHeight / rect.height;
+
+            const image = new Image();
+            image.crossOrigin = 'anonymous';
+            image.onload = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = boxW * scaleX;
+                canvas.height = boxH * scaleY;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(
+                    image,
+                    boxLeft * scaleX, boxTop * scaleY, boxW * scaleX, boxH * scaleY,
+                    0, 0, canvas.width, canvas.height
+                );
+                try {
+                    modalImg.src = canvas.toDataURL('image/png');
+                    exitCropMode();
+                } catch (err) {
+                    console.warn('Crop could not export image (likely a cross-origin image):', err);
+                    exitCropMode();
+                }
+            };
+            image.src = modalImg.src;
+        });
+
+        // ------- ڕێکخستنەوە (Reset) -------
+        modalResetBtn.addEventListener('click', () => {
+            rotationDeg = 0;
+            modalImg.src = originalImgSrc;
+            exitCropMode();
+        });
+
+        // ------- پاشەکەوتکردنی وێنەی دەستکاریکراو (Save Edited) -------
+        modalSaveBtn.addEventListener('click', () => {
+            const link = document.createElement('a');
+            link.href = modalImg.src;
+            const base = originalFileName.replace(/\.[^/.]+$/, '') || 'image';
+            link.download = base + '-edited.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         });
     </script>
 </body>
