@@ -5183,6 +5183,8 @@ const i18nIdMap = [
                 } else {
                     htmlTag.setAttribute('dir', 'rtl');
                 }
+
+                try { localStorage.setItem('novaentomo-lang', lang); } catch (e) {}
                 
                 document.body.classList.add('page-transition');
                 
@@ -5380,6 +5382,8 @@ const i18nIdMap = [
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             
             htmlTag.setAttribute('data-theme', newTheme);
+
+            try { localStorage.setItem('novaentomo-theme', newTheme); } catch (e) {}
             
             const activeLangBtn = document.querySelector('.lang-btn.active');
             const currentLang = activeLangBtn ? activeLangBtn.getAttribute('data-lang') : 'ku';
@@ -5691,6 +5695,37 @@ const i18nIdMap = [
             link.click();
             document.body.removeChild(link);
         });
+
+        // ================= یادگاری هەڵبژاردنی زمان و مۆد (localStorage) =================
+        // ئەم بەشە دەبێتە دوایینی هەموو کۆدەکانی تر، بۆ ئەوەی هەموو function و elementەکان بەردەست بن
+        (function restoreSavedPreferences() {
+            let savedTheme = null;
+            let savedLang = null;
+            try {
+                savedTheme = localStorage.getItem('novaentomo-theme');
+                savedLang = localStorage.getItem('novaentomo-lang');
+            } catch (e) {}
+
+            if (savedTheme === 'dark') {
+                htmlTag.setAttribute('data-theme', 'dark');
+                if (themeCheckbox) themeCheckbox.checked = true;
+            }
+
+            if (savedLang && savedLang !== 'ku') {
+                const targetBtn = document.querySelector('.lang-btn[data-lang="' + savedLang + '"]');
+                if (targetBtn) {
+                    langBtns.forEach(b => b.classList.remove('active'));
+                    targetBtn.classList.add('active');
+                    htmlTag.setAttribute('lang', savedLang);
+                    htmlTag.setAttribute('dir', savedLang === 'en' ? 'ltr' : 'rtl');
+                    updateLanguageText(savedLang);
+                }
+            } else if (savedTheme === 'dark') {
+                // زمانەکە کوردییە بەڵام تەنها پێویستە دەقی مۆد نوێبکرێتەوە
+                const themeStatusEl = document.getElementById('theme-status-text');
+                if (themeStatusEl) themeStatusEl.textContent = translations['ku'].dark;
+            }
+        })();
     </script>
 </body>
 </html>
