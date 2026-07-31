@@ -1172,93 +1172,6 @@
             box-shadow: 0 10px 25px rgba(139, 69, 19, 0.6);
         }
 
-        /* بۆکسی وێنە لەناو مۆدال + هەڵبژاردنی بڕین */
-        .modal-image-stage {
-            position: relative;
-            display: inline-flex;
-            max-width: 100%;
-            max-height: 70vh;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: none;
-        }
-
-        .modal-image-stage img {
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    pointer-events: auto;
-}
-
-        .modal-image-stage.crop-mode {
-            cursor: crosshair;
-        }
-
-        .crop-selection-box {
-            position: absolute;
-            border: 2px dashed #ffffff;
-            background: rgba(139, 69, 19, 0.2);
-            box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0.45);
-            pointer-events: none;
-        }
-
-        .crop-hint-text {
-            position: absolute;
-            top: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.55);
-            color: #fff;
-            font-size: 12.5px;
-            font-weight: 600;
-            padding: 6px 16px;
-            border-radius: 20px;
-            white-space: nowrap;
-            pointer-events: none;
-            z-index: 3;
-        }
-
-        .modal-toolbar {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .modal-tool-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            background: rgba(255, 255, 255, 0.08);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 9px 18px;
-            border-radius: 30px;
-            font-size: 13.5px;
-            font-weight: 600;
-            font-family: inherit;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .modal-tool-btn:hover {
-            background: var(--accent-color);
-            border-color: var(--accent-color);
-            transform: translateY(-2px);
-        }
-
-        .modal-tool-btn.active {
-            background: var(--accent-color);
-            border-color: var(--accent-color);
-        }
-
-        @media (max-width: 600px) {
-            .modal-toolbar { gap: 8px; }
-            .modal-tool-btn, .modal-download-btn { padding: 8px 14px; font-size: 12.5px; }
-        }
-
         /* ==========================================================================
            9. ڕیسپۆنسڤ و شاشە بچووکەکان
            ========================================================================== */
@@ -3525,25 +3438,10 @@
     <div id="image-modal" class="modal-overlay">
         <div class="modal-content">
             <button class="modal-close-btn" id="modal-close">&times;</button>
-            <div class="modal-image-stage" id="modal-image-stage">
-                <img id="modal-img" src="" alt="Enlarged Image" draggable="false">
-                <div class="crop-selection-box" id="crop-selection-box" hidden></div>
-                <span class="crop-hint-text" id="crop-hint-text" data-i18n="modalCropActiveText" hidden>Drag a box over the image</span>
-            </div>
-            <div class="modal-toolbar">
-                <button type="button" class="modal-tool-btn" id="modal-rotate-btn" title="Rotate">
-                    <i class="ph ph-arrow-clockwise"></i> <span data-i18n="modalRotateText">سوڕاندن</span>
-                </button>
-                <button type="button" class="modal-tool-btn" id="modal-crop-btn" title="Crop">
-                    <i class="ph ph-crop"></i> <span data-i18n="modalCropText">بڕین</span>
-                </button>
-                <button type="button" class="modal-tool-btn" id="modal-reset-btn" title="Reset">
-                    <i class="ph ph-arrow-counter-clockwise"></i> <span data-i18n="modalResetText">ڕێکخستنەوە</span>
-                </button>
-                <a id="modal-download-btn" class="modal-download-btn" href="" download="image.png">
-                    <i class="ph ph-download-simple"></i> <span id="download-btn-text">دابەزاندن</span>
-                </a>
-            </div>
+            <img id="modal-img" src="" alt="Enlarged Image">
+            <a id="modal-download-btn" class="modal-download-btn" href="" download="image.png">
+                <i class="ph ph-download-simple"></i> <span id="download-btn-text">دابەزاندن</span>
+            </a>
         </div>
     </div>
 
@@ -3575,10 +3473,6 @@
                 featureT1: "جەستەی سێ بەشی",
                 featureD1: "پێکهاتووە لە سەر (Head)، سنگ، و سک (Abdomen).",
                 downloadText: "دابەزاندن",
-                modalRotateText: "سوڕاندن",
-                modalCropText: "بڕین",
-                modalCropActiveText: "بۆکسێک لەسەر وێنەکە ڕابکێشە",
-                modalResetText: "ڕێکخستنەوە",
 
                 morphTitle: "پێکهاتەی دەرەوەی جەستە (External Morphology)",
                 morphDesc: "پێکهاتەی دەرەوەی جەستەی مێرووەکان بە شێوازێکی زۆر سەرنجڕاکێش نەخشێنراوە تاوەکو گونجاو بێت بۆ مانەوە و بەرگری لە ژینگەی جیاوازدا.",
@@ -4062,10 +3956,6 @@
                 featureT1: "Three-part Body:",
                 featureD1: "Consists of Head, Thorax, and Abdomen.",
                 downloadText: "Download",
-                modalRotateText: "Rotate",
-                modalCropText: "Crop",
-                modalCropActiveText: "Drag a box over the image",
-                modalResetText: "Reset",
 
                 morphTitle: "External Morphology",
                 morphDesc: "The external structure of insects is highly specialized to help them survive and adapt to different environments.",
@@ -4549,10 +4439,6 @@
                 featureT1: ":جسم مكون من ثلاثة أجزاء",
                 featureD1: "يتكون من الرأس، الصدر، والبطن.",
                 downloadText: "تنزيل",
-                modalRotateText: "تدوير",
-                modalCropText: "قص",
-                modalCropActiveText: "اسحب مربعًا فوق الصورة",
-                modalResetText: "إعادة ضبط",
 
                 morphTitle: "المورفولوجيا الخارجية",
                 morphDesc: "تم تصميم البنية الخارجية لأجسام الحشرات بطريقة رائعة للغاية لتناسب البقاء والدفاع في البيئات المختلفة.",
@@ -5511,19 +5397,7 @@ const i18nIdMap = [
         const modalImg = document.getElementById('modal-img');
         const modalClose = document.getElementById('modal-close');
         const modalDownload = document.getElementById('modal-download-btn');
-        const modalStage = document.getElementById('modal-image-stage');
-        const modalRotateBtn = document.getElementById('modal-rotate-btn');
-        const modalCropBtn = document.getElementById('modal-crop-btn');
-        const modalResetBtn = document.getElementById('modal-reset-btn');
-        const cropBox = document.getElementById('crop-selection-box');
-        const cropHint = document.getElementById('crop-hint-text');
         const imageWrappers = document.querySelectorAll('.insect-image-wrapper img');
-
-        let originalImgSrc = '';
-        let originalFileName = 'image.png';
-        let rotationDeg = 0;
-        let cropMode = false;
-        let dragStart = null;
 
         function fileNameFromSrc(src) {
             try {
@@ -5537,152 +5411,20 @@ const i18nIdMap = [
         imageWrappers.forEach(img => {
             img.parentElement.addEventListener('click', () => {
                 modal.classList.add('active');
-                originalImgSrc = img.src;
-                originalFileName = fileNameFromSrc(img.src);
-                rotationDeg = 0;
                 modalImg.src = img.src;
                 modalDownload.href = img.src;
-                modalDownload.setAttribute('download', originalFileName);
-                exitCropMode();
+                modalDownload.setAttribute('download', fileNameFromSrc(img.src));
             });
         });
 
         modalClose.addEventListener('click', () => {
             modal.classList.remove('active');
-            exitCropMode();
         });
 
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.classList.remove('active');
-                exitCropMode();
             }
-        });
-
-        // ------- سوڕاندنی وێنە (Rotate) -------
-        modalRotateBtn.addEventListener('click', () => {
-            const image = new Image();
-            image.onerror = () => console.warn('Rotate: could not reload the image.');
-            image.onload = () => {
-                const canvas = document.createElement('canvas');
-                const w = image.naturalWidth, h = image.naturalHeight;
-                canvas.width = h;
-                canvas.height = w;
-                const ctx = canvas.getContext('2d');
-                ctx.translate(canvas.width / 2, canvas.height / 2);
-                ctx.rotate(90 * Math.PI / 180);
-                ctx.drawImage(image, -w / 2, -h / 2);
-                try {
-                    modalImg.src = canvas.toDataURL('image/png');
-                } catch (err) {
-                    console.warn('Rotate could not export image (likely a cross-origin image):', err);
-                }
-            };
-            image.src = modalImg.src;
-        });
-
-        // ------- بڕینی وێنە (Crop) -------
-        function enterCropMode() {
-            cropMode = true;
-            modalCropBtn.classList.add('active');
-            modalStage.classList.add('crop-mode');
-            cropHint.hidden = false;
-        }
-
-        function exitCropMode() {
-            cropMode = false;
-            dragStart = null;
-            modalCropBtn.classList.remove('active');
-            modalStage.classList.remove('crop-mode');
-            cropHint.hidden = true;
-            cropBox.hidden = true;
-            cropBox.style.width = '0px';
-            cropBox.style.height = '0px';
-        }
-
-        modalCropBtn.addEventListener('click', () => {
-            if (cropMode) {
-                exitCropMode();
-            } else {
-                enterCropMode();
-            }
-        });
-
-        modalImg.addEventListener('dragstart', (e) => e.preventDefault());
-
-        modalStage.addEventListener('pointerdown', (e) => {
-            if (!cropMode || e.target !== modalImg) return;
-            e.preventDefault();
-            modalImg.setPointerCapture && modalImg.setPointerCapture(e.pointerId);
-            const rect = modalImg.getBoundingClientRect();
-            dragStart = { x: e.clientX - rect.left, y: e.clientY - rect.top, rect };
-            cropBox.hidden = false;
-            cropBox.style.left = dragStart.x + 'px';
-            cropBox.style.top = dragStart.y + 'px';
-            cropBox.style.width = '0px';
-            cropBox.style.height = '0px';
-        });
-
-        modalStage.addEventListener('pointermove', (e) => {
-            if (!cropMode || !dragStart) return;
-            const rect = dragStart.rect;
-            const curX = Math.min(Math.max(e.clientX - rect.left, 0), rect.width);
-            const curY = Math.min(Math.max(e.clientY - rect.top, 0), rect.height);
-            const left = Math.min(curX, dragStart.x);
-            const top = Math.min(curY, dragStart.y);
-            const w = Math.abs(curX - dragStart.x);
-            const h = Math.abs(curY - dragStart.y);
-            cropBox.style.left = left + 'px';
-            cropBox.style.top = top + 'px';
-            cropBox.style.width = w + 'px';
-            cropBox.style.height = h + 'px';
-        });
-
-        modalStage.addEventListener('pointerup', () => {
-            if (!cropMode || !dragStart) return;
-            const rect = dragStart.rect;
-            const boxLeft = parseFloat(cropBox.style.left);
-            const boxTop = parseFloat(cropBox.style.top);
-            const boxW = parseFloat(cropBox.style.width);
-            const boxH = parseFloat(cropBox.style.height);
-            dragStart = null;
-
-            if (boxW < 12 || boxH < 12) {
-                cropBox.hidden = true;
-                return;
-            }
-
-            const scaleX = modalImg.naturalWidth / rect.width;
-            const scaleY = modalImg.naturalHeight / rect.height;
-
-            const image = new Image();
-            image.onerror = () => console.warn('Crop: could not reload the image.');
-            image.onload = () => {
-                const canvas = document.createElement('canvas');
-                canvas.width = boxW * scaleX;
-                canvas.height = boxH * scaleY;
-                const ctx = canvas.getContext('2d');
-                ctx.drawImage(
-                    image,
-                    boxLeft * scaleX, boxTop * scaleY, boxW * scaleX, boxH * scaleY,
-                    0, 0, canvas.width, canvas.height
-                );
-                try {
-                    modalImg.src = canvas.toDataURL('image/png');
-                    exitCropMode();
-                } catch (err) {
-                    console.warn('Crop could not export image (likely a cross-origin image):', err);
-                    exitCropMode();
-                }
-            };
-            image.src = modalImg.src;
-        });
-
-        // ------- ڕێکخستنەوە (Reset) -------
-        modalResetBtn.addEventListener('click', () => {
-            rotationDeg = 0;
-            modalImg.src = originalImgSrc;
-            exitCropMode();
         });
 
         // ================= یادگاری هەڵبژاردنی زمان و مۆد (localStorage) =================
