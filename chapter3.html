@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://encrypted-tbn0.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.2" defer></script>
     
     <style>
         /* ==========================================================================
@@ -1180,7 +1180,16 @@
             max-height: 70vh;
             user-select: none;
             -webkit-user-select: none;
+            touch-action: none;
         }
+
+        .modal-image-stage img {
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    pointer-events: auto;
+}
 
         .modal-image-stage.crop-mode {
             cursor: crosshair;
@@ -1243,12 +1252,6 @@
         .modal-tool-btn.active {
             background: var(--accent-color);
             border-color: var(--accent-color);
-        }
-
-        .modal-save-btn {
-            border: none;
-            font-family: inherit;
-            cursor: pointer;
         }
 
         @media (max-width: 600px) {
@@ -3469,27 +3472,27 @@
             </div>
             <h3 class="features-title" style="margin-top: 22px;" data-i18n="refSitesTitle">وێبسایتە زانستییەکان</h3>
             <div class="morphology-grid" style="grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px;">
-                <a href="https://www.gutenberg.org/ebooks/64677" target="_blank" class="system-box-anim ref-site-card" style="animation-delay: 0.1s;">
+                <a href="https://www.gutenberg.org/ebooks/64677" target="_blank" rel="noopener noreferrer" class="system-box-anim ref-site-card" style="animation-delay: 0.1s;">
                     <i class="ph ph-globe-hemisphere-west"></i>
                     <span>gutenberg.org/ebooks/64677</span>
                     <i class="ph ph-arrow-up-right ref-site-arrow"></i>
                 </a>
-                <a href="https://link.springer.com/book/10.1007/1-4020-3183-1" target="_blank" class="system-box-anim ref-site-card" style="animation-delay: 0.15s;">
+                <a href="https://link.springer.com/book/10.1007/1-4020-3183-1" target="_blank" rel="noopener noreferrer" class="system-box-anim ref-site-card" style="animation-delay: 0.15s;">
                     <i class="ph ph-globe-hemisphere-west"></i>
                     <span>link.springer.com/book/10.1007/1-4020-3183-1</span>
                     <i class="ph ph-arrow-up-right ref-site-arrow"></i>
                 </a>
-                <a href="https://entomology.unl.edu/basic-insect-morphology/" target="_blank" class="system-box-anim ref-site-card" style="animation-delay: 0.2s;">
+                <a href="https://entomology.unl.edu/basic-insect-morphology/" target="_blank" rel="noopener noreferrer" class="system-box-anim ref-site-card" style="animation-delay: 0.2s;">
                     <i class="ph ph-globe-hemisphere-west"></i>
                     <span>entomology.unl.edu/basic-insect-morphology</span>
                     <i class="ph ph-arrow-up-right ref-site-arrow"></i>
                 </a>
-                <a href="https://biocontrol.entomology.cornell.edu/bio.php" target="_blank" class="system-box-anim ref-site-card" style="animation-delay: 0.25s;">
+                <a href="https://biocontrol.entomology.cornell.edu/bio.php" target="_blank" rel="noopener noreferrer" class="system-box-anim ref-site-card" style="animation-delay: 0.25s;">
                     <i class="ph ph-globe-hemisphere-west"></i>
                     <span>biocontrol.entomology.cornell.edu/bio.php</span>
                     <i class="ph ph-arrow-up-right ref-site-arrow"></i>
                 </a>
-                <a href="https://shop.elsevier.com/books/insect-ecology/schowalter/978-0-323-85673-7" target="_blank" class="system-box-anim ref-site-card" style="animation-delay: 0.3s;">
+                <a href="https://shop.elsevier.com/books/insect-ecology/schowalter/978-0-323-85673-7" target="_blank" rel="noopener noreferrer" class="system-box-anim ref-site-card" style="animation-delay: 0.3s;">
                     <i class="ph ph-globe-hemisphere-west"></i>
                     <span>shop.elsevier.com/books/insect-ecology</span>
                     <i class="ph ph-arrow-up-right ref-site-arrow"></i>
@@ -3504,10 +3507,10 @@
         <div class="developer-credit-bionova">
             <span id="footer-connect-text" data-i18n="footerConnect">پەیوەندی کردن:</span>
             <div class="bionova-social-links">
-                <a href="https://www.facebook.com/profile.php?id=61591499576796" target="_blank" class="bionova-social-btn facebook" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
-                <a href="https://www.instagram.com/bionova.group?igsh=bDlqc2lsNzU2Ymd5" target="_blank" class="bionova-social-btn instagram" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
-                <a href="https://www.tiktok.com/@bionova.group?_r=1&_t=ZS-97XScYSqhXA" target="_blank" class="bionova-social-btn tiktok" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
-                <a href="https://t.me/Bionova_academic_community_nw" target="_blank" class="bionova-social-btn telegram" aria-label="Telegram"><i class="ph ph-telegram-logo"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61591499576796" target="_blank" rel="noopener noreferrer" class="bionova-social-btn facebook" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+                <a href="https://www.instagram.com/bionova.group?igsh=bDlqc2lsNzU2Ymd5" target="_blank" rel="noopener noreferrer" class="bionova-social-btn instagram" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                <a href="https://www.tiktok.com/@bionova.group?_r=1&_t=ZS-97XScYSqhXA" target="_blank" rel="noopener noreferrer" class="bionova-social-btn tiktok" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
+                <a href="https://t.me/Bionova_academic_community_nw" target="_blank" rel="noopener noreferrer" class="bionova-social-btn telegram" aria-label="Telegram"><i class="ph ph-telegram-logo"></i></a>
                 <a href="mailto:bionovaacademic@gmail.com" class="bionova-social-btn email" aria-label="Email"><i class="ph ph-envelope-simple"></i></a>
             </div>
         </div>
@@ -3523,7 +3526,7 @@
         <div class="modal-content">
             <button class="modal-close-btn" id="modal-close">&times;</button>
             <div class="modal-image-stage" id="modal-image-stage">
-                <img id="modal-img" src="" alt="Enlarged Image">
+                <img id="modal-img" src="" alt="Enlarged Image" draggable="false">
                 <div class="crop-selection-box" id="crop-selection-box" hidden></div>
                 <span class="crop-hint-text" id="crop-hint-text" data-i18n="modalCropActiveText" hidden>Drag a box over the image</span>
             </div>
@@ -3540,9 +3543,6 @@
                 <a id="modal-download-btn" class="modal-download-btn" href="" download="image.png">
                     <i class="ph ph-download-simple"></i> <span id="download-btn-text">دابەزاندن</span>
                 </a>
-                <button type="button" class="modal-download-btn modal-save-btn" id="modal-save-btn">
-                    <i class="ph ph-floppy-disk"></i> <span data-i18n="modalSaveText">پاشەکەوتکردن</span>
-                </button>
             </div>
         </div>
     </div>
@@ -3579,7 +3579,6 @@
                 modalCropText: "بڕین",
                 modalCropActiveText: "بۆکسێک لەسەر وێنەکە ڕابکێشە",
                 modalResetText: "ڕێکخستنەوە",
-                modalSaveText: "پاشەکەوتکردن",
 
                 morphTitle: "پێکهاتەی دەرەوەی جەستە (External Morphology)",
                 morphDesc: "پێکهاتەی دەرەوەی جەستەی مێرووەکان بە شێوازێکی زۆر سەرنجڕاکێش نەخشێنراوە تاوەکو گونجاو بێت بۆ مانەوە و بەرگری لە ژینگەی جیاوازدا.",
@@ -4067,7 +4066,6 @@
                 modalCropText: "Crop",
                 modalCropActiveText: "Drag a box over the image",
                 modalResetText: "Reset",
-                modalSaveText: "Save",
 
                 morphTitle: "External Morphology",
                 morphDesc: "The external structure of insects is highly specialized to help them survive and adapt to different environments.",
@@ -4555,7 +4553,6 @@
                 modalCropText: "قص",
                 modalCropActiveText: "اسحب مربعًا فوق الصورة",
                 modalResetText: "إعادة ضبط",
-                modalSaveText: "حفظ",
 
                 morphTitle: "المورفولوجيا الخارجية",
                 morphDesc: "تم تصميم البنية الخارجية لأجسام الحشرات بطريقة رائعة للغاية لتناسب البقاء والدفاع في البيئات المختلفة.",
@@ -5518,7 +5515,6 @@ const i18nIdMap = [
         const modalRotateBtn = document.getElementById('modal-rotate-btn');
         const modalCropBtn = document.getElementById('modal-crop-btn');
         const modalResetBtn = document.getElementById('modal-reset-btn');
-        const modalSaveBtn = document.getElementById('modal-save-btn');
         const cropBox = document.getElementById('crop-selection-box');
         const cropHint = document.getElementById('crop-hint-text');
         const imageWrappers = document.querySelectorAll('.insect-image-wrapper img');
@@ -5566,7 +5562,7 @@ const i18nIdMap = [
         // ------- سوڕاندنی وێنە (Rotate) -------
         modalRotateBtn.addEventListener('click', () => {
             const image = new Image();
-            image.crossOrigin = 'anonymous';
+            image.onerror = () => console.warn('Rotate: could not reload the image.');
             image.onload = () => {
                 const canvas = document.createElement('canvas');
                 const w = image.naturalWidth, h = image.naturalHeight;
@@ -5612,8 +5608,12 @@ const i18nIdMap = [
             }
         });
 
+        modalImg.addEventListener('dragstart', (e) => e.preventDefault());
+
         modalStage.addEventListener('pointerdown', (e) => {
             if (!cropMode || e.target !== modalImg) return;
+            e.preventDefault();
+            modalImg.setPointerCapture && modalImg.setPointerCapture(e.pointerId);
             const rect = modalImg.getBoundingClientRect();
             dragStart = { x: e.clientX - rect.left, y: e.clientY - rect.top, rect };
             cropBox.hidden = false;
@@ -5656,7 +5656,7 @@ const i18nIdMap = [
             const scaleY = modalImg.naturalHeight / rect.height;
 
             const image = new Image();
-            image.crossOrigin = 'anonymous';
+            image.onerror = () => console.warn('Crop: could not reload the image.');
             image.onload = () => {
                 const canvas = document.createElement('canvas');
                 canvas.width = boxW * scaleX;
@@ -5683,17 +5683,6 @@ const i18nIdMap = [
             rotationDeg = 0;
             modalImg.src = originalImgSrc;
             exitCropMode();
-        });
-
-        // ------- پاشەکەوتکردنی وێنەی دەستکاریکراو (Save Edited) -------
-        modalSaveBtn.addEventListener('click', () => {
-            const link = document.createElement('a');
-            link.href = modalImg.src;
-            const base = originalFileName.replace(/\.[^/.]+$/, '') || 'image';
-            link.download = base + '-edited.png';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
         });
 
         // ================= یادگاری هەڵبژاردنی زمان و مۆد (localStorage) =================
