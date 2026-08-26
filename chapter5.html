@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ckb" dir="rtl" id="html-tag" data-theme="light">
+<html lang="ku" dir="rtl" id="html-tag" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -146,12 +146,6 @@
         .controls { display: flex; align-items: center; gap: 20px; }
         
         .lang-links-wrapper { display: flex; gap: 4px; background: rgba(0, 0, 0, 0.05); padding: 4px; border-radius: 30px; }
-        .google-translate-hidden { position: absolute !important; width: 1px !important; height: 1px !important; overflow: hidden !important; opacity: 0 !important; pointer-events: none !important; }
-        .goog-te-banner-frame.skiptranslate, body > .skiptranslate { display:none !important; }
-        body { top:0 !important; }
-        .goog-logo-link, .goog-te-gadget span { display:none !important; }
-        .goog-te-gadget { font-size:0 !important; }
-        .goog-te-menu-value { display:none !important; }
         @media (max-width: 768px) { .lang-links-wrapper { gap:2px; } }
         .lang-btn { background: none; border: none; padding: 6px 14px; font-size: 13px; font-weight: 600; border-radius: 20px; cursor: pointer; color: var(--navbar-text); opacity: 0.6; font-family: inherit; transition: all 0.3s ease; }
         .lang-btn.active { background: var(--accent-color); color: white !important; opacity: 1; }
@@ -1244,7 +1238,7 @@
                 <button class="lang-btn" type="button" data-lang="en" translate="no">En</button>
                 <button class="lang-btn" type="button" data-lang="ar" translate="no">عر</button>
             </div>
-            <div id="google_translate_element" class="google-translate-hidden"></div>
+            
             <div class="theme-controller-wrapper">
                 <span class="theme-status-text" id="theme-status-text">ڕووناک</span>
                 <label class="theme-switch">
@@ -1943,65 +1937,111 @@
         </div>
     </div>
 
-    <!-- ================= FULL-PAGE TRANSLATION SYSTEM ================= -->
+    <!-- ================= LOCAL TRANSLATION SYSTEM ================= -->
     <script>
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'ckb',
-                includedLanguages: 'ckb,en,ar',
-                autoDisplay: false,
-                multilanguagePage: true
-            }, 'google_translate_element');
-        }
-
-        function setLanguage(lang) {
-            const select = document.querySelector('.goog-te-combo');
-            if (!select) {
-                setTimeout(() => setLanguage(lang), 300);
-                return;
+        /*
+         * Local language system — no Google Translate, no external translation API.
+         * Kurdish (ku), English (en), and Arabic (ar) are switched directly in JavaScript.
+         */
+        const translations = {
+            ku: {
+                "backHome":"سەرەکی","light":"ڕووناک","dark":"تاریک",
+                "heroTitle":"بەشی دووەم","heroSub":"مێرووە سوودبەخشەکان",
+                "heroDesc":"گەشتێک بۆ ناو جیهانی ئەو مێرووانەی کە بە بێدەنگی خزمەتی ژینگە، کشتوکاڵ و مرۆڤایەتی دەکەن؛ لە گواستنەوەی دەنکە هەڵاڵەوە هەتا کۆنترۆڵی زیانبەخشەکان و بەرهەمهێنانی هەنگوین و ئاوریشم.",
+                "start":"دەستپێکردنی گەشتەکە","download":"دابەزاندن",
+                "contact":"پەیوەندی کردن:","top":"گەڕانەوە بۆ سەرەوە",
+                "card1":"کارتی یەکەم: پێناسە","card2":"کارتی دووەم: جۆرەکان",
+                "card3":"کارتی سێیەم: پۆلینەرەکان","card4":"کارتی چوارەم: ڕاوکەرەکان",
+                "card5":"کارتی پێنجەم: پارازیتۆیدەکان","card6":"کارتی شەشەم: بەرهەمهێنەرەکان",
+                "card7":"کارتی حەوتەم: شیکەرەوەکان","card8":"کارتی هەشتەم: فرەجۆری و زنجیرەی خۆراک",
+                "card9":"کارتی نۆیەم: ژینگە","card10":"کارتی دەیەم: هۆکارەکانی کەمبوونەوە",
+                "card11":"کارتی یازدەیەم: ڕەفتار","card12":"کارتی دوایی: کۆتایی"
+            },
+            en: {
+                "backHome":"Home","light":"Light","dark":"Dark",
+                "heroTitle":"Chapter Two","heroSub":"Beneficial Insects",
+                "heroDesc":"A journey into the world of insects that quietly serve the environment, agriculture, and humanity—from pollination to pest control and the production of honey and silk.",
+                "start":"Start Exploring","download":"Download",
+                "contact":"Contact:","top":"Back to top",
+                "card1":"Card One: Definition","card2":"Card Two: Types",
+                "card3":"Card Three: Pollinators","card4":"Card Four: Predators",
+                "card5":"Card Five: Parasitoids","card6":"Card Six: Producers",
+                "card7":"Card Seven: Decomposers","card8":"Card Eight: Biodiversity and Food Webs",
+                "card9":"Card Nine: Environment","card10":"Card Ten: Causes of Decline",
+                "card11":"Card Eleven: Behavior","card12":"Final Card: Conclusion"
+            },
+            ar: {
+                "backHome":"الرئيسية","light":"فاتح","dark":"داكن",
+                "heroTitle":"الفصل الثاني","heroSub":"الحشرات النافعة",
+                "heroDesc":"رحلة إلى عالم الحشرات التي تخدم البيئة والزراعة والإنسانية بصمت؛ من تلقيح النباتات إلى مكافحة الآفات وإنتاج العسل والحرير.",
+                "start":"ابدأ الرحلة","download":"تنزيل",
+                "contact":"اتصل بنا:","top":"العودة إلى الأعلى",
+                "card1":"البطاقة الأولى: التعريف","card2":"البطاقة الثانية: الأنواع",
+                "card3":"البطاقة الثالثة: الملقحات","card4":"البطاقة الرابعة: المفترسات",
+                "card5":"البطاقة الخامسة: الطفيليات","card6":"البطاقة السادسة: الحشرات المنتجة",
+                "card7":"البطاقة السابعة: المحللات","card8":"البطاقة الثامنة: التنوع الحيوي وشبكات الغذاء",
+                "card9":"البطاقة التاسعة: البيئة","card10":"البطاقة العاشرة: أسباب التراجع",
+                "card11":"البطاقة الحادية عشرة: السلوك","card12":"البطاقة الأخيرة: الخاتمة"
             }
-            select.value = (lang === 'ku' ? 'ckb' : lang);
-            select.dispatchEvent(new Event('change'));
-            document.documentElement.lang = (lang === 'ku' ? 'ckb' : lang);
-            document.documentElement.dir = lang === 'en' ? 'ltr' : 'rtl';
-            localStorage.setItem('novaEntomoLanguage', lang);
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
-            setTimeout(() => { if (typeof updateDynamicUI === 'function') updateDynamicUI(lang); }, 1800);
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
-            });
-            const saved = localStorage.getItem('novaEntomoLanguage') || 'ku';
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === saved);
-            });
-            setTimeout(() => setLanguage(saved), 1500);
-        });
-    </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-    <script>
-        // Fallback UI translations for text created/changed by JavaScript.
-        const uiTranslations = {
-            ku: { dark:'تاریک', light:'ڕووناک', download:'دابەزاندن', contact:'پەیوەندی کردن:', top:'گەڕانەوە بۆ سەرەوە' },
-            en: { dark:'Dark', light:'Light', download:'Download', contact:'Contact:', top:'Back to top' },
-            ar: { dark:'داكن', light:'فاتح', download:'تنزيل', contact:'اتصل بنا:', top:'العودة إلى الأعلى' }
         };
-        function updateDynamicUI(lang){
-            const t = uiTranslations[lang] || uiTranslations.ku;
-            const theme = document.getElementById('theme-status-text');
-            if(theme) theme.textContent = document.getElementById('theme-checkbox')?.checked ? t.dark : t.light;
-            const dl = document.querySelector('#modal-download-btn span');
-            if(dl) dl.textContent = t.download;
-            const contact = document.querySelector('.developer-credit-bionova > span');
-            if(contact) contact.textContent = t.contact;
+
+        function setText(selector, value) {
+            const el = document.querySelector(selector);
+            if (el && value != null) el.textContent = value;
         }
-        document.addEventListener('DOMContentLoaded', () => {
-            updateDynamicUI(localStorage.getItem('novaEntomoLanguage') || 'ku');
+
+        function applyLanguage(lang) {
+            const t = translations[lang] || translations.ku;
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
+
+            setText("#back-to-home span", t.backHome);
+            setText("#theme-status-text", document.getElementById("theme-checkbox")?.checked ? t.dark : t.light);
+            setText("#hero-title", t.heroTitle);
+            const sub = document.querySelector("#hero-title-sub");
+            if (sub) sub.textContent = t.heroSub;
+            setText("#hero-desc", t.heroDesc);
+
+            const heroBtn = document.getElementById("hero-btn-text");
+            if (heroBtn) heroBtn.innerHTML = `${t.start} <i class="ph ph-arrow-down"></i>`;
+
+            setText("#modal-download-btn span", t.download);
+            setText(".developer-credit-bionova > span", t.contact);
+
+            // Card labels. The content remains static and is never sent to a
+            // third-party translation service.
+            const cards = document.querySelectorAll("#chapters > .info-card");
+            const keys = ["card1","card2","card3","card4","card5","card6","card7","card8","card9","card10","card11","card12"];
+            cards.forEach((card, i) => {
+                const label = card.querySelector(".card-number, .section-label, .card-label");
+                if (label && keys[i]) label.textContent = t[keys[i]];
+            });
+
+            document.querySelectorAll(".lang-btn").forEach(btn => {
+                btn.classList.toggle("active", btn.dataset.lang === lang);
+            });
+
+            localStorage.setItem("novaEntomoLanguage", lang);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const saved = localStorage.getItem("novaEntomoLanguage") || "ku";
+
+            document.querySelectorAll(".lang-btn").forEach(btn => {
+                btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
+            });
+
+            document.querySelectorAll(".theme-checkbox").forEach(chk => {
+                chk.addEventListener("change", () => {
+                    const theme = chk.checked ? "dark" : "light";
+                    document.documentElement.setAttribute("data-theme", theme);
+                    const lang = document.documentElement.lang || "ku";
+                    const t = translations[lang] || translations.ku;
+                    setText("#theme-status-text", theme === "dark" ? t.dark : t.light);
+                });
+            });
+
+            applyLanguage(saved);
         });
     </script>
 
