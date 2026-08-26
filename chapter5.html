@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ku" dir="rtl" id="html-tag" data-theme="light">
+<html lang="ckb" dir="rtl" id="html-tag" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1944,8 +1944,8 @@
     <script>
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
-                pageLanguage: 'ku',
-                includedLanguages: 'ku,en,ar',
+                pageLanguage: 'ckb',
+                includedLanguages: 'ckb,en,ar',
                 autoDisplay: false,
                 multilanguagePage: true
             }, 'google_translate_element');
@@ -1957,14 +1957,15 @@
                 setTimeout(() => setLanguage(lang), 300);
                 return;
             }
-            select.value = lang;
+            select.value = (lang === 'ku' ? 'ckb' : lang);
             select.dispatchEvent(new Event('change'));
-            document.documentElement.lang = lang;
+            document.documentElement.lang = (lang === 'ku' ? 'ckb' : lang);
             document.documentElement.dir = lang === 'en' ? 'ltr' : 'rtl';
             localStorage.setItem('novaEntomoLanguage', lang);
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.lang === lang);
             });
+            setTimeout(() => { if (typeof updateDynamicUI === 'function') updateDynamicUI(lang); }, 1800);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -1975,10 +1976,31 @@
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.lang === saved);
             });
-            if (saved !== 'ku') setTimeout(() => setLanguage(saved), 1200);
+            setTimeout(() => setLanguage(saved), 1500);
         });
     </script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        // Fallback UI translations for text created/changed by JavaScript.
+        const uiTranslations = {
+            ku: { dark:'تاریک', light:'ڕووناک', download:'دابەزاندن', contact:'پەیوەندی کردن:', top:'گەڕانەوە بۆ سەرەوە' },
+            en: { dark:'Dark', light:'Light', download:'Download', contact:'Contact:', top:'Back to top' },
+            ar: { dark:'داكن', light:'فاتح', download:'تنزيل', contact:'اتصل بنا:', top:'العودة إلى الأعلى' }
+        };
+        function updateDynamicUI(lang){
+            const t = uiTranslations[lang] || uiTranslations.ku;
+            const theme = document.getElementById('theme-status-text');
+            if(theme) theme.textContent = document.getElementById('theme-checkbox')?.checked ? t.dark : t.light;
+            const dl = document.querySelector('#modal-download-btn span');
+            if(dl) dl.textContent = t.download;
+            const contact = document.querySelector('.developer-credit-bionova > span');
+            if(contact) contact.textContent = t.contact;
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            updateDynamicUI(localStorage.getItem('novaEntomoLanguage') || 'ku');
+        });
+    </script>
 
     <!-- ================= JAVASCRIPT SYSTEM ================= -->
     <script>
