@@ -13,6 +13,9 @@
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.2" defer></script>
     
     <style>
+        /* Keep NovaEntomo brand and language labels permanently unchanged */
+        .notranslate { }
+        .logo h2, .logo h2 span, .lang-links-wrapper, .lang-btn { }
         /* ==========================================================================
            1. ڕەنگەکان و سیستەمی مۆد (تاریک / ڕووناک)
            ========================================================================== */
@@ -1230,16 +1233,16 @@
                 <i class="ph ph-house"></i>
                 <span>سەرەکی</span>
             </a>
-            <div class="logo">
+            <div class="logo notranslate" translate="no">
                 <i class="ph ph-bug logo-icon"></i> <h2>Nova<span>Entomo</span></h2>
             </div>
         </div>
 
         <div class="controls">
-            <div class="lang-links-wrapper" aria-label="Language selector">
-                <button class="lang-btn active" type="button" data-lang="ku">کو</button>
-                <button class="lang-btn" type="button" data-lang="en">En</button>
-                <button class="lang-btn" type="button" data-lang="ar">عر</button>
+            <div class="lang-links-wrapper notranslate" translate="no" aria-label="Language selector">
+                <button class="lang-btn active" type="button" data-lang="ku" translate="no">کو</button>
+                <button class="lang-btn" type="button" data-lang="en" translate="no">En</button>
+                <button class="lang-btn" type="button" data-lang="ar" translate="no">عر</button>
             </div>
             <div id="google_translate_element" class="google-translate-hidden"></div>
             <div class="theme-controller-wrapper">
